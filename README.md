@@ -1,50 +1,61 @@
-# React + TypeScript + Vite
+# Dream Renewables Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Contents
 
-Currently, two official plugins are available:
+- [About This Project](#about-this-project)
+- [Setup](#setup)
+  - [Requirements](#requirements)
+    - [Installing project dependencies](#installing-project-dependencies)
+- [Usage](#usage)
+  - [Running the Application](#running-the-application)
+- [Continuous Integration, Development and Deployment](#continuous-integration-development-and-deployment)
+  - [CI/CD](#cicd)
+- [Further documentation](#further-documentation)
+  - [Related Repositories](#related-repositories)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## About This Project
 
-## Expanding the ESLint configuration
+This is the Repo/Code for the [Dream Renewables Frontend](https://dream-renewables-frontend-87a62514598b.herokuapp.com/). This application primarily utilises the following technologies:
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+- [React](https://react.dev/)
+- [Github Action](https://docs.github.com/en/actions)
+- [Heroku Deploy with Git](https://devcenter.heroku.com/articles/git)
 
-- Configure the top-level `parserOptions` property like this:
+## Setup
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-});
-```
+### Requirements
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+This project requires the following pre-requisites:
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react';
+1. [NodeJs](https://nodejs.org/en)
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-});
-```
+#### Installing project dependencies
+
+1. Clone the repo to your chosen directory
+2. Install dependencies `npm i`
+
+## Usage
+
+### Running the application
+
+To run the application you must ensure you've followed the setup steps
+
+- To run the app via Node:
+  - Ensure you're in the root directory
+  - spin up the application: `npm run dev`
+  - To run tests `npm run test`
+
+## Continuous Integration, Development and Deployment
+
+### CI/CD
+
+This project uses a combination of technologies for Ci/Cd currently these are [Github Actions](https://docs.github.com/en/actions) and [Heroku Deploy with Git](https://devcenter.heroku.com/articles/git). In order to merge a branch to main The Github action Build and Test must pass. Once merged to main a hook in Heroku will catch and deploy the application.
+
+## Further documentation
+
+### Related Repositories
+
+| Name                                                                                      | Description                                                   |
+| :---------------------------------------------------------------------------------------- | :------------------------------------------------------------ |
+| [Dream Renewables Cms](https://github.com/OAMPC/DreamRenewablesCms)                       | The Content Management System for this web application        |
+| [Dream Renewables Infrastructure](https://github.com/OAMPC/DreamRenewablesInfrastructure) | The Terraform for this web applications required architecture |
