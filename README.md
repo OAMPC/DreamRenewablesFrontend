@@ -31,8 +31,14 @@ This project requires the following pre-requisites:
 
 #### Installing project dependencies
 
+This project uses [Husky](https://typicode.github.io/husky/) and [lint-staged](https://www.npmjs.com/package/lint-staged/v/12.3.2) to enforce consistent formatting.
+
 1. Clone the repo to your chosen directory
 2. Install dependencies `npm i`
+3. Now run the following to initialise husky git hooks: `npm run prepare`
+4. The pre-commit file _.husky/pre-commit_ should contain the following line only: `npx lint-staged`
+   - The subfolder _.husky/_\_ is required and should not be committed by default
+5. Ensure the pre-commit file is executable run: `chmod +x .husky/pre-commit`
 
 ## Usage
 
