@@ -7,7 +7,7 @@ type Props = {
 
 const PageWrapper: React.FC<Props> = ({ children }) => {
   return (
-    <div tabIndex={-1} id="layout">
+    <div>
       <NavigationBar />
       <div>{children}</div>
     </div>

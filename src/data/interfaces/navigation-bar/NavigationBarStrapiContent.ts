@@ -8,11 +8,13 @@ export interface NavigationBarStrapiContent {
 }
 
 interface StandardLink {
+  id?: number;
   linkString: string;
   linkSlug: string;
 }
 
 interface DropdownLink {
+  id?: number;
   dropdownLinkSlug: string;
   dropdownLinkString: string;
   nestedLinks: Array<StandardLink>;

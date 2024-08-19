@@ -5,7 +5,7 @@ const LandingPage: React.FC = () => {
   return (
     <>
       <PageWrapper>
-        <h1>Hello World this is a Test!</h1>
+        <h1 className="fs-1">Hello World this is a Test!</h1>
       </PageWrapper>
     </>
   );
