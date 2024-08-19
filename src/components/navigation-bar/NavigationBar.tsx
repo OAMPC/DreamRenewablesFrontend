@@ -33,11 +33,15 @@ const NavigationBar: React.FC = () => {
     <section>
       {!isLoading && content ? (
         <Bs.Navbar expand="lg">
-          <Bs.Navbar.Brand className="dr-logo" href="/">
+          <Bs.Navbar.Brand
+            className="dr-logo"
+            href="/"
+            data-testid="brand-logo"
+          >
             <img
               src={content.brandImage.data.attributes.url}
               className="d-inline-block align-top"
-              alt="React Bootstrap logo"
+              alt={content.brandImage.data.attributes.alternativeText}
             />
           </Bs.Navbar.Brand>
           <Bs.Navbar.Toggle aria-controls="basic-navbar-nav" />
@@ -48,11 +52,13 @@ const NavigationBar: React.FC = () => {
                   key={dropdownLink.id}
                   className="me-4"
                   title={dropdownLink.dropdownLinkString}
+                  data-testid={`standard-link-${dropdownLink.id}`}
                 >
                   {dropdownLink.nestedLinks.map((nestedLink) => (
                     <Bs.NavDropdown.Item
                       key={nestedLink.id}
                       href={nestedLink.linkSlug}
+                      data-testid={`nested-link-${nestedLink.id}`}
                     >
                       {nestedLink.linkString}
                     </Bs.NavDropdown.Item>
@@ -71,6 +77,7 @@ const NavigationBar: React.FC = () => {
               <Bs.Button
                 href={content.button.buttonSlug}
                 className="ms-3 btn-effect"
+                data-testid="navigation-button"
               >
                 {content.button.buttonString}
               </Bs.Button>
