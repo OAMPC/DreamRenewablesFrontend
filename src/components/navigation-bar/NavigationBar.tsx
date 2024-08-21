@@ -30,7 +30,7 @@ const NavigationBar: React.FC = () => {
   };
 
   return (
-    <section>
+    <section data-testid="navbar">
       {!isLoading && content ? (
         <Bs.Navbar expand="lg">
           <Bs.Navbar.Brand
@@ -52,7 +52,7 @@ const NavigationBar: React.FC = () => {
                   key={dropdownLink.id}
                   className="me-4"
                   title={dropdownLink.dropdownLinkString}
-                  data-testid={`standard-link-${dropdownLink.id}`}
+                  data-testid={`dropdown-link-${dropdownLink.id}`}
                 >
                   {dropdownLink.nestedLinks.map((nestedLink) => (
                     <Bs.NavDropdown.Item
@@ -70,6 +70,7 @@ const NavigationBar: React.FC = () => {
                   key={standardLink.id}
                   href={standardLink.linkSlug}
                   className="me-4 underline-animation"
+                  data-testid={`standard-link-${standardLink.id}`}
                 >
                   {standardLink.linkString}
                 </Bs.Nav.Link>

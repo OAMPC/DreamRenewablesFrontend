@@ -12,6 +12,10 @@ describe('PageWrapper', () => {
     );
   });
 
+  it('renders the NavigationBar', () => {
+    expect(screen.getByTestId('navbar')).toBeInTheDocument();
+  });
+
   it('renders children correctly', () => {
     expect(screen.getByText('Test Content')).toBeInTheDocument();
   });
