@@ -9,10 +9,10 @@ const strapiConfig = {
 async function GetStrapiData() {
   try {
     const response = await axios.get(
-      `${import.meta.env.VITE_BASE_URL}/api/hello-worlds`,
+      `${import.meta.env.VITE_BASE_URL}/api/navigation-bar?populate[0]=brandImage&populate[1]=standardLinks&populate[2]=dropdownLinks.nestedLinks&populate[3]=button`,
       strapiConfig
     );
-    return response.data;
+    return response.data.data.attributes;
   } catch (error) {
     console.error('Error fetching Strapi data:', error);
     throw error;
