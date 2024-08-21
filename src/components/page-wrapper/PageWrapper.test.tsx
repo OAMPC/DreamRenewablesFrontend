@@ -4,7 +4,7 @@ import React from 'react';
 import PageWrapper from './PageWrapper';
 
 describe('PageWrapper', () => {
-  beforeEach(() => {
+  beforeEach(async () => {
     render(
       <PageWrapper>
         <span>Test Content</span>
@@ -12,11 +12,11 @@ describe('PageWrapper', () => {
     );
   });
 
-  it('renders the NavigationBar', () => {
+  it('renders the NavigationBar', async () => {
     expect(screen.getByTestId('navbar')).toBeInTheDocument();
   });
 
-  it('renders children correctly', () => {
+  it('renders children correctly', async () => {
     expect(screen.getByText('Test Content')).toBeInTheDocument();
   });
 });
