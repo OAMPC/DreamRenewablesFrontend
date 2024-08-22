@@ -1,4 +1,5 @@
 import { ImageStrapiContent } from '../util/ImageStrapiContent';
+import { StandardLink } from '../util/StandardLink';
 
 export interface NavigationBarStrapiContent {
   brandImage: ImageStrapiContent;
