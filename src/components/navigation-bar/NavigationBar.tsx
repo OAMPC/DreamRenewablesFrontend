@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import GetStrapiData from '../../api/api';
 import './navigationBar.css';
 import * as Bs from 'react-bootstrap';
 import { NavigationBarStrapiContent } from '../../data/interfaces/navigation-bar/NavigationBarStrapiContent';
+import { getNavigationBarStrapiData } from '../../api/strapiApi';
 
 const NavigationBar: React.FC = () => {
   const [content, setData] = useState<NavigationBarStrapiContent | null>();
@@ -11,7 +11,7 @@ const NavigationBar: React.FC = () => {
   useEffect(() => {
     const fetchAndProcessData = async (): Promise<void> => {
       try {
-        const apiResponse = await GetStrapiData();
+        const apiResponse = await getNavigationBarStrapiData();
         if (apiResponse) {
           setData(apiResponse);
         }
