@@ -7,6 +7,7 @@ export interface FooterStrapiContent {
   textBody: string;
   navigationLinks: NavigationLinks;
   socialMediaLinks: SocialMediaLinks;
+  contactInformation: ContactInformation;
 }
 
 interface NavigationLinks {
@@ -17,4 +18,11 @@ interface NavigationLinks {
 interface SocialMediaLinks {
   socialMediaLinksTitle: string;
   iconLinks: Array<IconLink>;
+}
+
+interface ContactInformation {
+  contactInformationTitle: string;
+  contactInformationName: string;
+  icon: ImageStrapiContent;
+  email: string;
 }
