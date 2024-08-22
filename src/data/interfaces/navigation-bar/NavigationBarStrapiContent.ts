@@ -7,12 +7,6 @@ export interface NavigationBarStrapiContent {
   button: Button;
 }
 
-interface StandardLink {
-  id?: number;
-  linkString: string;
-  linkSlug: string;
-}
-
 interface DropdownLink {
   id?: number;
   dropdownLinkSlug: string;
