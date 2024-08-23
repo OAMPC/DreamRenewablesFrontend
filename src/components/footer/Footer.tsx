@@ -41,7 +41,12 @@ const Footer: React.FC = () => {
             <Bs.Container fluid>
               <hr className="mb-4" />
               <Bs.Row>
-                <Bs.Col lg="9" md="12" className={`text-center` + showClass()}>
+                <Bs.Col
+                  xl="9"
+                  lg="auto"
+                  md="12"
+                  className={`text-center` + showClass()}
+                >
                   <Bs.Row>
                     <Bs.Col>
                       <Bs.Image
@@ -63,7 +68,12 @@ const Footer: React.FC = () => {
                     </Bs.Col>
                   </Bs.Row>
                 </Bs.Col>
-                <Bs.Col lg="1" md="12" className={`text-center` + showClass()}>
+                <Bs.Col
+                  xl="1"
+                  lg="auto"
+                  md="12"
+                  className={`text-center` + showClass()}
+                >
                   <Bs.Row>
                     <Bs.Col>
                       <h3>
@@ -89,7 +99,12 @@ const Footer: React.FC = () => {
                     </Bs.Col>
                   </Bs.Row>
                 </Bs.Col>
-                <Bs.Col lg="2" md="12" className={`text-center` + showClass()}>
+                <Bs.Col
+                  xl="2"
+                  lg="auto"
+                  md="12"
+                  className={`text-center` + showClass()}
+                >
                   <Bs.Row>
                     <Bs.Col>
                       <h3>
