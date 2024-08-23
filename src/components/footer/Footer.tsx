@@ -52,6 +52,7 @@ const Footer: React.FC = () => {
                       <Bs.Image
                         className="footer-image img-fluid"
                         src={content.image.data.attributes.url}
+                        alt={content.image.data.attributes.alternativeText}
                       />
                     </Bs.Col>
                   </Bs.Row>
@@ -121,7 +122,8 @@ const Footer: React.FC = () => {
                       {content.socialMediaLinks.iconLinks.map((iconLink) => (
                         <Bs.Image
                           key={iconLink.id}
-                          className={`${'social-media-icon' + showClass()} ${'ms-4' + showClass()} me-4`}
+                          className={`social-media-icon ${'ms-4' + showClass()} me-4`}
+                          alt={iconLink.icon.data.attributes.alternativeText}
                           onClick={() =>
                             (window.location.href = iconLink.linkSlug)
                           }
@@ -151,6 +153,10 @@ const Footer: React.FC = () => {
                       <p>
                         <Bs.Image
                           className="me-1 mb-1"
+                          alt={
+                            content.contactInformation.icon.data.attributes
+                              .alternativeText
+                          }
                           src={
                             content.contactInformation.icon.data.attributes.url
                           }
