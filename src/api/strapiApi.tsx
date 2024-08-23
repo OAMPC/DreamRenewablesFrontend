@@ -25,7 +25,6 @@ export async function getFooterStrapiData() {
       `${import.meta.env.VITE_BASE_URL}/api/footer?populate[0]=image&populate[1]=navigationLinks.standardLinks&populate[2]=socialMediaLinks.iconLinks.icon&populate[3]=contactInformation.icon`,
       strapiConfig
     );
-    console.log(response);
     return response.data.data.attributes;
   } catch (error) {
     console.error('Error fetching Strapi data:', error);
