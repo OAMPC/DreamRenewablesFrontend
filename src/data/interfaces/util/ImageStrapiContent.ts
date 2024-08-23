@@ -11,6 +11,7 @@ interface ImageStrapiData {
 }
 
 export interface ImageStrapiAttributes {
+  caption?: string;
   alternativeText: string;
   url: string;
 }

@@ -1,16 +1,11 @@
 import { ImageStrapiContent } from '../util/ImageStrapiContent';
+import { StandardLink } from '../util/StandardLink';
 
 export interface NavigationBarStrapiContent {
   brandImage: ImageStrapiContent;
   standardLinks: Array<StandardLink>;
   dropdownLinks: Array<DropdownLink>;
   button: Button;
-}
-
-interface StandardLink {
-  id?: number;
-  linkString: string;
-  linkSlug: string;
 }
 
 interface DropdownLink {

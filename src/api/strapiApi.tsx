@@ -6,7 +6,7 @@ const strapiConfig = {
   },
 };
 
-async function GetStrapiData() {
+export async function getNavigationBarStrapiData() {
   try {
     const response = await axios.get(
       `${import.meta.env.VITE_BASE_URL}/api/navigation-bar?populate[0]=brandImage&populate[1]=standardLinks&populate[2]=dropdownLinks.nestedLinks&populate[3]=button`,
@@ -19,4 +19,15 @@ async function GetStrapiData() {
   }
 }
 
-export default GetStrapiData;
+export async function getFooterStrapiData() {
+  try {
+    const response = await axios.get(
+      `${import.meta.env.VITE_BASE_URL}/api/footer?populate[0]=image&populate[1]=navigationLinks.standardLinks&populate[2]=socialMediaLinks.iconLinks.icon&populate[3]=contactInformation.icon`,
+      strapiConfig
+    );
+    return response.data.data.attributes;
+  } catch (error) {
+    console.error('Error fetching Strapi data:', error);
+    throw error;
+  }
+}
