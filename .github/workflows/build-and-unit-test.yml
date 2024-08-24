@@ -1,4 +1,4 @@
-name: Build and Unit Test
+name: Node
 
 on:
   push:
