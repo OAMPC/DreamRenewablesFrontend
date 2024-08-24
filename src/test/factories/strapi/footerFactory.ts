@@ -1,4 +1,4 @@
-import footerResponse from '../../mockResponses/strapi/footerStrapiResponse.json';
+import footerResponse from '../../../../fixtures/footerStrapiResponse.json';
 
 export default function navigationBarFactory() {
   const footerUrl = `${import.meta.env.VITE_BASE_URL}/api/footer?populate[0]=image&populate[1]=navigationLinks.standardLinks&populate[2]=socialMediaLinks.iconLinks.icon&populate[3]=contactInformation.icon`;

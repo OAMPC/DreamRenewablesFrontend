@@ -126,6 +126,7 @@ const Footer: React.FC = () => {
                     >
                       {content.socialMediaLinks.iconLinks.map((iconLink) => (
                         <Bs.Image
+                          data-testid="social-media-icon"
                           key={iconLink.id}
                           className={`social-media-icon ${'ms-4' + showClass()} me-4`}
                           alt={iconLink.icon.data.attributes.alternativeText}

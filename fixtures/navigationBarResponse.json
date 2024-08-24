@@ -19,7 +19,7 @@
             "ext": ".svg",
             "mime": "image/svg+xml",
             "size": 218.24,
-            "url": "https://strapi-dr-s3-media-bucket.s3.eu-west-2.amazonaws.com/dream_renewables_logo_dev_ae6bbf6c1d.svg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT4GVRL3IRMXEMOPM%2F20240824%2Feu-west-2%2Fs3%2Faws4_request&X-Amz-Date=20240824T134026Z&X-Amz-Expires=900&X-Amz-Signature=45156e12e266b10f22327d165806767e8ab874bda49b4b94d76387f327e390e4&X-Amz-SignedHeaders=host&x-id=GetObject",
+            "url": "https://strapi-dr-s3-media-bucket.s3.eu-west-2.amazonaws.com/dream_renewables_logo_dev.svg",
             "previewUrl": null,
             "provider": "aws-s3",
             "provider_metadata": null,
