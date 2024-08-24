@@ -2,8 +2,8 @@ import React, { useEffect, useState } from 'react';
 import * as Bs from 'react-bootstrap';
 import { getFooterStrapiData } from '../../api/strapiApi';
 import { FooterStrapiContent } from '../../data/interfaces/footer/FooterStrapiContent';
-import './footer.css';
 import useWindowDimensions from '../../hooks/windowDimensions';
+import './footer.css';
 
 const Footer: React.FC = () => {
   const [content, setData] = useState<FooterStrapiContent | null>();
@@ -42,6 +42,7 @@ const Footer: React.FC = () => {
               <hr className="mb-4" />
               <Bs.Row>
                 <Bs.Col
+                  data-testid="footer-image-col"
                   xl="9"
                   lg="auto"
                   md="12"
@@ -50,6 +51,7 @@ const Footer: React.FC = () => {
                   <Bs.Row>
                     <Bs.Col>
                       <Bs.Image
+                        data-testid="footer-image"
                         className="footer-image img-fluid"
                         src={content.image.data.attributes.url}
                         alt={content.image.data.attributes.alternativeText}
@@ -65,11 +67,14 @@ const Footer: React.FC = () => {
                   </Bs.Row>
                   <Bs.Row className="mb-3">
                     <Bs.Col>
-                      <p className="footer-body">{content.textBody}</p>
+                      <p data-testid="footer-body" className="footer-body">
+                        {content.textBody}
+                      </p>
                     </Bs.Col>
                   </Bs.Row>
                 </Bs.Col>
                 <Bs.Col
+                  data-testid="footer-navigation-col"
                   xl="1"
                   lg="auto"
                   md="12"
@@ -77,7 +82,7 @@ const Footer: React.FC = () => {
                 >
                   <Bs.Row>
                     <Bs.Col>
-                      <h3>
+                      <h3 data-testid="navigation-links-title">
                         <strong>
                           {content.navigationLinks.navigationLinksTitle}
                         </strong>
@@ -108,7 +113,7 @@ const Footer: React.FC = () => {
                 >
                   <Bs.Row>
                     <Bs.Col>
-                      <h3>
+                      <h3 data-testid="social-media-links-title">
                         <strong>
                           {content.socialMediaLinks.socialMediaLinksTitle}
                         </strong>
@@ -134,7 +139,7 @@ const Footer: React.FC = () => {
                   </Bs.Row>
                   <Bs.Row>
                     <Bs.Col>
-                      <h3>
+                      <h3 data-testid="contact-information-title">
                         <strong>
                           {content.contactInformation.contactInformationTitle}
                         </strong>
@@ -170,7 +175,7 @@ const Footer: React.FC = () => {
             </Bs.Container>
           </footer>
         ) : (
-          <Bs.Spinner animation="grow" />
+          <Bs.Spinner data-testid="spinner" animation="grow" role="status" />
         )}
       </footer>
     </section>

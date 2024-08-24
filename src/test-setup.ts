@@ -1,7 +1,8 @@
-import { afterAll, afterEach, beforeAll, vi } from 'vitest';
+import '@testing-library/jest-dom';
 import { cleanup } from '@testing-library/react';
 import axios from 'axios';
 import MockAdapter from 'axios-mock-adapter';
+import { afterAll, afterEach, beforeAll, vi } from 'vitest';
 
 export const AXIOS_MOCK = new MockAdapter(axios);
 
