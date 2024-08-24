@@ -34,5 +34,5 @@ jobs:
         uses: cypress-io/github-action@v6
         with:
           browser: chrome
-          start: npm start -- --single
-          wait-on: 'http://localhost:3000'
+          start: npm start -- --port 5173
+          wait-on: 'http://localhost:5173'
