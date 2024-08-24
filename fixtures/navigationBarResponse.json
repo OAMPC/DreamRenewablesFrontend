@@ -1,0 +1,78 @@
+{
+  "data": {
+    "id": 1,
+    "attributes": {
+      "createdAt": "2024-08-19T09:48:07.196Z",
+      "updatedAt": "2024-08-22T07:29:50.089Z",
+      "publishedAt": "2024-08-19T09:49:08.849Z",
+      "brandImage": {
+        "data": {
+          "id": 3,
+          "attributes": {
+            "name": "dream-renewables-logo-dev.svg",
+            "alternativeText": "Dream Renewables Logo",
+            "caption": "Encouraging Ghanian leadership in renewable energy",
+            "width": 163,
+            "height": 48,
+            "formats": null,
+            "hash": "dream_renewables_logo_dev_ae6bbf6c1d",
+            "ext": ".svg",
+            "mime": "image/svg+xml",
+            "size": 218.24,
+            "url": "https://strapi-dr-s3-media-bucket.s3.eu-west-2.amazonaws.com/dream_renewables_logo_dev.svg",
+            "previewUrl": null,
+            "provider": "aws-s3",
+            "provider_metadata": null,
+            "createdAt": "2024-08-19T09:43:30.189Z",
+            "updatedAt": "2024-08-22T19:24:30.157Z",
+            "isUrlSigned": true
+          }
+        }
+      },
+      "standardLinks": [
+        {
+          "id": 1,
+          "linkString": "Get Involved",
+          "linkSlug": "get-involved"
+        },
+        {
+          "id": 2,
+          "linkString": "Blog",
+          "linkSlug": "blog-home"
+        }
+      ],
+      "dropdownLinks": [
+        {
+          "id": 3,
+          "dropdownLinkString": "About Us",
+          "dropdownLinkSlug": "about-us",
+          "nestedLinks": [
+            {
+              "id": 3,
+              "linkString": "dummy-link1",
+              "linkSlug": "dummy-link-1"
+            }
+          ]
+        },
+        {
+          "id": 4,
+          "dropdownLinkString": "Our Work",
+          "dropdownLinkSlug": "our-work",
+          "nestedLinks": [
+            {
+              "id": 4,
+              "linkString": "dummy-link-1",
+              "linkSlug": "dummy-link-1"
+            }
+          ]
+        }
+      ],
+      "button": {
+        "id": 1,
+        "buttonString": "Donate",
+        "buttonSlug": "donate"
+      }
+    }
+  },
+  "meta": {}
+}

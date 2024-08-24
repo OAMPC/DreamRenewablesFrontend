@@ -1,7 +1,7 @@
 import React, { ReactNode } from 'react';
-import NavigationBar from '../navigation-bar/NavigationBar';
-import Footer from '../footer/Footer';
 import * as Bs from 'react-bootstrap';
+import Footer from '../footer/Footer';
+import NavigationBar from '../navigation-bar/NavigationBar';
 
 type Props = {
   children: ReactNode;
@@ -14,7 +14,6 @@ const PageWrapper: React.FC<Props> = ({ children }) => {
       <Bs.Container fluid>
         <div>{children}</div>
       </Bs.Container>
-
       <Footer />
     </div>
   );
