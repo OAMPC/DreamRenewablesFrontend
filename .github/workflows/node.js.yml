@@ -1,4 +1,4 @@
-name: Actions
+name: Gh Actions
 
 on:
   push:
@@ -27,6 +27,8 @@ jobs:
   e2e-chrome:
     runs-on: ubuntu-latest
     needs: build-and-unit-test
+    env:
+      VITE_BASE_URL: 'http://localhost:1337'
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -40,5 +42,3 @@ jobs:
           browser: chrome
           start: npx serve -s dist -l 5173
           wait-on: 'http://localhost:5173'
-        env:
-          VITE_BASE_URL: http://localhost:1337
