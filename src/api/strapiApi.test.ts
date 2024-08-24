@@ -1,8 +1,8 @@
+import { describe, expect, test } from 'vitest';
 import { AXIOS_MOCK } from '../test-setup';
-import { describe, test, expect } from 'vitest';
+import footerFactory from '../test/factories/strapi/footerFactory';
+import navigationBarFactory from '../test/factories/strapi/navigationBarFactory';
 import { getFooterStrapiData, getNavigationBarStrapiData } from './strapiApi';
-import navigationBarFactory from '../test/builders/strapi/navigationBarFactory';
-import footerFactory from '../test/builders/strapi/footerFactory';
 
 interface MockData<T> {
   data: {

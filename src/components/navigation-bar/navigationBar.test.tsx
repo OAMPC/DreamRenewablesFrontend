@@ -11,7 +11,7 @@ import {
   vi,
 } from 'vitest';
 import { getNavigationBarStrapiData } from '../../api/strapiApi';
-import navigationBarFactory from '../../test/builders/strapi/navigationBarFactory';
+import navigationBarFactory from '../../test/factories/strapi/navigationBarFactory';
 import NavigationBar from './NavigationBar';
 
 vi.mock('../../api/strapiApi', () => ({

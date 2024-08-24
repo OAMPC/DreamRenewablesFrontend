@@ -12,7 +12,7 @@ import {
 } from 'vitest';
 import { getFooterStrapiData } from '../../api/strapiApi';
 import useWindowDimensions from '../../hooks/windowDimensions';
-import footerFactory from '../../test/builders/strapi/footerFactory';
+import footerFactory from '../../test/factories/strapi/footerFactory';
 import Footer from './Footer';
 
 vi.mock('../../api/strapiApi', () => ({
