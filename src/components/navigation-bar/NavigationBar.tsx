@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import './navigationBar.css';
 import * as Bs from 'react-bootstrap';
-import { NavigationBarStrapiContent } from '../../data/interfaces/navigation-bar/NavigationBarStrapiContent';
 import { getNavigationBarStrapiData } from '../../api/strapiApi';
+import { NavigationBarStrapiContent } from '../../data/interfaces/navigation-bar/NavigationBarStrapiContent';
+import './navigationBar.css';
 
 const NavigationBar: React.FC = () => {
   const [content, setData] = useState<NavigationBarStrapiContent | null>();
@@ -53,13 +53,12 @@ const NavigationBar: React.FC = () => {
                     key={dropdownLink.id}
                     className="me-4"
                     title={dropdownLink.dropdownLinkString}
-                    data-testid={`dropdown-link-${dropdownLink.id}`}
+                    data-testid="dropdown-link-title"
                   >
                     {dropdownLink.nestedLinks.map((nestedLink) => (
                       <Bs.NavDropdown.Item
                         key={nestedLink.id}
                         href={nestedLink.linkSlug}
-                        data-testid={`nested-link-${nestedLink.id}`}
                       >
                         {nestedLink.linkString}
                       </Bs.NavDropdown.Item>
@@ -71,7 +70,7 @@ const NavigationBar: React.FC = () => {
                     key={standardLink.id}
                     href={standardLink.linkSlug}
                     className="me-4 underline-animation"
-                    data-testid={`standard-link-${standardLink.id}`}
+                    data-testid="standard-link-title"
                   >
                     {standardLink.linkString}
                   </Bs.Nav.Link>
@@ -88,7 +87,7 @@ const NavigationBar: React.FC = () => {
           </Bs.Navbar>
         </Bs.Container>
       ) : (
-        <Bs.Spinner animation="grow" />
+        <Bs.Spinner data-testid="spinner" animation="grow" role="status" />
       )}
     </section>
   );
