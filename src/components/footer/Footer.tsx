@@ -34,7 +34,7 @@ const Footer: React.FC = () => {
   const showClass = (): string | boolean => (width <= 992 ? ' active' : false);
 
   return (
-    <section>
+    <section data-testid="footer">
       <footer>
         {!isLoading && content ? (
           <footer>
