@@ -1,3 +1,4 @@
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { render, screen, waitFor } from '@testing-library/react';
 import React from 'react';
 import { MemoryRouter } from 'react-router-dom';
@@ -19,15 +20,19 @@ vi.mock('../../api/strapiApi', () => ({
 }));
 
 describe('NavigationBar', () => {
+  const queryClient = new QueryClient();
+
   beforeEach(() => {
     const { mockData } = navigationBarFactory();
     (getNavigationBarStrapiData as Mock).mockResolvedValue(
       mockData.data.attributes
     );
     render(
-      <MemoryRouter>
-        <NavigationBar />
-      </MemoryRouter>
+      <QueryClientProvider client={queryClient}>
+        <MemoryRouter>
+          <NavigationBar />
+        </MemoryRouter>
+      </QueryClientProvider>
     );
   });
 

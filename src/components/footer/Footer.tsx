@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from 'react';
+import { useQuery } from '@tanstack/react-query';
+import React from 'react';
 import * as Bs from 'react-bootstrap';
 import { getFooterStrapiData } from '../../api/strapiApi';
 import { FooterStrapiContent } from '../../data/interfaces/footer/FooterStrapiContent';
@@ -6,37 +7,32 @@ import useWindowDimensions from '../../hooks/windowDimensions';
 import './footer.css';
 
 const Footer: React.FC = () => {
-  const [content, setData] = useState<FooterStrapiContent | null>();
-  const [isLoading, setIsLoading] = useState<boolean>(true);
   const { width } = useWindowDimensions();
 
-  useEffect(() => {
-    const fetchAndProcessData = async (): Promise<void> => {
-      try {
-        const apiResponse = await getFooterStrapiData();
-        if (apiResponse) {
-          setData(apiResponse);
-        }
-      } catch (error) {
-        handleError(error);
-      } finally {
-        setIsLoading(false);
-      }
-    };
+  const {
+    data: content,
+    isPending,
+    error,
+  } = useQuery<FooterStrapiContent, Error>({
+    queryKey: ['footerData'],
+    queryFn: getFooterStrapiData,
+  });
 
-    fetchAndProcessData();
-  }, []);
+  if (isPending) {
+    return <Bs.Spinner data-testid="spinner" animation="grow" role="status" />;
+  }
 
-  const handleError = (error: unknown): void => {
-    console.error('Error loading or parsing data:', error);
-  };
+  if (error) {
+    console.error('Error loading data:', error.message);
+    return <div>Error loading navigation bar data</div>;
+  }
 
   const showClass = (): string | boolean => (width <= 992 ? ' active' : false);
 
   return (
     <section data-testid="footer">
       <footer>
-        {!isLoading && content ? (
+        {!isPending && content ? (
           <footer>
             <Bs.Container fluid>
               <hr className="mb-4" />

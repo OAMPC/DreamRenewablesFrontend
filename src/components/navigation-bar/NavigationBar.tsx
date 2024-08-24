@@ -1,37 +1,32 @@
-import React, { useEffect, useState } from 'react';
+import { useQuery } from '@tanstack/react-query';
+import React from 'react';
 import * as Bs from 'react-bootstrap';
 import { getNavigationBarStrapiData } from '../../api/strapiApi';
 import { NavigationBarStrapiContent } from '../../data/interfaces/navigation-bar/NavigationBarStrapiContent';
 import './navigationBar.css';
 
 const NavigationBar: React.FC = () => {
-  const [content, setData] = useState<NavigationBarStrapiContent | null>();
-  const [isLoading, setIsLoading] = useState<boolean>(true);
+  const {
+    data: content,
+    isPending,
+    error,
+  } = useQuery<NavigationBarStrapiContent, Error>({
+    queryKey: ['navigationBarData'],
+    queryFn: getNavigationBarStrapiData,
+  });
 
-  useEffect(() => {
-    const fetchAndProcessData = async (): Promise<void> => {
-      try {
-        const apiResponse = await getNavigationBarStrapiData();
-        if (apiResponse) {
-          setData(apiResponse);
-        }
-      } catch (error) {
-        handleError(error);
-      } finally {
-        setIsLoading(false);
-      }
-    };
+  if (isPending) {
+    return <Bs.Spinner data-testid="spinner" animation="grow" role="status" />;
+  }
 
-    fetchAndProcessData();
-  }, []);
-
-  const handleError = (error: unknown): void => {
-    console.error('Error loading or parsing data:', error);
-  };
+  if (error) {
+    console.error('Error loading data:', error.message);
+    return <div>Error loading navigation bar data</div>;
+  }
 
   return (
     <section data-testid="navbar">
-      {!isLoading && content ? (
+      {!isPending && content ? (
         <Bs.Container fluid>
           <Bs.Navbar expand="lg">
             <Bs.Navbar.Brand
