@@ -40,3 +40,5 @@ jobs:
           browser: chrome
           start: npx serve -s dist -l 5173
           wait-on: 'http://localhost:5173'
+        env:
+          VITE_BASE_URL: http://localhost:1337

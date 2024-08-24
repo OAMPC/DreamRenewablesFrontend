@@ -1,6 +1,6 @@
 describe('NavigationBar', () => {
   beforeEach(() => {
-    cy.intercept('GET', `${Cypress.env('VITE_BASE_URL')}/api/navigation-bar*`, {
+    cy.intercept('GET', `http://localhost:1337/api/navigation-bar*`, {
       fixture: 'navigationBarResponse.json',
     }).as('getNavigationBarStrapiData');
     cy.visit('/');

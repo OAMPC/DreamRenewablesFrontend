@@ -1,6 +1,6 @@
 describe('Footer', () => {
   beforeEach(() => {
-    cy.intercept('GET', `${Cypress.env('VITE_BASE_URL')}/api/footer*`, {
+    cy.intercept('GET', `http://localhost:1337/api/footer*`, {
       fixture: 'footerStrapiResponse.json',
     }).as('getFooterStrapiData');
     cy.visit('/');
