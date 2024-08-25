@@ -26,7 +26,7 @@ const NavigationBar: React.FC = () => {
 
   return (
     <section data-testid="navbar">
-      {!isPending && content ? (
+      {content && (
         <Bs.Container fluid>
           <Bs.Navbar expand="lg">
             <Bs.Navbar.Brand
@@ -81,8 +81,6 @@ const NavigationBar: React.FC = () => {
             </Bs.Navbar.Collapse>
           </Bs.Navbar>
         </Bs.Container>
-      ) : (
-        <Bs.Spinner data-testid="spinner" animation="grow" role="status" />
       )}
     </section>
   );
