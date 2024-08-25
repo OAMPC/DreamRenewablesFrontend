@@ -5,7 +5,7 @@ const Loading: React.FC = () => {
   return (
     <Bs.Container fluid className="spinner-container">
       <Bs.Row>
-        <Bs.Spinner role="status" animation="border" />
+        <Bs.Spinner data-testid="spinner" role="status" animation="border" />
       </Bs.Row>
     </Bs.Container>
   );
