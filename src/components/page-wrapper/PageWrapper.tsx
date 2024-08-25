@@ -1,21 +1,29 @@
-import React, { ReactNode } from 'react';
+import React from 'react';
 import * as Bs from 'react-bootstrap';
+import { FooterStrapiContent } from '../../data/interfaces/footer/FooterStrapiContent';
+import { NavigationBarStrapiContent } from '../../data/interfaces/navigation-bar/NavigationBarStrapiContent';
 import Footer from '../footer/Footer';
 import NavigationBar from '../navigation-bar/NavigationBar';
 
 type Props = {
-  children: ReactNode;
+  children: React.ReactNode;
+  navigationBarStrapiData: NavigationBarStrapiContent;
+  footerStrapiData: FooterStrapiContent;
 };
 
-const PageWrapper: React.FC<Props> = ({ children }) => {
+const PageWrapper: React.FC<Props> = ({
+  children,
+  navigationBarStrapiData,
+  footerStrapiData,
+}) => {
   return (
-    <div>
-      <NavigationBar />
-      <Bs.Container fluid>
-        <div>{children}</div>
-      </Bs.Container>
-      <Footer />
-    </div>
+    <>
+      <NavigationBar content={navigationBarStrapiData} />
+      <section data-testid="main-content">
+        <Bs.Container fluid>{children}</Bs.Container>
+      </section>
+      <Footer content={footerStrapiData} />
+    </>
   );
 };
 

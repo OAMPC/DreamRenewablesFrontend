@@ -1,29 +1,11 @@
-import { useQuery } from '@tanstack/react-query';
 import React from 'react';
 import * as Bs from 'react-bootstrap';
-import { getNavigationBarStrapiData } from '../../api/strapiApi';
 import { NavigationBarStrapiContent } from '../../data/interfaces/navigation-bar/NavigationBarStrapiContent';
 import './navigationBar.css';
 
-const NavigationBar: React.FC = () => {
-  const {
-    data: content,
-    isPending,
-    error,
-  } = useQuery<NavigationBarStrapiContent, Error>({
-    queryKey: ['navigationBarData'],
-    queryFn: getNavigationBarStrapiData,
-  });
-
-  if (isPending) {
-    return <Bs.Spinner data-testid="spinner" animation="grow" role="status" />;
-  }
-
-  if (error) {
-    console.error('Error loading data:', error.message);
-    return <div>Error loading navigation bar data</div>;
-  }
-
+const NavigationBar: React.FC<{ content: NavigationBarStrapiContent }> = ({
+  content,
+}) => {
   return (
     <section data-testid="navbar">
       {content && (

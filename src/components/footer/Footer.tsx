@@ -1,36 +1,17 @@
-import { useQuery } from '@tanstack/react-query';
 import React from 'react';
 import * as Bs from 'react-bootstrap';
-import { getFooterStrapiData } from '../../api/strapiApi';
 import { FooterStrapiContent } from '../../data/interfaces/footer/FooterStrapiContent';
 import useWindowDimensions from '../../hooks/windowDimensions';
 import './footer.css';
 
-const Footer: React.FC = () => {
+const Footer: React.FC<{ content: FooterStrapiContent }> = ({
+  content: content,
+}) => {
   const { width } = useWindowDimensions();
-
-  const {
-    data: content,
-    isPending,
-    error,
-  } = useQuery<FooterStrapiContent, Error>({
-    queryKey: ['footerData'],
-    queryFn: getFooterStrapiData,
-  });
-
-  if (isPending) {
-    return <Bs.Spinner data-testid="spinner" animation="grow" role="status" />;
-  }
-
-  if (error) {
-    console.error('Error loading data:', error.message);
-    return <div>Error loading navigation bar data</div>;
-  }
-
   const showClass = (): string | boolean => (width <= 992 ? ' active' : false);
 
   return (
-    <section data-testid="footer">
+    <section data-testid="footer" className="footer-section">
       {content && (
         <footer>
           <Bs.Container fluid>
