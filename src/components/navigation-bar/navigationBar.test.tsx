@@ -1,41 +1,21 @@
 import { render, screen, waitFor } from '@testing-library/react';
 import React from 'react';
 import { MemoryRouter } from 'react-router-dom';
-import {
-  afterEach,
-  beforeEach,
-  describe,
-  expect,
-  Mock,
-  test,
-  vi,
-} from 'vitest';
-import { getNavigationBarStrapiData } from '../../api/strapiApi';
+import { afterEach, beforeEach, describe, expect, test, vi } from 'vitest';
 import navigationBarFactory from '../../test/factories/strapi/navigationBarFactory';
 import NavigationBar from './NavigationBar';
-
-vi.mock('../../api/strapiApi', () => ({
-  getNavigationBarStrapiData: vi.fn(),
-}));
 
 describe('NavigationBar', () => {
   beforeEach(() => {
     const { mockData } = navigationBarFactory();
-    (getNavigationBarStrapiData as Mock).mockResolvedValue(
-      mockData.data.attributes
-    );
     render(
       <MemoryRouter>
-        <NavigationBar />
+        <NavigationBar content={mockData.data.attributes} />
       </MemoryRouter>
     );
   });
 
   describe('render elements', async () => {
-    test('should render loading spinner initially', () => {
-      expect(screen.getByTestId('spinner')).toBeInTheDocument();
-    });
-
     test('should render brand logo after data is loaded', async () => {
       await waitFor(() => {
         expect(screen.getByTestId('brand-logo')).toBeInTheDocument();
@@ -62,6 +42,6 @@ describe('NavigationBar', () => {
   });
 
   afterEach(() => {
-    (getNavigationBarStrapiData as Mock).mockClear();
+    vi.clearAllMocks();
   });
 });

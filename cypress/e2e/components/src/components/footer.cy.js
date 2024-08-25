@@ -1,12 +1,17 @@
 describe('Footer', () => {
   beforeEach(() => {
-    cy.intercept('GET', `http://localhost:1337/api/footer*`, {
+    cy.intercept('GET', '**/api/navigation-bar*', {
+      fixture: 'navigationBarStrapiResponse.json',
+    }).as('getNavigationBarStrapiData');
+
+    cy.intercept('GET', '**/api/footer*', {
       fixture: 'footerStrapiResponse.json',
     }).as('getFooterStrapiData');
+
     cy.visit('/');
+    cy.wait('@getNavigationBarStrapiData');
     cy.wait('@getFooterStrapiData');
   });
-
   it('should load footer and verify all elements are present and functioning', () => {
     cy.get('[data-testid="footer"]').should('be.visible');
 

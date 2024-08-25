@@ -1,37 +1,14 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import * as Bs from 'react-bootstrap';
-import { getNavigationBarStrapiData } from '../../api/strapiApi';
 import { NavigationBarStrapiContent } from '../../data/interfaces/navigation-bar/NavigationBarStrapiContent';
 import './navigationBar.css';
 
-const NavigationBar: React.FC = () => {
-  const [content, setData] = useState<NavigationBarStrapiContent | null>();
-  const [isLoading, setIsLoading] = useState<boolean>(true);
-
-  useEffect(() => {
-    const fetchAndProcessData = async (): Promise<void> => {
-      try {
-        const apiResponse = await getNavigationBarStrapiData();
-        if (apiResponse) {
-          setData(apiResponse);
-        }
-      } catch (error) {
-        handleError(error);
-      } finally {
-        setIsLoading(false);
-      }
-    };
-
-    fetchAndProcessData();
-  }, []);
-
-  const handleError = (error: unknown): void => {
-    console.error('Error loading or parsing data:', error);
-  };
-
+const NavigationBar: React.FC<{ content: NavigationBarStrapiContent }> = ({
+  content,
+}) => {
   return (
     <section data-testid="navbar">
-      {!isLoading && content ? (
+      {content && (
         <Bs.Container fluid>
           <Bs.Navbar expand="lg">
             <Bs.Navbar.Brand
@@ -86,8 +63,6 @@ const NavigationBar: React.FC = () => {
             </Bs.Navbar.Collapse>
           </Bs.Navbar>
         </Bs.Container>
-      ) : (
-        <Bs.Spinner data-testid="spinner" animation="grow" role="status" />
       )}
     </section>
   );

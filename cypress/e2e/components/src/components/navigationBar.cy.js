@@ -1,10 +1,16 @@
 describe('NavigationBar', () => {
   beforeEach(() => {
-    cy.intercept('GET', `http://localhost:1337/api/navigation-bar*`, {
-      fixture: 'navigationBarResponse.json',
+    cy.intercept('GET', '**/api/navigation-bar*', {
+      fixture: 'navigationBarStrapiResponse.json',
     }).as('getNavigationBarStrapiData');
+
+    cy.intercept('GET', '**/api/footer*', {
+      fixture: 'footerStrapiResponse.json',
+    }).as('getFooterStrapiData');
+
     cy.visit('/');
     cy.wait('@getNavigationBarStrapiData');
+    cy.wait('@getFooterStrapiData');
   });
 
   it('should load navigation bar and verify all elements are present and functioning', () => {
