@@ -1,0 +1,46 @@
+{
+  "data": {
+    "id": 1,
+    "attributes": {
+      "createdAt": "2024-08-26T13:04:32.231Z",
+      "updatedAt": "2024-08-26T13:04:34.002Z",
+      "publishedAt": "2024-08-26T13:04:33.999Z",
+      "landingImage": {
+        "id": 1,
+        "title": "Encouraging  Ghanaian leadership  in renewable energy",
+        "subTitle": "Providing education programmes for young adults in Ghana",
+        "image": {
+          "data": {
+            "id": 8,
+            "attributes": {
+              "name": "landing-page-image.svg",
+              "alternativeText": "Volunteers learning about solar panels",
+              "caption": null,
+              "width": null,
+              "height": null,
+              "formats": null,
+              "hash": "landing_page_image_d42bc530c2",
+              "ext": ".svg",
+              "mime": "image/svg+xml",
+              "size": 15850.33,
+              "url": "https://strapi-dr-s3-media-bucket.s3",
+              "previewUrl": null,
+              "provider": "aws-s3",
+              "provider_metadata": null,
+              "createdAt": "2024-08-26T13:01:22.119Z",
+              "updatedAt": "2024-08-26T13:01:22.119Z",
+              "isUrlSigned": true
+            }
+          }
+        }
+      },
+      "videoSection": {
+        "id": 1,
+        "title": "Our Mission",
+        "subTitle": "We empower communities to create and maintain sustainable energy solutions that address their specific challenges",
+        "videoLink": "https://youtu.be/bqMlLF-Fm24"
+      }
+    }
+  },
+  "meta": {}
+}

@@ -31,3 +31,18 @@ export async function getFooterStrapiData() {
     throw error;
   }
 }
+
+export async function getLandingPageStrapiData() {
+  try {
+    const response = await axios.get(
+      `${import.meta.env.VITE_BASE_URL}/api/landing-page?populate[0]=landingImage.image&populate[1]=videoSection`,
+      strapiConfig
+    );
+    console.log(response.data);
+
+    return response.data.data.attributes;
+  } catch (error) {
+    console.error('Error fetching Strapi data:', error);
+    throw error;
+  }
+}
