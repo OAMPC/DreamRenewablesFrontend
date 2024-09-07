@@ -35,7 +35,7 @@ This project uses [Husky](https://typicode.github.io/husky/) and [lint-staged](h
 
 1. Clone the repo to your chosen directory
 2. Install dependencies `npm i`
-3. Create a .env file in the project root directory: `touch .env` In order to obtain an API token for strapi to run the project locally you must run the [strapi](https://github.com/OAMPC/DreamRenewablesCms) project and [create one](https://docs.strapi.io/user-docs/settings/API-tokens).
+3. Create a .env file in the project root directory with the command: `touch .env` In order to obtain an API token for strapi to run the project locally you must run the [strapi](https://github.com/OAMPC/DreamRenewablesCms) project and [create one](https://docs.strapi.io/user-docs/settings/API-tokens).
 4. The pre-commit file _.husky/pre-commit_ should contain the following line only: `npx lint-staged`
    - The subfolder _.husky/_\_ is required and should _not_ be committed by default
 5. Ensure the pre-commit file is executable: `chmod +x .husky/pre-commit`

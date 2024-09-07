@@ -4,7 +4,7 @@ export interface LandingPageStrapiContent {
   landingImage: LandingImage;
   videoSection: VideoSection;
 }
-interface LandingImage {
+export interface LandingImage {
   image: ImageStrapiContent;
   title: string;
   subTitle: string;
