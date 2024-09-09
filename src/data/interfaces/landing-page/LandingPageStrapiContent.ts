@@ -1,7 +1,8 @@
 import { ImageStrapiContent } from '../util/ImageStrapiContent';
 
 export interface LandingPageStrapiContent {
-  landingImage: LandingImage;
+  landingImageDesktop: LandingImage;
+  landingImageMobile: LandingImage;
   videoSection: VideoSection;
 }
 export interface LandingImage {

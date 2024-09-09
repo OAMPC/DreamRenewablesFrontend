@@ -7,11 +7,6 @@
 }
 
 .landing-image-card-title {
-  font-size: 5em;
+  font-size: 3vw;
   font-weight: 600;
-}
-
-.landing-image-card-col {
-  margin-bottom: 100px;
-  margin-left: 125px;
 }

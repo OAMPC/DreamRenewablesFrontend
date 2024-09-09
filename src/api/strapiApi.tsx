@@ -35,7 +35,7 @@ export async function getFooterStrapiData() {
 export async function getLandingPageStrapiData() {
   try {
     const response = await axios.get(
-      `${import.meta.env.VITE_BASE_URL}/api/landing-page?populate[0]=landingImage.image&populate[1]=videoSection`,
+      `${import.meta.env.VITE_BASE_URL}/api/landing-page?populate[0]=landingImageDesktop.image&populate[1]=landingImageMobile.image&populate[2]=videoSection`,
       strapiConfig
     );
     console.log(response.data);

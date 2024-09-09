@@ -4,11 +4,16 @@ import PageWrapper from '../../components/page-wrapper/PageWrapper';
 import { LoaderData } from '../../data/types/LoaderData';
 import * as Bs from 'react-bootstrap';
 import './landingPage.css';
-import LandingPageImageCard from '../../components/landing-page-card/LandingPageImageCard';
+import LandingPageImageCardDesktop from '../../components/landing-page-card/desktop/LandingPageImageCardDesktop';
+import useWindowDimensions from '../../hooks/windowDimensions';
+import LandingPageImageCardMobile from '../../components/landing-page-card/mobile/LandingPageCardMobile';
 
 const LandingPage: React.FC = () => {
   const { navigationBarStrapiData, footerStrapiData, landingPageStrapiData } =
     useLoaderData() as LoaderData;
+  const { width } = useWindowDimensions();
+  const showMobileView: boolean = width <= 992 ? true : false;
+
   return (
     <PageWrapper
       navigationBarStrapiData={navigationBarStrapiData}
@@ -16,9 +21,15 @@ const LandingPage: React.FC = () => {
     >
       <Bs.Row>
         <Bs.Col>
-          <LandingPageImageCard
-            landingImage={landingPageStrapiData.landingImage}
-          />
+          {showMobileView ? (
+            <LandingPageImageCardMobile
+              landingImage={landingPageStrapiData.landingImageMobile}
+            />
+          ) : (
+            <LandingPageImageCardDesktop
+              landingImage={landingPageStrapiData.landingImageDesktop}
+            />
+          )}
         </Bs.Col>
       </Bs.Row>
     </PageWrapper>
