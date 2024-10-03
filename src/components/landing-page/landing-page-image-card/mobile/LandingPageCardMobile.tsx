@@ -9,7 +9,7 @@ type Props = {
 
 const LandingPageImageCardMobile: React.FC<Props> = ({ landingImage }) => {
   return (
-    <Bs.Row className="mt-3">
+    <Bs.Row className="mt-3" data-testid="landing-image-card-mobile">
       <Bs.Col className="text-center">
         <Bs.Row>
           <Bs.Col className="mb-2">

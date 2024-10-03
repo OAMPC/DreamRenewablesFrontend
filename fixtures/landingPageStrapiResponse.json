@@ -2,11 +2,8 @@
   "data": {
     "id": 1,
     "attributes": {
-      "createdAt": "2024-08-26T13:04:32.231Z",
-      "updatedAt": "2024-08-26T13:04:34.002Z",
-      "publishedAt": "2024-08-26T13:04:33.999Z",
-      "landingImage": {
-        "id": 1,
+      "landingImageDesktop": {
+        "id": 2,
         "title": "Encouraging  Ghanaian leadership  in renewable energy",
         "subTitle": "Providing education programmes for young adults in Ghana",
         "image": {
@@ -15,7 +12,7 @@
             "attributes": {
               "name": "landing-page-image.svg",
               "alternativeText": "Volunteers learning about solar panels",
-              "caption": null,
+              "caption": "Dummy caption",
               "width": null,
               "height": null,
               "formats": null,
@@ -23,12 +20,41 @@
               "ext": ".svg",
               "mime": "image/svg+xml",
               "size": 15850.33,
-              "url": "https://strapi-dr-s3-media-bucket.s3",
+              "url": "https://strapi-dr-s3-media-bucket",
               "previewUrl": null,
               "provider": "aws-s3",
               "provider_metadata": null,
               "createdAt": "2024-08-26T13:01:22.119Z",
-              "updatedAt": "2024-08-26T13:01:22.119Z",
+              "updatedAt": "2024-09-09T17:09:42.196Z",
+              "isUrlSigned": true
+            }
+          }
+        }
+      },
+      "landingImageMobile": {
+        "id": 3,
+        "title": "Empowering  Ghana in renewable energy ",
+        "subTitle": "Providing education programmes for young adults in Ghana.",
+        "image": {
+          "data": {
+            "id": 9,
+            "attributes": {
+              "name": "landing-page-image-mobile.svg",
+              "alternativeText": "Volunteers learning about solar panels",
+              "caption": "Dummy caption",
+              "width": null,
+              "height": null,
+              "formats": null,
+              "hash": "landing_page_image_mobile_d304349428",
+              "ext": ".svg",
+              "mime": "image/svg+xml",
+              "size": 15850.37,
+              "url": "https://strapi-dr-s3-media-bucket",
+              "previewUrl": null,
+              "provider": "aws-s3",
+              "provider_metadata": null,
+              "createdAt": "2024-09-09T17:06:16.379Z",
+              "updatedAt": "2024-09-09T17:06:34.597Z",
               "isUrlSigned": true
             }
           }
@@ -38,7 +64,7 @@
         "id": 1,
         "title": "Our Mission",
         "subTitle": "We empower communities to create and maintain sustainable energy solutions that address their specific challenges",
-        "videoLink": "https://youtu.be/bqMlLF-Fm24"
+        "videoLink": "https://www.youtube.com/embed/bqMlLF-Fm24"
       }
     }
   },

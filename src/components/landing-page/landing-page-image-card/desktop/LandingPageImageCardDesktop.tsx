@@ -9,7 +9,10 @@ type Props = {
 
 const LandingPageImageCardDesktop: React.FC<Props> = ({ landingImage }) => {
   return (
-    <Bs.Card className="text-white landing-image-card">
+    <Bs.Card
+      data-testid="landing-image-card-desktop"
+      className="text-white landing-image-card"
+    >
       <Bs.Card.Img
         className="landing-image-card-image"
         src={landingImage.image.data.attributes.url}

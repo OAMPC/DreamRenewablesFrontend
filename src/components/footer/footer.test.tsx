@@ -65,7 +65,7 @@ describe('Footer', () => {
   });
 
   describe('contextual styling', () => {
-    test('should apply "active" to classes when width is less than or equal to 992', async () => {
+    test('should apply "active " to classes when width is less than or equal to 992', async () => {
       await setup(992);
       await waitFor(() => {
         const footerImageCol = screen.getByTestId('footer-image-col');
