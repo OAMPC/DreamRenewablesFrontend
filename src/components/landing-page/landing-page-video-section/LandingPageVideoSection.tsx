@@ -8,7 +8,7 @@ type Props = {
 
 const LandingPageVideoSection: React.FC<Props> = ({ videoSection }) => {
   return (
-    <>
+    <div data-testid="landing-video-section">
       <Bs.Row>
         <Bs.Col className="text-center">
           <h2 className="fs-1 fw-bold">{videoSection.title}</h2>
@@ -29,7 +29,7 @@ const LandingPageVideoSection: React.FC<Props> = ({ videoSection }) => {
           ></iframe>
         </Bs.Col>
       </Bs.Row>
-    </>
+    </div>
   );
 };
 
