@@ -4,9 +4,10 @@ import PageWrapper from '../../components/page-wrapper/PageWrapper';
 import { LoaderData } from '../../data/types/LoaderData';
 import * as Bs from 'react-bootstrap';
 import './landingPage.css';
-import LandingPageImageCardDesktop from '../../components/landing-page-card/desktop/LandingPageImageCardDesktop';
 import useWindowDimensions from '../../hooks/windowDimensions';
-import LandingPageImageCardMobile from '../../components/landing-page-card/mobile/LandingPageCardMobile';
+import LandingPageImageCardMobile from '../../components/landing-page/landing-page-image-card/mobile/LandingPageCardMobile';
+import LandingPageImageCardDesktop from '../../components/landing-page/landing-page-image-card/desktop/LandingPageImageCardDesktop';
+import LandingPageVideoSection from '../../components/landing-page/landing-page-video-section/LandingPageVideoSection';
 
 const LandingPage: React.FC = () => {
   const { navigationBarStrapiData, footerStrapiData, landingPageStrapiData } =
@@ -19,7 +20,7 @@ const LandingPage: React.FC = () => {
       navigationBarStrapiData={navigationBarStrapiData}
       footerStrapiData={footerStrapiData}
     >
-      <Bs.Row>
+      <Bs.Row className="mb-5">
         <Bs.Col>
           {showMobileView ? (
             <LandingPageImageCardMobile
@@ -30,6 +31,13 @@ const LandingPage: React.FC = () => {
               landingImage={landingPageStrapiData.landingImageDesktop}
             />
           )}
+        </Bs.Col>
+      </Bs.Row>
+      <Bs.Row>
+        <Bs.Col>
+          <LandingPageVideoSection
+            videoSection={landingPageStrapiData.videoSection}
+          />
         </Bs.Col>
       </Bs.Row>
     </PageWrapper>

@@ -1,7 +1,7 @@
 import React from 'react';
-import { LandingImage } from '../../../data/interfaces/landing-page/LandingPageStrapiContent';
 import * as Bs from 'react-bootstrap';
 import './landingPageCardMobile.scss';
+import { LandingImage } from '../../../../data/interfaces/landing-page/LandingPageStrapiContent';
 
 type Props = {
   landingImage: LandingImage;

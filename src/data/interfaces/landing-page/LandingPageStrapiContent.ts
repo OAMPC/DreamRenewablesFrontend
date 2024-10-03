@@ -10,7 +10,7 @@ export interface LandingImage {
   title: string;
   subTitle: string;
 }
-interface VideoSection {
+export interface VideoSection {
   title: string;
   subTitle: string;
   videoLink: string;
