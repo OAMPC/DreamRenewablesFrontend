@@ -72,8 +72,8 @@ describe('strapiApi', () => {
     test('should get landing page data successfully', async () => {
       const landingPageFactory = new LandingPageFactory();
       const mockResponse = landingPageFactory.getMockResponse();
-      const landingPageUrl = landingPageFactory.getLandingPageUrl();
-      await setup(landingPageUrl, mockResponse, 200);
+      const apiUrl = landingPageFactory.getApiUrl();
+      await setup(apiUrl, mockResponse, 200);
 
       const response = await getLandingPageStrapiData();
       expect(response).toEqual(mockResponse.data.attributes);
@@ -82,8 +82,8 @@ describe('strapiApi', () => {
     test('should handle errors when landing page "get" returns a 500', async () => {
       const landingPageFactory = new LandingPageFactory();
       const emptyMockData = landingPageFactory.getEmptyMockData();
-      const landingPageUrl = landingPageFactory.getLandingPageUrl();
-      await setup(landingPageUrl, emptyMockData, 500);
+      const apiUrl = landingPageFactory.getApiUrl();
+      await setup(apiUrl, emptyMockData, 500);
       await expect(getLandingPageStrapiData()).rejects.toThrow(
         'Request failed with status code 500'
       );
