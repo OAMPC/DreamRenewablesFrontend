@@ -11,10 +11,10 @@ import {
   vi,
 } from 'vitest';
 import LandingPage from './LandingPage';
-import footerFactory from '../../test/factories/strapi/footerFactory';
 import navigationBarFactory from '../../test/factories/strapi/NavigationBarFactory';
 import useWindowDimensions from '../../hooks/windowDimensions';
 import LandingPageFactory from '../../test/factories/strapi/LandingPageFactory';
+import FooterFactory from '../../test/factories/strapi/FooterFactory';
 
 vi.mock('react-router-dom', async () => {
   const actual = await vi.importActual('react-router-dom');
@@ -31,7 +31,7 @@ vi.mock('../../hooks/windowDimensions', () => ({
 describe('LandingPage', () => {
   const mockLoaderData = {
     navigationBarStrapiData: new navigationBarFactory().getMockData(),
-    footerStrapiData: footerFactory().mockData.data.attributes,
+    footerStrapiData: new FooterFactory().getMockData(),
     landingPageStrapiData: new LandingPageFactory().getMockData(),
   };
 

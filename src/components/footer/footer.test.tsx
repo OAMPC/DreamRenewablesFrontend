@@ -3,8 +3,8 @@ import React from 'react';
 import { MemoryRouter } from 'react-router-dom';
 import { afterEach, describe, expect, Mock, test, vi } from 'vitest';
 import useWindowDimensions from '../../hooks/windowDimensions';
-import footerFactory from '../../test/factories/strapi/footerFactory';
 import Footer from './Footer';
+import FooterFactory from '../../test/factories/strapi/FooterFactory';
 
 vi.mock('../../hooks/windowDimensions', () => ({
   default: vi.fn(),
@@ -12,11 +12,11 @@ vi.mock('../../hooks/windowDimensions', () => ({
 
 describe('Footer', () => {
   const setup = async (windowWidth: number = 1024) => {
-    const { mockData } = footerFactory();
+    const mockData = new FooterFactory().getMockData();
     (useWindowDimensions as Mock).mockReturnValue({ width: windowWidth });
     render(
       <MemoryRouter>
-        <Footer content={mockData.data.attributes} />
+        <Footer content={mockData} />
       </MemoryRouter>
     );
   };
