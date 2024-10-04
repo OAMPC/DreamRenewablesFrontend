@@ -1,13 +1,13 @@
 import { describe, expect, test } from 'vitest';
 import { AXIOS_MOCK } from '../test-setup';
 import footerFactory from '../test/factories/strapi/footerFactory';
-import landingPageFactory from '../test/factories/strapi/landingPageFactory';
 import navigationBarFactory from '../test/factories/strapi/navigationBarFactory';
 import {
   getFooterStrapiData,
   getLandingPageStrapiData,
   getNavigationBarStrapiData,
 } from './strapiApi';
+import LandingPageFactory from '../test/factories/strapi/LandingPageFactory';
 
 interface MockData<T> {
   data: {
@@ -62,15 +62,19 @@ describe('strapiApi', () => {
 
   describe('getLandingPageStrapiData', () => {
     test('should get landing page data successfully', async () => {
-      const { landingPageUrl, mockData } = landingPageFactory();
-      await setup(landingPageUrl, mockData, 200);
+      const landingPageFactory = new LandingPageFactory();
+      const mockResponse = landingPageFactory.getMockResponse();
+      const landingPageUrl = landingPageFactory.getLandingPageUrl();
+      await setup(landingPageUrl, mockResponse, 200);
 
       const response = await getLandingPageStrapiData();
-      expect(response).toEqual(mockData.data.attributes);
+      expect(response).toEqual(mockResponse.data.attributes);
     });
 
     test('should handle errors when landing page "get" returns a 500', async () => {
-      const { landingPageUrl, emptyMockData } = landingPageFactory();
+      const landingPageFactory = new LandingPageFactory();
+      const emptyMockData = landingPageFactory.getEmptyMockData();
+      const landingPageUrl = landingPageFactory.getLandingPageUrl();
       await setup(landingPageUrl, emptyMockData, 500);
       await expect(getLandingPageStrapiData()).rejects.toThrow(
         'Request failed with status code 500'

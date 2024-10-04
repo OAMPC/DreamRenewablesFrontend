@@ -3,7 +3,7 @@ import React from 'react';
 import { MemoryRouter } from 'react-router-dom';
 import { afterEach, beforeEach, describe, expect, test, vi } from 'vitest';
 import LandingPageImageCardDesktop from './LandingPageImageCardDesktop';
-import landingPageFactory from '../../../../test/factories/strapi/landingPageFactory';
+import LandingPageFactory from '../../../../test/factories/strapi/LandingPageFactory';
 
 vi.mock('../../hooks/windowDimensions', () => ({
   default: vi.fn(),
@@ -11,11 +11,12 @@ vi.mock('../../hooks/windowDimensions', () => ({
 
 describe('landingPageImageCardDesktop', () => {
   const setup = async () => {
-    const { mockData } = landingPageFactory();
+    const landingPageFactory = new LandingPageFactory();
+    const mockData = landingPageFactory.getMockData();
     render(
       <MemoryRouter>
         <LandingPageImageCardDesktop
-          landingImage={mockData.data.attributes.landingImageDesktop}
+          landingImage={mockData.landingImageDesktop}
         />
       </MemoryRouter>
     );

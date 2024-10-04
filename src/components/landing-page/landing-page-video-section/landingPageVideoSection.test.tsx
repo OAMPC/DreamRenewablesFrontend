@@ -2,8 +2,8 @@ import { render, screen, waitFor } from '@testing-library/react';
 import React from 'react';
 import { MemoryRouter } from 'react-router-dom';
 import { afterEach, beforeEach, describe, expect, test, vi } from 'vitest';
-import landingPageFactory from '../../../test/factories/strapi/landingPageFactory';
 import LandingPageVideoSection from './LandingPageVideoSection';
+import LandingPageFactory from '../../../test/factories/strapi/LandingPageFactory';
 
 vi.mock('../../../hooks/windowDimensions', () => ({
   default: vi.fn(),
@@ -11,12 +11,11 @@ vi.mock('../../../hooks/windowDimensions', () => ({
 
 describe('landingPageVideoSection', () => {
   const setup = async () => {
-    const { mockData } = landingPageFactory();
+    const landingPageFactory = new LandingPageFactory();
+    const mockData = landingPageFactory.getMockData();
     render(
       <MemoryRouter>
-        <LandingPageVideoSection
-          videoSection={mockData.data.attributes.videoSection}
-        />
+        <LandingPageVideoSection videoSection={mockData.videoSection} />
       </MemoryRouter>
     );
   };

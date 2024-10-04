@@ -3,7 +3,6 @@ import { useLoaderData } from 'react-router-dom';
 import PageWrapper from '../../components/page-wrapper/PageWrapper';
 import { LoaderData } from '../../data/types/LoaderData';
 import * as Bs from 'react-bootstrap';
-import './landingPage.css';
 import useWindowDimensions from '../../hooks/windowDimensions';
 import LandingPageImageCardMobile from '../../components/landing-page/landing-page-image-card/mobile/LandingPageCardMobile';
 import LandingPageImageCardDesktop from '../../components/landing-page/landing-page-image-card/desktop/LandingPageImageCardDesktop';

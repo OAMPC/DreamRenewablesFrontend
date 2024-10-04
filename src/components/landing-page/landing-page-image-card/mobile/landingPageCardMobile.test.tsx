@@ -2,9 +2,9 @@ import { render, screen, waitFor } from '@testing-library/react';
 import React from 'react';
 import { MemoryRouter } from 'react-router-dom';
 import { afterEach, describe, expect, Mock, test, vi } from 'vitest';
-import landingPageFactory from '../../../../test/factories/strapi/landingPageFactory';
 import LandingPageImageCardMobile from './LandingPageCardMobile';
 import useWindowDimensions from '../../../../hooks/windowDimensions';
+import LandingPageFactory from '../../../../test/factories/strapi/LandingPageFactory';
 
 vi.mock('../../../../hooks/windowDimensions', () => ({
   default: vi.fn(),
@@ -12,12 +12,13 @@ vi.mock('../../../../hooks/windowDimensions', () => ({
 
 describe('landingPageImageCardMobile', () => {
   const setup = async (windowWidth: number = 1024) => {
-    const { mockData } = landingPageFactory();
+    const landingPageFactory = new LandingPageFactory();
+    const mockData = landingPageFactory.getMockData();
     (useWindowDimensions as Mock).mockReturnValue({ width: windowWidth });
     render(
       <MemoryRouter>
         <LandingPageImageCardMobile
-          landingImage={mockData.data.attributes.landingImageMobile}
+          landingImage={mockData.landingImageMobile}
         />
       </MemoryRouter>
     );
