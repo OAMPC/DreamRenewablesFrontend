@@ -2,15 +2,15 @@ import { render, screen, waitFor } from '@testing-library/react';
 import React from 'react';
 import { MemoryRouter } from 'react-router-dom';
 import { afterEach, beforeEach, describe, expect, test, vi } from 'vitest';
-import navigationBarFactory from '../../test/factories/strapi/navigationBarFactory';
 import NavigationBar from './NavigationBar';
+import NavigationBarFactory from '../../test/factories/strapi/NavigationBarFactory';
 
 describe('NavigationBar', () => {
   beforeEach(() => {
-    const { mockData } = navigationBarFactory();
+    const mockData = new NavigationBarFactory().getMockData();
     render(
       <MemoryRouter>
-        <NavigationBar content={mockData.data.attributes} />
+        <NavigationBar content={mockData} />
       </MemoryRouter>
     );
   });

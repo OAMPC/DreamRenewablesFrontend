@@ -12,7 +12,7 @@ import {
 } from 'vitest';
 import LandingPage from './LandingPage';
 import footerFactory from '../../test/factories/strapi/footerFactory';
-import navigationBarFactory from '../../test/factories/strapi/navigationBarFactory';
+import navigationBarFactory from '../../test/factories/strapi/NavigationBarFactory';
 import useWindowDimensions from '../../hooks/windowDimensions';
 import LandingPageFactory from '../../test/factories/strapi/LandingPageFactory';
 
@@ -30,7 +30,7 @@ vi.mock('../../hooks/windowDimensions', () => ({
 
 describe('LandingPage', () => {
   const mockLoaderData = {
-    navigationBarStrapiData: navigationBarFactory().mockData.data.attributes,
+    navigationBarStrapiData: new navigationBarFactory().getMockData(),
     footerStrapiData: footerFactory().mockData.data.attributes,
     landingPageStrapiData: new LandingPageFactory().getMockData(),
   };

@@ -1,13 +1,13 @@
 import { describe, expect, test } from 'vitest';
 import { AXIOS_MOCK } from '../test-setup';
 import footerFactory from '../test/factories/strapi/footerFactory';
-import navigationBarFactory from '../test/factories/strapi/navigationBarFactory';
 import {
   getFooterStrapiData,
   getLandingPageStrapiData,
   getNavigationBarStrapiData,
 } from './strapiApi';
 import LandingPageFactory from '../test/factories/strapi/LandingPageFactory';
+import NavigationBarFactory from '../test/factories/strapi/NavigationBarFactory';
 
 interface MockData<T> {
   data: {
@@ -26,16 +26,20 @@ describe('strapiApi', () => {
 
   describe('getNavigationBarStrapiData', async () => {
     test('should get navigation bar data successfully', async () => {
-      const { navBarUrl, mockData } = navigationBarFactory();
-      await setup(navBarUrl, mockData, 200);
+      const navigationBarFactory = new NavigationBarFactory();
+      const mockResponse = navigationBarFactory.getMockResponse();
+      const apiUrl = navigationBarFactory.getApiUrl();
+      await setup(apiUrl, mockResponse, 200);
 
       const response = await getNavigationBarStrapiData();
-      expect(response).toEqual(mockData.data.attributes);
+      expect(response).toEqual(mockResponse.data.attributes);
     });
 
     test('should handle errors when navigation bar "get" returns a 500', async () => {
-      const { navBarUrl, emptyNavBarMockData } = navigationBarFactory();
-      await setup(navBarUrl, emptyNavBarMockData, 500);
+      const navigationBarFactory = new NavigationBarFactory();
+      const emptyMockData = navigationBarFactory.getEmptyMockData();
+      const apiUrl = navigationBarFactory.getApiUrl();
+      await setup(apiUrl, emptyMockData, 500);
       await expect(getNavigationBarStrapiData()).rejects.toThrow(
         'Request failed with status code 500'
       );
