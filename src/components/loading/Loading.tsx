@@ -1,6 +1,6 @@
 import React from 'react';
 import * as Bs from 'react-bootstrap';
-import './loading.css';
+import './loading.scss';
 const Loading: React.FC = () => {
   return (
     <Bs.Container fluid className="spinner-container">

@@ -1,7 +1,7 @@
 import React from 'react';
 import * as Bs from 'react-bootstrap';
 import { NavigationBarStrapiContent } from '../../data/interfaces/navigation-bar/NavigationBarStrapiContent';
-import './navigationBar.css';
+import './navigationBar.scss';
 
 const NavigationBar: React.FC<{ content: NavigationBarStrapiContent }> = ({
   content,

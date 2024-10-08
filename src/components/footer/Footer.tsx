@@ -2,7 +2,7 @@ import React from 'react';
 import * as Bs from 'react-bootstrap';
 import { FooterStrapiContent } from '../../data/interfaces/footer/FooterStrapiContent';
 import useWindowDimensions from '../../hooks/windowDimensions';
-import './footer.css';
+import './footer.scss';
 
 const Footer: React.FC<{ content: FooterStrapiContent }> = ({
   content: content,
