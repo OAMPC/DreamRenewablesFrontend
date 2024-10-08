@@ -2,6 +2,7 @@ import React from 'react';
 import { VideoSection } from '../../../data/interfaces/landing-page/LandingPageStrapiContent';
 import * as Bs from 'react-bootstrap';
 import './landingPageVideoSection.scss';
+
 type Props = {
   videoSection: VideoSection;
 };
@@ -20,13 +21,13 @@ const LandingPageVideoSection: React.FC<Props> = ({ videoSection }) => {
         </Bs.Col>
       </Bs.Row>
       <Bs.Row>
-        <Bs.Col className="d-flex justify-content-center">
+        <Bs.Col className="d-flex justify-content-center video-container">
           <iframe
             className="video-section-video"
             width="1280"
             src={videoSection.videoLink}
             title="DREAM RENEWABLES 2020"
-          ></iframe>
+          />
         </Bs.Col>
       </Bs.Row>
     </div>
