@@ -5,7 +5,7 @@ export interface LandingPageStrapiContent {
   landingImageDesktop: LandingImage;
   landingImageMobile: LandingImage;
   videoSection: VideoSection;
-  specialityCarousel: Array<SpecialtyCarouselItem>;
+  specialitySection: SpecialitySection;
 }
 export interface LandingImage {
   image: ImageStrapiContent;
@@ -18,9 +18,13 @@ export interface VideoSection {
   videoLink: string;
 }
 
+export interface SpecialitySection {
+  title: string;
+  specialityCarousel: Array<SpecialtyCarouselItem>;
+}
 export interface SpecialtyCarouselItem {
-  specialityImage: ImageStrapiContent;
-  specialityTitle: string;
-  specialityDescription: string;
+  image: ImageStrapiContent;
+  title: string;
+  description: string;
   link: StandardLink;
 }
