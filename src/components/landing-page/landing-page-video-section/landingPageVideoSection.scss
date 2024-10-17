@@ -1,0 +1,39 @@
+.video-container {
+  position: relative;
+  margin-bottom: 10vh;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 70%;
+    left: 55%;
+    width: 22.5vw;
+    height: 10vw;
+    background-color: var(--primary);
+    z-index: -1;
+    border-radius: 50px;
+  }
+
+  iframe {
+    display: block;
+    width: calc(90vw * 9 / 16);
+    height: calc(50vw * 9 / 16);
+    max-width: 1280px;
+    border-radius: 50px;
+    z-index: 1;
+  }
+
+  @media (max-width: 768px) {
+    iframe {
+      width: 100vw;
+      height: calc(100vw * 9 / 16);
+    }
+
+    &::before {
+      top: 70%;
+      left: 20%;
+      width: 50vw;
+      height: 22.5vw;
+    }
+  }
+}

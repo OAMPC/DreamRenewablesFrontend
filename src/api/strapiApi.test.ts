@@ -1,8 +1,13 @@
 import { describe, expect, test } from 'vitest';
 import { AXIOS_MOCK } from '../test-setup';
-import footerFactory from '../test/factories/strapi/footerFactory';
-import navigationBarFactory from '../test/factories/strapi/navigationBarFactory';
-import { getFooterStrapiData, getNavigationBarStrapiData } from './strapiApi';
+import {
+  getFooterStrapiData,
+  getLandingPageStrapiData,
+  getNavigationBarStrapiData,
+} from './strapiApi';
+import LandingPageFactory from '../test/factories/strapi/LandingPageFactory';
+import NavigationBarFactory from '../test/factories/strapi/NavigationBarFactory';
+import FooterFactory from '../test/factories/strapi/FooterFactory';
 
 interface MockData<T> {
   data: {
@@ -19,37 +24,67 @@ describe('strapiApi', () => {
     AXIOS_MOCK.onGet(apiUrl).replyOnce(statusCode, mockData);
   };
 
-  describe('getNavigationBarStrapiData', () => {
+  describe('getNavigationBarStrapiData', async () => {
     test('should get navigation bar data successfully', async () => {
-      const { navBarUrl, mockData } = navigationBarFactory();
-      await setup(navBarUrl, mockData, 200);
+      const navigationBarFactory = new NavigationBarFactory();
+      const mockResponse = navigationBarFactory.getMockResponse();
+      const apiUrl = navigationBarFactory.getApiUrl();
+      await setup(apiUrl, mockResponse, 200);
 
       const response = await getNavigationBarStrapiData();
-      expect(response).toEqual(mockData.data.attributes);
+      expect(response).toEqual(mockResponse.data.attributes);
     });
 
-    test('should handle errors when navigation bar get returns a 500', async () => {
-      const { navBarUrl, emptyNavBarMockData } = navigationBarFactory();
-      await setup(navBarUrl, emptyNavBarMockData, 500);
+    test('should handle errors when navigation bar "get" returns a 500', async () => {
+      const navigationBarFactory = new NavigationBarFactory();
+      const emptyMockData = navigationBarFactory.getEmptyMockData();
+      const apiUrl = navigationBarFactory.getApiUrl();
+      await setup(apiUrl, emptyMockData, 500);
       await expect(getNavigationBarStrapiData()).rejects.toThrow(
         'Request failed with status code 500'
       );
     });
   });
 
-  describe('getFooterStrapiData', () => {
+  describe('getFooterStrapiData', async () => {
     test('should get footer data successfully', async () => {
-      const { footerUrl, mockData } = footerFactory();
-      await setup(footerUrl, mockData, 200);
+      const footerFactory = new FooterFactory();
+      const apiUrl = footerFactory.getApiUrl();
+      const mockResponse = footerFactory.getMockResponse();
+      await setup(apiUrl, mockResponse, 200);
 
       const response = await getFooterStrapiData();
-      expect(response).toEqual(mockData.data.attributes);
+      expect(response).toEqual(mockResponse.data.attributes);
     });
 
-    test('should handle errors when navigation bar get returns a 500', async () => {
-      const { footerUrl, emptyFooterMockData } = footerFactory();
-      await setup(footerUrl, emptyFooterMockData, 500);
+    test('should handle errors when navigation bar "get" returns a 500', async () => {
+      const footerFactory = new FooterFactory();
+      const apiUrl = footerFactory.getApiUrl();
+      const emptyMockData = footerFactory.getEmptyMockData();
+      await setup(apiUrl, emptyMockData, 500);
       await expect(getFooterStrapiData()).rejects.toThrow(
+        'Request failed with status code 500'
+      );
+    });
+  });
+
+  describe('getLandingPageStrapiData', () => {
+    test('should get landing page data successfully', async () => {
+      const landingPageFactory = new LandingPageFactory();
+      const mockResponse = landingPageFactory.getMockResponse();
+      const apiUrl = landingPageFactory.getApiUrl();
+      await setup(apiUrl, mockResponse, 200);
+
+      const response = await getLandingPageStrapiData();
+      expect(response).toEqual(mockResponse.data.attributes);
+    });
+
+    test('should handle errors when landing page "get" returns a 500', async () => {
+      const landingPageFactory = new LandingPageFactory();
+      const emptyMockData = landingPageFactory.getEmptyMockData();
+      const apiUrl = landingPageFactory.getApiUrl();
+      await setup(apiUrl, emptyMockData, 500);
+      await expect(getLandingPageStrapiData()).rejects.toThrow(
         'Request failed with status code 500'
       );
     });

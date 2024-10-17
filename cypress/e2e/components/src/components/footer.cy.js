@@ -8,9 +8,14 @@ describe('Footer', () => {
       fixture: 'footerStrapiResponse.json',
     }).as('getFooterStrapiData');
 
+    cy.intercept('GET', '**/api/landing-page*', {
+      fixture: 'landingPageStrapiResponse.json',
+    }).as('getLandingPageStrapiData');
+
     cy.visit('/');
     cy.wait('@getNavigationBarStrapiData');
     cy.wait('@getFooterStrapiData');
+    cy.wait('@getLandingPageStrapiData');
   });
   it('should load footer and verify all elements are present and functioning', () => {
     cy.get('[data-testid="footer"]').should('be.visible');

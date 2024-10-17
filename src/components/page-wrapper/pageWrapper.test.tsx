@@ -11,9 +11,9 @@ import {
   vi,
 } from 'vitest';
 import useWindowDimensions from '../../hooks/windowDimensions';
-import footerFactory from '../../test/factories/strapi/footerFactory';
-import navigationBarFactory from '../../test/factories/strapi/navigationBarFactory';
 import PageWrapper from './PageWrapper';
+import NavigationBarFactory from '../../test/factories/strapi/NavigationBarFactory';
+import FooterFactory from '../../test/factories/strapi/FooterFactory';
 
 vi.mock('../../hooks/windowDimensions', () => ({
   default: vi.fn(),
@@ -21,15 +21,15 @@ vi.mock('../../hooks/windowDimensions', () => ({
 
 describe('PageWrapper', () => {
   beforeEach(() => {
-    const { mockData: navigationMockData } = navigationBarFactory();
-    const { mockData: footerMockData } = footerFactory();
+    const navigationMockData = new NavigationBarFactory().getMockData();
+    const footerMockData = new FooterFactory().getMockData();
     (useWindowDimensions as Mock).mockReturnValue({ width: 1024 });
 
     render(
       <MemoryRouter>
         <PageWrapper
-          navigationBarStrapiData={navigationMockData.data.attributes}
-          footerStrapiData={footerMockData.data.attributes}
+          navigationBarStrapiData={navigationMockData}
+          footerStrapiData={footerMockData}
         >
           <h1>I am a child</h1>
         </PageWrapper>
