@@ -1,8 +1,8 @@
 import React from 'react';
+import * as Bs from 'react-bootstrap';
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
-import * as Bs from 'react-bootstrap';
-import { SpecialitySection } from '../../../data/interfaces/landing-page/LandingPageStrapiContent';
+import { SpecialitySection } from '../../../../data/interfaces/landing-page/LandingPageStrapiContent';
 import LandingPageSpecialityCarouselCard from '../landing-page-speciality-carousel-card/LandingPageSpecialityCarouselCard';
 
 type Props = {
@@ -16,21 +16,7 @@ const LandingPageSpecialityCarousel: React.FC<Props> = ({
     desktop: {
       breakpoint: { max: 3000, min: 1024 },
       items: 1,
-      partialVisibilityGutter: 100,
-    },
-    mobile: {
-      breakpoint: {
-        max: 464,
-        min: 0,
-      },
-      items: 1,
-    },
-    tablet: {
-      breakpoint: {
-        max: 1024,
-        min: 464,
-      },
-      items: 1,
+      partialVisibilityGutter: 50,
     },
   };
   return (

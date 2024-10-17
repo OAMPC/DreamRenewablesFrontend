@@ -1,5 +1,5 @@
 import React from 'react';
-import { SpecialtyCarouselItem } from '../../../data/interfaces/landing-page/LandingPageStrapiContent';
+import { SpecialtyCarouselItem } from '../../../../data/interfaces/landing-page/LandingPageStrapiContent';
 import * as Bs from 'react-bootstrap';
 import './landingPageSpecialityCarouselCard.scss';
 
