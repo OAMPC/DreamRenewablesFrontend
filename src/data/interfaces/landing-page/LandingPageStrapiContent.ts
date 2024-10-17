@@ -27,4 +27,5 @@ export interface SpecialtyCarouselItem {
   title: string;
   description: string;
   link: StandardLink;
+  linkIcon: ImageStrapiContent;
 }

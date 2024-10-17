@@ -1,0 +1,24 @@
+.specialty-description-wrapper {
+  position: relative;
+  margin-bottom: 3vh;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 35%;
+    right: 70%;
+    width: 5vw;
+    height: 5vw;
+    background-color: var(--primary);
+    z-index: -1;
+    border-radius: 10px;
+  }
+
+  .specialty-description {
+    display: block;
+    padding: 10px;
+    border-radius: 10px;
+    z-index: 1;
+    background-color: var(--background-light);
+  }
+}

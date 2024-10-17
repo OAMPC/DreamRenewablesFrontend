@@ -102,6 +102,30 @@
               "id": 12,
               "linkString": "Read More",
               "linkSlug": "dummy-link-1"
+            },
+            "linkIcon": {
+              "data": {
+                "id": 12,
+                "attributes": {
+                  "name": "arrow-icon.svg",
+                  "alternativeText": "test",
+                  "caption": "test",
+                  "width": 8,
+                  "height": 9,
+                  "formats": null,
+                  "hash": "arrow_icon_353b7d5895",
+                  "ext": ".svg",
+                  "mime": "image/svg+xml",
+                  "size": 0.21,
+                  "url": "https://strapi-dr-s3-media-bucket.s3.eu-west-2.amazonaws.com/arrow_icon_353b7d5895.svg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT4GVRL3IRMXEMOPM%2F20241017%2Feu-west-2%2Fs3%2Faws4_request&X-Amz-Date=20241017T213520Z&X-Amz-Expires=900&X-Amz-Signature=e2258f7271d02123be37ebad1fdc98497bbe55796a3d5622ac2be851bd934173&X-Amz-SignedHeaders=host&x-id=GetObject",
+                  "previewUrl": null,
+                  "provider": "aws-s3",
+                  "provider_metadata": null,
+                  "createdAt": "2024-10-17T21:33:59.252Z",
+                  "updatedAt": "2024-10-17T21:33:59.252Z",
+                  "isUrlSigned": true
+                }
+              }
             }
           },
           {
@@ -136,6 +160,30 @@
               "id": 13,
               "linkString": "Read More",
               "linkSlug": "dummy-link-2"
+            },
+            "linkIcon": {
+              "data": {
+                "id": 12,
+                "attributes": {
+                  "name": "arrow-icon.svg",
+                  "alternativeText": "test",
+                  "caption": "test",
+                  "width": 8,
+                  "height": 9,
+                  "formats": null,
+                  "hash": "arrow_icon_353b7d5895",
+                  "ext": ".svg",
+                  "mime": "image/svg+xml",
+                  "size": 0.21,
+                  "url": "https://strapi-dr-s3-media-bucket.s3.eu-west-2.amazonaws.com/arrow_icon_353b7d5895.svg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT4GVRL3IRMXEMOPM%2F20241017%2Feu-west-2%2Fs3%2Faws4_request&X-Amz-Date=20241017T213520Z&X-Amz-Expires=900&X-Amz-Signature=e2258f7271d02123be37ebad1fdc98497bbe55796a3d5622ac2be851bd934173&X-Amz-SignedHeaders=host&x-id=GetObject",
+                  "previewUrl": null,
+                  "provider": "aws-s3",
+                  "provider_metadata": null,
+                  "createdAt": "2024-10-17T21:33:59.252Z",
+                  "updatedAt": "2024-10-17T21:33:59.252Z",
+                  "isUrlSigned": true
+                }
+              }
             }
           }
         ]
