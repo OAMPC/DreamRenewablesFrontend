@@ -1,0 +1,9 @@
+.custom-dot-list-style button {
+  border: none;
+  background: var(--primary);
+  opacity: 50%;
+}
+.react-multi-carousel-dot.react-multi-carousel-dot--active button {
+  background: var(--primary) !important;
+  opacity: 100%;
+}

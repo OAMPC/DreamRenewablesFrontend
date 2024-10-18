@@ -9,9 +9,9 @@ type Props = {
 
 const LandingPageSpecialityCarouselCard: React.FC<Props> = ({ card }) => {
   return (
-    <div>
+    <div className="mb-5 me-5">
       <Bs.Row className="align-items-end">
-        <Bs.Col lg="5">
+        <Bs.Col lg="5" xl={{ order: 'first' }} xs={{ order: 'last' }}>
           <Bs.Row>
             <Bs.Col lg={{ span: 9, offset: 1 }}>
               <div className="specialty-description-wrapper">
@@ -31,8 +31,14 @@ const LandingPageSpecialityCarouselCard: React.FC<Props> = ({ card }) => {
             </Bs.Col>
           </Bs.Row>
         </Bs.Col>
-        <Bs.Col lg="5">
+        <Bs.Col
+          lg="5"
+          xl={{ order: 'last' }}
+          xs={{ order: 'first' }}
+          className="mb-4"
+        >
           <Bs.Image
+            fluid
             src={card.image.data.attributes.url}
             alt={card.image.data.attributes.alternativeText}
           />

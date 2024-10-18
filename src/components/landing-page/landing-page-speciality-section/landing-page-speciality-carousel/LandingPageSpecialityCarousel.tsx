@@ -4,6 +4,7 @@ import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
 import { SpecialitySection } from '../../../../data/interfaces/landing-page/LandingPageStrapiContent';
 import LandingPageSpecialityCarouselCard from '../landing-page-speciality-carousel-card/LandingPageSpecialityCarouselCard';
+import './LandingPageSpecialityCarousel.scss';
 
 type Props = {
   specialitySection: SpecialitySection;
@@ -13,12 +14,26 @@ const LandingPageSpecialityCarousel: React.FC<Props> = ({
   specialitySection,
 }) => {
   const responsive = {
-    desktop: {
-      breakpoint: { max: 3000, min: 1024 },
-      items: 1,
+    superLargeDesktop: {
+      breakpoint: { max: 4000, min: 2175 },
+      items: 1.5,
       partialVisibilityGutter: 50,
     },
+    desktop: {
+      breakpoint: { max: 2175, min: 1500 },
+      items: 1.5,
+      partialVisibilityGutter: 50,
+    },
+    tablet: {
+      breakpoint: { max: 1500, min: 464 },
+      items: 1.25,
+    },
+    mobile: {
+      breakpoint: { max: 464, min: 0 },
+      items: 1.175,
+    },
   };
+
   return (
     <div className="mb-5">
       <Bs.Row>
@@ -28,14 +43,15 @@ const LandingPageSpecialityCarousel: React.FC<Props> = ({
       </Bs.Row>
       <div className="speciality-carousel-wrapper">
         <Carousel
-          centerMode
           responsive={responsive}
           arrows={false}
-          infinite
           showDots
+          partialVisible
+          draggable
+          dotListClass="custom-dot-list-style"
         >
-          {specialitySection.specialityCarousel.map((card) => (
-            <LandingPageSpecialityCarouselCard card={card} />
+          {specialitySection.specialityCarousel.map((card, index) => (
+            <LandingPageSpecialityCarouselCard key={index} card={card} />
           ))}
         </Carousel>
       </div>
