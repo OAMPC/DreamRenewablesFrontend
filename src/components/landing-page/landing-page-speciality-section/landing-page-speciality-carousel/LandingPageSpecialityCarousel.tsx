@@ -4,7 +4,7 @@ import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
 import { SpecialitySection } from '../../../../data/interfaces/landing-page/LandingPageStrapiContent';
 import LandingPageSpecialityCarouselCard from '../landing-page-speciality-carousel-card/LandingPageSpecialityCarouselCard';
-import './LandingPageSpecialityCarousel.scss';
+import './landingPageSpecialityCarousel.scss';
 
 type Props = {
   specialitySection: SpecialitySection;
