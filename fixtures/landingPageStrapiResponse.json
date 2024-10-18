@@ -65,6 +65,128 @@
         "title": "Our Mission",
         "subTitle": "We empower communities to create and maintain sustainable energy solutions that address their specific challenges",
         "videoLink": "https://www.youtube.com/embed/bqMlLF-Fm24"
+      },
+      "specialitySection": {
+        "id": 1,
+        "title": "What we specialise in",
+        "specialityCarousel": [
+          {
+            "id": 1,
+            "title": "Safe Sanitation",
+            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc quam risus, placerat interdum magna non, placerat congue turpis.",
+            "image": {
+              "data": {
+                "id": 10,
+                "attributes": {
+                  "name": "specialty-carousel-image-one.svg",
+                  "alternativeText": "test",
+                  "caption": "test",
+                  "width": 508,
+                  "height": 537,
+                  "formats": null,
+                  "hash": "specialty_carousel_image_one_251c066a92",
+                  "ext": ".svg",
+                  "mime": "image/svg+xml",
+                  "size": 1531.63,
+                  "url": "https://strapi-dr-s3-media-bucket.s3.eu-west-2.amazonaws.com/specialty_carousel_image_one_251c066a92.svg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT4GVRL3IRMXEMOPM%2F20241017%2Feu-west-2%2Fs3%2Faws4_request&X-Amz-Date=20241017T194752Z&X-Amz-Expires=900&X-Amz-Signature=36e3cefebe2a5644ef1e6d8c4bca1dbd8ce6e77fa5fb5d688c6b7865fbaebc7c&X-Amz-SignedHeaders=host&x-id=GetObject",
+                  "previewUrl": null,
+                  "provider": "aws-s3",
+                  "provider_metadata": null,
+                  "createdAt": "2024-10-17T18:32:49.917Z",
+                  "updatedAt": "2024-10-17T18:32:49.917Z",
+                  "isUrlSigned": true
+                }
+              }
+            },
+            "link": {
+              "id": 12,
+              "linkString": "Read More",
+              "linkSlug": "dummy-link-1"
+            },
+            "linkIcon": {
+              "data": {
+                "id": 12,
+                "attributes": {
+                  "name": "arrow-icon.svg",
+                  "alternativeText": "test",
+                  "caption": "test",
+                  "width": 8,
+                  "height": 9,
+                  "formats": null,
+                  "hash": "arrow_icon_353b7d5895",
+                  "ext": ".svg",
+                  "mime": "image/svg+xml",
+                  "size": 0.21,
+                  "url": "https://strapi-dr-s3-media-bucket.s3.eu-west-2.amazonaws.com/arrow_icon_353b7d5895.svg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT4GVRL3IRMXEMOPM%2F20241017%2Feu-west-2%2Fs3%2Faws4_request&X-Amz-Date=20241017T213520Z&X-Amz-Expires=900&X-Amz-Signature=e2258f7271d02123be37ebad1fdc98497bbe55796a3d5622ac2be851bd934173&X-Amz-SignedHeaders=host&x-id=GetObject",
+                  "previewUrl": null,
+                  "provider": "aws-s3",
+                  "provider_metadata": null,
+                  "createdAt": "2024-10-17T21:33:59.252Z",
+                  "updatedAt": "2024-10-17T21:33:59.252Z",
+                  "isUrlSigned": true
+                }
+              }
+            }
+          },
+          {
+            "id": 2,
+            "title": "Quality Education",
+            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc quam risus, placerat interdum magna non, placerat congue turpis.",
+            "image": {
+              "data": {
+                "id": 11,
+                "attributes": {
+                  "name": "speciality-carousel-image-two.svg",
+                  "alternativeText": "test",
+                  "caption": "test",
+                  "width": 536,
+                  "height": 536,
+                  "formats": null,
+                  "hash": "speciality_carousel_image_two_6fec238cfc",
+                  "ext": ".svg",
+                  "mime": "image/svg+xml",
+                  "size": 534.34,
+                  "url": "https://strapi-dr-s3-media-bucket.s3.eu-west-2.amazonaws.com/speciality_carousel_image_two_6fec238cfc.svg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT4GVRL3IRMXEMOPM%2F20241017%2Feu-west-2%2Fs3%2Faws4_request&X-Amz-Date=20241017T194752Z&X-Amz-Expires=900&X-Amz-Signature=b1331bfb7e0a44c7b4540bc7e4171d2257b02fcf30053ec06235b97a659e12b9&X-Amz-SignedHeaders=host&x-id=GetObject",
+                  "previewUrl": null,
+                  "provider": "aws-s3",
+                  "provider_metadata": null,
+                  "createdAt": "2024-10-17T18:33:57.593Z",
+                  "updatedAt": "2024-10-17T18:33:57.593Z",
+                  "isUrlSigned": true
+                }
+              }
+            },
+            "link": {
+              "id": 13,
+              "linkString": "Read More",
+              "linkSlug": "dummy-link-2"
+            },
+            "linkIcon": {
+              "data": {
+                "id": 12,
+                "attributes": {
+                  "name": "arrow-icon.svg",
+                  "alternativeText": "test",
+                  "caption": "test",
+                  "width": 8,
+                  "height": 9,
+                  "formats": null,
+                  "hash": "arrow_icon_353b7d5895",
+                  "ext": ".svg",
+                  "mime": "image/svg+xml",
+                  "size": 0.21,
+                  "url": "https://strapi-dr-s3-media-bucket.s3.eu-west-2.amazonaws.com/arrow_icon_353b7d5895.svg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT4GVRL3IRMXEMOPM%2F20241017%2Feu-west-2%2Fs3%2Faws4_request&X-Amz-Date=20241017T213520Z&X-Amz-Expires=900&X-Amz-Signature=e2258f7271d02123be37ebad1fdc98497bbe55796a3d5622ac2be851bd934173&X-Amz-SignedHeaders=host&x-id=GetObject",
+                  "previewUrl": null,
+                  "provider": "aws-s3",
+                  "provider_metadata": null,
+                  "createdAt": "2024-10-17T21:33:59.252Z",
+                  "updatedAt": "2024-10-17T21:33:59.252Z",
+                  "isUrlSigned": true
+                }
+              }
+            }
+          }
+        ]
       }
     }
   },
