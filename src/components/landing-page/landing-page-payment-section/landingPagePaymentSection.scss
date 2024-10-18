@@ -1,0 +1,29 @@
+.payment-section-container {
+  padding: 20px;
+}
+
+.payment-option-wrapper {
+  background-color: #fff;
+  border-radius: 25px;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s;
+
+  &:hover {
+    transform: scale(1.05);
+  }
+
+  .payment-button {
+    background-color: #ffc107;
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &:hover {
+      background-color: #e0a800;
+    }
+  }
+}

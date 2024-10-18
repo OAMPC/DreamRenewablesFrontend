@@ -36,4 +36,5 @@ export interface PaymentSection {
   title: string;
   subTitle: string;
   paymentOptions: Array<PaymentOption>;
+  paymentOptionIcon: ImageStrapiContent;
 }

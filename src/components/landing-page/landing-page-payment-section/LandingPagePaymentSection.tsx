@@ -1,6 +1,7 @@
 import React from 'react';
 import * as Bs from 'react-bootstrap';
 import { PaymentSection } from '../../../data/interfaces/landing-page/LandingPageStrapiContent';
+import './landingPagePaymentSection.scss';
 
 type Props = {
   paymentSection: PaymentSection;
@@ -8,11 +9,41 @@ type Props = {
 
 const LandingPagePaymentSection: React.FC<Props> = ({ paymentSection }) => {
   return (
-    <Bs.Row>
-      <Bs.Col className="text-center">
-        <h2 className="fs-1 fw-bold mb-5">{paymentSection.title}</h2>
-      </Bs.Col>
-    </Bs.Row>
+    <div className="payment-section-container">
+      <Bs.Row>
+        <Bs.Col className="text-center">
+          <h2 className="fs-1 fw-bold">{paymentSection.title}</h2>
+        </Bs.Col>
+      </Bs.Row>
+      <Bs.Row>
+        <Bs.Col className="text-center">
+          <p className="fs-4">{paymentSection.subTitle}</p>
+        </Bs.Col>
+      </Bs.Row>
+      <Bs.Row className="d-flex justify-content-center">
+        {paymentSection.paymentOptions.map((paymentOption, index) => (
+          <Bs.Col key={index} xs={12} sm={6} md={4} lg={2} className="mb-4">
+            <div className="payment-option-wrapper p-3 d-flex align-items-center justify-content-between">
+              <div>
+                <p className="fs-1 fw-bold mb-0">£{paymentOption.amount}</p>
+              </div>
+              <Bs.Button variant="warning" className="payment-button">
+                <Bs.Image
+                  src={paymentSection.paymentOptionIcon.data.attributes.url}
+                  alt={
+                    paymentSection.paymentOptionIcon.data.attributes
+                      .alternativeText
+                  }
+                />
+              </Bs.Button>
+            </div>
+            <p className="ms-2 mt-3 fs-5 payment-description">
+              {paymentOption.description}
+            </p>
+          </Bs.Col>
+        ))}
+      </Bs.Row>
+    </div>
   );
 };
 
