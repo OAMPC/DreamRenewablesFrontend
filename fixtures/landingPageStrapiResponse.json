@@ -213,7 +213,31 @@
             "amount": 0,
             "description": "Choose your own impact"
           }
-        ]
+        ],
+        "paymentOptionIcon": {
+          "data": {
+            "id": 12,
+            "attributes": {
+              "name": "arrow-icon.svg",
+              "alternativeText": "test",
+              "caption": "test",
+              "width": 8,
+              "height": 9,
+              "formats": null,
+              "hash": "arrow_icon_353b7d5895",
+              "ext": ".svg",
+              "mime": "image/svg+xml",
+              "size": 0.21,
+              "url": "https://strapi-dr-s3-media-bucket.s3d=GetObject",
+              "previewUrl": null,
+              "provider": "aws-s3",
+              "provider_metadata": null,
+              "createdAt": "2024-10-17T21:33:59.252Z",
+              "updatedAt": "2024-10-17T21:33:59.252Z",
+              "isUrlSigned": true
+            }
+          }
+        }
       }
     }
   },
