@@ -2,6 +2,41 @@
   padding: 20px;
 }
 
+.payment-title-wrapper {
+  position: relative;
+  margin-bottom: 3vh;
+
+  &::before {
+    content: '';
+    position: absolute;
+    bottom: 40%;
+    left: 42.5%;
+    width: 4vw;
+    height: 3vw;
+    background-color: var(--primary);
+    z-index: -1;
+    border-radius: 10px;
+  }
+
+  .payment-title {
+    display: block;
+    padding: 10px;
+    width: fit-content;
+    border-radius: 10px;
+    z-index: 1;
+    background-color: var(--background-light);
+  }
+
+  @media (max-width: 767px) {
+    &::before {
+      bottom: 40%;
+      left: 5%;
+      width: 15vw;
+      height: 15vw;
+    }
+  }
+}
+
 .payment-option-wrapper {
   background-color: #fff;
   border-radius: 25px;
@@ -10,10 +45,11 @@
 
   &:hover {
     transform: scale(1.05);
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);
   }
 
   .payment-button {
-    background-color: #ffc107;
+    background-color: var(--primary);
     border: none;
     border-radius: 50%;
     width: 40px;
@@ -23,7 +59,7 @@
     justify-content: center;
 
     &:hover {
-      background-color: #e0a800;
+      background-color: var(--primary);
     }
   }
 }
