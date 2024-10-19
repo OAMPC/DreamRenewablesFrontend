@@ -42,6 +42,34 @@ const LandingPagePaymentSection: React.FC<Props> = ({ paymentSection }) => {
             </p>
           </Bs.Col>
         ))}
+        <Bs.Col xs={12} sm={6} md={4} lg={2} className="mb-4">
+          <div className="payment-option-wrapper p-3 pb-0 d-flex align-items-center justify-content-between">
+            <div>
+              <Bs.Form>
+                <Bs.InputGroup>
+                  <p className="fs-1 fw-bold">£</p>
+                  <Bs.Form.Control
+                    className="payment-option-form pt-0 mb-2"
+                    placeholder="Other"
+                    type="number"
+                  ></Bs.Form.Control>
+                </Bs.InputGroup>
+              </Bs.Form>
+            </div>
+            <Bs.Button variant="warning" className="payment-button mb-3">
+              <Bs.Image
+                src={paymentSection.paymentOptionIcon.data.attributes.url}
+                alt={
+                  paymentSection.paymentOptionIcon.data.attributes
+                    .alternativeText
+                }
+              />
+            </Bs.Button>
+          </div>
+          <p className="ms-2 mt-3 fs-5 payment-description">
+            Choose your own impact
+          </p>
+        </Bs.Col>
       </Bs.Row>
     </div>
   );
