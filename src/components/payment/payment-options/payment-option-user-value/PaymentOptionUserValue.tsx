@@ -1,5 +1,6 @@
 import React from 'react';
 import * as Bs from 'react-bootstrap';
+import '../paymentOptionUtil.scss';
 import './paymentOptionUserValue.scss';
 import { ImageStrapiContent } from '../../../../data/interfaces/util/ImageStrapiContent';
 

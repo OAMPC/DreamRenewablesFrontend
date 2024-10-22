@@ -2,7 +2,7 @@ import React from 'react';
 import * as Bs from 'react-bootstrap';
 import { PaymentOption } from '../../../../data/interfaces/util/PaymentOption';
 import { ImageStrapiContent } from '../../../../data/interfaces/util/ImageStrapiContent';
-import './paymentOptionStripeValue.scss';
+import '../paymentOptionUtil.scss';
 
 type Props = {
   paymentOption: PaymentOption;
