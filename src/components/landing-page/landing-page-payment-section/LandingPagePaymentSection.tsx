@@ -1,15 +1,14 @@
-import React, { useState } from 'react';
+import React from 'react';
 import * as Bs from 'react-bootstrap';
 import { PaymentSection } from '../../../data/interfaces/landing-page/LandingPageStrapiContent';
 import './landingPagePaymentSection.scss';
+import PaymentTypeToggle from '../../payment/payment-type-toggle/PaymentTypeToggle';
 
 type Props = {
   paymentSection: PaymentSection;
 };
 
 const LandingPagePaymentSection: React.FC<Props> = ({ paymentSection }) => {
-  const [paymentType, setPaymentType] = useState('monthly');
-
   return (
     <div className="payment-section-container mt-5">
       <Bs.Row>
@@ -28,20 +27,7 @@ const LandingPagePaymentSection: React.FC<Props> = ({ paymentSection }) => {
       </Bs.Row>
       <Bs.Row className="mb-5">
         <Bs.Col className="text-center">
-          <Bs.ButtonGroup className="payment-type-wrapper" size="lg">
-            <Bs.Button
-              onClick={() => setPaymentType('monthly')}
-              active={paymentType === 'monthly'}
-            >
-              Monthly
-            </Bs.Button>
-            <Bs.Button
-              onClick={() => setPaymentType('oneTime')}
-              active={paymentType === 'oneTime'}
-            >
-              One-Time
-            </Bs.Button>
-          </Bs.ButtonGroup>
+          <PaymentTypeToggle />
         </Bs.Col>
       </Bs.Row>
       <Bs.Row className="d-flex justify-content-center">

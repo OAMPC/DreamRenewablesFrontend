@@ -1,0 +1,18 @@
+.payment-type-toggle-wrapper {
+  .btn {
+    color: black;
+    background-color: white;
+    border-radius: 50px;
+    border: white solid 7px;
+
+    &:active {
+      color: black;
+      background-color: var(--primary);
+      border: white solid 7px;
+    }
+  }
+
+  .btn.active {
+    background-color: var(--primary);
+  }
+}
