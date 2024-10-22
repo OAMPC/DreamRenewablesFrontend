@@ -16,14 +16,13 @@ const PaymentOptionStripeValue: React.FC<Props> = ({
   return (
     <>
       <div className="payment-option-wrapper p-3 d-flex align-items-center justify-content-between">
-        <div>
-          <p
-            data-testid="payment-option-stripe-value"
-            className="fs-1 fw-bold mb-0"
-          >
-            £{paymentOption.amount}
-          </p>
-        </div>
+        <p
+          data-testid="payment-option-stripe-value"
+          className="fs-1 fw-bold mb-0"
+        >
+          £{paymentOption.amount}
+        </p>
+
         <Bs.Button
           data-testid="payment-option-stripe-button"
           className="payment-button"

@@ -10,7 +10,7 @@ type Props = {
 
 const PaymentOptionUserValue: React.FC<Props> = ({ paymentOptionIcon }) => {
   return (
-    <>
+    <div data-testid="payment-option-user-value">
       <div className="payment-option-wrapper p-3 pb-0 d-flex align-items-center justify-content-between">
         <div>
           <Bs.Form>
@@ -41,7 +41,7 @@ const PaymentOptionUserValue: React.FC<Props> = ({ paymentOptionIcon }) => {
       >
         Choose your own impact
       </p>
-    </>
+    </div>
   );
 };
 

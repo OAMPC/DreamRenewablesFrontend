@@ -16,7 +16,10 @@ const LandingPagePaymentSection: React.FC<Props> = ({ paymentSection }) => {
       <Bs.Row>
         <Bs.Col>
           <div className="payment-title-wrapper d-flex justify-content-center mb-0">
-            <h2 className="payment-title fs-1 fw-bold">
+            <h2
+              data-testid="payment-section-main-title"
+              className="payment-title fs-1 fw-bold"
+            >
               {paymentSection.title}
             </h2>
           </div>
@@ -24,7 +27,9 @@ const LandingPagePaymentSection: React.FC<Props> = ({ paymentSection }) => {
       </Bs.Row>
       <Bs.Row className="mb-4">
         <Bs.Col className="text-center">
-          <p className="fs-4">{paymentSection.subTitle}</p>
+          <p data-testid="payment-section-sub-title" className="fs-4">
+            {paymentSection.subTitle}
+          </p>
         </Bs.Col>
       </Bs.Row>
       <Bs.Row className="mb-5">

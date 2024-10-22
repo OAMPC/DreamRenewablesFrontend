@@ -5,7 +5,7 @@ import './paymentTypeToggle.scss';
 const PaymentTypeToggle: React.FC = () => {
   const [paymentType, setPaymentType] = useState('monthly');
   return (
-    <>
+    <div data-testid="payment-type-toggle">
       <Bs.ButtonGroup
         data-testid="payment-type-button-group"
         className="payment-type-toggle-wrapper"
@@ -26,7 +26,7 @@ const PaymentTypeToggle: React.FC = () => {
           One-Time
         </Bs.Button>
       </Bs.ButtonGroup>
-    </>
+    </div>
   );
 };
 
