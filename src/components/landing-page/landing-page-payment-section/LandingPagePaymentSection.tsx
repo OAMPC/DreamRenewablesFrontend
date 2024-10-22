@@ -3,8 +3,8 @@ import * as Bs from 'react-bootstrap';
 import { PaymentSection } from '../../../data/interfaces/landing-page/LandingPageStrapiContent';
 import './landingPagePaymentSection.scss';
 import PaymentTypeToggle from '../../payment/payment-type-toggle/PaymentTypeToggle';
-import PaymentOptionStripeValue from '../../payment/payment-option-stripe-value/PaymentOptionStripeValue';
-import PaymentOptionUserValue from '../../payment/payment-option-user-value/PaymentOptionUserValue';
+import PaymentOptionStripeValue from '../../payment/payment-options/payment-option-stripe-value/PaymentOptionStripeValue';
+import PaymentOptionUserValue from '../../payment/payment-options/payment-option-user-value/PaymentOptionUserValue';
 
 type Props = {
   paymentSection: PaymentSection;

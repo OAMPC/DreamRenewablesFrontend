@@ -1,7 +1,7 @@
 import React from 'react';
 import * as Bs from 'react-bootstrap';
 import './paymentOptionUserValue.scss';
-import { ImageStrapiContent } from '../../../data/interfaces/util/ImageStrapiContent';
+import { ImageStrapiContent } from '../../../../data/interfaces/util/ImageStrapiContent';
 
 type Props = {
   paymentOptionIcon: ImageStrapiContent;
@@ -30,9 +30,7 @@ const PaymentOptionUserValue: React.FC<Props> = ({ paymentOptionIcon }) => {
           />
         </Bs.Button>
       </div>
-      <p className="ms-2 mt-3 fs-5 payment-description">
-        Choose your own impact
-      </p>
+      <p className="ms-2 mt-3 fs-5">Choose your own impact</p>
     </>
   );
 };
