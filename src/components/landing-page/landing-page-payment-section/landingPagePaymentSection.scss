@@ -1,0 +1,38 @@
+.payment-section-container {
+  padding: 20px;
+}
+
+.payment-title-wrapper {
+  position: relative;
+  margin-bottom: 3vh;
+
+  &::before {
+    content: '';
+    position: absolute;
+    bottom: 40%;
+    left: 42.5%;
+    width: 4vw;
+    height: 3vw;
+    background-color: var(--primary);
+    z-index: -1;
+    border-radius: 10px;
+  }
+
+  .payment-title {
+    display: block;
+    padding: 10px;
+    width: fit-content;
+    border-radius: 10px;
+    z-index: 1;
+    background-color: var(--background-light);
+  }
+
+  @media (max-width: 767px) {
+    &::before {
+      bottom: 40%;
+      left: 5%;
+      width: 15vw;
+      height: 15vw;
+    }
+  }
+}

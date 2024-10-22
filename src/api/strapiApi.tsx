@@ -38,10 +38,9 @@ export async function getFooterStrapiData(): Promise<FooterStrapiContent> {
 export async function getLandingPageStrapiData(): Promise<LandingPageStrapiContent> {
   try {
     const response = await axios.get(
-      `${import.meta.env.VITE_BASE_URL}/api/landing-page?populate[0]=landingImageDesktop.image&populate[1]=landingImageMobile.image&populate[2]=videoSection&populate[3]=specialitySection.specialityCarousel.image&populate[4]=specialitySection.specialityCarousel.link&populate[5]=specialitySection.specialityCarousel.linkIcon`,
+      `${import.meta.env.VITE_BASE_URL}/api/landing-page?populate[0]=landingImageDesktop.image&populate[1]=landingImageMobile.image&populate[2]=videoSection&populate[3]=specialitySection.specialityCarousel.image&populate[4]=specialitySection.specialityCarousel.link&populate[5]=specialitySection.specialityCarousel.linkIcon&populate[6]=paymentSection.paymentOptions&populate[7]=paymentSection.paymentOptionIcon`,
       strapiConfig
     );
-    console.log(response.data);
 
     return response.data.data.attributes;
   } catch (error) {

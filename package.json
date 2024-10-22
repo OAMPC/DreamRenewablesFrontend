@@ -25,6 +25,8 @@
     ]
   },
   "dependencies": {
+    "@stripe/react-stripe-js": "^2.8.1",
+    "@stripe/stripe-js": "^4.8.0",
     "axios": "^1.7.3",
     "bootstrap": "^5.3.3",
     "react": "^18.3.1",

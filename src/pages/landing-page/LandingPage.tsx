@@ -8,6 +8,7 @@ import LandingPageImageCardMobile from '../../components/landing-page/landing-pa
 import LandingPageImageCardDesktop from '../../components/landing-page/landing-page-image-card/desktop/LandingPageImageCardDesktop';
 import LandingPageVideoSection from '../../components/landing-page/landing-page-video-section/LandingPageVideoSection';
 import LandingPageSpecialityCarousel from '../../components/landing-page/landing-page-speciality-section/landing-page-speciality-carousel/LandingPageSpecialityCarousel';
+import LandingPagePaymentSection from '../../components/landing-page/landing-page-payment-section/LandingPagePaymentSection';
 
 const LandingPage: React.FC = () => {
   const { navigationBarStrapiData, footerStrapiData, landingPageStrapiData } =
@@ -44,6 +45,13 @@ const LandingPage: React.FC = () => {
         <Bs.Col>
           <LandingPageSpecialityCarousel
             specialitySection={landingPageStrapiData.specialitySection}
+          />
+        </Bs.Col>
+      </Bs.Row>
+      <Bs.Row>
+        <Bs.Col>
+          <LandingPagePaymentSection
+            paymentSection={landingPageStrapiData.paymentSection}
           />
         </Bs.Col>
       </Bs.Row>
