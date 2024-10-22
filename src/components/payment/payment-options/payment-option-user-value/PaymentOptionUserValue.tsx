@@ -17,6 +17,7 @@ const PaymentOptionUserValue: React.FC<Props> = ({ paymentOptionIcon }) => {
             <Bs.InputGroup>
               <p className="fs-1 fw-bold">£</p>
               <Bs.Form.Control
+                data-testid="payment-option-user-input"
                 className="payment-option-form pt-0 mb-2"
                 placeholder="Other"
                 type="number"
@@ -24,14 +25,22 @@ const PaymentOptionUserValue: React.FC<Props> = ({ paymentOptionIcon }) => {
             </Bs.InputGroup>
           </Bs.Form>
         </div>
-        <Bs.Button variant="warning" className="payment-button mb-3">
+        <Bs.Button
+          data-testid="payment-option-user-input-button"
+          className="payment-button mb-3"
+        >
           <Bs.Image
             src={paymentOptionIcon.data.attributes.url}
             alt={paymentOptionIcon.data.attributes.alternativeText}
           />
         </Bs.Button>
       </div>
-      <p className="ms-2 mt-3 fs-5">Choose your own impact</p>
+      <p
+        data-testid="payment-option-user-input-description"
+        className="ms-2 mt-3 fs-5"
+      >
+        Choose your own impact
+      </p>
     </>
   );
 };
