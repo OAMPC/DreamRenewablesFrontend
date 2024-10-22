@@ -37,6 +37,25 @@
   }
 }
 
+.payment-type-wrapper {
+  .btn {
+    color: black;
+    background-color: white;
+    border-radius: 50px;
+    border: white solid 7px;
+
+    &:active {
+      color: black;
+      background-color: var(--primary);
+      border: white solid 7px;
+    }
+  }
+
+  .btn.active {
+    background-color: var(--primary);
+  }
+}
+
 .payment-option-wrapper {
   background-color: #fff;
   border-radius: 25px;
