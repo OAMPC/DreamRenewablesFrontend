@@ -1,0 +1,34 @@
+import { ImageStrapiContent } from '../util/ImageStrapiContent';
+
+export interface OurMissionVisionAndValuesPageStrapiContent {
+  pageTitle: string;
+  pageSubTitle: string;
+  ourMissionSection: OurMissionSection;
+  ourVisionSection: OurVisionSection;
+  ourValuesSection: OurValuesSection;
+}
+
+export interface OurMissionSection {
+  title: string;
+  titleIcon: ImageStrapiContent;
+  sectionImage: ImageStrapiContent;
+  sectionDescription: string;
+}
+
+export interface OurVisionSection {
+  title: string;
+  titleIcon: ImageStrapiContent;
+  sectionImage: ImageStrapiContent;
+  sectionDescription: string;
+}
+
+export interface OurValuesSection {
+  title: string;
+  titleIcon: ImageStrapiContent;
+  sectionImage: ImageStrapiContent;
+  ourValuesEntries: Array<ValueEntry>;
+}
+
+export interface ValueEntry {
+  valueEntry: string;
+}
