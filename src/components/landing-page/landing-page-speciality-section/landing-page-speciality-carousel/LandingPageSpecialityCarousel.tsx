@@ -16,7 +16,7 @@ const LandingPageSpecialityCarousel: React.FC<Props> = ({
   const responsive = {
     superLargeDesktop: {
       breakpoint: { max: 4000, min: 2175 },
-      items: 2,
+      items: 2.5,
       partialVisibilityGutter: 50,
     },
     desktop: {
