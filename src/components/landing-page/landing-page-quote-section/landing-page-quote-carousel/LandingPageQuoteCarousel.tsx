@@ -5,30 +5,37 @@ import 'react-multi-carousel/lib/styles.css';
 import './landingPageQuoteCarousel.scss';
 import { QuoteSection } from '../../../../data/interfaces/landing-page/LandingPageStrapiContent';
 import LandingPageQuoteCarouselCard from '../landing-page-quote-carousel-card/LandingPageQuoteCarouselCard';
+import useWindowDimensions from '../../../../hooks/windowDimensions';
 
 type Props = {
   quoteSection: QuoteSection;
 };
 
 const LandingPageQuoteCarousel: React.FC<Props> = ({ quoteSection }) => {
+  const { width } = useWindowDimensions();
+  const isSmallScreenSize: boolean = width <= 1500 ? true : false;
+  console.log(isSmallScreenSize);
+
   const responsive = {
     superLargeDesktop: {
       breakpoint: { max: 4000, min: 2175 },
-      items: 2,
-      partialVisibilityGutter: 50,
+      items: 3,
+      partialVisibilityGutter: 40,
     },
     desktop: {
       breakpoint: { max: 2175, min: 1500 },
-      items: 1.5,
+      items: 2,
       partialVisibilityGutter: 50,
     },
     tablet: {
       breakpoint: { max: 1500, min: 464 },
-      items: 1.25,
+      items: 1,
+      partialVisibilityGutter: 25,
     },
     mobile: {
       breakpoint: { max: 464, min: 0 },
-      items: 1.175,
+      items: 1,
+      partialVisibilityGutter: 25,
     },
   };
 
@@ -41,15 +48,21 @@ const LandingPageQuoteCarousel: React.FC<Props> = ({ quoteSection }) => {
       </Bs.Row>
       <div>
         <Carousel
-          responsive={responsive}
           arrows={false}
-          showDots
-          partialVisible
+          className={isSmallScreenSize ? '' : 'landing-page-quote-carousel '}
+          centerMode={!isSmallScreenSize}
+          infinite
           draggable
           dotListClass="custom-dot-list-style"
+          responsive={responsive}
+          showDots
         >
           {quoteSection.quoteCarousel.map((card, index) => (
-            <LandingPageQuoteCarouselCard key={index} card={card} />
+            <LandingPageQuoteCarouselCard
+              key={index}
+              card={card}
+              quoteIcon={quoteSection.quoteIcon}
+            />
           ))}
         </Carousel>
       </div>

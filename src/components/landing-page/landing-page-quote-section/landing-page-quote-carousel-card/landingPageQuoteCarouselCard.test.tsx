@@ -13,6 +13,7 @@ describe('LandingPageQuoteCarouselCard', () => {
       <MemoryRouter>
         <LandingPageQuoteCarouselCard
           card={mockData.quoteSection.quoteCarousel[0]}
+          quoteIcon={mockData.quoteSection.quoteIcon}
         />
       </MemoryRouter>
     );
@@ -23,10 +24,34 @@ describe('LandingPageQuoteCarouselCard', () => {
   });
 
   describe('render elements', async () => {
+    test('should render quote icon after data is loaded', async () => {
+      await waitFor(() => {
+        expect(
+          screen.getByTestId('quote-carousel-card-icon')
+        ).toBeInTheDocument();
+      });
+    });
+
     test('should render quote text after data is loaded', async () => {
       await waitFor(() => {
         expect(
           screen.getByTestId('quote-carousel-card-quote-text')
+        ).toBeInTheDocument();
+      });
+    });
+
+    test('should render quote author after data is loaded', async () => {
+      await waitFor(() => {
+        expect(
+          screen.getByTestId('quote-carousel-card-quote-author')
+        ).toBeInTheDocument();
+      });
+    });
+
+    test('should render quote role after data is loaded', async () => {
+      await waitFor(() => {
+        expect(
+          screen.getByTestId('quote-carousel-card-quote-author-role')
         ).toBeInTheDocument();
       });
     });
