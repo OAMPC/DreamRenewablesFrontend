@@ -35,7 +35,7 @@ const LandingPageSpecialityCarousel: React.FC<Props> = ({
   };
 
   return (
-    <div className="mb-5">
+    <div data-testid="landing-speciality-section" className="mb-5">
       <Bs.Row>
         <Bs.Col className="text-center">
           <h2 className="fs-1 fw-bold mb-5">{specialitySection.title}</h2>

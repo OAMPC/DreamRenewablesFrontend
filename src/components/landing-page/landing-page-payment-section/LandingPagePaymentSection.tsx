@@ -12,7 +12,10 @@ type Props = {
 
 const LandingPagePaymentSection: React.FC<Props> = ({ paymentSection }) => {
   return (
-    <div className="payment-section-container mt-5">
+    <div
+      data-testid="landing-payment-section"
+      className="payment-section-container mt-5"
+    >
       <Bs.Row>
         <Bs.Col>
           <div className="payment-title-wrapper d-flex justify-content-center mb-0">
