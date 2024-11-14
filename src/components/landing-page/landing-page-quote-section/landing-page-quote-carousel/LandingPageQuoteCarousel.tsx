@@ -40,10 +40,10 @@ const LandingPageQuoteCarousel: React.FC<Props> = ({ quoteSection }) => {
   };
 
   return (
-    <div data-testid="landing-quote-section" className="mb-5">
+    <div data-testid="landing-quote-section" className="landing-quote-section">
       <Bs.Row>
         <Bs.Col className="text-center">
-          <h2 className="fs-1 fw-bold mb-5">{quoteSection.title}</h2>
+          <h2 className="fs-1 fw-bold mb-3">{quoteSection.title}</h2>
         </Bs.Col>
       </Bs.Row>
       <div>
