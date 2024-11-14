@@ -5,13 +5,25 @@
   &::before {
     content: '';
     position: absolute;
-    top: 35%;
-    right: 70%;
-    width: 6.5vw;
+    width: 6.75vw;
     height: 6vw;
     background-color: var(--primary);
     z-index: -1;
     border-radius: 10px;
+    top: 30%;
+    right: 40%;
+
+    @media (max-width: 2175px) {
+      top: 40%;
+      right: 70%;
+      width: 6.5vw;
+    }
+
+    @media (max-width: 1500px) {
+      top: 65%;
+      right: 75%;
+      width: 6.75vw;
+    }
   }
 
   .specialty-description {

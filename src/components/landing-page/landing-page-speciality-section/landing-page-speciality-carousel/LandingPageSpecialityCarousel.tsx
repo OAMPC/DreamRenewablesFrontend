@@ -16,7 +16,7 @@ const LandingPageSpecialityCarousel: React.FC<Props> = ({
   const responsive = {
     superLargeDesktop: {
       breakpoint: { max: 4000, min: 2175 },
-      items: 2,
+      items: 2.5,
       partialVisibilityGutter: 50,
     },
     desktop: {
@@ -35,13 +35,16 @@ const LandingPageSpecialityCarousel: React.FC<Props> = ({
   };
 
   return (
-    <div className="mb-5">
+    <div
+      data-testid="landing-speciality-section"
+      className="landing-speciality-section"
+    >
       <Bs.Row>
         <Bs.Col className="text-center">
           <h2 className="fs-1 fw-bold mb-5">{specialitySection.title}</h2>
         </Bs.Col>
       </Bs.Row>
-      <div className="speciality-carousel-wrapper">
+      <div>
         <Carousel
           responsive={responsive}
           arrows={false}

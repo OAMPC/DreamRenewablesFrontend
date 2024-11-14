@@ -17,6 +17,7 @@ describe('Footer', () => {
     cy.wait('@getFooterStrapiData');
     cy.wait('@getLandingPageStrapiData');
   });
+
   it('should load footer and verify all elements are present and functioning', () => {
     cy.get('[data-testid="footer"]').should('be.visible');
 

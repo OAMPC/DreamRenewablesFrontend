@@ -7,6 +7,7 @@ export interface LandingPageStrapiContent {
   landingImageMobile: LandingImage;
   videoSection: VideoSection;
   specialitySection: SpecialitySection;
+  quoteSection: QuoteSection;
   paymentSection: PaymentSection;
 }
 export interface LandingImage {
@@ -19,7 +20,6 @@ export interface VideoSection {
   subTitle: string;
   videoLink: string;
 }
-
 export interface SpecialitySection {
   title: string;
   specialityCarousel: Array<SpecialtyCarouselItem>;
@@ -30,6 +30,18 @@ export interface SpecialtyCarouselItem {
   description: string;
   link: StandardLink;
   linkIcon: ImageStrapiContent;
+}
+
+export interface QuoteSection {
+  title: string;
+  quoteIcon: ImageStrapiContent;
+  quoteCarousel: Array<QuoteCarouselItem>;
+}
+
+export interface QuoteCarouselItem {
+  quoteText: string;
+  quoteAuthor: string;
+  quoteAuthorRole: string;
 }
 
 export interface PaymentSection {

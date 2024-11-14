@@ -60,21 +60,37 @@ describe('LandingPage', () => {
       });
     });
 
-    // test('should render mobile landing image card when screen width is small', async () => {
-    //   await setup(500);
-    //   await waitFor(() => {
-    //     expect(
-    //       screen.getByTestId('landing-image-card-mobile')
-    //     ).toBeInTheDocument();
-    //   });
-    // });
+    test('should render video section', async () => {
+      await setup();
+      await waitFor(() => {
+        expect(screen.getByTestId('landing-video-section')).toBeInTheDocument();
+      });
+    });
 
-    // test('should render video section', async () => {
-    //   await setup();
-    //   await waitFor(() => {
-    //     expect(screen.getByTestId('landing-video-section')).toBeInTheDocument();
-    //   });
-    // });
+    test('should render speciality section', async () => {
+      await setup();
+      await waitFor(() => {
+        expect(
+          screen.getByTestId('landing-speciality-section')
+        ).toBeInTheDocument();
+      });
+    });
+
+    test('should render quote section', async () => {
+      await setup();
+      await waitFor(() => {
+        expect(screen.getByTestId('landing-quote-section')).toBeInTheDocument();
+      });
+    });
+
+    test('should render payment section', async () => {
+      await setup();
+      await waitFor(() => {
+        expect(
+          screen.getByTestId('landing-payment-section')
+        ).toBeInTheDocument();
+      });
+    });
   });
 
   afterEach(() => {

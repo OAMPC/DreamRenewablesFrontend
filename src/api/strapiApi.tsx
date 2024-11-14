@@ -38,10 +38,9 @@ export async function getFooterStrapiData(): Promise<FooterStrapiContent> {
 export async function getLandingPageStrapiData(): Promise<LandingPageStrapiContent> {
   try {
     const response = await axios.get(
-      `${import.meta.env.VITE_BASE_URL}/api/landing-page?populate[0]=landingImageDesktop.image&populate[1]=landingImageMobile.image&populate[2]=videoSection&populate[3]=specialitySection.specialityCarousel.image&populate[4]=specialitySection.specialityCarousel.link&populate[5]=specialitySection.specialityCarousel.linkIcon&populate[6]=paymentSection.paymentOptions&populate[7]=paymentSection.paymentOptionIcon`,
+      `${import.meta.env.VITE_BASE_URL}/api/landing-page?populate[0]=landingImageDesktop.image&populate[1]=landingImageMobile.image&populate[2]=videoSection&populate[3]=specialitySection.specialityCarousel.image&populate[4]=specialitySection.specialityCarousel.link&populate[5]=specialitySection.specialityCarousel.linkIcon&populate[6]=paymentSection.paymentOptions&populate[7]=paymentSection.paymentOptionIcon&populate[8]=quoteSection.quoteCarousel&populate[9]=quoteSection.quoteIcon`,
       strapiConfig
     );
-
     return response.data.data.attributes;
   } catch (error) {
     console.error('Error fetching Strapi data:', error);

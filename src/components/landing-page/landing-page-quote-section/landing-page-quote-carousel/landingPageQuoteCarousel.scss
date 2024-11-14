@@ -1,0 +1,30 @@
+.custom-dot-list-style button {
+  border: none;
+  background: var(--primary);
+  opacity: 50%;
+}
+.react-multi-carousel-dot.react-multi-carousel-dot--active button {
+  background: var(--primary) !important;
+  opacity: 100%;
+}
+
+.landing-page-quote-carousel {
+  .react-multi-carousel-track {
+    .react-multi-carousel-item {
+      margin-top: 0;
+      transition: margin-top 0.5s ease;
+
+      &--active {
+        margin-top: 30px;
+      }
+
+      &:not(&--active) {
+        opacity: 50%;
+      }
+    }
+  }
+}
+
+.landing-quote-section {
+  margin-bottom: 10vh;
+}
