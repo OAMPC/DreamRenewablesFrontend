@@ -30,7 +30,7 @@ describe('LandingPageSpecialityCarouselCard', () => {
   });
 
   describe('render elements', async () => {
-    test('should render the correct number of quote carousel cards after data is loaded', async () => {
+    test('should render the correct number of speciality carousel cards after data is loaded', async () => {
       await waitFor(() => {
         expect(
           screen.getAllByTestId('landing-page-speciality-carousel-card').length
