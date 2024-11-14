@@ -11,7 +11,7 @@ const LandingPageSpecialityCarouselCard: React.FC<Props> = ({ card }) => {
   return (
     <div
       className="mb-5 me-5"
-      data-testId="landing-page-speciality-carousel-card"
+      data-testid="landing-page-speciality-carousel-card"
     >
       <Bs.Row className="align-items-end">
         <Bs.Col lg="5" xl={{ order: 'first' }} xs={{ order: 'last' }}>

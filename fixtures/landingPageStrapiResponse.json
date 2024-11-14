@@ -188,6 +188,54 @@
           }
         ]
       },
+      "quoteSection": {
+        "id": 1,
+        "title": "Trainee Stories",
+        "quoteIcon": {
+          "data": {
+            "id": 14,
+            "attributes": {
+              "name": "quote-speech-marks.svg",
+              "alternativeText": "speach marks",
+              "caption": "speach marks",
+              "width": 63,
+              "height": 43,
+              "formats": null,
+              "hash": "quote_speech_marks_1bab19939c",
+              "ext": ".svg",
+              "mime": "image/svg+xml",
+              "size": 42.25,
+              "url": "https://strapi-dr.amazonaws.com/quote_speech_marks_1bab19etObject",
+              "previewUrl": null,
+              "provider": "aws-s3",
+              "provider_metadata": null,
+              "createdAt": "2024-11-13T18:56:55.344Z",
+              "updatedAt": "2024-11-13T18:56:55.344Z",
+              "isUrlSigned": true
+            }
+          }
+        },
+        "quoteCarousel": [
+          {
+            "id": 1,
+            "quoteText": "They taught us how to manage our energy and perform energy audits, afterwards, we did practicals, and trust me, now I can install a solar system. Also, I urge my lady colleagues out there to engage with courses like this, this is not only for men",
+            "quoteAuthor": "Vidaus Nuno",
+            "quoteAuthorRole": " Dream Renewables trainee 2021"
+          },
+          {
+            "id": 2,
+            "quoteText": "Dream Renewables has really helped build my confidence and helped me understand people one way or another, so I would always like to work with them no matter what, I feel it’s a great opportunity for me to develop myself in all areas.",
+            "quoteAuthor": "Francesca",
+            "quoteAuthorRole": "Dream Renewables volunteer"
+          },
+          {
+            "id": 3,
+            "quoteText": "They taught us how to manage our energy and perform energy audits, afterwards, we did practicals, and trust me, now I can install a solar system. Also, I urge my lady colleagues out there to engage with courses like this, this is not only for men",
+            "quoteAuthor": "Oliver Marsden",
+            "quoteAuthorRole": "Dream Renewables trainee 2024"
+          }
+        ]
+      },
       "paymentSection": {
         "id": 1,
         "title": "Make an Impact",
