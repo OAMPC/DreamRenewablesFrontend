@@ -14,8 +14,6 @@ type Props = {
 const LandingPageQuoteCarousel: React.FC<Props> = ({ quoteSection }) => {
   const { width } = useWindowDimensions();
   const isSmallScreenSize: boolean = width <= 1500 ? true : false;
-  console.log(isSmallScreenSize);
-
   const responsive = {
     superLargeDesktop: {
       breakpoint: { max: 4000, min: 2175 },
