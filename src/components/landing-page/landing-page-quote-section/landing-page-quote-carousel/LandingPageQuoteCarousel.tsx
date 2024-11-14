@@ -2,17 +2,15 @@ import React from 'react';
 import * as Bs from 'react-bootstrap';
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
-import { SpecialitySection } from '../../../../data/interfaces/landing-page/LandingPageStrapiContent';
-import LandingPageSpecialityCarouselCard from '../landing-page-speciality-carousel-card/LandingPageSpecialityCarouselCard';
-import './landingPageSpecialityCarousel.scss';
+import './landingPageQuoteCarousel.scss';
+import { QuoteSection } from '../../../../data/interfaces/landing-page/LandingPageStrapiContent';
+import LandingPageQuoteCarouselCard from '../landing-page-quote-carousel-card/LandingPageQuoteCarouselCard';
 
 type Props = {
-  specialitySection: SpecialitySection;
+  quoteSection: QuoteSection;
 };
 
-const LandingPageSpecialityCarousel: React.FC<Props> = ({
-  specialitySection,
-}) => {
+const LandingPageQuoteCarousel: React.FC<Props> = ({ quoteSection }) => {
   const responsive = {
     superLargeDesktop: {
       breakpoint: { max: 4000, min: 2175 },
@@ -38,7 +36,7 @@ const LandingPageSpecialityCarousel: React.FC<Props> = ({
     <div className="mb-5">
       <Bs.Row>
         <Bs.Col className="text-center">
-          <h2 className="fs-1 fw-bold mb-5">{specialitySection.title}</h2>
+          <h2 className="fs-1 fw-bold mb-5">{quoteSection.title}</h2>
         </Bs.Col>
       </Bs.Row>
       <div>
@@ -50,8 +48,8 @@ const LandingPageSpecialityCarousel: React.FC<Props> = ({
           draggable
           dotListClass="custom-dot-list-style"
         >
-          {specialitySection.specialityCarousel.map((card, index) => (
-            <LandingPageSpecialityCarouselCard key={index} card={card} />
+          {quoteSection.quoteCarousel.map((card, index) => (
+            <LandingPageQuoteCarouselCard key={index} card={card} />
           ))}
         </Carousel>
       </div>
@@ -59,4 +57,4 @@ const LandingPageSpecialityCarousel: React.FC<Props> = ({
   );
 };
 
-export default LandingPageSpecialityCarousel;
+export default LandingPageQuoteCarousel;

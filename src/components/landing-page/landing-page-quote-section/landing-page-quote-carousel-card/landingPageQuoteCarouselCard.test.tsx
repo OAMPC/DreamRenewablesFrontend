@@ -1,25 +1,18 @@
 import { render, screen, waitFor } from '@testing-library/react';
-import React, { ReactNode } from 'react';
+import React from 'react';
 import { MemoryRouter } from 'react-router-dom';
 import { afterEach, beforeEach, describe, expect, test, vi } from 'vitest';
 import LandingPageFactory from '../../../../test/factories/strapi/LandingPageFactory';
-import LandingPageSpecialityCarousel from './LandingPageSpecialityCarousel';
+import LandingPageQuoteCarouselCard from './LandingPageQuoteCarouselCard';
 
-vi.mock('react-multi-carousel', () => {
-  return {
-    __esModule: true,
-    default: ({ children }: { children: ReactNode }) => <>{children}</>, // Renders children directly without carousel
-  };
-});
-
-describe('LandingPageSpecialityCarouselCard', () => {
+describe('LandingPageQuoteCarouselCard', () => {
   const setup = async () => {
     const landingPageFactory = new LandingPageFactory();
     const mockData = landingPageFactory.getMockData();
     render(
       <MemoryRouter>
-        <LandingPageSpecialityCarousel
-          specialitySection={mockData.specialitySection}
+        <LandingPageQuoteCarouselCard
+          card={mockData.quoteSection.quoteCarousel[0]}
         />
       </MemoryRouter>
     );
@@ -30,11 +23,11 @@ describe('LandingPageSpecialityCarouselCard', () => {
   });
 
   describe('render elements', async () => {
-    test('should render the correct number of quote carousel cards after data is loaded', async () => {
+    test('should render quote text after data is loaded', async () => {
       await waitFor(() => {
         expect(
-          screen.getAllByTestId('landing-page-speciality-carousel-card').length
-        ).toBe(2);
+          screen.getByTestId('quote-carousel-card-quote-text')
+        ).toBeInTheDocument();
       });
     });
   });
