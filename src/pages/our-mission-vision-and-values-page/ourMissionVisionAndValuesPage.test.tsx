@@ -51,6 +51,13 @@ describe('OurMissionVisionAndValuesPage', () => {
         expect(screen.getByTestId('our-mission-section')).toBeInTheDocument();
       });
     });
+
+    test('should render the our mission and values page vision section when data is loaded', async () => {
+      await setup();
+      await waitFor(() => {
+        expect(screen.getByTestId('our-vision-section')).toBeInTheDocument();
+      });
+    });
   });
 
   afterEach(() => {

@@ -23,6 +23,7 @@ describe('Our Mission Vision and Values Page', () => {
     cy.get('[data-testid="navbar"]').should('be.visible');
 
     cy.get('[data-testid="our-mission-section"]').should('be.visible');
+    cy.get('[data-testid="our-vision-section"]').should('be.visible');
 
     cy.get('[data-testid="footer"]').should('be.visible');
   });

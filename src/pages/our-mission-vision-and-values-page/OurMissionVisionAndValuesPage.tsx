@@ -4,6 +4,7 @@ import { useLoaderData } from 'react-router-dom';
 import { LoaderData } from '../../data/types/LoaderData';
 import PageWrapper from '../../components/page-wrapper/PageWrapper';
 import OurMissionVisionAndValuesPageMissionSection from '../../components/our-mission-vision-and-values-page/our-mission-vision-and-values-page-mission-section/OurMissionVisionAndValuesPageMissionSection';
+import OurMissionVisionAndValuesPageVisionSection from '../../components/our-mission-vision-and-values-page/our-mission-vision-and-values-page-vision-section/OurMissionVisionAndValuesPageVisionSection';
 
 const OurMissionVisionAndValuesPage: React.FC = () => {
   const {
@@ -36,6 +37,15 @@ const OurMissionVisionAndValuesPage: React.FC = () => {
           <OurMissionVisionAndValuesPageMissionSection
             ourMissionSection={
               ourMissionVisionAndValuesStrapiData.ourMissionSection
+            }
+          />
+        </Bs.Col>
+      </Bs.Row>
+      <Bs.Row>
+        <Bs.Col>
+          <OurMissionVisionAndValuesPageVisionSection
+            ourVisionSection={
+              ourMissionVisionAndValuesStrapiData.ourVisionSection
             }
           />
         </Bs.Col>
