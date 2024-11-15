@@ -17,7 +17,7 @@ const OurMissionVisionAndValuesPage: React.FC = () => {
       navigationBarStrapiData={navigationBarStrapiData}
       footerStrapiData={footerStrapiData}
     >
-      <Bs.Row className="mb-2">
+      <Bs.Row className="mt-5 mb-2">
         <Bs.Col className="text-center">
           <h1 className="fs-1 fw-bold">
             {ourMissionVisionAndValuesStrapiData.pageTitle}
