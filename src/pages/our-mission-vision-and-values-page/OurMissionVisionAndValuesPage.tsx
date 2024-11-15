@@ -5,6 +5,7 @@ import { LoaderData } from '../../data/types/LoaderData';
 import PageWrapper from '../../components/page-wrapper/PageWrapper';
 import OurMissionVisionAndValuesPageMissionSection from '../../components/our-mission-vision-and-values-page/our-mission-vision-and-values-page-mission-section/OurMissionVisionAndValuesPageMissionSection';
 import OurMissionVisionAndValuesPageVisionSection from '../../components/our-mission-vision-and-values-page/our-mission-vision-and-values-page-vision-section/OurMissionVisionAndValuesPageVisionSection';
+import OurMissionVisionAndValuesPageValuesSection from '../../components/our-mission-vision-and-values-page/our-mission-vision-and-values-page-values-section/OurMissionVisionAndValuesPageValuesSection';
 
 const OurMissionVisionAndValuesPage: React.FC = () => {
   const {
@@ -46,6 +47,15 @@ const OurMissionVisionAndValuesPage: React.FC = () => {
           <OurMissionVisionAndValuesPageVisionSection
             ourVisionSection={
               ourMissionVisionAndValuesStrapiData.ourVisionSection
+            }
+          />
+        </Bs.Col>
+      </Bs.Row>
+      <Bs.Row>
+        <Bs.Col>
+          <OurMissionVisionAndValuesPageValuesSection
+            ourValuesSection={
+              ourMissionVisionAndValuesStrapiData.ourValuesSection
             }
           />
         </Bs.Col>
