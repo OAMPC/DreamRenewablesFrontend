@@ -12,10 +12,10 @@ const OurMissionVisionAndValuesPageValuesSection: React.FC<Props> = ({
 }) => {
   return (
     <div className="our-values-section" data-testid="our-values-section">
-      <Bs.Row className="mt-4 mt-lg-5">
-        <Bs.Col lg={{ span: 3, offset: 3 }} className="mt-md-5">
+      <Bs.Row className="mt-5 mt-lg-5">
+        <Bs.Col xs="12" xl={{ span: 3, offset: 3 }} className="mt-md-5">
           <Bs.Row className="mb-3">
-            <Bs.Col className="d-flex justify-content-center justify-content-lg-start">
+            <Bs.Col className="d-flex justify-content-center justify-content-xl-start">
               <h2
                 data-testid="our-values-section-title"
                 className="fs-1 fw-bold"
@@ -35,22 +35,30 @@ const OurMissionVisionAndValuesPageValuesSection: React.FC<Props> = ({
           </Bs.Row>
           <Bs.Row>
             <Bs.Col>
-              {ourValuesSection.ourValuesEntries.map((entry) => (
-                <p
-                  className="fs-3 text-center text-lg-start"
-                  data-testid="our-values-section-description"
-                >
-                  {entry.valueEntry}
-                </p>
+              {ourValuesSection.ourValuesEntries.map((entry, index) => (
+                <Bs.Row className="d-flex justify-content-center justify-content-xl-start">
+                  <Bs.Col className="d-none d-xl-block" xs="1" lg="2">
+                    <div className="mt-lg-3 d-flex justify-content-center our-value-index-wrapper">
+                      <p className="pt-lg-2 fs-1 fw-bold">{index + 1}</p>
+                    </div>
+                  </Bs.Col>
+                  <Bs.Col xs="11" lg="10">
+                    <p
+                      className="fs-3 text-center text-lg-start"
+                      data-testid="our-values-section-description"
+                    >
+                      {entry.valueEntry}
+                    </p>
+                  </Bs.Col>
+                </Bs.Row>
               ))}
             </Bs.Col>
           </Bs.Row>
         </Bs.Col>
-        <Bs.Col lg="4" className="mt-3 d-flex justify-content-center">
+        <Bs.Col xs="12" xl="4" className="mt-3 d-flex justify-content-center">
           <Bs.Image
             data-testid="our-values-section-image"
             className="our-values-section-image"
-            fluid
             src={ourValuesSection.sectionImage.data.attributes.url}
             alt={ourValuesSection.sectionImage.data.attributes.alternativeText}
           />

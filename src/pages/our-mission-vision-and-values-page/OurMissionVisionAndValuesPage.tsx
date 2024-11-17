@@ -26,7 +26,7 @@ const OurMissionVisionAndValuesPage: React.FC = () => {
           </h1>
         </Bs.Col>
       </Bs.Row>
-      <Bs.Row>
+      <Bs.Row className="mb-3">
         <Bs.Col className="text-center">
           <p className="fs-4">
             {ourMissionVisionAndValuesStrapiData.pageSubTitle}

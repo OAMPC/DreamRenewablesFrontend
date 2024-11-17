@@ -1,7 +1,41 @@
 .our-values-section-image {
   border-radius: 30px;
+  max-width: 511px;
+  height: auto;
+
+  @media (max-width: 2175px) {
+    max-width: 100%;
+  }
 }
 
 .our-values-section {
-  margin-bottom: 10vh;
+  margin-bottom: 7vh;
+}
+
+.our-value-index-wrapper {
+  position: relative;
+  margin-bottom: 3vh;
+  background-color: var(--background-light);
+  border-radius: 25px;
+
+  &::before {
+    content: '';
+    position: absolute;
+    width: 3.5vw;
+    height: 3.25vw;
+    background-color: var(--primary);
+    z-index: -1;
+    border-radius: 25px;
+    top: 10%;
+    right: 0%;
+
+    @media (max-width: 2175px) {
+      height: 4vw;
+    }
+
+    @media (max-width: 450px) {
+      width: 0vw;
+      height: 0vw;
+    }
+  }
 }

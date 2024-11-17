@@ -11,7 +11,7 @@ const OurMissionVisionAndValuesPageMissionSection: React.FC<Props> = ({
   ourMissionSection,
 }) => {
   return (
-    <div data-testid="our-mission-section">
+    <div className="our-mission-section" data-testid="our-mission-section">
       <Bs.Row className="mt-4 mt-lg-5">
         <Bs.Col lg={{ span: 3, offset: 3 }} className="mt-md-5">
           <Bs.Row className="mb-3">
