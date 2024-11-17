@@ -8,7 +8,7 @@ describe('Our Mission Vision and Values Page', () => {
       fixture: 'footerStrapiResponse.json',
     }).as('getFooterStrapiData');
 
-    cy.intercept('GET', '**/api/our-mission-vision-and-values-page*', {
+    cy.intercept('GET', '**/api/mission-vision-and-values-page*', {
       fixture: 'ourMissionVisionAndValuesPageResponse.json',
     }).as('getOurMissionVisionAndValuesPageStrapiData');
 

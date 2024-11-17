@@ -52,7 +52,7 @@ export async function getLandingPageStrapiData(): Promise<LandingPageStrapiConte
 export async function getOurMissionVisionAndValuesPageStrapiData(): Promise<OurMissionVisionAndValuesPageStrapiContent> {
   try {
     const response = await axios.get(
-      `${import.meta.env.VITE_BASE_URL}/api/our-mission-vision-and-values-page?populate[0]=ourMissionSection.titleIcon&populate[1]=ourMissionSection.sectionImage&populate[2]=ourVisionSection.titleIcon&populate[3]=ourVisionSection.sectionImage&populate[4]=ourValuesSection.titleIcon&populate[5]=ourValuesSection.sectionImage&populate[6]=ourValuesSection.ourValuesEntries `,
+      `${import.meta.env.VITE_BASE_URL}/api/mission-vision-and-values-page?populate[0]=ourMissionSection.titleIcon&populate[1]=ourMissionSection.sectionImage&populate[2]=ourVisionSection.titleIcon&populate[3]=ourVisionSection.sectionImage&populate[4]=ourValuesSection.titleIcon&populate[5]=ourValuesSection.sectionImage&populate[6]=ourValuesSection.ourValuesEntries `,
       strapiConfig
     );
     return response.data.data.attributes;
