@@ -1,0 +1,186 @@
+{
+  "data": {
+    "id": 1,
+    "attributes": {
+      "pageTitle": "Our Mission, Vision and Values",
+      "pageSubTitle": "Explore what drives us and what we stand to represent.",
+      "ourMissionSection": {
+        "id": 1,
+        "title": "Our Mission",
+        "sectionDescription": "We work with Ghanian locals to ensure the have energy security that is not only sustainable but also maintainable.",
+        "sectionImage": {
+          "data": {
+            "id": 16,
+            "attributes": {
+              "name": "our-mission-section-image.svg",
+              "alternativeText": "alt text test",
+              "caption": "alt text test",
+              "width": 511,
+              "height": 348,
+              "formats": null,
+              "hash": "our_mission_section_image_81040d492b",
+              "ext": ".svg",
+              "mime": "image/svg+xml",
+              "size": 2214.65,
+              "url": "https://strapi-dr-s3-media-bucket",
+              "previewUrl": null,
+              "provider": "aws-s3",
+              "provider_metadata": null,
+              "createdAt": "2024-11-14T21:10:19.990Z",
+              "updatedAt": "2024-11-14T21:10:19.990Z",
+              "isUrlSigned": true
+            }
+          }
+        },
+        "titleIcon": {
+          "data": {
+            "id": 15,
+            "attributes": {
+              "name": "our-mission-title-icon.svg",
+              "alternativeText": "alt text test",
+              "caption": "alt text test",
+              "width": 64,
+              "height": 65,
+              "formats": null,
+              "hash": "our_mission_title_icon_a8921c1a1c",
+              "ext": ".svg",
+              "mime": "image/svg+xml",
+              "size": 0.28,
+              "url": "https://strapi-dr-s3-media-bucket.s3",
+              "previewUrl": null,
+              "provider": "aws-s3",
+              "provider_metadata": null,
+              "createdAt": "2024-11-14T21:08:58.760Z",
+              "updatedAt": "2024-11-14T21:08:58.760Z",
+              "isUrlSigned": true
+            }
+          }
+        }
+      },
+      "ourVisionSection": {
+        "id": 1,
+        "title": "Our Vision",
+        "sectionDescription": "We work with Ghanian locals to ensure the have energy security that is not only sustainable but also maintainable.",
+        "sectionImage": {
+          "data": {
+            "id": 18,
+            "attributes": {
+              "name": "our-vision-section-image.svg",
+              "alternativeText": "alt text test",
+              "caption": "alt text test",
+              "width": 511,
+              "height": 348,
+              "formats": null,
+              "hash": "our_vision_section_image_d84bf47826",
+              "ext": ".svg",
+              "mime": "image/svg+xml",
+              "size": 1138.3,
+              "url": "https://strapi-dr-s3-media-bucket.s3",
+              "previewUrl": null,
+              "provider": "aws-s3",
+              "provider_metadata": null,
+              "createdAt": "2024-11-14T21:12:07.964Z",
+              "updatedAt": "2024-11-14T21:12:07.964Z",
+              "isUrlSigned": true
+            }
+          }
+        },
+        "titleIcon": {
+          "data": {
+            "id": 17,
+            "attributes": {
+              "name": "our-vision-title-icon.svg",
+              "alternativeText": "alt text test",
+              "caption": "alt text test",
+              "width": 64,
+              "height": 56,
+              "formats": null,
+              "hash": "our_vision_title_icon_802652a82c",
+              "ext": ".svg",
+              "mime": "image/svg+xml",
+              "size": 0.44,
+              "url": "https://strapi-dr-s3-media-bucket.s3",
+              "previewUrl": null,
+              "provider": "aws-s3",
+              "provider_metadata": null,
+              "createdAt": "2024-11-14T21:11:20.527Z",
+              "updatedAt": "2024-11-14T21:11:20.527Z",
+              "isUrlSigned": true
+            }
+          }
+        }
+      },
+      "ourValuesSection": {
+        "id": 1,
+        "title": "Our Values",
+        "ourValuesEntries": [
+          {
+            "id": 1,
+            "valueEntry": "Expertise and insightful evidence-based solutions are at the heart of everything we do."
+          },
+          {
+            "id": 2,
+            "valueEntry": "Our teams work closely with communities, engaging them in levels of decision-making."
+          },
+          {
+            "id": 3,
+            "valueEntry": "We deliver long-lasting change for farmers, their families and their environments."
+          },
+          {
+            "id": 4,
+            "valueEntry": "We model innovative approaches and are not afraid to challenge strategies that are failing."
+          }
+        ],
+        "sectionImage": {
+          "data": {
+            "id": 20,
+            "attributes": {
+              "name": "our-values-section-image.svg",
+              "alternativeText": "alt text test",
+              "caption": "alt text test",
+              "width": 511,
+              "height": 440,
+              "formats": null,
+              "hash": "our_values_section_image_e5ef7a270b",
+              "ext": ".svg",
+              "mime": "image/svg+xml",
+              "size": 1117.65,
+              "url": "https://strapi-dr-s3-media-bucket.s3",
+              "previewUrl": null,
+              "provider": "aws-s3",
+              "provider_metadata": null,
+              "createdAt": "2024-11-14T21:14:54.794Z",
+              "updatedAt": "2024-11-14T21:14:54.794Z",
+              "isUrlSigned": true
+            }
+          }
+        },
+        "titleIcon": {
+          "data": {
+            "id": 19,
+            "attributes": {
+              "name": "our-values-title-icon.svg",
+              "alternativeText": "alt text test",
+              "caption": "alt text test",
+              "width": 64,
+              "height": 64,
+              "formats": null,
+              "hash": "our_values_title_icon_cef51a032a",
+              "ext": ".svg",
+              "mime": "image/svg+xml",
+              "size": 1.43,
+              "url": "https://strapi-dr-s3-media-bucket.s3",
+              "previewUrl": null,
+              "provider": "aws-s3",
+              "provider_metadata": null,
+              "createdAt": "2024-11-14T21:12:51.730Z",
+              "updatedAt": "2024-11-14T21:12:51.730Z",
+              "isUrlSigned": true
+            }
+          }
+        }
+      }
+    }
+  },
+  "meta": {}
+}
