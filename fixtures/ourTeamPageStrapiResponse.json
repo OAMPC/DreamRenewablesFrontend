@@ -1,0 +1,314 @@
+{
+  "data": {
+    "id": 1,
+    "attributes": {
+      "pageTitle": "Our Team",
+      "pageSubTitle": "Explore our trustees and staff members that make our work possible.",
+      "departmentSections": [
+        {
+          "id": 1,
+          "departmentSectionTitle": "Trustees",
+          "teamProfileDetails": [
+            {
+              "id": 1,
+              "profileName": "Judith",
+              "profileDescription": "An expert in clean cooking, passionate about sustainability and community engagement.",
+              "profileImage": {
+                "data": {
+                  "id": 23,
+                  "attributes": {
+                    "name": "profile-photo-judith.svg",
+                    "alternativeText": "alt text test",
+                    "caption": "alt text test",
+                    "width": 181,
+                    "height": 181,
+                    "formats": null,
+                    "hash": "profile_photo_judith_d81740ce07",
+                    "ext": ".svg",
+                    "mime": "image/svg+xml",
+                    "size": 580.93,
+                    "url": "https://strapi-dr-s3-media-bucket.s3",
+                    "previewUrl": null,
+                    "provider": "aws-s3",
+                    "provider_metadata": null,
+                    "createdAt": "2024-11-18T09:30:47.837Z",
+                    "updatedAt": "2024-11-18T09:30:47.837Z",
+                    "isUrlSigned": true
+                  }
+                }
+              }
+            },
+            {
+              "id": 2,
+              "profileName": "Enoch",
+              "profileDescription": "Our solar mini grid enthusiast and renewable energy engineer",
+              "profileImage": {
+                "data": {
+                  "id": 25,
+                  "attributes": {
+                    "name": "profile-photo-enoch.svg",
+                    "alternativeText": "alt text test",
+                    "caption": "alt text test",
+                    "width": 181,
+                    "height": 181,
+                    "formats": null,
+                    "hash": "profile_photo_enoch_ecb8b41787",
+                    "ext": ".svg",
+                    "mime": "image/svg+xml",
+                    "size": 1548.34,
+                    "url": "https://strapi-dr-s3-media-bucket.s3",
+                    "previewUrl": null,
+                    "provider": "aws-s3",
+                    "provider_metadata": null,
+                    "createdAt": "2024-11-18T09:30:48.427Z",
+                    "updatedAt": "2024-11-18T09:30:48.427Z",
+                    "isUrlSigned": true
+                  }
+                }
+              }
+            },
+            {
+              "id": 3,
+              "profileName": "Eric",
+              "profileDescription": "Distinguished expert in renewable energy, engineering and project management.",
+              "profileImage": {
+                "data": {
+                  "id": 22,
+                  "attributes": {
+                    "name": "profile-photo-eric.svg",
+                    "alternativeText": "alt text test",
+                    "caption": "alt text test",
+                    "width": 181,
+                    "height": 181,
+                    "formats": null,
+                    "hash": "profile_photo_eric_84afbc475c",
+                    "ext": ".svg",
+                    "mime": "image/svg+xml",
+                    "size": 617.19,
+                    "url": "https://strapi-dr-s3-media-bucket.s3",
+                    "previewUrl": null,
+                    "provider": "aws-s3",
+                    "provider_metadata": null,
+                    "createdAt": "2024-11-18T09:30:47.178Z",
+                    "updatedAt": "2024-11-18T09:30:47.178Z",
+                    "isUrlSigned": true
+                  }
+                }
+              }
+            },
+            {
+              "id": 4,
+              "profileName": "Awo",
+              "profileDescription": "Our esteemed business and entrepreneurship specialist",
+              "profileImage": {
+                "data": {
+                  "id": 24,
+                  "attributes": {
+                    "name": "profile-photo-awo.svg",
+                    "alternativeText": "alt text test",
+                    "caption": "alt text test",
+                    "width": 181,
+                    "height": 181,
+                    "formats": null,
+                    "hash": "profile_photo_awo_f7b7f54484",
+                    "ext": ".svg",
+                    "mime": "image/svg+xml",
+                    "size": 1059.64,
+                    "url": "https://strapi-dr-s3-media-bucket.s3",
+                    "previewUrl": null,
+                    "provider": "aws-s3",
+                    "provider_metadata": null,
+                    "createdAt": "2024-11-18T09:30:47.909Z",
+                    "updatedAt": "2024-11-18T09:32:40.266Z",
+                    "isUrlSigned": true
+                  }
+                }
+              }
+            },
+            {
+              "id": 5,
+              "profileName": "Lawrencia",
+              "profileDescription": "An expert in education, gender equality and international development.",
+              "profileImage": {
+                "data": {
+                  "id": 21,
+                  "attributes": {
+                    "name": "profile-photo-lawrencia.svg",
+                    "alternativeText": "alt text test",
+                    "caption": "alt text test",
+                    "width": 181,
+                    "height": 181,
+                    "formats": null,
+                    "hash": "profile_photo_lawrencia_0a4335cc40",
+                    "ext": ".svg",
+                    "mime": "image/svg+xml",
+                    "size": 515.81,
+                    "url": "https://strapi-dr-s3-media-bucket.s3",
+                    "previewUrl": null,
+                    "provider": "aws-s3",
+                    "provider_metadata": null,
+                    "createdAt": "2024-11-18T09:30:46.713Z",
+                    "updatedAt": "2024-11-18T09:30:46.713Z",
+                    "isUrlSigned": true
+                  }
+                }
+              }
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "departmentSectionTitle": "Staff",
+          "teamProfileDetails": [
+            {
+              "id": 6,
+              "profileName": "Awo",
+              "profileDescription": "Our esteemed business and entrepreneurship specialist",
+              "profileImage": {
+                "data": {
+                  "id": 24,
+                  "attributes": {
+                    "name": "profile-photo-awo.svg",
+                    "alternativeText": "alt text test",
+                    "caption": "alt text test",
+                    "width": 181,
+                    "height": 181,
+                    "formats": null,
+                    "hash": "profile_photo_awo_f7b7f54484",
+                    "ext": ".svg",
+                    "mime": "image/svg+xml",
+                    "size": 1059.64,
+                    "url": "https://strapi-dr-s3-media-bucket.s3",
+                    "previewUrl": null,
+                    "provider": "aws-s3",
+                    "provider_metadata": null,
+                    "createdAt": "2024-11-18T09:30:47.909Z",
+                    "updatedAt": "2024-11-18T09:32:40.266Z",
+                    "isUrlSigned": true
+                  }
+                }
+              }
+            },
+            {
+              "id": 7,
+              "profileName": "Eric",
+              "profileDescription": "Distinguished expert in renewable energy, engineering and project management.",
+              "profileImage": {
+                "data": {
+                  "id": 22,
+                  "attributes": {
+                    "name": "profile-photo-eric.svg",
+                    "alternativeText": "alt text test",
+                    "caption": "alt text test",
+                    "width": 181,
+                    "height": 181,
+                    "formats": null,
+                    "hash": "profile_photo_eric_84afbc475c",
+                    "ext": ".svg",
+                    "mime": "image/svg+xml",
+                    "size": 617.19,
+                    "url": "https://strapi-dr-s3-media-bucket.s3",
+                    "previewUrl": null,
+                    "provider": "aws-s3",
+                    "provider_metadata": null,
+                    "createdAt": "2024-11-18T09:30:47.178Z",
+                    "updatedAt": "2024-11-18T09:30:47.178Z",
+                    "isUrlSigned": true
+                  }
+                }
+              }
+            },
+            {
+              "id": 8,
+              "profileName": "Enoch",
+              "profileDescription": "Our solar mini grid enthusiast and renewable energy engineer",
+              "profileImage": {
+                "data": {
+                  "id": 25,
+                  "attributes": {
+                    "name": "profile-photo-enoch.svg",
+                    "alternativeText": "alt text test",
+                    "caption": "alt text test",
+                    "width": 181,
+                    "height": 181,
+                    "formats": null,
+                    "hash": "profile_photo_enoch_ecb8b41787",
+                    "ext": ".svg",
+                    "mime": "image/svg+xml",
+                    "size": 1548.34,
+                    "url": "https://strapi-dr-s3-media-bucket.s3",
+                    "previewUrl": null,
+                    "provider": "aws-s3",
+                    "provider_metadata": null,
+                    "createdAt": "2024-11-18T09:30:48.427Z",
+                    "updatedAt": "2024-11-18T09:30:48.427Z",
+                    "isUrlSigned": true
+                  }
+                }
+              }
+            },
+            {
+              "id": 9,
+              "profileName": "Lawrencia",
+              "profileDescription": "An expert in education, gender equality and international development.",
+              "profileImage": {
+                "data": {
+                  "id": 21,
+                  "attributes": {
+                    "name": "profile-photo-lawrencia.svg",
+                    "alternativeText": "alt text test",
+                    "caption": "alt text test",
+                    "width": 181,
+                    "height": 181,
+                    "formats": null,
+                    "hash": "profile_photo_lawrencia_0a4335cc40",
+                    "ext": ".svg",
+                    "mime": "image/svg+xml",
+                    "size": 515.81,
+                    "url": "https://strapi-dr-s3-media-bucket.s3",
+                    "previewUrl": null,
+                    "provider": "aws-s3",
+                    "provider_metadata": null,
+                    "createdAt": "2024-11-18T09:30:46.713Z",
+                    "updatedAt": "2024-11-18T09:30:46.713Z",
+                    "isUrlSigned": true
+                  }
+                }
+              }
+            },
+            {
+              "id": 10,
+              "profileName": "Judith",
+              "profileDescription": "An expert in clean cooking, passionate about sustainability and community engagement.",
+              "profileImage": {
+                "data": {
+                  "id": 23,
+                  "attributes": {
+                    "name": "profile-photo-judith.svg",
+                    "alternativeText": "alt text test",
+                    "caption": "alt text test",
+                    "width": 181,
+                    "height": 181,
+                    "formats": null,
+                    "hash": "profile_photo_judith_d81740ce07",
+                    "ext": ".svg",
+                    "mime": "image/svg+xml",
+                    "size": 580.93,
+                    "url": "https://strapi-dr-s3-media-bucket.s3",
+                    "previewUrl": null,
+                    "provider": "aws-s3",
+                    "provider_metadata": null,
+                    "createdAt": "2024-11-18T09:30:47.837Z",
+                    "updatedAt": "2024-11-18T09:30:47.837Z",
+                    "isUrlSigned": true
+                  }
+                }
+              }
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "meta": {}
+}

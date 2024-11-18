@@ -3,6 +3,7 @@ import { NavigationBarStrapiContent } from '../data/interfaces/navigation-bar/Na
 import { FooterStrapiContent } from '../data/interfaces/footer/FooterStrapiContent';
 import { LandingPageStrapiContent } from '../data/interfaces/landing-page/LandingPageStrapiContent';
 import { OurMissionVisionAndValuesPageStrapiContent } from '../data/interfaces/our-mission-vision-and-values-page/OurMissionVisionAndValuesPageStrapiContent';
+import { OurTeamPageStrapiContent } from '../data/interfaces/our-team-page/OurTeamPageStrapiContent';
 
 const strapiConfig = {
   headers: {
@@ -52,7 +53,20 @@ export async function getLandingPageStrapiData(): Promise<LandingPageStrapiConte
 export async function getOurMissionVisionAndValuesPageStrapiData(): Promise<OurMissionVisionAndValuesPageStrapiContent> {
   try {
     const response = await axios.get(
-      `${import.meta.env.VITE_BASE_URL}/api/mission-vision-and-values-page?populate[0]=ourMissionSection.titleIcon&populate[1]=ourMissionSection.sectionImage&populate[2]=ourVisionSection.titleIcon&populate[3]=ourVisionSection.sectionImage&populate[4]=ourValuesSection.titleIcon&populate[5]=ourValuesSection.sectionImage&populate[6]=ourValuesSection.ourValuesEntries `,
+      `${import.meta.env.VITE_BASE_URL}/api/mission-vision-and-values-page?populate[0]=ourMissionSection.titleIcon&populate[1]=ourMissionSection.sectionImage&populate[2]=ourVisionSection.titleIcon&populate[3]=ourVisionSection.sectionImage&populate[4]=ourValuesSection.titleIcon&populate[5]=ourValuesSection.sectionImage&populate[6]=ourValuesSection.ourValuesEntries`,
+      strapiConfig
+    );
+    return response.data.data.attributes;
+  } catch (error) {
+    console.error('Error fetching Strapi data:', error);
+    throw error;
+  }
+}
+
+export async function getOurTeamPageStrapiData(): Promise<OurTeamPageStrapiContent> {
+  try {
+    const response = await axios.get(
+      `${import.meta.env.VITE_BASE_URL}/api/our-team-page?populate[0]=departmentSections&populate[1]=departmentSections.teamProfileDetails&populate[2]=departmentSections.teamProfileDetails.profileImage`,
       strapiConfig
     );
     return response.data.data.attributes;
