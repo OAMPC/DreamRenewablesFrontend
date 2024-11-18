@@ -36,7 +36,10 @@ const OurMissionVisionAndValuesPageValuesSection: React.FC<Props> = ({
           <Bs.Row>
             <Bs.Col>
               {ourValuesSection.ourValuesEntries.map((entry, index) => (
-                <Bs.Row className="d-flex justify-content-center justify-content-xl-start">
+                <Bs.Row
+                  key={index}
+                  className="d-flex justify-content-center justify-content-xl-start"
+                >
                   <Bs.Col className="d-none d-xl-block" xs="1" lg="2">
                     <div className="mt-lg-3 d-flex justify-content-center our-value-index-wrapper">
                       <p className="pt-lg-2 fs-1 fw-bold">{index + 1}</p>
