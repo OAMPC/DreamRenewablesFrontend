@@ -1,4 +1,4 @@
-describe('Our Mission Vision and Values Page', () => {
+describe('Our Team Page', () => {
   beforeEach(() => {
     cy.intercept('GET', '**/api/navigation-bar*', {
       fixture: 'navigationBarStrapiResponse.json',
@@ -12,7 +12,7 @@ describe('Our Mission Vision and Values Page', () => {
       fixture: 'ourTeamPageStrapiResponse.json',
     }).as('getOurTeamPageStrapiData');
 
-    cy.visit('/our-team-page');
+    cy.visit('/our-team');
 
     cy.wait('@getNavigationBarStrapiData');
     cy.wait('@getFooterStrapiData');
