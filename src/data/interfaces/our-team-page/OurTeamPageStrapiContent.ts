@@ -7,7 +7,7 @@ export interface OurTeamPageStrapiContent {
 }
 
 export interface DepartmentSection {
-  departmentSectionTitle: string;
+  title: string;
   teamProfileDetails: Array<TeamProfileDetail>;
 }
 

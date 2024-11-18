@@ -15,7 +15,7 @@ const OurTeamPageDepartmentSection: React.FC<Props> = ({
         <Bs.Col>
           <div className="text-center">
             <h5 data-testid="department-section-title" className="fs-4">
-              {departmentSection.departmentSectionTitle}
+              {departmentSection.title}
             </h5>
           </div>
         </Bs.Col>
