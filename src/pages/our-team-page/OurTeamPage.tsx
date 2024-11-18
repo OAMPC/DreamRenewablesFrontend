@@ -3,6 +3,7 @@ import * as Bs from 'react-bootstrap';
 import PageWrapper from '../../components/page-wrapper/PageWrapper';
 import { LoaderData } from '../../data/types/LoaderData';
 import { useLoaderData } from 'react-router-dom';
+import OurTeamPageDepartmentSection from '../../components/our-team-page/OurTeamPageDepartmentSection';
 
 const OurTeamPage: React.FC = () => {
   const { navigationBarStrapiData, footerStrapiData, ourTeamPageStrapiData } =
@@ -23,6 +24,18 @@ const OurTeamPage: React.FC = () => {
       <Bs.Row className="mb-3">
         <Bs.Col className="text-center">
           <p className="fs-4">{ourTeamPageStrapiData.pageSubTitle}</p>
+        </Bs.Col>
+      </Bs.Row>
+      <Bs.Row>
+        <Bs.Col>
+          {ourTeamPageStrapiData.departmentSections.map(
+            (departmentSection, index) => (
+              <OurTeamPageDepartmentSection
+                key={index}
+                departmentSection={departmentSection}
+              />
+            )
+          )}
         </Bs.Col>
       </Bs.Row>
     </PageWrapper>

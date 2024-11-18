@@ -50,6 +50,13 @@ describe('OurTeamPage', () => {
         expect(screen.getByTestId('our-team-page-title')).toBeInTheDocument();
       });
     });
+
+    test('should render each department section when data is loaded', async () => {
+      await setup();
+      await waitFor(() => {
+        expect(screen.getAllByTestId('department-section').length).toBe(2);
+      });
+    });
   });
 
   afterEach(() => {

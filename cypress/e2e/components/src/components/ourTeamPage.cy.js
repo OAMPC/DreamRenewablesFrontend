@@ -23,6 +23,7 @@ describe('Our Team Page', () => {
     cy.get('[data-testid="navbar"]').should('be.visible');
 
     cy.get('[data-testid="our-team-page-title"]').should('be.visible');
+    cy.get('[data-testid="department-section"]').should('have.length', 2);
 
     cy.get('[data-testid="footer"]').should('be.visible');
   });
