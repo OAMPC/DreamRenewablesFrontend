@@ -5,9 +5,11 @@ import {
   getLandingPageStrapiData,
   getNavigationBarStrapiData,
   getOurMissionVisionAndValuesPageStrapiData,
+  getOurTeamPageStrapiData,
 } from './api/strapiApi';
 import LandingPage from './pages/landing-page/LandingPage';
 import OurMissionVisionAndValuesPage from './pages/our-mission-vision-and-values-page/OurMissionVisionAndValuesPage';
+import OurTeamPage from './pages/our-team-page/OurTeamPage';
 
 const router = createBrowserRouter([
   {
@@ -28,7 +30,7 @@ const router = createBrowserRouter([
     },
   },
   {
-    path: '/our-mission-vision-and-values-page',
+    path: '/our-mission-vision-and-values',
     element: <OurMissionVisionAndValuesPage />,
     loader: async () => {
       const [
@@ -44,6 +46,23 @@ const router = createBrowserRouter([
         navigationBarStrapiData,
         footerStrapiData,
         ourMissionVisionAndValuesStrapiData,
+      };
+    },
+  },
+  {
+    path: '/our-team',
+    element: <OurTeamPage />,
+    loader: async () => {
+      const [navigationBarStrapiData, footerStrapiData, ourTeamPageStrapiData] =
+        await Promise.all([
+          getNavigationBarStrapiData(),
+          getFooterStrapiData(),
+          getOurTeamPageStrapiData(),
+        ]);
+      return {
+        navigationBarStrapiData,
+        footerStrapiData,
+        ourTeamPageStrapiData,
       };
     },
   },
