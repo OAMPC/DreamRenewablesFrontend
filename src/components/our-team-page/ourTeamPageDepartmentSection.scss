@@ -1,0 +1,36 @@
+.department-section-profile-image-accent {
+  position: relative;
+  margin-bottom: 3vh;
+
+  &::before {
+    content: '';
+    position: absolute;
+    width: 8vw;
+    height: 5vw;
+    background-color: var(--primary);
+    z-index: -1;
+    border-radius: 10px;
+    top: 20%;
+    right: 40%;
+
+    @media (max-width: 2000px) {
+      top: 20%;
+      right: 70%;
+      width: 6.5vw;
+      height: 7vw;
+    }
+
+    @media (max-width: 992px) {
+      top: 30%;
+      right: 70%;
+      height: 8vw;
+    }
+
+    @media (max-width: 768px) {
+      top: 30%;
+      right: 70%;
+      height: 10vw;
+      width: 15vw;
+    }
+  }
+}

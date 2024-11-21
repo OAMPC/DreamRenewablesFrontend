@@ -1,6 +1,7 @@
 import React from 'react';
 import { DepartmentSection } from '../../data/interfaces/our-team-page/OurTeamPageStrapiContent';
 import * as Bs from 'react-bootstrap';
+import './ourTeamPageDepartmentSection.scss';
 
 type Props = {
   departmentSection: DepartmentSection;
@@ -30,19 +31,21 @@ const OurTeamPageDepartmentSection: React.FC<Props> = ({
               (teamProfileDetail, index) => (
                 <Bs.Col sm="6" md="4" lg="2" key={index} className="mb-3">
                   <Bs.Row>
-                    <Bs.Col
-                      data-testid="department-section-profile-image"
-                      className="d-flex justify-content-center justify-content-md-start"
-                    >
-                      <Bs.Image
-                        className="mb-3"
-                        fluid
-                        src={teamProfileDetail.profileImage.data.attributes.url}
-                        alt={
-                          teamProfileDetail.profileImage.data.attributes
-                            .alternativeText
-                        }
-                      />
+                    <Bs.Col className="d-flex justify-content-center justify-content-md-start">
+                      <div className="department-section-profile-image-accent">
+                        <Bs.Image
+                          data-testid="department-section-profile-image"
+                          className="mb-3"
+                          fluid
+                          src={
+                            teamProfileDetail.profileImage.data.attributes.url
+                          }
+                          alt={
+                            teamProfileDetail.profileImage.data.attributes
+                              .alternativeText
+                          }
+                        />
+                      </div>
                     </Bs.Col>
                   </Bs.Row>
                   <Bs.Row>
