@@ -30,6 +30,30 @@ describe('OurTeamPageDepartmentSection', () => {
         ).toBeInTheDocument();
       });
     });
+
+    test('should render the department section profile photos after data is loaded', async () => {
+      await waitFor(() => {
+        expect(
+          screen.getAllByTestId('department-section-profile-image').length
+        ).toBe(5);
+      });
+    });
+
+    test('should render the department section profile names after data is loaded', async () => {
+      await waitFor(() => {
+        expect(
+          screen.getAllByTestId('department-section-profile-name').length
+        ).toBe(5);
+      });
+    });
+
+    test('should render the department section profile descriptions after data is loaded', async () => {
+      await waitFor(() => {
+        expect(
+          screen.getAllByTestId('department-section-profile-description').length
+        ).toBe(5);
+      });
+    });
   });
 
   afterEach(() => {

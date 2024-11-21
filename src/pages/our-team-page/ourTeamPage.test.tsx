@@ -51,6 +51,15 @@ describe('OurTeamPage', () => {
       });
     });
 
+    test('should render the our team page sub title when data is loaded', async () => {
+      await setup();
+      await waitFor(() => {
+        expect(
+          screen.getByTestId('our-team-page-sub-title')
+        ).toBeInTheDocument();
+      });
+    });
+
     test('should render each department section when data is loaded', async () => {
       await setup();
       await waitFor(() => {
