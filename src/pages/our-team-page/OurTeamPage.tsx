@@ -21,7 +21,7 @@ const OurTeamPage: React.FC = () => {
           </h1>
         </Bs.Col>
       </Bs.Row>
-      <Bs.Row className="mb-3 mb-md-5">
+      <Bs.Row className="mb-5">
         <Bs.Col className="text-center">
           <h2 data-testid="our-team-page-sub-title" className="fs-4">
             {ourTeamPageStrapiData.pageSubTitle}
