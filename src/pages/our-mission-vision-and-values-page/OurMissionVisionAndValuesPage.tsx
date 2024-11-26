@@ -8,17 +8,10 @@ import OurMissionVisionAndValuesPageVisionSection from '../../components/our-mis
 import OurMissionVisionAndValuesPageValuesSection from '../../components/our-mission-vision-and-values-page/our-mission-vision-and-values-page-values-section/OurMissionVisionAndValuesPageValuesSection';
 
 const OurMissionVisionAndValuesPage: React.FC = () => {
-  const {
-    navigationBarStrapiData,
-    footerStrapiData,
-    ourMissionVisionAndValuesStrapiData,
-  } = useLoaderData() as LoaderData;
+  const { ourMissionVisionAndValuesStrapiData } = useLoaderData() as LoaderData;
 
   return (
-    <PageWrapper
-      navigationBarStrapiData={navigationBarStrapiData}
-      footerStrapiData={footerStrapiData}
-    >
+    <PageWrapper>
       <Bs.Row className="mt-5 mb-2">
         <Bs.Col className="text-center">
           <h1 className="fs-1 fw-bold">

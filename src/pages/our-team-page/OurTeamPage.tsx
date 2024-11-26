@@ -6,14 +6,10 @@ import { useLoaderData } from 'react-router-dom';
 import OurTeamPageDepartmentSection from '../../components/our-team-page/OurTeamPageDepartmentSection';
 
 const OurTeamPage: React.FC = () => {
-  const { navigationBarStrapiData, footerStrapiData, ourTeamPageStrapiData } =
-    useLoaderData() as LoaderData;
+  const { ourTeamPageStrapiData } = useLoaderData() as LoaderData;
 
   return (
-    <PageWrapper
-      navigationBarStrapiData={navigationBarStrapiData}
-      footerStrapiData={footerStrapiData}
-    >
+    <PageWrapper>
       <Bs.Row className="mt-5 mb-2">
         <Bs.Col className="text-center">
           <h1 data-testid="our-team-page-title" className="fs-1 fw-bold">

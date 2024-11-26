@@ -15,6 +15,7 @@ import navigationBarFactory from '../../test/factories/strapi/NavigationBarFacto
 import useWindowDimensions from '../../hooks/windowDimensions';
 import LandingPageFactory from '../../test/factories/strapi/LandingPageFactory';
 import FooterFactory from '../../test/factories/strapi/FooterFactory';
+import { SharedDataContext } from '../../components/contexts/SharedDataProvider';
 
 vi.mock('react-router-dom', async () => {
   const actual = await vi.importActual('react-router-dom');
@@ -30,19 +31,27 @@ vi.mock('../../hooks/windowDimensions', () => ({
 
 describe('LandingPage', () => {
   const mockLoaderData = {
-    navigationBarStrapiData: new navigationBarFactory().getMockData(),
-    footerStrapiData: new FooterFactory().getMockData(),
     landingPageStrapiData: new LandingPageFactory().getMockData(),
   };
+
+  const navigationBarStrapiData = new navigationBarFactory().getMockData();
+  const footerStrapiData = new FooterFactory().getMockData();
 
   const setup = async (windowWidth: number = 1024) => {
     (useLoaderData as Mock).mockReturnValue(mockLoaderData);
     (useWindowDimensions as Mock).mockReturnValue({ windowWidth: windowWidth });
 
     render(
-      <MemoryRouter>
-        <LandingPage />
-      </MemoryRouter>
+      <SharedDataContext.Provider
+        value={{
+          navigationBarContent: navigationBarStrapiData,
+          footerContent: footerStrapiData,
+        }}
+      >
+        <MemoryRouter>
+          <LandingPage />
+        </MemoryRouter>
+      </SharedDataContext.Provider>
     );
   };
 
