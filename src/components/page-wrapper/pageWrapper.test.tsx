@@ -14,6 +14,7 @@ import useWindowDimensions from '../../hooks/windowDimensions';
 import PageWrapper from './PageWrapper';
 import NavigationBarFactory from '../../test/factories/strapi/NavigationBarFactory';
 import FooterFactory from '../../test/factories/strapi/FooterFactory';
+import { SharedDataContext } from '../contexts/SharedDataProvider';
 
 vi.mock('../../hooks/windowDimensions', () => ({
   default: vi.fn(),
@@ -26,14 +27,18 @@ describe('PageWrapper', () => {
     (useWindowDimensions as Mock).mockReturnValue({ width: 1024 });
 
     render(
-      <MemoryRouter>
-        <PageWrapper
-          navigationBarStrapiData={navigationMockData}
-          footerStrapiData={footerMockData}
-        >
-          <h1>I am a child</h1>
-        </PageWrapper>
-      </MemoryRouter>
+      <SharedDataContext.Provider
+        value={{
+          navigationBarContent: navigationMockData,
+          footerContent: footerMockData,
+        }}
+      >
+        <MemoryRouter>
+          <PageWrapper>
+            <h1>I am a child</h1>
+          </PageWrapper>
+        </MemoryRouter>
+      </SharedDataContext.Provider>
     );
   });
 

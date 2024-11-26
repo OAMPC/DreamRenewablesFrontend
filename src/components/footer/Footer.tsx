@@ -1,14 +1,13 @@
 import React from 'react';
 import * as Bs from 'react-bootstrap';
-import { FooterStrapiContent } from '../../data/interfaces/footer/FooterStrapiContent';
 import useWindowDimensions from '../../hooks/windowDimensions';
 import './footer.scss';
+import { useSharedData } from '../contexts/SharedDataProvider';
 
-const Footer: React.FC<{ content: FooterStrapiContent }> = ({
-  content: content,
-}) => {
+const Footer: React.FC = () => {
   const { width } = useWindowDimensions();
   const showClass = (): string | boolean => (width <= 992 ? ' active' : false);
+  const { footerContent: content } = useSharedData();
 
   return (
     <section data-testid="footer" className="footer-section">

@@ -5,9 +5,12 @@ import { RouterProvider } from 'react-router-dom';
 import Loading from './components/loading/Loading';
 import './index.scss';
 import router from './routes';
+import { SharedDataProvider } from './components/contexts/SharedDataProvider';
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <RouterProvider router={router} fallbackElement={<Loading />} />
+    <SharedDataProvider>
+      <RouterProvider router={router} fallbackElement={<Loading />} />
+    </SharedDataProvider>
   </StrictMode>
 );
