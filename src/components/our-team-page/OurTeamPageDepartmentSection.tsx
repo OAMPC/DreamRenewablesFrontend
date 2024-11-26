@@ -35,7 +35,7 @@ const OurTeamPageDepartmentSection: React.FC<Props> = ({
                       <div className="department-section-profile-image-accent">
                         <Bs.Image
                           data-testid="department-section-profile-image"
-                          className="mb-3"
+                          className="mb-0"
                           fluid
                           src={
                             teamProfileDetail.profileImage.data.attributes.url
@@ -62,7 +62,7 @@ const OurTeamPageDepartmentSection: React.FC<Props> = ({
                     <Bs.Col>
                       <p
                         data-testid="department-section-profile-description"
-                        className="text-center text-md-start"
+                        className="text-center text-md-start mb-5"
                       >
                         {teamProfileDetail.profileDescription}
                       </p>
