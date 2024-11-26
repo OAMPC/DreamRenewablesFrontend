@@ -1,29 +1,10 @@
-import axios from 'axios';
 import { NavigationBarStrapiContent } from '../data/interfaces/navigation-bar/NavigationBarStrapiContent';
 import { FooterStrapiContent } from '../data/interfaces/footer/FooterStrapiContent';
 import { LandingPageStrapiContent } from '../data/interfaces/landing-page/LandingPageStrapiContent';
 import { OurMissionVisionAndValuesPageStrapiContent } from '../data/interfaces/our-mission-vision-and-values-page/OurMissionVisionAndValuesPageStrapiContent';
 import { OurTeamPageStrapiContent } from '../data/interfaces/our-team-page/OurTeamPageStrapiContent';
 import { buildStrapiEndpointQuery } from './util/buildStrapiEndpointQuery';
-
-const strapiConfig = {
-  headers: {
-    Authorization: `Bearer ${import.meta.env.VITE_STRAPI_API_TOKEN}`,
-  },
-};
-
-export async function getStrapiData(endpoint: string, query = {}) {
-  try {
-    const response = await axios.get(
-      `${import.meta.env.VITE_BASE_URL}/api/${endpoint}?${query}`,
-      strapiConfig
-    );
-    return response.data.data.attributes;
-  } catch (error) {
-    console.error('Error fetching Strapi data:', error);
-    throw error;
-  }
-}
+import { fetchStrapiData } from './util/fetchStrapiData';
 
 export async function getNavigationBarStrapiData(): Promise<NavigationBarStrapiContent> {
   const query = buildStrapiEndpointQuery([
@@ -33,7 +14,7 @@ export async function getNavigationBarStrapiData(): Promise<NavigationBarStrapiC
     'button',
   ]);
 
-  return getStrapiData('navigation-bar', query);
+  return fetchStrapiData('navigation-bar', query);
 }
 
 export async function getFooterStrapiData(): Promise<FooterStrapiContent> {
@@ -44,7 +25,7 @@ export async function getFooterStrapiData(): Promise<FooterStrapiContent> {
     'contactInformation.icon',
   ]);
 
-  return getStrapiData('footer', query);
+  return fetchStrapiData('footer', query);
 }
 
 export async function getLandingPageStrapiData(): Promise<LandingPageStrapiContent> {
@@ -61,7 +42,7 @@ export async function getLandingPageStrapiData(): Promise<LandingPageStrapiConte
     'quoteSection.quoteIcon',
   ]);
 
-  return getStrapiData('landing-page', query);
+  return fetchStrapiData('landing-page', query);
 }
 
 export async function getOurMissionVisionAndValuesPageStrapiData(): Promise<OurMissionVisionAndValuesPageStrapiContent> {
@@ -75,7 +56,7 @@ export async function getOurMissionVisionAndValuesPageStrapiData(): Promise<OurM
     'ourValuesSection.ourValuesEntries',
   ]);
 
-  return getStrapiData('mission-vision-and-values-page', query);
+  return fetchStrapiData('mission-vision-and-values-page', query);
 }
 
 export async function getOurTeamPageStrapiData(): Promise<OurTeamPageStrapiContent> {
@@ -85,5 +66,5 @@ export async function getOurTeamPageStrapiData(): Promise<OurTeamPageStrapiConte
     'departmentSections.teamProfileDetails.profileImage',
   ]);
 
-  return getStrapiData('our-team-page', query);
+  return fetchStrapiData('our-team-page', query);
 }
