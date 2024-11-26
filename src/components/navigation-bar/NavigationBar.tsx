@@ -1,11 +1,10 @@
 import React from 'react';
 import * as Bs from 'react-bootstrap';
-import { NavigationBarStrapiContent } from '../../data/interfaces/navigation-bar/NavigationBarStrapiContent';
 import './navigationBar.scss';
+import { useSharedData } from '../contexts/SharedDataProvider';
 
-const NavigationBar: React.FC<{ content: NavigationBarStrapiContent }> = ({
-  content,
-}) => {
+const NavigationBar: React.FC = () => {
+  const { navigationBarContent: content } = useSharedData();
   return (
     <section data-testid="navbar">
       {content && (

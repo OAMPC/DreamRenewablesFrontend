@@ -4,14 +4,21 @@ import { MemoryRouter } from 'react-router-dom';
 import { afterEach, beforeEach, describe, expect, test, vi } from 'vitest';
 import NavigationBar from './NavigationBar';
 import NavigationBarFactory from '../../test/factories/strapi/NavigationBarFactory';
+import { SharedDataContext } from '../contexts/SharedDataProvider';
 
 describe('NavigationBar', () => {
   beforeEach(() => {
     const mockData = new NavigationBarFactory().getMockData();
     render(
-      <MemoryRouter>
-        <NavigationBar content={mockData} />
-      </MemoryRouter>
+      <SharedDataContext.Provider
+        value={{
+          navigationBarContent: mockData,
+        }}
+      >
+        <MemoryRouter>
+          <NavigationBar />
+        </MemoryRouter>
+      </SharedDataContext.Provider>
     );
   });
 

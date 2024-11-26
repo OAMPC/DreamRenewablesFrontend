@@ -12,16 +12,12 @@ import LandingPagePaymentSection from '../../components/landing-page/landing-pag
 import LandingPageQuoteCarousel from '../../components/landing-page/landing-page-quote-section/landing-page-quote-carousel/LandingPageQuoteCarousel';
 
 const LandingPage: React.FC = () => {
-  const { navigationBarStrapiData, footerStrapiData, landingPageStrapiData } =
-    useLoaderData() as LoaderData;
+  const { landingPageStrapiData } = useLoaderData() as LoaderData;
   const { width } = useWindowDimensions();
   const showMobileView: boolean = width <= 992 ? true : false;
 
   return (
-    <PageWrapper
-      navigationBarStrapiData={navigationBarStrapiData}
-      footerStrapiData={footerStrapiData}
-    >
+    <PageWrapper>
       <Bs.Row className="mb-5">
         <Bs.Col>
           {showMobileView ? (

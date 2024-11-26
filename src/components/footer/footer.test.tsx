@@ -5,6 +5,7 @@ import { afterEach, describe, expect, Mock, test, vi } from 'vitest';
 import useWindowDimensions from '../../hooks/windowDimensions';
 import Footer from './Footer';
 import FooterFactory from '../../test/factories/strapi/FooterFactory';
+import { SharedDataContext } from '../contexts/SharedDataProvider';
 
 vi.mock('../../hooks/windowDimensions', () => ({
   default: vi.fn(),
@@ -15,9 +16,15 @@ describe('Footer', () => {
     const mockData = new FooterFactory().getMockData();
     (useWindowDimensions as Mock).mockReturnValue({ width: windowWidth });
     render(
-      <MemoryRouter>
-        <Footer content={mockData} />
-      </MemoryRouter>
+      <SharedDataContext.Provider
+        value={{
+          footerContent: mockData,
+        }}
+      >
+        <MemoryRouter>
+          <Footer />
+        </MemoryRouter>
+      </SharedDataContext.Provider>
     );
   };
 

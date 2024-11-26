@@ -14,6 +14,7 @@ import navigationBarFactory from '../../test/factories/strapi/NavigationBarFacto
 import FooterFactory from '../../test/factories/strapi/FooterFactory';
 import OurMissionVisionAndValuesPageFactory from '../../test/factories/strapi/OurMissionVisionAndValuesPageFactory';
 import OurMissionVisionAndValuesPage from './OurMissionVisionAndValuesPage';
+import { SharedDataContext } from '../../components/contexts/SharedDataProvider';
 
 vi.mock('react-router-dom', async () => {
   const actual = await vi.importActual('react-router-dom');
@@ -25,18 +26,26 @@ vi.mock('react-router-dom', async () => {
 
 describe('OurMissionVisionAndValuesPage', () => {
   const mockLoaderData = {
-    navigationBarStrapiData: new navigationBarFactory().getMockData(),
-    footerStrapiData: new FooterFactory().getMockData(),
     ourMissionVisionAndValuesStrapiData:
       new OurMissionVisionAndValuesPageFactory().getMockData(),
   };
 
+  const navigationBarStrapiData = new navigationBarFactory().getMockData();
+  const footerStrapiData = new FooterFactory().getMockData();
+
   const setup = async () => {
     (useLoaderData as Mock).mockReturnValue(mockLoaderData);
     render(
-      <MemoryRouter>
-        <OurMissionVisionAndValuesPage />
-      </MemoryRouter>
+      <SharedDataContext.Provider
+        value={{
+          navigationBarContent: navigationBarStrapiData,
+          footerContent: footerStrapiData,
+        }}
+      >
+        <MemoryRouter>
+          <OurMissionVisionAndValuesPage />
+        </MemoryRouter>
+      </SharedDataContext.Provider>
     );
   };
 
