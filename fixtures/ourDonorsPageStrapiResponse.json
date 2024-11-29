@@ -1,0 +1,159 @@
+{
+  "data": {
+    "id": 1,
+    "attributes": {
+      "pageTitle": "Our Donors",
+      "createdAt": "2024-11-29T09:26:34.736Z",
+      "updatedAt": "2024-11-29T09:26:35.590Z",
+      "publishedAt": "2024-11-29T09:26:35.588Z",
+      "pageSubTitle": "Explore the companies that fund our work",
+      "ourDonors": [
+        {
+          "id": 1,
+          "name": "Dream Big Ghana NGO",
+          "description": "Dream Big Ghana NGO deliver programmes related to education, sports development, health and sanitation in our eco lodge. Dream Renewables 2019 is Their first clean tech pilot project.",
+          "logo": {
+            "data": {
+              "id": 29,
+              "attributes": {
+                "name": "Dream Big Ghana NGO Logo.svg",
+                "alternativeText": "Dream Big Ghana NGO logo",
+                "caption": "Dream Big Ghana NGO logo",
+                "width": 174,
+                "height": 174,
+                "formats": null,
+                "hash": "Dream_Big_Ghana_NGO_Logo_47ab2e20f7",
+                "ext": ".svg",
+                "mime": "image/svg+xml",
+                "size": 47.87,
+                "url": "https://strapi-dr-s3-media-bucket",
+                "previewUrl": null,
+                "provider": "aws-s3",
+                "provider_metadata": null,
+                "createdAt": "2024-11-29T09:24:17.533Z",
+                "updatedAt": "2024-11-29T09:26:32.945Z",
+                "isUrlSigned": true
+              }
+            }
+          }
+        },
+        {
+          "id": 2,
+          "name": "ISEES",
+          "description": "ISEES is a non-profit institution that provides professional, technical training, research, consultancy, and business development services in the areas of renewable energy and energy efficiency, climate change, environmental conservation, natural resources",
+          "logo": {
+            "data": {
+              "id": 28,
+              "attributes": {
+                "name": "ISEES logo.svg",
+                "alternativeText": "ISEES logo",
+                "caption": "ISEES logo",
+                "width": 174,
+                "height": 174,
+                "formats": null,
+                "hash": "ISEES_logo_cf7eed42ff",
+                "ext": ".svg",
+                "mime": "image/svg+xml",
+                "size": 83.72,
+                "url": "https://strapi-dr-s3-media-bucket",
+                "previewUrl": null,
+                "provider": "aws-s3",
+                "provider_metadata": null,
+                "createdAt": "2024-11-29T09:24:17.526Z",
+                "updatedAt": "2024-11-29T09:26:23.765Z",
+                "isUrlSigned": true
+              }
+            }
+          }
+        },
+        {
+          "id": 3,
+          "name": "Dream Big Ghana Foundation",
+          "description": "Dream Big Ghana Foundation (DBGF) aims to bring life-saving sanitation, health, educational and economic development opportunities to communities in the Volta Region of Ghana. DBGF provide us with grant funding, and strategic support. ",
+          "logo": {
+            "data": {
+              "id": 27,
+              "attributes": {
+                "name": "Dream Big Ghana Foundation logo.svg",
+                "alternativeText": "Dream Big Ghana Foundation logo",
+                "caption": "Dream Big Ghana Foundation logo",
+                "width": 175,
+                "height": 174,
+                "formats": null,
+                "hash": "Dream_Big_Ghana_Foundation_logo_d5a519294c",
+                "ext": ".svg",
+                "mime": "image/svg+xml",
+                "size": 178.88,
+                "url": "https://strapi-dr-s3-media-bucket.s3",
+                "previewUrl": null,
+                "provider": "aws-s3",
+                "provider_metadata": null,
+                "createdAt": "2024-11-29T09:24:17.425Z",
+                "updatedAt": "2024-11-29T09:26:12.980Z",
+                "isUrlSigned": true
+              }
+            }
+          }
+        },
+        {
+          "id": 4,
+          "name": "Lady Volta Green Tech Academy",
+          "description": "Lady Volta Green Tech Academy (funded by Social Venture Africa) are a solar energy training school in Ho, dedicated to provided quality subsidised training to women and girls from the region. Dream Renewables work with Lady Volta to provide technical training for our studnets, and to implement project ideas in solar enegry. ",
+          "logo": {
+            "data": {
+              "id": 30,
+              "attributes": {
+                "name": "Lady Volta Green Tech Academy logo.svg",
+                "alternativeText": "Lady Volta Green Tech Academy logo",
+                "caption": "Lady Volta Green Tech Academy logo",
+                "width": 175,
+                "height": 174,
+                "formats": null,
+                "hash": "Lady_Volta_Green_Tech_Academy_logo_1941635c58",
+                "ext": ".svg",
+                "mime": "image/svg+xml",
+                "size": 244.52,
+                "url": "https://strapi-dr-s3-media-bucket",
+                "previewUrl": null,
+                "provider": "aws-s3",
+                "provider_metadata": null,
+                "createdAt": "2024-11-29T09:24:17.603Z",
+                "updatedAt": "2024-11-29T09:26:02.755Z",
+                "isUrlSigned": true
+              }
+            }
+          }
+        },
+        {
+          "id": 5,
+          "name": "Next Energy Foundation",
+          "description": "NextEnergy Foundation is an international charity founded in 2016. Their Mission is to participate proactively in the global effort to reduce carbon emissions, provide clean power sources in regions where they are not yet available, and contribute to poverty alleviation. NextEnergy Foundation funded our solar energy programmes in 2021 and is currently funding our solar irrigation pilot programme ",
+          "logo": {
+            "data": {
+              "id": 26,
+              "attributes": {
+                "name": "Next Energy Foundation logo.svg",
+                "alternativeText": "Next Energy Foundation logo",
+                "caption": "Next Energy Foundation logo",
+                "width": 175,
+                "height": 174,
+                "formats": null,
+                "hash": "Next_Energy_Foundation_logo_512f7ff27d",
+                "ext": ".svg",
+                "mime": "image/svg+xml",
+                "size": 5.52,
+                "url": "https://strapi-dr-s3-media-bucket",
+                "previewUrl": null,
+                "provider": "aws-s3",
+                "provider_metadata": null,
+                "createdAt": "2024-11-29T09:24:17.109Z",
+                "updatedAt": "2024-11-29T09:25:54.250Z",
+                "isUrlSigned": true
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}
