@@ -23,6 +23,8 @@ describe('Our Donors Page', () => {
     cy.get('[data-testid="navbar"]').should('be.visible');
 
     cy.get('[data-testid="our-donors-page-title"]').should('be.visible');
+    cy.get('[data-testid="our-donors-page-sub-title"]').should('be.visible');
+    cy.get('[data-testid="our-donor-page-donor"]').should('have.length', 5);
 
     cy.get('[data-testid="footer"]').should('be.visible');
   });

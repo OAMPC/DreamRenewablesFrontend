@@ -68,6 +68,13 @@ describe('OurDonorsPage', () => {
         ).toBeInTheDocument();
       });
     });
+
+    test('should render the our donors page components when data is loaded', async () => {
+      await setup();
+      await waitFor(() => {
+        expect(screen.getAllByTestId('our-donor-page-donor').length).toBe(5);
+      });
+    });
   });
 
   afterEach(() => {

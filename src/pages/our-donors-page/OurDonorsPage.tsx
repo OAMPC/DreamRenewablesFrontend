@@ -3,6 +3,7 @@ import PageWrapper from '../../components/page-wrapper/PageWrapper';
 import { useLoaderData } from 'react-router-dom';
 import { LoaderData } from '../../data/types/LoaderData';
 import * as Bs from 'react-bootstrap';
+import OurDonorsPageDonor from '../../components/our-donors-page/ourDonorsPageDonor';
 
 const OurDonorsPage: React.FC = () => {
   const { ourDonorsPageStrapiData } = useLoaderData() as LoaderData;
@@ -21,6 +22,13 @@ const OurDonorsPage: React.FC = () => {
             {ourDonorsPageStrapiData.pageSubTitle}
           </h2>
         </Bs.Col>
+      </Bs.Row>
+      <Bs.Row className="d-flex justify-content-center">
+        {ourDonorsPageStrapiData.ourDonors.map((donor, index) => (
+          <Bs.Col xl="4" md="4" xs="12" key={index}>
+            <OurDonorsPageDonor ourDonor={donor} />
+          </Bs.Col>
+        ))}
       </Bs.Row>
     </PageWrapper>
   );
