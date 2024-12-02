@@ -4,6 +4,7 @@ import {
   getFooterStrapiData,
   getLandingPageStrapiData,
   getNavigationBarStrapiData,
+  getOurDonorsPageStrapiData,
   getOurMissionVisionAndValuesPageStrapiData,
   getOurTeamPageStrapiData,
 } from './strapiApi';
@@ -12,6 +13,7 @@ import NavigationBarFactory from '../test/factories/strapi/NavigationBarFactory'
 import FooterFactory from '../test/factories/strapi/FooterFactory';
 import OurMissionVisionAndValuesPageFactory from '../test/factories/strapi/OurMissionVisionAndValuesPageFactory';
 import OurTeamPageFactory from '../test/factories/strapi/OurTeamPageFactory';
+import OurDonorPageFactory from '../test/factories/strapi/OurDonorPageFactory';
 
 interface MockData<T> {
   data: {
@@ -137,6 +139,28 @@ describe('strapiApi', () => {
       const apiUrl = ourTeamPageFactory.getApiUrl();
       await setup(apiUrl, emptyMockData, 500);
       await expect(getOurTeamPageStrapiData()).rejects.toThrow(
+        'Request failed with status code 500'
+      );
+    });
+  });
+
+  describe('getOurDonorsPageStrapiData', () => {
+    test('should get our donors page data successfully', async () => {
+      const ourDonorPageFactory = new OurDonorPageFactory();
+      const mockResponse = ourDonorPageFactory.getMockResponse();
+      const apiUrl = ourDonorPageFactory.getApiUrl();
+      await setup(apiUrl, mockResponse, 200);
+
+      const response = await getOurDonorsPageStrapiData();
+      expect(response).toEqual(mockResponse.data.attributes);
+    });
+
+    test('should handle errors when our donor page "get" returns a 500', async () => {
+      const ourDonorPageFactory = new OurDonorPageFactory();
+      const emptyMockData = ourDonorPageFactory.getEmptyMockData();
+      const apiUrl = ourDonorPageFactory.getApiUrl();
+      await setup(apiUrl, emptyMockData, 500);
+      await expect(getOurDonorsPageStrapiData()).rejects.toThrow(
         'Request failed with status code 500'
       );
     });
