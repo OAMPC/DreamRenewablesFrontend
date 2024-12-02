@@ -1,6 +1,13 @@
 .landing-image-card {
   border-radius: 50px;
-  margin-bottom: 10vh;
+  margin-top: 2vh;
+  margin-bottom: 5vh;
+  width: 150vh;
+}
+
+.landing-image-card-loading-spinner {
+  margin-top: 250px;
+  margin-bottom: 250px;
 }
 
 .landing-image-card-image {
@@ -8,6 +15,6 @@
 }
 
 .landing-image-card-title {
-  font-size: 3vw;
+  font-size: 3em;
   font-weight: 600;
 }

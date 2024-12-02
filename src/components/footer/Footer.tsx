@@ -26,6 +26,7 @@ const Footer: React.FC = () => {
                 <Bs.Row>
                   <Bs.Col>
                     <Bs.Image
+                      loading="lazy"
                       data-testid="footer-image"
                       className="footer-image img-fluid"
                       src={content.image.data.attributes.url}
@@ -101,6 +102,7 @@ const Footer: React.FC = () => {
                   >
                     {content.socialMediaLinks.iconLinks.map((iconLink) => (
                       <Bs.Image
+                        loading="lazy"
                         data-testid="social-media-icon"
                         key={iconLink.id}
                         className={`social-media-icon ${'ms-4' + showClass()} me-4`}
@@ -131,6 +133,7 @@ const Footer: React.FC = () => {
                   <Bs.Col>
                     <p>
                       <Bs.Image
+                        loading="lazy"
                         className="me-1 mb-1"
                         alt={
                           content.contactInformation.icon.data.attributes
