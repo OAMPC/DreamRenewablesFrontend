@@ -34,6 +34,7 @@ const LandingPageSpecialityCarouselCard: React.FC<Props> = ({ card }) => {
                   >
                     {card.link.linkString}
                     <Bs.Image
+                      loading="lazy"
                       data-testid="speciality-carousel-card-description-image"
                       className="ms-2 mb-2"
                       src={card.linkIcon.data.attributes.url}

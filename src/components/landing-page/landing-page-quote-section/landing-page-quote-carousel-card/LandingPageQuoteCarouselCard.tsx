@@ -18,6 +18,7 @@ const LandingPageQuoteCarouselCard: React.FC<Props> = ({ card, quoteIcon }) => {
       <Bs.Row>
         <Bs.Col>
           <Bs.Image
+            loading="lazy"
             fluid
             data-testid="quote-carousel-card-icon"
             className="mb-3 quote-carousel-card-icon"
