@@ -9,25 +9,47 @@
   &::before {
     content: '';
     position: absolute;
-    width: 8vw;
-    height: 4vw;
+    width: 5vw;
+    height: 6.5vw;
     background-color: var(--primary);
     z-index: -1;
     border-radius: 10px;
-    top: 20%;
+    bottom: 20%;
     right: 40%;
 
+    @media (max-width: 2000px) {
+      bottom: 30%;
+      right: 40%;
+      height: 7.5vw;
+      width: 6.5vw;
+    }
+
+    @media (max-width: 1600px) {
+      bottom: 30%;
+      right: 40%;
+      height: 10vw;
+      width: 8vw;
+    }
+
+    @media (max-width: 1300px) {
+      bottom: 30%;
+      right: 40%;
+      height: 12vw;
+      width: 10vw;
+    }
+
     @media (max-width: 992px) {
-      top: 30%;
-      right: 70%;
-      height: 8vw;
+      bottom: 30%;
+      right: 40%;
+      height: 15vw;
+      width: 13vw;
     }
 
     @media (max-width: 768px) {
-      top: 30%;
-      right: 70%;
-      height: 10vw;
-      width: 15vw;
+      bottom: 30%;
+      right: 40%;
+      height: 18vw;
+      width: 18vw;
     }
   }
 }

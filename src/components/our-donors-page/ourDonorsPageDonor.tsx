@@ -17,7 +17,7 @@ const OurDonorsPageDonor: React.FC<Props> = ({ ourDonor }) => {
               <div className="our-donor-page-donor-logo-accent">
                 <Bs.Image
                   data-testid="our-donor-page-donor-logo"
-                  className="mb-3 our-donor-page-donor-logo"
+                  className="mb-md-3 our-donor-page-donor-logo"
                   fluid
                   src={ourDonor.logo.data.attributes.url}
                   alt={ourDonor.logo.data.attributes.alternativeText}

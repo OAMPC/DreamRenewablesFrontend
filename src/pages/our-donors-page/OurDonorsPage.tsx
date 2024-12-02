@@ -25,7 +25,7 @@ const OurDonorsPage: React.FC = () => {
       </Bs.Row>
       <Bs.Row className="d-flex justify-content-center">
         {ourDonorsPageStrapiData.ourDonors.map((donor, index) => (
-          <Bs.Col xl="4" md="4" xs="12" key={index}>
+          <Bs.Col xl="3" md="4" xs="12" key={index}>
             <OurDonorsPageDonor ourDonor={donor} />
           </Bs.Col>
         ))}
