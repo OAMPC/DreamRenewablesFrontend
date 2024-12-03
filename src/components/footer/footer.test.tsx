@@ -5,7 +5,7 @@ import { afterEach, describe, expect, Mock, test, vi } from 'vitest';
 import useWindowDimensions from '../../hooks/windowDimensions';
 import Footer from './Footer';
 import FooterFactory from '../../test/factories/strapi/FooterFactory';
-import { SharedDataContext } from '../contexts/SharedDataProvider';
+import { SharedDataContext } from '../../contexts/SharedDataProvider';
 
 vi.mock('../../hooks/windowDimensions', () => ({
   default: vi.fn(),

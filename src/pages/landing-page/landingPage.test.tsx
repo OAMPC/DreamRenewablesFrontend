@@ -15,7 +15,7 @@ import navigationBarFactory from '../../test/factories/strapi/NavigationBarFacto
 import useWindowDimensions from '../../hooks/windowDimensions';
 import LandingPageFactory from '../../test/factories/strapi/LandingPageFactory';
 import FooterFactory from '../../test/factories/strapi/FooterFactory';
-import { SharedDataContext } from '../../components/contexts/SharedDataProvider';
+import { SharedDataContext } from '../../contexts/SharedDataProvider';
 
 vi.mock('react-router-dom', async () => {
   const actual = await vi.importActual('react-router-dom');

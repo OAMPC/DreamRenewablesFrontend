@@ -1,7 +1,7 @@
 import React from 'react';
 import * as Bs from 'react-bootstrap';
 import './navigationBar.scss';
-import { useSharedData } from '../contexts/SharedDataProvider';
+import { useSharedData } from '../../contexts/SharedDataProvider';
 
 const NavigationBar: React.FC = () => {
   const { navigationBarContent: content } = useSharedData();

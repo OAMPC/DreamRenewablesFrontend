@@ -4,7 +4,7 @@ import { MemoryRouter } from 'react-router-dom';
 import { afterEach, beforeEach, describe, expect, test, vi } from 'vitest';
 import NavigationBar from './NavigationBar';
 import NavigationBarFactory from '../../test/factories/strapi/NavigationBarFactory';
-import { SharedDataContext } from '../contexts/SharedDataProvider';
+import { SharedDataContext } from '../../contexts/SharedDataProvider';
 
 describe('NavigationBar', () => {
   beforeEach(() => {

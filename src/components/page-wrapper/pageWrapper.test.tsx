@@ -14,7 +14,7 @@ import useWindowDimensions from '../../hooks/windowDimensions';
 import PageWrapper from './PageWrapper';
 import NavigationBarFactory from '../../test/factories/strapi/NavigationBarFactory';
 import FooterFactory from '../../test/factories/strapi/FooterFactory';
-import { SharedDataContext } from '../contexts/SharedDataProvider';
+import { SharedDataContext } from '../../contexts/SharedDataProvider';
 
 vi.mock('../../hooks/windowDimensions', () => ({
   default: vi.fn(),
