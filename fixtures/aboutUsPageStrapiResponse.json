@@ -1,0 +1,211 @@
+{
+  "data": {
+    "id": 1,
+    "attributes": {
+      "landingImage": {
+        "id": 1,
+        "title": "About Us",
+        "image": {
+          "data": {
+            "id": 32,
+            "attributes": {
+              "name": "about-us-landing-image.svg",
+              "alternativeText": "about-us-landing-image",
+              "caption": "about-us-landing-image",
+              "width": 1344,
+              "height": 450,
+              "formats": null,
+              "hash": "about_us_landing_image_87a640dee1",
+              "ext": ".svg",
+              "mime": "image/svg+xml",
+              "size": 2411.35,
+              "url": "https://strapi-dr-s3-media-bucket.s3",
+              "previewUrl": null,
+              "provider": "aws-s3",
+              "provider_metadata": null,
+              "createdAt": "2024-12-03T17:22:13.616Z",
+              "updatedAt": "2024-12-03T17:22:13.616Z",
+              "isUrlSigned": true
+            }
+          }
+        }
+      },
+      "sections": [
+        {
+          "id": 1,
+          "title": "Our Story starts in 2011...",
+          "description": "where our founder, Barnaby, spent 14 months volunteering with a sustainable development charity in Ghana. He saw that lack of clean energy hindered community growth and returned to the UK to study Renewable Energy.",
+          "linkIcon": {
+            "data": {
+              "id": 12,
+              "attributes": {
+                "name": "arrow-icon.svg",
+                "alternativeText": "arrow-icon",
+                "caption": "arrow-icon",
+                "width": 8,
+                "height": 9,
+                "formats": null,
+                "hash": "arrow_icon_353b7d5895",
+                "ext": ".svg",
+                "mime": "image/svg+xml",
+                "size": 0.21,
+                "url": "https://strapi-dr-s3-media-bucket.s3.",
+                "previewUrl": null,
+                "provider": "aws-s3",
+                "provider_metadata": null,
+                "createdAt": "2024-10-17T21:33:59.252Z",
+                "updatedAt": "2024-10-17T21:33:59.252Z",
+                "isUrlSigned": true
+              }
+            }
+          },
+          "link": {
+            "id": 22,
+            "linkString": "Our Story",
+            "linkSlug": "our-story"
+          },
+          "image": {
+            "data": {
+              "id": 33,
+              "attributes": {
+                "name": "about-image-one.svg",
+                "alternativeText": "about-image-one",
+                "caption": "about-image-one",
+                "width": 407,
+                "height": 438,
+                "formats": null,
+                "hash": "about_image_one_e0fc8215d3",
+                "ext": ".svg",
+                "mime": "image/svg+xml",
+                "size": 299.84,
+                "url": "https://strapi-dr-s3-media-bucket.s3.eu-west-2.amazonaws.com/about_image_one_e0fc8215d3.svg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT4GVRL3IRMXEMOPM%2F20241203%2Feu-west-2%2Fs3%2Faws4_request&X-Amz-Date=20241203T175556Z&X-Amz-Expires=900&X-Amz-Signature=06a73bc58d7803012c5a43cf0c5c2a3a69f374e43f63013cf6fa04861583fe06&X-Amz-SignedHeaders=host&x-id=GetObject",
+                "previewUrl": null,
+                "provider": "aws-s3",
+                "provider_metadata": null,
+                "createdAt": "2024-12-03T17:23:56.073Z",
+                "updatedAt": "2024-12-03T17:23:56.073Z",
+                "isUrlSigned": true
+              }
+            }
+          }
+        },
+        {
+          "id": 2,
+          "title": "We want to empower communities",
+          "description": "to create and maintain sustainable energy solutions that address their specific challenges.",
+          "linkIcon": {
+            "data": {
+              "id": 12,
+              "attributes": {
+                "name": "arrow-icon.svg",
+                "alternativeText": "arrow-icon",
+                "caption": "arrow-icon",
+                "width": 8,
+                "height": 9,
+                "formats": null,
+                "hash": "arrow_icon_353b7d5895",
+                "ext": ".svg",
+                "mime": "image/svg+xml",
+                "size": 0.21,
+                "url": "https://strapi-dr-s3-media-bucket.s3.eu-west-2.amazonaws.com/arrow_icon_353b7d5895.svg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT4GVRL3IRMXEMOPM%2F20241203%2Feu-west-2%2Fs3%2Faws4_request&X-Amz-Date=20241203T175556Z&X-Amz-Expires=900&X-Amz-Signature=87556099b0b44422a6ee3ba0c7c803b565cf7300e3a7888a049b50866629b63a&X-Amz-SignedHeaders=host&x-id=GetObject",
+                "previewUrl": null,
+                "provider": "aws-s3",
+                "provider_metadata": null,
+                "createdAt": "2024-10-17T21:33:59.252Z",
+                "updatedAt": "2024-10-17T21:33:59.252Z",
+                "isUrlSigned": true
+              }
+            }
+          },
+          "link": {
+            "id": 23,
+            "linkString": "Our Mission",
+            "linkSlug": "our-mission"
+          },
+          "image": {
+            "data": {
+              "id": 34,
+              "attributes": {
+                "name": "about-us-page-image-two.svg",
+                "alternativeText": "about-us-page-image-two",
+                "caption": "about-us-page-image-two",
+                "width": 526,
+                "height": 310,
+                "formats": null,
+                "hash": "about_us_page_image_two_2a316748ce",
+                "ext": ".svg",
+                "mime": "image/svg+xml",
+                "size": 1138.28,
+                "url": "https://strapi-dr-s3-media-bucket.s3.eu-west-2.amazonaws.com/about_us_page_image_two_2a316748ce.svg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT4GVRL3IRMXEMOPM%2F20241203%2Feu-west-2%2Fs3%2Faws4_request&X-Amz-Date=20241203T175556Z&X-Amz-Expires=900&X-Amz-Signature=90ecff8cd476360229d3f454aac88a014f9d1bcddd85f59868b9ba064db132d5&X-Amz-SignedHeaders=host&x-id=GetObject",
+                "previewUrl": null,
+                "provider": "aws-s3",
+                "provider_metadata": null,
+                "createdAt": "2024-12-03T17:28:27.409Z",
+                "updatedAt": "2024-12-03T17:28:35.538Z",
+                "isUrlSigned": true
+              }
+            }
+          }
+        },
+        {
+          "id": 3,
+          "title": "Meet our people",
+          "description": "Explore our trustees and staff members that make our work possible.",
+          "linkIcon": {
+            "data": {
+              "id": 12,
+              "attributes": {
+                "name": "arrow-icon.svg",
+                "alternativeText": "arrow-icon",
+                "caption": "arrow-icon",
+                "width": 8,
+                "height": 9,
+                "formats": null,
+                "hash": "arrow_icon_353b7d5895",
+                "ext": ".svg",
+                "mime": "image/svg+xml",
+                "size": 0.21,
+                "url": "https://strapi-dr-s3-media-bucket.s3.eu-west-2.amazonaws.com/arrow_icon_353b7d5895.svg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT4GVRL3IRMXEMOPM%2F20241203%2Feu-west-2%2Fs3%2Faws4_request&X-Amz-Date=20241203T175556Z&X-Amz-Expires=900&X-Amz-Signature=87556099b0b44422a6ee3ba0c7c803b565cf7300e3a7888a049b50866629b63a&X-Amz-SignedHeaders=host&x-id=GetObject",
+                "previewUrl": null,
+                "provider": "aws-s3",
+                "provider_metadata": null,
+                "createdAt": "2024-10-17T21:33:59.252Z",
+                "updatedAt": "2024-10-17T21:33:59.252Z",
+                "isUrlSigned": true
+              }
+            }
+          },
+          "link": {
+            "id": 24,
+            "linkString": "Our People",
+            "linkSlug": "our-people"
+          },
+          "image": {
+            "data": {
+              "id": 35,
+              "attributes": {
+                "name": "about-us-image-3.svg",
+                "alternativeText": "about-us-image-3.",
+                "caption": "about-us-image-3.",
+                "width": 587,
+                "height": 452,
+                "formats": null,
+                "hash": "about_us_image_3_7d1a66acf8",
+                "ext": ".svg",
+                "mime": "image/svg+xml",
+                "size": 2257.28,
+                "url": "https://strapi-dr-s3-media-bucket.s3.eu-west-2.amazonaws.com/about_us_image_3_7d1a66acf8.svg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT4GVRL3IRMXEMOPM%2F20241203%2Feu-west-2%2Fs3%2Faws4_request&X-Amz-Date=20241203T175556Z&X-Amz-Expires=900&X-Amz-Signature=1813e8fea1dca3255217c2132e91a8880f49b86600617834e22a64390dbf8545&X-Amz-SignedHeaders=host&x-id=GetObject",
+                "previewUrl": null,
+                "provider": "aws-s3",
+                "provider_metadata": null,
+                "createdAt": "2024-12-03T17:28:28.396Z",
+                "updatedAt": "2024-12-03T17:29:09.854Z",
+                "isUrlSigned": true
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

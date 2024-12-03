@@ -1,6 +1,7 @@
 import React from 'react';
 import { createBrowserRouter } from 'react-router-dom';
 import {
+  getAboutUsPageStrapiData,
   getLandingPageStrapiData,
   getOurDonorsPageStrapiData,
   getOurMissionVisionAndValuesPageStrapiData,
@@ -10,6 +11,7 @@ import LandingPage from './pages/landing-page/LandingPage';
 import OurMissionVisionAndValuesPage from './pages/our-mission-vision-and-values-page/OurMissionVisionAndValuesPage';
 import OurTeamPage from './pages/our-team-page/OurTeamPage';
 import OurDonorsPage from './pages/our-donors-page/OurDonorsPage';
+import AboutUsPage from './pages/about-us-page/AboutUsPage';
 
 const router = createBrowserRouter([
   {
@@ -51,6 +53,16 @@ const router = createBrowserRouter([
       const ourDonorsPageStrapiData = await getOurDonorsPageStrapiData();
       return {
         ourDonorsPageStrapiData,
+      };
+    },
+  },
+  {
+    path: '/about-us',
+    element: <AboutUsPage />,
+    loader: async () => {
+      const aboutUsPageStrapiData = await getAboutUsPageStrapiData();
+      return {
+        aboutUsPageStrapiData,
       };
     },
   },

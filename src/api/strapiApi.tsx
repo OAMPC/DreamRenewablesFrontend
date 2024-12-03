@@ -6,6 +6,7 @@ import { OurTeamPageStrapiContent } from '../data/interfaces/our-team-page/OurTe
 import { buildStrapiEndpointQuery } from './util/buildStrapiEndpointQuery';
 import { fetchStrapiData } from './util/fetchStrapiData';
 import { OurDonorsPageStrapiContent } from '../data/interfaces/our-donor-page/OurDonorsPageStrapiContent';
+import { AboutUsPageStrapiContent } from '../data/interfaces/about-us-page/AboutUsPageStrapiContent';
 
 export async function getNavigationBarStrapiData(): Promise<NavigationBarStrapiContent> {
   const query = buildStrapiEndpointQuery([
@@ -73,4 +74,14 @@ export async function getOurTeamPageStrapiData(): Promise<OurTeamPageStrapiConte
 export async function getOurDonorsPageStrapiData(): Promise<OurDonorsPageStrapiContent> {
   const query = buildStrapiEndpointQuery(['ourDonors', 'ourDonors.logo']);
   return fetchStrapiData('our-donors-page', query);
+}
+
+export async function getAboutUsPageStrapiData(): Promise<AboutUsPageStrapiContent> {
+  const query = buildStrapiEndpointQuery([
+    'landingImage.image',
+    'sections.image',
+    'sections.link',
+    'sections.linkIcon',
+  ]);
+  return fetchStrapiData('about-us-page', query);
 }

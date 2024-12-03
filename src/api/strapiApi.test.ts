@@ -1,6 +1,7 @@
 import { describe, expect, test } from 'vitest';
 import { AXIOS_MOCK } from '../test-setup';
 import {
+  getAboutUsPageStrapiData,
   getFooterStrapiData,
   getLandingPageStrapiData,
   getNavigationBarStrapiData,
@@ -14,6 +15,7 @@ import FooterFactory from '../test/factories/strapi/FooterFactory';
 import OurMissionVisionAndValuesPageFactory from '../test/factories/strapi/OurMissionVisionAndValuesPageFactory';
 import OurTeamPageFactory from '../test/factories/strapi/OurTeamPageFactory';
 import OurDonorPageFactory from '../test/factories/strapi/OurDonorPageFactory';
+import AboutUsPageFactory from '../test/factories/strapi/AboutUsPageFactory';
 
 interface MockData<T> {
   data: {
@@ -161,6 +163,28 @@ describe('strapiApi', () => {
       const apiUrl = ourDonorPageFactory.getApiUrl();
       await setup(apiUrl, emptyMockData, 500);
       await expect(getOurDonorsPageStrapiData()).rejects.toThrow(
+        'Request failed with status code 500'
+      );
+    });
+  });
+
+  describe('getAboutUsPageStrapiData', () => {
+    test('should get about us page data successfully', async () => {
+      const aboutUsPageFactory = new AboutUsPageFactory();
+      const mockResponse = aboutUsPageFactory.getMockResponse();
+      const apiUrl = aboutUsPageFactory.getApiUrl();
+      await setup(apiUrl, mockResponse, 200);
+
+      const response = await getAboutUsPageStrapiData();
+      expect(response).toEqual(mockResponse.data.attributes);
+    });
+
+    test('should handle errors when get about us page "get" returns a 500', async () => {
+      const aboutUsPageFactory = new AboutUsPageFactory();
+      const emptyMockData = aboutUsPageFactory.getEmptyMockData();
+      const apiUrl = aboutUsPageFactory.getApiUrl();
+      await setup(apiUrl, emptyMockData, 500);
+      await expect(getAboutUsPageStrapiData()).rejects.toThrow(
         'Request failed with status code 500'
       );
     });
