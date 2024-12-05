@@ -1,13 +1,27 @@
 import React from 'react';
 import PageWrapper from '../../components/page-wrapper/PageWrapper';
 import * as Bs from 'react-bootstrap';
+import AboutUsPageLandingCardDesktop from '../../components/about-us-page/about-us-page-landing-card/desktop/AboutUsPageLandingCardDesktop';
+import { useLoaderData } from 'react-router-dom';
+import { LoaderData } from '../../data/types/LoaderData';
+import AboutUsPageLandingCardMobile from '../../components/about-us-page/about-us-page-landing-card/mobile/AboutUsPageLandingCardMobile';
 
 const AboutUsPage: React.FC = () => {
+  const { aboutUsPageStrapiData } = useLoaderData() as LoaderData;
   return (
     <PageWrapper>
       <Bs.Row>
         <Bs.Col>
-          <h1>Hello World</h1>
+          <div className="d-none d-md-block">
+            <AboutUsPageLandingCardDesktop
+              landingImage={aboutUsPageStrapiData.landingImage}
+            />
+          </div>
+          <div className="d-sm-none">
+            <AboutUsPageLandingCardMobile
+              landingImage={aboutUsPageStrapiData.landingImage}
+            />
+          </div>
         </Bs.Col>
       </Bs.Row>
     </PageWrapper>
