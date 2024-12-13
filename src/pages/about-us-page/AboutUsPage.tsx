@@ -5,6 +5,7 @@ import AboutUsPageLandingCardDesktop from '../../components/about-us-page/about-
 import { useLoaderData } from 'react-router-dom';
 import { LoaderData } from '../../data/types/LoaderData';
 import AboutUsPageLandingCardMobile from '../../components/about-us-page/about-us-page-landing-card/mobile/AboutUsPageLandingCardMobile';
+import AboutUsPageOurStorySection from '../../components/about-us-page/about-us-page-our-story-section/AboutUsPageOurStorySection';
 
 const AboutUsPage: React.FC = () => {
   const { aboutUsPageStrapiData } = useLoaderData() as LoaderData;
@@ -12,7 +13,7 @@ const AboutUsPage: React.FC = () => {
     <PageWrapper>
       <Bs.Row>
         <Bs.Col>
-          <div className="d-none d-md-block">
+          <div className="d-none d-md-block mb-5">
             <AboutUsPageLandingCardDesktop
               landingImage={aboutUsPageStrapiData.landingImage}
             />
@@ -24,6 +25,15 @@ const AboutUsPage: React.FC = () => {
           </div>
         </Bs.Col>
       </Bs.Row>
+      {aboutUsPageStrapiData.sections.map((section) => (
+        <Bs.Row className="mb-5">
+          <Bs.Col>
+            <div>
+              <AboutUsPageOurStorySection sectionData={section} />
+            </div>
+          </Bs.Col>
+        </Bs.Row>
+      ))}
     </PageWrapper>
   );
 };

@@ -11,7 +11,7 @@ const AboutUsPageLandingCardDesktop: React.FC<Props> = ({ landingImage }) => {
     backgroundImage: `url(${landingImage.image.data.attributes.url})`,
     backgroundSize: 'cover',
     backgroundPosition: 'center',
-    height: '300px',
+    height: '500px',
     borderRadius: '25px',
   };
   return (
