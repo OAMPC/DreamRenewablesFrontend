@@ -5,19 +5,20 @@ import './aboutUsPageOurStorySection.scss';
 
 type Props = {
   sectionData: Section;
+  rowIndex: number;
 };
 
-const AboutUsPageOurStorySection: React.FC<Props> = ({ sectionData }) => {
+const AboutUsPageOurStorySection: React.FC<Props> = ({
+  sectionData,
+  rowIndex,
+}) => {
   return (
-    <div>
-      <Bs.Row>
+    <Bs.Container>
+      <Bs.Row className="gx-5">
         <Bs.Col
-          className="mb-3"
+          className={`mb-3 ${rowIndex % 2 == 0 ? 'order-xl-first' : 'order-xl-last'}`}
           xs="12"
-          xl={{
-            span: 2,
-            offset: 4,
-          }}
+          xxl="6"
         >
           <Bs.Row className="mt-5">
             <Bs.Col className="text-center text-xl-start">
@@ -43,23 +44,19 @@ const AboutUsPageOurStorySection: React.FC<Props> = ({ sectionData }) => {
             </Bs.Col>
           </Bs.Row>
         </Bs.Col>
-        <Bs.Col>
-          <Bs.Row>
-            <Bs.Col
-              className="d-flex justify-content-center justify-content-xl-start about-us-page-our-story-section-image"
-              xs="12"
-              xl={{ span: 4, offset: 2 }}
-            >
-              <Bs.Image
-                fluid
-                src={sectionData.image.data.attributes.url}
-                alt={sectionData.image.data.attributes.alternativeText}
-              />
-            </Bs.Col>
-          </Bs.Row>
+        <Bs.Col
+          xs="12"
+          xxl="6"
+          className={`d-flex justify-content-center  ${rowIndex % 2 == 0 ? 'order-xl-last' : 'order-xl-first'}`}
+        >
+          <Bs.Image
+            fluid
+            src={sectionData.image.data.attributes.url}
+            alt={sectionData.image.data.attributes.alternativeText}
+          />
         </Bs.Col>
       </Bs.Row>
-    </div>
+    </Bs.Container>
   );
 };
 

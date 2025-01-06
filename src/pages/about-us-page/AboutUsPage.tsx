@@ -13,7 +13,7 @@ const AboutUsPage: React.FC = () => {
     <PageWrapper>
       <Bs.Row>
         <Bs.Col>
-          <div className="d-none d-md-block mb-5">
+          <div className="d-none d-sm-block mb-5">
             <AboutUsPageLandingCardDesktop
               landingImage={aboutUsPageStrapiData.landingImage}
             />
@@ -25,12 +25,13 @@ const AboutUsPage: React.FC = () => {
           </div>
         </Bs.Col>
       </Bs.Row>
-      {aboutUsPageStrapiData.sections.map((section) => (
-        <Bs.Row className="mb-5">
+      {aboutUsPageStrapiData.sections.map((section, index) => (
+        <Bs.Row key={index} className="mb-5">
           <Bs.Col>
-            <div>
-              <AboutUsPageOurStorySection sectionData={section} />
-            </div>
+            <AboutUsPageOurStorySection
+              sectionData={section}
+              rowIndex={index}
+            />
           </Bs.Col>
         </Bs.Row>
       ))}
