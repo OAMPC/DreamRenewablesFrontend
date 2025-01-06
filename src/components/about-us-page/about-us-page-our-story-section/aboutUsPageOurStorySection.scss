@@ -1,3 +1,35 @@
-.about-us-page-our-story-section-image {
-  max-width: 300px;
+.about-us-page-section-title-accent {
+  position: relative;
+  margin-bottom: 3vh;
+
+  &::before {
+    content: '';
+    position: absolute;
+    height: 4vw;
+    width: 13vw;
+    background-color: var(--primary);
+    z-index: -1;
+    border-radius: 25px;
+    top: 10%;
+    right: 50%;
+
+    @media (max-width: 2300px) {
+      right: 70%;
+      height: 5vw;
+      width: 10vw;
+    }
+
+    @media (max-width: 1800px) {
+      top: 10%;
+      right: 70%;
+      height: 6vw;
+      width: 12vw;
+    }
+  }
+
+  h2 {
+    padding: 25px 0 25px 20px;
+    border-radius: 25px;
+    background-color: var(--background-light);
+  }
 }

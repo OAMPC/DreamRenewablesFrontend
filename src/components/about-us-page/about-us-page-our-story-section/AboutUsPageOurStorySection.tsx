@@ -22,7 +22,9 @@ const AboutUsPageOurStorySection: React.FC<Props> = ({
         >
           <Bs.Row className="mt-5">
             <Bs.Col className="text-center text-xl-start">
-              <h2 className="fs-1 fw-bolder">{sectionData.title}</h2>
+              <div className="about-us-page-section-title-accent">
+                <h2 className="fs-1 fw-bolder">{sectionData.title}</h2>
+              </div>
             </Bs.Col>
           </Bs.Row>
           <Bs.Row>
