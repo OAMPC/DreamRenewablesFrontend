@@ -4,6 +4,7 @@ import { StandardLink } from '../util/StandardLink';
 export interface AboutUsPageStrapiContent {
   landingImage: LandingImage;
   sections: Array<Section>;
+  imageButtonSection: ImageButtonSection;
 }
 
 export interface LandingImage {
@@ -17,4 +18,16 @@ export interface Section {
   image: ImageStrapiContent;
   link: StandardLink;
   linkIcon: ImageStrapiContent;
+}
+
+export interface ImageButtonSection {
+  title: string;
+  imageButtons: Array<ImageButton>;
+}
+
+export interface ImageButton {
+  image: ImageStrapiContent;
+  navigationIcon: ImageStrapiContent;
+  text: string;
+  subText: string;
 }
