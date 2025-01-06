@@ -61,6 +61,15 @@ describe('AboutUsPage', () => {
         ).toBeInTheDocument();
       });
     });
+
+    test('should render the about us page sections when data is loaded', async () => {
+      await setup();
+      await waitFor(() => {
+        expect(
+          screen.getAllByTestId('about-us-page-section-title').length
+        ).toBe(3);
+      });
+    });
   });
 
   afterEach(() => {

@@ -26,6 +26,11 @@ describe('About Us Page', () => {
       'be.visible'
     );
 
+    cy.get('[data-testid="about-us-page-section-title"]').should(
+      'have.length',
+      3
+    );
+
     cy.get('[data-testid="footer"]').should('be.visible');
   });
 });

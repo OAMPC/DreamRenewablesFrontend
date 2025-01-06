@@ -23,18 +23,28 @@ const AboutUsPageOurStorySection: React.FC<Props> = ({
           <Bs.Row className="mt-5">
             <Bs.Col className="text-center text-xl-start">
               <div className="about-us-page-section-title-accent">
-                <h2 className="fs-1 fw-bolder">{sectionData.title}</h2>
+                <h2
+                  data-testid="about-us-page-section-title"
+                  className="fs-1 fw-bolder"
+                >
+                  {sectionData.title}
+                </h2>
               </div>
             </Bs.Col>
           </Bs.Row>
           <Bs.Row>
             <Bs.Col className="text-center text-xl-start">
-              <p>{sectionData.description}</p>
+              <p data-testid="about-us-page-section-description">
+                {sectionData.description}
+              </p>
             </Bs.Col>
           </Bs.Row>
           <Bs.Row>
             <Bs.Col className="d-flex justify-content-center justify-content-xl-start">
-              <Bs.Nav.Link href={sectionData.link.linkSlug}>
+              <Bs.Nav.Link
+                data-testid="about-us-page-section-link"
+                href={sectionData.link.linkSlug}
+              >
                 {sectionData.link.linkString}
                 <Bs.Image
                   loading="lazy"
@@ -52,6 +62,7 @@ const AboutUsPageOurStorySection: React.FC<Props> = ({
           className={`d-flex justify-content-center  ${rowIndex % 2 == 0 ? 'order-xl-last' : 'order-xl-first'}`}
         >
           <Bs.Image
+            data-testid="about-us-page-section-image"
             fluid
             src={sectionData.image.data.attributes.url}
             alt={sectionData.image.data.attributes.alternativeText}
