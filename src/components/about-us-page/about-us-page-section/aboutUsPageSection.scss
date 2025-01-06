@@ -1,6 +1,5 @@
 .about-us-page-section-title-accent {
   position: relative;
-  margin-bottom: 3vh;
 
   &::before {
     content: '';
@@ -24,6 +23,11 @@
       right: 70%;
       height: 6vw;
       width: 12vw;
+    }
+
+    @media (max-width: 1799px) {
+      height: 0;
+      width: 0;
     }
   }
 

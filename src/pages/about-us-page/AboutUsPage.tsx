@@ -5,7 +5,7 @@ import AboutUsPageLandingCardDesktop from '../../components/about-us-page/about-
 import { useLoaderData } from 'react-router-dom';
 import { LoaderData } from '../../data/types/LoaderData';
 import AboutUsPageLandingCardMobile from '../../components/about-us-page/about-us-page-landing-card/mobile/AboutUsPageLandingCardMobile';
-import AboutUsPageOurStorySection from '../../components/about-us-page/about-us-page-our-story-section/AboutUsPageOurStorySection';
+import AboutUsPageSection from '../../components/about-us-page/about-us-page-section/AboutUsPageSection';
 
 const AboutUsPage: React.FC = () => {
   const { aboutUsPageStrapiData } = useLoaderData() as LoaderData;
@@ -28,10 +28,7 @@ const AboutUsPage: React.FC = () => {
       {aboutUsPageStrapiData.sections.map((section, index) => (
         <Bs.Row key={index} className="mb-5">
           <Bs.Col>
-            <AboutUsPageOurStorySection
-              sectionData={section}
-              rowIndex={index}
-            />
+            <AboutUsPageSection sectionData={section} rowIndex={index} />
           </Bs.Col>
         </Bs.Row>
       ))}

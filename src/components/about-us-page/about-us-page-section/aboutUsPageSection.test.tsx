@@ -3,7 +3,7 @@ import React from 'react';
 import { MemoryRouter } from 'react-router-dom';
 import { afterEach, beforeEach, describe, expect, test, vi } from 'vitest';
 import AboutUsPageFactory from '../../../test/factories/strapi/AboutUsPageFactory';
-import AboutUsPageOurStorySection from './AboutUsPageOurStorySection';
+import AboutUsPageOurStorySection from './AboutUsPageSection';
 
 describe('AboutUsPageOurStorySection', () => {
   const setup = async () => {

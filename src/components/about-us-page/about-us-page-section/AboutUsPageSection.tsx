@@ -1,22 +1,19 @@
 import React from 'react';
 import * as Bs from 'react-bootstrap';
 import { Section } from '../../../data/interfaces/about-us-page/AboutUsPageStrapiContent';
-import './aboutUsPageOurStorySection.scss';
+import './aboutUsPageSection.scss';
 
 type Props = {
   sectionData: Section;
   rowIndex: number;
 };
 
-const AboutUsPageOurStorySection: React.FC<Props> = ({
-  sectionData,
-  rowIndex,
-}) => {
+const AboutUsPageSection: React.FC<Props> = ({ sectionData, rowIndex }) => {
   return (
     <Bs.Container>
       <Bs.Row className="gx-5">
         <Bs.Col
-          className={`mb-3 ${rowIndex % 2 == 0 ? 'order-xl-first' : 'order-xl-last'}`}
+          className={`mb-5 ${rowIndex % 2 == 0 ? 'order-xl-first' : 'order-xl-last'}`}
           xs="12"
           xxl="6"
         >
@@ -25,7 +22,7 @@ const AboutUsPageOurStorySection: React.FC<Props> = ({
               <div className="about-us-page-section-title-accent">
                 <h2
                   data-testid="about-us-page-section-title"
-                  className="fs-1 fw-bolder"
+                  className="mb-lg-5 fs-1 fw-bolder mb-0"
                 >
                   {sectionData.title}
                 </h2>
@@ -73,4 +70,4 @@ const AboutUsPageOurStorySection: React.FC<Props> = ({
   );
 };
 
-export default AboutUsPageOurStorySection;
+export default AboutUsPageSection;
