@@ -14,8 +14,17 @@ const AboutUsPageLandingCardDesktop: React.FC<Props> = ({ landingImage }) => {
     height: '500px',
     borderRadius: '25px',
   };
+
+  const aboutUsPageLandingCardWrapperStyle = {
+    marginLeft: '150px',
+    marginRight: '150px',
+  };
+
   return (
-    <Bs.Row data-testid="about-us-landing-card-desktop">
+    <Bs.Row
+      style={aboutUsPageLandingCardWrapperStyle}
+      data-testid="about-us-landing-card-desktop"
+    >
       <Bs.Col>
         <div
           className="d-flex align-items-center justify-content-start mt-3 about-us-landing-card"
