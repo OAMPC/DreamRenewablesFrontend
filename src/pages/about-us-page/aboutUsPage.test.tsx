@@ -56,9 +56,7 @@ describe('AboutUsPage', () => {
     test('should render the about us landing card when data is loaded', async () => {
       await setup();
       await waitFor(() => {
-        expect(
-          screen.getByTestId('about-us-landing-card-desktop')
-        ).toBeInTheDocument();
+        expect(screen.getByTestId('landing-card-desktop')).toBeInTheDocument();
       });
     });
 

@@ -22,9 +22,7 @@ describe('About Us Page', () => {
   it('should load the about us page and verify all elements are present and functioning', () => {
     cy.get('[data-testid="navbar"]').should('be.visible');
 
-    cy.get('[data-testid="about-us-landing-card-desktop"]').should(
-      'be.visible'
-    );
+    cy.get('[data-testid="landing-card-desktop"]').should('be.visible');
     cy.get('[data-testid="about-us-page-section-title"]').should(
       'have.length',
       3

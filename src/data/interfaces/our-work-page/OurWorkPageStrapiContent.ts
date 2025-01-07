@@ -1,15 +1,11 @@
+import { LandingCard } from '../landing-card/LandingCard';
 import { ImageStrapiContent } from '../util/ImageStrapiContent';
 
 export interface OurWorkPageStrapiContent {
-  landingImage: LandingImage;
+  landingImage: LandingCard;
   quote: Quote;
   metrics: Array<Metric>;
   accordionSection: AccordionSection;
-}
-
-export interface LandingImage {
-  image: ImageStrapiContent;
-  title: string;
 }
 
 export interface Quote {
