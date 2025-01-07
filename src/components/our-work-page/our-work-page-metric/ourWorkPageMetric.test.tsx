@@ -3,15 +3,15 @@ import React from 'react';
 import { MemoryRouter } from 'react-router-dom';
 import { afterEach, beforeEach, describe, expect, test, vi } from 'vitest';
 import OurWorkPageFactory from '../../../test/factories/strapi/OurWorkPageFactory';
-import OurWorkPageQuoteSection from './OurWorkPageQuoteSection';
+import OurWorkPageMetric from './OurWorkPageMetric';
 
-describe('OurWorkPageQuoteSection', () => {
+describe('OurWorkPageMetric', () => {
   const setup = async () => {
     const ourWorkPageFactory = new OurWorkPageFactory();
     const mockData = ourWorkPageFactory.getMockData();
     render(
       <MemoryRouter>
-        <OurWorkPageQuoteSection quoteData={mockData.quote} />
+        <OurWorkPageMetric metricData={mockData.metrics[0]} />
       </MemoryRouter>
     );
   };
@@ -21,18 +21,18 @@ describe('OurWorkPageQuoteSection', () => {
   });
 
   describe('render elements', async () => {
-    test('should render the our work quote body after data is loaded', async () => {
+    test('should render the our-work metric value after data is loaded', async () => {
       await waitFor(() => {
         expect(
-          screen.getByTestId('our-work-page-quote-body')
+          screen.getByTestId('our-work-page-metric-value')
         ).toBeInTheDocument();
       });
     });
 
-    test('should render the our work quote author after data is loaded', async () => {
+    test('should render the our-work metric description after data is loaded', async () => {
       await waitFor(() => {
         expect(
-          screen.getByTestId('our-work-page-quote-author')
+          screen.getByTestId('our-work-page-metric-description')
         ).toBeInTheDocument();
       });
     });

@@ -10,7 +10,7 @@ const OurWorkPageQuoteSection: React.FC<Props> = ({ quoteData }) => {
   return (
     <div
       data-testid="our-work-page-quote-section"
-      className="our-work-page-quote-section-wrapper"
+      className="our-work-page-quote-section-wrapper mb-5"
     >
       <div className="p-4 our-work-page-quote-section-body">
         <p data-testid="our-work-page-quote-body" className="fs-2 fw-bolder">
