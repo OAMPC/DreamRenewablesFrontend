@@ -22,7 +22,7 @@ describe('Our Work Page', () => {
   it('should load the our team page and verify all elements are present and functioning', () => {
     cy.get('[data-testid="navbar"]').should('be.visible');
 
-    cy.get('[data-testid="our-work-page-title"]').should('be.visible');
+    cy.get('[data-testid="landing-card-desktop"]').should('be.visible');
 
     cy.get('[data-testid="footer"]').should('be.visible');
   });

@@ -56,9 +56,7 @@ describe('OurWorkPage', () => {
     test('should render the our work page title when data is loaded', async () => {
       await setup();
       await waitFor(() => {
-        expect(
-          screen.getByTestId('our-work-landing-title-desktop')
-        ).toBeInTheDocument();
+        expect(screen.getByTestId('landing-title-desktop')).toBeInTheDocument();
       });
     });
   });
