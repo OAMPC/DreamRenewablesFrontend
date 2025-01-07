@@ -23,8 +23,8 @@ const AboutUsPageImageButtonsSection: React.FC<Props> = ({
         </Col>
       </Row>
       <Row>
-        {imageButtonSectionData.imageButtons.map((imageButton) => (
-          <AboutUsPageImageButton imageButtonData={imageButton} />
+        {imageButtonSectionData.imageButtons.map((imageButton, index) => (
+          <AboutUsPageImageButton key={index} imageButtonData={imageButton} />
         ))}
       </Row>
     </div>

@@ -238,30 +238,7 @@
                 }
               }
             },
-            "navigationIcon": {
-              "data": {
-                "id": 13,
-                "attributes": {
-                  "name": "payment-option-icon.svg",
-                  "alternativeText": "impact-donate-image",
-                  "caption": "impact-donate-image",
-                  "width": 40,
-                  "height": 41,
-                  "formats": null,
-                  "hash": "payment_option_icon_daa403f224",
-                  "ext": ".svg",
-                  "mime": "image/svg+xml",
-                  "size": 0.3,
-                  "url": "https://strapi-dr-s3-media-bucket.s3",
-                  "previewUrl": null,
-                  "provider": "aws-s3",
-                  "provider_metadata": null,
-                  "createdAt": "2024-10-18T08:44:45.356Z",
-                  "updatedAt": "2025-01-06T23:39:37.764Z",
-                  "isUrlSigned": true
-                }
-              }
-            }
+            "linkSlug": "donate"
           },
           {
             "id": 2,
@@ -291,30 +268,7 @@
                 }
               }
             },
-            "navigationIcon": {
-              "data": {
-                "id": 13,
-                "attributes": {
-                  "name": "payment-option-icon.svg",
-                  "alternativeText": "impact-donate-image",
-                  "caption": "impact-donate-image",
-                  "width": 40,
-                  "height": 41,
-                  "formats": null,
-                  "hash": "payment_option_icon_daa403f224",
-                  "ext": ".svg",
-                  "mime": "image/svg+xml",
-                  "size": 0.3,
-                  "url": "https://strapi-dr-s3-media-bucket.s3",
-                  "previewUrl": null,
-                  "provider": "aws-s3",
-                  "provider_metadata": null,
-                  "createdAt": "2024-10-18T08:44:45.356Z",
-                  "updatedAt": "2025-01-06T23:39:37.764Z",
-                  "isUrlSigned": true
-                }
-              }
-            }
+            "linkSlug": "get-involved"
           }
         ]
       }

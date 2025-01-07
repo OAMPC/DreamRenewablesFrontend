@@ -27,7 +27,7 @@ export interface ImageButtonSection {
 
 export interface ImageButton {
   image: ImageStrapiContent;
-  navigationIcon: ImageStrapiContent;
+  linkSlug: string;
   text: string;
   subText: string;
 }

@@ -84,7 +84,6 @@ export async function getAboutUsPageStrapiData(): Promise<AboutUsPageStrapiConte
     'sections.linkIcon',
     'imageButtonSection.imageButtons',
     'imageButtonSection.imageButtons.image',
-    'imageButtonSection.imageButtons.navigationIcon',
   ]);
   return fetchStrapiData('about-us-page', query);
 }
