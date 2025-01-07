@@ -2,7 +2,7 @@ import React from 'react';
 import * as Bs from 'react-bootstrap';
 import useWindowDimensions from '../../hooks/windowDimensions';
 import './footer.scss';
-import { useSharedData } from '../contexts/SharedDataProvider';
+import { useSharedData } from '../../contexts/SharedDataProvider';
 
 const Footer: React.FC = () => {
   const { width } = useWindowDimensions();

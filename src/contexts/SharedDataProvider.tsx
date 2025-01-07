@@ -1,11 +1,11 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
-import { FooterStrapiContent } from '../../data/interfaces/footer/FooterStrapiContent';
-import { NavigationBarStrapiContent } from '../../data/interfaces/navigation-bar/NavigationBarStrapiContent';
+import { FooterStrapiContent } from '../data/interfaces/footer/FooterStrapiContent';
+import { NavigationBarStrapiContent } from '../data/interfaces/navigation-bar/NavigationBarStrapiContent';
 import {
   getFooterStrapiData,
   getNavigationBarStrapiData,
-} from '../../api/strapiApi';
-import Loading from '../loading/Loading';
+} from '../api/strapiApi';
+import Loading from '../components/loading/Loading';
 
 type SharedData = {
   navigationBarContent?: NavigationBarStrapiContent;

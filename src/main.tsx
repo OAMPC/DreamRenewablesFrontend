@@ -5,7 +5,7 @@ import { RouterProvider } from 'react-router-dom';
 import Loading from './components/loading/Loading';
 import './index.scss';
 import router from './routes';
-import { SharedDataProvider } from './components/contexts/SharedDataProvider';
+import { SharedDataProvider } from './contexts/SharedDataProvider';
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>

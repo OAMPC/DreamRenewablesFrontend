@@ -10,12 +10,11 @@ import {
   test,
   vi,
 } from 'vitest';
-import LandingPage from './LandingPage';
 import navigationBarFactory from '../../test/factories/strapi/NavigationBarFactory';
-import useWindowDimensions from '../../hooks/windowDimensions';
-import LandingPageFactory from '../../test/factories/strapi/LandingPageFactory';
 import FooterFactory from '../../test/factories/strapi/FooterFactory';
 import { SharedDataContext } from '../../contexts/SharedDataProvider';
+import AboutUsPageFactory from '../../test/factories/strapi/AboutUsPageFactory';
+import AboutUsPage from './AboutUsPage';
 
 vi.mock('react-router-dom', async () => {
   const actual = await vi.importActual('react-router-dom');
@@ -25,22 +24,16 @@ vi.mock('react-router-dom', async () => {
   };
 });
 
-vi.mock('../../hooks/windowDimensions', () => ({
-  default: vi.fn(),
-}));
-
-describe('LandingPage', () => {
+describe('AboutUsPage', () => {
   const mockLoaderData = {
-    landingPageStrapiData: new LandingPageFactory().getMockData(),
+    aboutUsPageStrapiData: new AboutUsPageFactory().getMockData(),
   };
 
   const navigationBarStrapiData = new navigationBarFactory().getMockData();
   const footerStrapiData = new FooterFactory().getMockData();
 
-  const setup = async (windowWidth: number = 1024) => {
+  const setup = async () => {
     (useLoaderData as Mock).mockReturnValue(mockLoaderData);
-    (useWindowDimensions as Mock).mockReturnValue({ windowWidth: windowWidth });
-
     render(
       <SharedDataContext.Provider
         value={{
@@ -49,7 +42,7 @@ describe('LandingPage', () => {
         }}
       >
         <MemoryRouter>
-          <LandingPage />
+          <AboutUsPage />
         </MemoryRouter>
       </SharedDataContext.Provider>
     );
@@ -60,43 +53,29 @@ describe('LandingPage', () => {
   });
 
   describe('render elements', () => {
-    test('should render desktop landing image card when screen width is large', async () => {
+    test('should render the about us landing card when data is loaded', async () => {
       await setup();
       await waitFor(() => {
         expect(
-          screen.getByTestId('landing-image-card-desktop')
+          screen.getByTestId('about-us-landing-card-desktop')
         ).toBeInTheDocument();
       });
     });
 
-    test('should render video section', async () => {
-      await setup();
-      await waitFor(() => {
-        expect(screen.getByTestId('landing-video-section')).toBeInTheDocument();
-      });
-    });
-
-    test('should render speciality section', async () => {
+    test('should render the about us page sections when data is loaded', async () => {
       await setup();
       await waitFor(() => {
         expect(
-          screen.getByTestId('landing-speciality-section')
-        ).toBeInTheDocument();
+          screen.getAllByTestId('about-us-page-section-title').length
+        ).toBe(3);
       });
     });
 
-    test('should render quote section', async () => {
-      await setup();
-      await waitFor(() => {
-        expect(screen.getByTestId('landing-quote-section')).toBeInTheDocument();
-      });
-    });
-
-    test('should render payment section', async () => {
+    test('should render the about us page image button section when data is loaded', async () => {
       await setup();
       await waitFor(() => {
         expect(
-          screen.getByTestId('landing-payment-section')
+          screen.getByTestId('about-us-page-image-buttons-section')
         ).toBeInTheDocument();
       });
     });

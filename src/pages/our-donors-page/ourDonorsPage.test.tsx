@@ -12,9 +12,9 @@ import {
 } from 'vitest';
 import navigationBarFactory from '../../test/factories/strapi/NavigationBarFactory';
 import FooterFactory from '../../test/factories/strapi/FooterFactory';
-import { SharedDataContext } from '../../components/contexts/SharedDataProvider';
 import OurDonorPageFactory from '../../test/factories/strapi/OurDonorPageFactory';
 import OurDonorsPage from './OurDonorsPage';
+import { SharedDataContext } from '../../contexts/SharedDataProvider';
 
 vi.mock('react-router-dom', async () => {
   const actual = await vi.importActual('react-router-dom');
