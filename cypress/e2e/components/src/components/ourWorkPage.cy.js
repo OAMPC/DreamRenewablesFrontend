@@ -19,10 +19,12 @@ describe('Our Work Page', () => {
     cy.wait('@getOurWorkPageStrapiData');
   });
 
-  it('should load the our team page and verify all elements are present and functioning', () => {
+  it('should load the our work page and verify all elements are present and functioning', () => {
     cy.get('[data-testid="navbar"]').should('be.visible');
 
     cy.get('[data-testid="landing-card-desktop"]').should('be.visible');
+    cy.get('[data-testid="our-work-page-quote-section"]').should('be.visible');
+    cy.get('[data-testid="our-work-page-metric"]').should('have.length', 4);
 
     cy.get('[data-testid="footer"]').should('be.visible');
   });

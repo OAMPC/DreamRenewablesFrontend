@@ -59,6 +59,22 @@ describe('OurWorkPage', () => {
         expect(screen.getByTestId('landing-title-desktop')).toBeInTheDocument();
       });
     });
+
+    test('should render the our work page quote section when data is loaded', async () => {
+      await setup();
+      await waitFor(() => {
+        expect(
+          screen.getByTestId('our-work-page-quote-section')
+        ).toBeInTheDocument();
+      });
+    });
+
+    test('should render the our work metrics when data is loaded', async () => {
+      await setup();
+      await waitFor(() => {
+        expect(screen.getAllByTestId('our-work-page-metric').length).toBe(4);
+      });
+    });
   });
 
   afterEach(() => {
