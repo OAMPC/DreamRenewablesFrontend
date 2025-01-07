@@ -19,7 +19,7 @@ export interface Quote {
 
 export interface Metric {
   value: string;
-  valueDecription: string;
+  valueDescription: string;
 }
 
 export interface AccordionSection {

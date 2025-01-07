@@ -3,6 +3,7 @@ import { LandingPageStrapiContent } from '../interfaces/landing-page/LandingPage
 import { OurDonorsPageStrapiContent } from '../interfaces/our-donor-page/OurDonorsPageStrapiContent';
 import { OurMissionVisionAndValuesPageStrapiContent } from '../interfaces/our-mission-vision-and-values-page/OurMissionVisionAndValuesPageStrapiContent';
 import { OurTeamPageStrapiContent } from '../interfaces/our-team-page/OurTeamPageStrapiContent';
+import { OurWorkPageStrapiContent } from '../interfaces/our-work-page/OurWorkPageStrapiContent';
 
 export type LoaderData = {
   landingPageStrapiData: LandingPageStrapiContent;
@@ -10,4 +11,5 @@ export type LoaderData = {
   ourTeamPageStrapiData: OurTeamPageStrapiContent;
   ourDonorsPageStrapiData: OurDonorsPageStrapiContent;
   aboutUsPageStrapiData: AboutUsPageStrapiContent;
+  ourWorkPageStrapiData: OurWorkPageStrapiContent;
 };
