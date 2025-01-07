@@ -59,6 +59,15 @@ describe('OurWorkPage', () => {
         expect(screen.getByTestId('landing-title-desktop')).toBeInTheDocument();
       });
     });
+
+    test('should render the our work page quote section when data is loaded', async () => {
+      await setup();
+      await waitFor(() => {
+        expect(
+          screen.getByTestId('our-work-page-quote-section')
+        ).toBeInTheDocument();
+      });
+    });
   });
 
   afterEach(() => {

@@ -7,8 +7,8 @@ import OurTeamPageDepartmentSection from './OurTeamPageDepartmentSection';
 
 describe('OurTeamPageDepartmentSection', () => {
   const setup = async () => {
-    const ouTeamPageFactory = new OurTeamPageFactory();
-    const mockData = ouTeamPageFactory.getMockData();
+    const ourTeamPageFactory = new OurTeamPageFactory();
+    const mockData = ourTeamPageFactory.getMockData();
     render(
       <MemoryRouter>
         <OurTeamPageDepartmentSection
