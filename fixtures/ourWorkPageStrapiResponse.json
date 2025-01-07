@@ -1,0 +1,162 @@
+{
+  "data": {
+    "id": 1,
+    "attributes": {
+      "landingImage": {
+        "id": 1,
+        "title": "Our Work",
+        "image": {
+          "data": {
+            "id": 38,
+            "attributes": {
+              "name": "our-work-landing-image.svg",
+              "alternativeText": "A group of people standing around renewable energy equipment",
+              "caption": "A group of people standing around renewable energy equipment",
+              "width": 1344,
+              "height": 450,
+              "formats": null,
+              "hash": "our_work_landing_image_892e7cb55d",
+              "ext": ".svg",
+              "mime": "image/svg+xml",
+              "size": 2724.33,
+              "url": "https://strapi-dr-s3-media-bucket",
+              "previewUrl": null,
+              "provider": "aws-s3",
+              "provider_metadata": null,
+              "createdAt": "2025-01-07T20:07:08.673Z",
+              "updatedAt": "2025-01-07T20:07:32.492Z",
+              "isUrlSigned": true
+            }
+          }
+        }
+      },
+      "quote": {
+        "id": 1,
+        "body": "‘Energy is the golden thread that connects economic growth, increased social equity, and an environment that allows the world to thrive.’ ",
+        "author": "- Ban Ki-Moon, UN Secretary-General "
+      },
+      "metrics": [
+        {
+          "id": 1,
+          "value": "16.6%",
+          "valueDescription": "Ghanian energy comes from renewable resources"
+        },
+        {
+          "id": 2,
+          "value": "1.02m",
+          "valueDescription": "Citizens of Ghana currently have energy insecurities"
+        },
+        {
+          "id": 3,
+          "value": "1.23k",
+          "valueDescription": "homes that we have helped supplied with solar panels"
+        },
+        {
+          "id": 4,
+          "value": "512",
+          "valueDescription": "Renewable energy engineers we've trained"
+        }
+      ],
+      "accordionSection": {
+        "id": 2,
+        "title": "We’re working to empower Ghanian communities with renewable energy",
+        "description": "We now have years of experience delivering training, education and community-centred renewable energy projects in Ghana. We run practical and hands-on training programmes in solar energy, energy efficiency and clean cooking across Ghana.",
+        "accordionItems": [
+          {
+            "id": 7,
+            "title": "Training & Advocacy",
+            "description": "Cras rutrum, felis et blandit scelerisque, dolor sem feugiat leo, a pellentesque sapien sapien ut ipsum. In a tortor sit amet libero lobortis vestibulum. Aliquam vitae gravida neque. Morbi a nunc dictum, vulputate eros vitae, accumsan dolor. Proin ac risus nunc. Ut iaculis ex orci, et semper elit fermentum sed. Susp endisse potenti. Phasellus semper ornare tellus eu egestas. Mauris semper tortor et ligula condimentum ullamcorper. Sed nec lectus non turpis porttitor accumsan quis sed lectus. Nam fermentum lobortis faucibus. Quisque consectetur felis vitae enim blandit, id porttitor augue ultrices.",
+            "linkString": "Learn More",
+            "linkSlug": "learn-more",
+            "linkIcon": {
+              "data": {
+                "id": 12,
+                "attributes": {
+                  "name": "arrow-icon.svg",
+                  "alternativeText": "arrow icon",
+                  "caption": "arrow icon",
+                  "width": 8,
+                  "height": 9,
+                  "formats": null,
+                  "hash": "arrow_icon_353b7d5895",
+                  "ext": ".svg",
+                  "mime": "image/svg+xml",
+                  "size": 0.21,
+                  "url": "https://strapi-dr-s3-media-bucket.s3",
+                  "previewUrl": null,
+                  "provider": "aws-s3",
+                  "provider_metadata": null,
+                  "createdAt": "2024-10-17T21:33:59.252Z",
+                  "updatedAt": "2025-01-07T20:36:37.411Z",
+                  "isUrlSigned": true
+                }
+              }
+            }
+          },
+          {
+            "id": 8,
+            "title": "Entrepreneurship",
+            "description": "Cras rutrum, felis et blandit scelerisque, dolor sem feugiat leo, a pellentesque sapien sapien ut ipsum. In a tortor sit amet libero lobortis vestibulum. Aliquam vitae gravida neque. Morbi a nunc dictum, vulputate eros vitae, accumsan dolor. Proin ac risus nunc. Ut iaculis ex orci, et semper elit fermentum sed. Susp endisse potenti. Phasellus semper ornare tellus eu egestas. Mauris semper tortor et ligula condimentum ullamcorper. Sed nec lectus non turpis porttitor accumsan quis sed lectus. Nam fermentum lobortis faucibus. Quisque consectetur felis vitae enim blandit, id porttitor augue ultrices.",
+            "linkString": "Learn More",
+            "linkSlug": "learn-more",
+            "linkIcon": {
+              "data": {
+                "id": 12,
+                "attributes": {
+                  "name": "arrow-icon.svg",
+                  "alternativeText": "arrow icon",
+                  "caption": "arrow icon",
+                  "width": 8,
+                  "height": 9,
+                  "formats": null,
+                  "hash": "arrow_icon_353b7d5895",
+                  "ext": ".svg",
+                  "mime": "image/svg+xml",
+                  "size": 0.21,
+                  "url": "https://strapi-dr-s3-media-bucket.s3",
+                  "previewUrl": null,
+                  "provider": "aws-s3",
+                  "provider_metadata": null,
+                  "createdAt": "2024-10-17T21:33:59.252Z",
+                  "updatedAt": "2025-01-07T20:36:37.411Z",
+                  "isUrlSigned": true
+                }
+              }
+            }
+          },
+          {
+            "id": 9,
+            "title": "Solar Powered Schools",
+            "description": "Cras rutrum, felis et blandit scelerisque, dolor sem feugiat leo, a pellentesque sapien sapien ut ipsum. In a tortor sit amet libero lobortis vestibulum. Aliquam vitae gravida neque. Morbi a nunc dictum, vulputate eros vitae, accumsan dolor. Proin ac risus nunc. Ut iaculis ex orci, et semper elit fermentum sed. Susp endisse potenti. Phasellus semper ornare tellus eu egestas. Mauris semper tortor et ligula condimentum ullamcorper. Sed nec lectus non turpis porttitor accumsan quis sed lectus. Nam fermentum lobortis faucibus. Quisque consectetur felis vitae enim blandit, id porttitor augue ultrices.",
+            "linkString": "Learn More",
+            "linkSlug": "learn-more",
+            "linkIcon": {
+              "data": {
+                "id": 12,
+                "attributes": {
+                  "name": "arrow-icon.svg",
+                  "alternativeText": "arrow icon",
+                  "caption": "arrow icon",
+                  "width": 8,
+                  "height": 9,
+                  "formats": null,
+                  "hash": "arrow_icon_353b7d5895",
+                  "ext": ".svg",
+                  "mime": "image/svg+xml",
+                  "size": 0.21,
+                  "url": "https://strapi-dr-s3-media-bucket.s3",
+                  "previewUrl": null,
+                  "provider": "aws-s3",
+                  "provider_metadata": null,
+                  "createdAt": "2024-10-17T21:33:59.252Z",
+                  "updatedAt": "2025-01-07T20:36:37.411Z",
+                  "isUrlSigned": true
+                }
+              }
+            }
+          }
+        ]
+      }
+    }
+  }
+}

@@ -6,12 +6,14 @@ import {
   getOurDonorsPageStrapiData,
   getOurMissionVisionAndValuesPageStrapiData,
   getOurTeamPageStrapiData,
+  getOurWorkPageStrapiData,
 } from './api/strapiApi';
 import LandingPage from './pages/landing-page/LandingPage';
 import OurMissionVisionAndValuesPage from './pages/our-mission-vision-and-values-page/OurMissionVisionAndValuesPage';
 import OurTeamPage from './pages/our-team-page/OurTeamPage';
 import OurDonorsPage from './pages/our-donors-page/OurDonorsPage';
 import AboutUsPage from './pages/about-us-page/AboutUsPage';
+import OurWorkPage from './pages/our-work-page/OurWorkPage';
 
 const router = createBrowserRouter([
   {
@@ -63,6 +65,16 @@ const router = createBrowserRouter([
       const aboutUsPageStrapiData = await getAboutUsPageStrapiData();
       return {
         aboutUsPageStrapiData,
+      };
+    },
+  },
+  {
+    path: '/our-work',
+    element: <OurWorkPage />,
+    loader: async () => {
+      const ourWorkPageStrapiData = await getOurWorkPageStrapiData();
+      return {
+        ourWorkPageStrapiData: ourWorkPageStrapiData,
       };
     },
   },
