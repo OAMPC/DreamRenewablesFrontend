@@ -25,10 +25,13 @@ describe('About Us Page', () => {
     cy.get('[data-testid="about-us-landing-card-desktop"]').should(
       'be.visible'
     );
-
     cy.get('[data-testid="about-us-page-section-title"]').should(
       'have.length',
       3
+    );
+    cy.get('[data-testid="about-us-page-image-button"]').should(
+      'have.length',
+      2
     );
 
     cy.get('[data-testid="footer"]').should('be.visible');

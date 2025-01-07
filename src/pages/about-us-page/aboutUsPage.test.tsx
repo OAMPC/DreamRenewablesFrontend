@@ -70,6 +70,15 @@ describe('AboutUsPage', () => {
         ).toBe(3);
       });
     });
+
+    test('should render the about us page image button section when data is loaded', async () => {
+      await setup();
+      await waitFor(() => {
+        expect(
+          screen.getByTestId('about-us-page-image-buttons-section')
+        ).toBeInTheDocument();
+      });
+    });
   });
 
   afterEach(() => {

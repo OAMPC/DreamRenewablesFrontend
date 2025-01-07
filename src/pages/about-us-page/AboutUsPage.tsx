@@ -1,18 +1,19 @@
 import React from 'react';
 import PageWrapper from '../../components/page-wrapper/PageWrapper';
-import * as Bs from 'react-bootstrap';
+import { Row, Col } from 'react-bootstrap';
 import AboutUsPageLandingCardDesktop from '../../components/about-us-page/about-us-page-landing-card/desktop/AboutUsPageLandingCardDesktop';
 import { useLoaderData } from 'react-router-dom';
 import { LoaderData } from '../../data/types/LoaderData';
 import AboutUsPageLandingCardMobile from '../../components/about-us-page/about-us-page-landing-card/mobile/AboutUsPageLandingCardMobile';
 import AboutUsPageSection from '../../components/about-us-page/about-us-page-section/AboutUsPageSection';
+import AboutUsPageImageButtonsSection from '../../components/about-us-page/about-us-page-image-buttons-section/aboutUsPageImageButtonsSection';
 
 const AboutUsPage: React.FC = () => {
   const { aboutUsPageStrapiData } = useLoaderData() as LoaderData;
   return (
     <PageWrapper>
-      <Bs.Row>
-        <Bs.Col>
+      <Row>
+        <Col>
           <div className="d-none d-sm-block mb-5">
             <AboutUsPageLandingCardDesktop
               landingImage={aboutUsPageStrapiData.landingImage}
@@ -23,15 +24,22 @@ const AboutUsPage: React.FC = () => {
               landingImage={aboutUsPageStrapiData.landingImage}
             />
           </div>
-        </Bs.Col>
-      </Bs.Row>
+        </Col>
+      </Row>
       {aboutUsPageStrapiData.sections.map((section, index) => (
-        <Bs.Row key={index} className="mb-5">
-          <Bs.Col>
+        <Row key={index} className="mb-5">
+          <Col>
             <AboutUsPageSection sectionData={section} rowIndex={index} />
-          </Bs.Col>
-        </Bs.Row>
+          </Col>
+        </Row>
       ))}
+      <Row className="mb-5">
+        <Col>
+          <AboutUsPageImageButtonsSection
+            imageButtonSectionData={aboutUsPageStrapiData.imageButtonSection}
+          />
+        </Col>
+      </Row>
     </PageWrapper>
   );
 };
