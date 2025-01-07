@@ -7,6 +7,7 @@ import { buildStrapiEndpointQuery } from './util/buildStrapiEndpointQuery';
 import { fetchStrapiData } from './util/fetchStrapiData';
 import { OurDonorsPageStrapiContent } from '../data/interfaces/our-donor-page/OurDonorsPageStrapiContent';
 import { AboutUsPageStrapiContent } from '../data/interfaces/about-us-page/AboutUsPageStrapiContent';
+import { OurWorkPageStrapiContent } from '../data/interfaces/our-work-page/OurWorkPageStrapiContent';
 
 export async function getNavigationBarStrapiData(): Promise<NavigationBarStrapiContent> {
   const query = buildStrapiEndpointQuery([
@@ -86,4 +87,15 @@ export async function getAboutUsPageStrapiData(): Promise<AboutUsPageStrapiConte
     'imageButtonSection.imageButtons.image',
   ]);
   return fetchStrapiData('about-us-page', query);
+}
+
+export async function getOurWorkPageStrapiData(): Promise<OurWorkPageStrapiContent> {
+  const query = buildStrapiEndpointQuery([
+    'landingImage.image',
+    'quote',
+    'metrics',
+    'accordionSection.accordionItems',
+    'accordionSection.accordionItems.linkIcon',
+  ]);
+  return fetchStrapiData('our-work-page', query);
 }
