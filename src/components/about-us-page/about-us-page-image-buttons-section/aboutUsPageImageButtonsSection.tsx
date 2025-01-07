@@ -16,7 +16,7 @@ const AboutUsPageImageButtonsSection: React.FC<Props> = ({
         <Col>
           <h2
             data-testid="about-us-page-image-buttons-section-title"
-            className="text-center fs-2 fw-bolder mb-xl-5 mb-sm-2"
+            className="text-center fs-2 fw-bolder mb-5"
           >
             {imageButtonSectionData.title}
           </h2>

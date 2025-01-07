@@ -19,7 +19,7 @@ const AboutUsPageImageButton: React.FC<Props> = ({ imageButtonData }) => {
 
   return (
     <Col xs="12" xl="6" className="d-flex justify-content-center mb-5">
-      <a href={imageButtonData.linkSlug}>
+      <a className="about-us-image-button-link" href={imageButtonData.linkSlug}>
         <div
           data-testid="about-us-page-image-button"
           style={aboutUsPageImageButtonStyle}
@@ -29,13 +29,13 @@ const AboutUsPageImageButton: React.FC<Props> = ({ imageButtonData }) => {
             <Col className="mb-4">
               <p
                 data-testid="about-us-page-image-button-text"
-                className="text-white fs-2 fw-bold ms-5"
+                className="text-white fs-2 fw-bold ms-2 ms-xl-5"
               >
                 {imageButtonData.text}
               </p>
               <p
                 data-testid="about-us-page-image-button-subtext"
-                className="text-white ms-5"
+                className="text-white ms-2 ms-xl-5"
               >
                 {imageButtonData.subText}
               </p>
