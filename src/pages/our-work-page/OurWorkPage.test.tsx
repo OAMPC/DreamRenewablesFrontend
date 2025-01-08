@@ -75,6 +75,33 @@ describe('OurWorkPage', () => {
         expect(screen.getAllByTestId('our-work-page-metric').length).toBe(4);
       });
     });
+
+    test('should render the our work accordion title when data is loaded', async () => {
+      await setup();
+      await waitFor(() => {
+        expect(
+          screen.getByTestId('our-work-page-accordion-title')
+        ).toBeInTheDocument();
+      });
+    });
+
+    test('should render the our work accordion description when data is loaded', async () => {
+      await setup();
+      await waitFor(() => {
+        expect(
+          screen.getByTestId('our-work-page-accordion-description')
+        ).toBeInTheDocument();
+      });
+    });
+
+    test('should render the our work accordion when data is loaded', async () => {
+      await setup();
+      await waitFor(() => {
+        expect(
+          screen.getByTestId('our-work-page-accordion')
+        ).toBeInTheDocument();
+      });
+    });
   });
 
   afterEach(() => {
