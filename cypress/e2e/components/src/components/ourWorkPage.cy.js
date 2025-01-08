@@ -25,6 +25,7 @@ describe('Our Work Page', () => {
     cy.get('[data-testid="landing-card-desktop"]').should('be.visible');
     cy.get('[data-testid="our-work-page-quote-section"]').should('be.visible');
     cy.get('[data-testid="our-work-page-metric"]').should('have.length', 4);
+    cy.get('[data-testid="our-work-page-accordion"]').should('be.visible');
 
     cy.get('[data-testid="footer"]').should('be.visible');
   });

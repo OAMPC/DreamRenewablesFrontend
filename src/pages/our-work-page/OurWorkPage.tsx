@@ -7,6 +7,7 @@ import LandingCardDesktop from '../../components/landing-card/desktop/LandingCar
 import LandingCardMobile from '../../components/landing-card/mobile/landingCardMobile';
 import OurWorkPageQuoteSection from '../../components/our-work-page/our-work-page-quote-section/OurWorkPageQuoteSection';
 import OurWorkPageMetric from '../../components/our-work-page/our-work-page-metric/OurWorkPageMetric';
+import OurWorkPageAccordion from '../../components/our-work-page/our-work-page-accordion/OurWorkPageAccordion';
 
 const OurWorkPage: React.FC = () => {
   const { ourWorkPageStrapiData } = useLoaderData() as LoaderData;
@@ -27,18 +28,43 @@ const OurWorkPage: React.FC = () => {
         </Col>
       </Row>
       <Container className="mb-5">
-        <Row className="gx-5">
+        <Row className="gx-5 mb-5">
           <Col xl="4">
             <OurWorkPageQuoteSection quoteData={ourWorkPageStrapiData.quote} />
           </Col>
           <Col xl={{ span: 7, offset: 1 }} sm="12">
             <Row>
-              {ourWorkPageStrapiData.metrics.map((metric) => (
-                <Col xl="6" sm="12">
+              {ourWorkPageStrapiData.metrics.map((metric, index) => (
+                <Col key={index} xl="6" sm="12">
                   <OurWorkPageMetric metricData={metric} />
                 </Col>
               ))}
             </Row>
+          </Col>
+        </Row>
+        <Row className="mb-3">
+          <Col>
+            <h2
+              data-testid="our-work-page-accordion-title"
+              className="fs-2 fw-bolder text-center"
+            >
+              {ourWorkPageStrapiData.accordionSection.title}
+            </h2>
+            <p
+              data-testid="our-work-page-accordion-description"
+              className="fs-5 text-center"
+            >
+              {ourWorkPageStrapiData.accordionSection.description}
+            </p>
+          </Col>
+        </Row>
+        <Row className="d-flex justify-content-center">
+          <Col md="8">
+            <OurWorkPageAccordion
+              accordionData={
+                ourWorkPageStrapiData.accordionSection.accordionItems
+              }
+            />
           </Col>
         </Row>
       </Container>
