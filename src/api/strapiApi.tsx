@@ -121,7 +121,5 @@ export async function getDonatePageStrapiData(): Promise<DonatePageStrapiContent
     'paymentSection.paymentOptions',
     'paymentSection.paymentOptionIcon',
   ]);
-  console.log(query);
-
-  return fetchStrapiData('get-donate-page', query);
+  return fetchStrapiData('donate-page', query);
 }

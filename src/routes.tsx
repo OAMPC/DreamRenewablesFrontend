@@ -93,7 +93,7 @@ const router = createBrowserRouter([
     },
   },
   {
-    path: '/test',
+    path: '/donate',
     element: <DonatePage />,
     loader: async () => {
       const donatePageStrapiData = await getDonatePageStrapiData();

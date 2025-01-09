@@ -1,0 +1,95 @@
+{
+  "data": {
+    "id": 1,
+    "attributes": {
+      "preMetricText": "Our planet faces critical challenges. In Ghana, communities are impacted by climate change and energy inequality.\n\nBut there’s hope. By educating people about renewable energy, we can build a sustainable future. Through training and awareness, we’re helping communities embrace cleaner, greener solutions that protect the environment and improve lives.",
+      "postMetricText": "With your support, we can expand our reach and transform lives through renewable energy education. \nJoin us in powering a sustainable future – make a donation today.",
+      "landingCard": {
+        "id": 1,
+        "title": "Donate",
+        "image": {
+          "data": {
+            "id": 41,
+            "attributes": {
+              "name": "people-stood-round-equipment.svg",
+              "alternativeText": "people stood round equipment",
+              "caption": "people stood round equipment",
+              "width": 783,
+              "height": 450,
+              "formats": null,
+              "hash": "people_stood_round_equipment_7fd3375ce5",
+              "ext": ".svg",
+              "mime": "image/svg+xml",
+              "size": 2724.38,
+              "url": "https://strapi-dr-s3-media-bucket.s3",
+              "previewUrl": null,
+              "provider": "aws-s3",
+              "provider_metadata": null,
+              "createdAt": "2025-01-09T15:51:49.892Z",
+              "updatedAt": "2025-01-09T15:52:02.511Z",
+              "isUrlSigned": true
+            }
+          }
+        }
+      },
+      "metrics": [
+        {
+          "id": 1,
+          "value": "16.6%",
+          "valueDescription": "Ghanian energy comes from renewable resources"
+        },
+        {
+          "id": 2,
+          "value": "1.02m",
+          "valueDescription": "citizens of Ghana currently have energy insecurities"
+        }
+      ],
+      "paymentSection": {
+        "id": 1,
+        "title": "Make an Impact",
+        "subTitle": "All our donations will help contribute to our amazing work",
+        "paymentOptionIcon": {
+          "data": {
+            "id": 42,
+            "attributes": {
+              "name": "payment-option-icon.svg",
+              "alternativeText": "arrow icon",
+              "caption": "arrow icon",
+              "width": 40,
+              "height": 41,
+              "formats": null,
+              "hash": "payment_option_icon_578bc00258",
+              "ext": ".svg",
+              "mime": "image/svg+xml",
+              "size": 0.3,
+              "url": "https://strapi-dr-s3-media-bucket.s3",
+              "previewUrl": null,
+              "provider": "aws-s3",
+              "provider_metadata": null,
+              "createdAt": "2025-01-09T15:54:38.696Z",
+              "updatedAt": "2025-01-09T15:54:48.314Z",
+              "isUrlSigned": true
+            }
+          }
+        },
+        "paymentOptions": [
+          {
+            "id": 7,
+            "amount": 5,
+            "description": "Enough to fund workshop supplies for multiple students"
+          },
+          {
+            "id": 8,
+            "amount": 10,
+            "description": "Help aid in developing training programmes to better suit student needs"
+          },
+          {
+            "id": 9,
+            "amount": 20,
+            "description": "Help pay for 2 solar panels to be installed on Ghanaian housing"
+          }
+        ]
+      }
+    }
+  }
+}
