@@ -227,14 +227,14 @@ describe('strapiApi', () => {
       expect(response).toEqual(mockResponse.data.attributes);
     });
 
-    // test('should handle errors when get work page "get" returns a 500', async () => {
-    //   const ourWorkPageFactory = new OurWorkPageFactory();
-    //   const emptyMockData = ourWorkPageFactory.getEmptyMockData();
-    //   const apiUrl = ourWorkPageFactory.getApiUrl();
-    //   await setup(apiUrl, emptyMockData, 500);
-    //   await expect(getOurWorkPageStrapiData()).rejects.toThrow(
-    //     'Request failed with status code 500'
-    //   );
-    // });
+    test('should handle errors when get get involved page "get" returns a 500', async () => {
+      const getInvolvedPageFactory = new GetInvolvedPageFactory();
+      const emptyMockData = getInvolvedPageFactory.getEmptyMockData();
+      const apiUrl = getInvolvedPageFactory.getApiUrl();
+      await setup(apiUrl, emptyMockData, 500);
+      await expect(getGetInvolvedPageStrapiData()).rejects.toThrow(
+        'Request failed with status code 500'
+      );
+    });
   });
 });

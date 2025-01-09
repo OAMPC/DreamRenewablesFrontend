@@ -103,7 +103,7 @@ export async function getOurWorkPageStrapiData(): Promise<OurWorkPageStrapiConte
 
 export async function getGetInvolvedPageStrapiData(): Promise<GetInvolvedPageStrapiContent> {
   const query = buildStrapiEndpointQuery([
-    'landingImage.image',
+    'landingCard.image',
     'sections.image',
     'sections.link',
     'sections.linkIcon',
