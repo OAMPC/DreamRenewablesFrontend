@@ -8,6 +8,7 @@ import { fetchStrapiData } from './util/fetchStrapiData';
 import { OurDonorsPageStrapiContent } from '../data/interfaces/our-donor-page/OurDonorsPageStrapiContent';
 import { AboutUsPageStrapiContent } from '../data/interfaces/about-us-page/AboutUsPageStrapiContent';
 import { OurWorkPageStrapiContent } from '../data/interfaces/our-work-page/OurWorkPageStrapiContent';
+import { GetInvolvedPageStrapiContent } from '../data/interfaces/get-involved-page/GetInvolvedPageStrapiContent';
 
 export async function getNavigationBarStrapiData(): Promise<NavigationBarStrapiContent> {
   const query = buildStrapiEndpointQuery([
@@ -98,4 +99,16 @@ export async function getOurWorkPageStrapiData(): Promise<OurWorkPageStrapiConte
     'accordionSection.accordionItems.linkIcon',
   ]);
   return fetchStrapiData('our-work-page', query);
+}
+
+export async function getGetInvolvedPageStrapiData(): Promise<GetInvolvedPageStrapiContent> {
+  const query = buildStrapiEndpointQuery([
+    'landingImage.image',
+    'sections.image',
+    'sections.link',
+    'sections.linkIcon',
+    'paymentSection.paymentOptions',
+    'paymentSection.paymentOptionIcon',
+  ]);
+  return fetchStrapiData('get-involved-page', query);
 }
