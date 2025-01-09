@@ -1,6 +1,6 @@
 import { LandingCard } from '../landing-card/LandingCard';
+import { PaymentSection } from '../payment/PaymentSection';
 import { ImageStrapiContent } from '../util/ImageStrapiContent';
-import { PaymentOption } from '../util/PaymentOption';
 import { StandardLink } from '../util/StandardLink';
 
 export interface GetInvolvedPageStrapiContent {
@@ -15,11 +15,4 @@ export interface Section {
   image: ImageStrapiContent;
   link: StandardLink;
   linkIcon: ImageStrapiContent;
-}
-
-export interface PaymentSection {
-  title: string;
-  subTitle: string;
-  paymentOptions: Array<PaymentOption>;
-  paymentOptionIcon: ImageStrapiContent;
 }

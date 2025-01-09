@@ -25,7 +25,7 @@ describe('Landing Page', () => {
     cy.get('[data-testid="landing-video-section"]').should('be.visible');
     cy.get('[data-testid="landing-speciality-section"]').should('be.visible');
     cy.get('[data-testid="landing-quote-section"]').should('be.visible');
-    cy.get('[data-testid="landing-payment-section"]').should('be.visible');
+    cy.get('[data-testid="payment-section"]').should('be.visible');
 
     cy.get('[data-testid="footer"]').should('be.visible');
   });

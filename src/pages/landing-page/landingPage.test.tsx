@@ -95,9 +95,7 @@ describe('LandingPage', () => {
     test('should render payment section', async () => {
       await setup();
       await waitFor(() => {
-        expect(
-          screen.getByTestId('landing-payment-section')
-        ).toBeInTheDocument();
+        expect(screen.getByTestId('payment-section')).toBeInTheDocument();
       });
     });
   });
