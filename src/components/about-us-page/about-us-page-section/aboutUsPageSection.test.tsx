@@ -3,18 +3,15 @@ import React from 'react';
 import { MemoryRouter } from 'react-router-dom';
 import { afterEach, beforeEach, describe, expect, test, vi } from 'vitest';
 import AboutUsPageFactory from '../../../test/factories/strapi/AboutUsPageFactory';
-import AboutUsPageOurStorySection from './AboutUsPageSection';
+import AboutUsPageSection from './AboutUsPageSection';
 
-describe('AboutUsPageOurStorySection', () => {
+describe('AboutUsPageSection', () => {
   const setup = async () => {
     const aboutUsPageFactory = new AboutUsPageFactory();
     const mockData = aboutUsPageFactory.getMockData();
     render(
       <MemoryRouter>
-        <AboutUsPageOurStorySection
-          sectionData={mockData.sections[0]}
-          rowIndex={0}
-        />
+        <AboutUsPageSection sectionData={mockData.sections[0]} rowIndex={0} />
       </MemoryRouter>
     );
   };
