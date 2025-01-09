@@ -9,6 +9,7 @@ import { OurDonorsPageStrapiContent } from '../data/interfaces/our-donor-page/Ou
 import { AboutUsPageStrapiContent } from '../data/interfaces/about-us-page/AboutUsPageStrapiContent';
 import { OurWorkPageStrapiContent } from '../data/interfaces/our-work-page/OurWorkPageStrapiContent';
 import { GetInvolvedPageStrapiContent } from '../data/interfaces/get-involved-page/GetInvolvedPageStrapiContent';
+import { DonatePageStrapiContent } from '../data/interfaces/donate-page/DonatePageStrapiContent';
 
 export async function getNavigationBarStrapiData(): Promise<NavigationBarStrapiContent> {
   const query = buildStrapiEndpointQuery([
@@ -111,4 +112,14 @@ export async function getGetInvolvedPageStrapiData(): Promise<GetInvolvedPageStr
     'paymentSection.paymentOptionIcon',
   ]);
   return fetchStrapiData('get-involved-page', query);
+}
+
+export async function getDonatePageStrapiData(): Promise<DonatePageStrapiContent> {
+  const query = buildStrapiEndpointQuery([
+    'landingCard.image',
+    'metrics',
+    'paymentSection.paymentOptions',
+    'paymentSection.paymentOptionIcon',
+  ]);
+  return fetchStrapiData('donate-page', query);
 }
