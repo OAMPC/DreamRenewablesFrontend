@@ -2,6 +2,7 @@ import { describe, expect, test } from 'vitest';
 import { AXIOS_MOCK } from '../test-setup';
 import {
   getAboutUsPageStrapiData,
+  getDonatePageStrapiData,
   getFooterStrapiData,
   getGetInvolvedPageStrapiData,
   getLandingPageStrapiData,
@@ -20,6 +21,7 @@ import OurDonorPageFactory from '../test/factories/strapi/OurDonorPageFactory';
 import AboutUsPageFactory from '../test/factories/strapi/AboutUsPageFactory';
 import OurWorkPageFactory from '../test/factories/strapi/OurWorkPageFactory';
 import GetInvolvedPageFactory from '../test/factories/strapi/GetInvolvedPageFactory';
+import DonatePageFactory from '../test/factories/strapi/DonatePageFactory';
 
 interface MockData<T> {
   data: {
@@ -236,5 +238,27 @@ describe('strapiApi', () => {
         'Request failed with status code 500'
       );
     });
+  });
+
+  describe('getDonatePageStrapiData', () => {
+    test('should get donate page data successfully', async () => {
+      const getDonatePageFactory = new DonatePageFactory();
+      const mockResponse = getDonatePageFactory.getMockResponse();
+      const apiUrl = getDonatePageFactory.getApiUrl();
+      await setup(apiUrl, mockResponse, 200);
+
+      const response = await getDonatePageStrapiData();
+      expect(response).toEqual(mockResponse.data.attributes);
+    });
+
+    // test('should handle errors when get get involved page "get" returns a 500', async () => {
+    //   const getInvolvedPageFactory = new GetInvolvedPageFactory();
+    //   const emptyMockData = getInvolvedPageFactory.getEmptyMockData();
+    //   const apiUrl = getInvolvedPageFactory.getApiUrl();
+    //   await setup(apiUrl, emptyMockData, 500);
+    //   await expect(getGetInvolvedPageStrapiData()).rejects.toThrow(
+    //     'Request failed with status code 500'
+    //   );
+    // });
   });
 });
