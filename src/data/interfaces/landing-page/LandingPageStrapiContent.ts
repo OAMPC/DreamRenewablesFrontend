@@ -1,5 +1,5 @@
+import { PaymentSection } from '../payment/PaymentSection';
 import { ImageStrapiContent } from '../util/ImageStrapiContent';
-import { PaymentOption } from '../util/PaymentOption';
 import { StandardLink } from '../util/StandardLink';
 
 export interface LandingPageStrapiContent {
@@ -42,11 +42,4 @@ export interface QuoteCarouselItem {
   quoteText: string;
   quoteAuthor: string;
   quoteAuthorRole: string;
-}
-
-export interface PaymentSection {
-  title: string;
-  subTitle: string;
-  paymentOptions: Array<PaymentOption>;
-  paymentOptionIcon: ImageStrapiContent;
 }
