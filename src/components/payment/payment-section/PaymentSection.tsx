@@ -1,19 +1,19 @@
 import React from 'react';
 import * as Bs from 'react-bootstrap';
-import { PaymentSection } from '../../../data/interfaces/landing-page/LandingPageStrapiContent';
-import './landingPagePaymentSection.scss';
-import PaymentTypeToggle from '../../payment/payment-type-toggle/PaymentTypeToggle';
-import PaymentOptionStripeValue from '../../payment/payment-options/payment-option-stripe-value/PaymentOptionStripeValue';
-import PaymentOptionUserValue from '../../payment/payment-options/payment-option-user-value/PaymentOptionUserValue';
+import PaymentTypeToggle from '../payment-type-toggle/PaymentTypeToggle';
+import PaymentOptionStripeValue from '../payment-options/payment-option-stripe-value/PaymentOptionStripeValue';
+import PaymentOptionUserValue from '../payment-options/payment-option-user-value/PaymentOptionUserValue';
+import './paymentSection.scss';
+import { PaymentSection as IPaymentSection } from '../../../data/interfaces/payment/PaymentSection';
 
 type Props = {
-  paymentSection: PaymentSection;
+  paymentData: IPaymentSection;
 };
 
-const LandingPagePaymentSection: React.FC<Props> = ({ paymentSection }) => {
+const PaymentSection: React.FC<Props> = ({ paymentData }) => {
   return (
     <div
-      data-testid="landing-payment-section"
+      data-testid="payment-section"
       className="payment-section-container mt-5"
     >
       <Bs.Row>
@@ -23,7 +23,7 @@ const LandingPagePaymentSection: React.FC<Props> = ({ paymentSection }) => {
               data-testid="payment-section-main-title"
               className="payment-title fs-1 fw-bold"
             >
-              {paymentSection.title}
+              {paymentData.title}
             </h2>
           </div>
         </Bs.Col>
@@ -31,7 +31,7 @@ const LandingPagePaymentSection: React.FC<Props> = ({ paymentSection }) => {
       <Bs.Row className="mb-4">
         <Bs.Col className="text-center">
           <p data-testid="payment-section-sub-title" className="fs-4">
-            {paymentSection.subTitle}
+            {paymentData.subTitle}
           </p>
         </Bs.Col>
       </Bs.Row>
@@ -41,17 +41,17 @@ const LandingPagePaymentSection: React.FC<Props> = ({ paymentSection }) => {
         </Bs.Col>
       </Bs.Row>
       <Bs.Row className="d-flex justify-content-center">
-        {paymentSection.paymentOptions.map((paymentOption, index) => (
+        {paymentData.paymentOptions.map((paymentOption, index) => (
           <Bs.Col key={index} xs={12} sm={6} md={4} lg={2} className="mb-4">
             <PaymentOptionStripeValue
               paymentOption={paymentOption}
-              paymentOptionIcon={paymentSection.paymentOptionIcon}
+              paymentOptionIcon={paymentData.paymentOptionIcon}
             />
           </Bs.Col>
         ))}
         <Bs.Col xs={12} sm={6} md={4} lg={2} className="mb-4">
           <PaymentOptionUserValue
-            paymentOptionIcon={paymentSection.paymentOptionIcon}
+            paymentOptionIcon={paymentData.paymentOptionIcon}
           />
         </Bs.Col>
       </Bs.Row>
@@ -59,4 +59,4 @@ const LandingPagePaymentSection: React.FC<Props> = ({ paymentSection }) => {
   );
 };
 
-export default LandingPagePaymentSection;
+export default PaymentSection;

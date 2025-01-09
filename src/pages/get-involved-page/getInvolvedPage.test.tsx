@@ -68,6 +68,13 @@ describe('GetInvolvedPage', () => {
         ).toBe(4);
       });
     });
+
+    test('should render payment section', async () => {
+      await setup();
+      await waitFor(() => {
+        expect(screen.getByTestId('payment-section')).toBeInTheDocument();
+      });
+    });
   });
 
   afterEach(() => {

@@ -6,6 +6,7 @@ import LandingCardDesktop from '../../components/landing-card/desktop/LandingCar
 import LandingCardMobile from '../../components/landing-card/mobile/landingCardMobile';
 import { LoaderData } from '../../data/types/LoaderData';
 import GetInvolvedPageSection from '../../components/get-involved-page/get-involved-page-section/GetInvolvedPageSection';
+import PaymentSection from '../../components/payment/payment-section/PaymentSection';
 
 const GetInvolvedPage: React.FC = () => {
   const { getInvolvedPageStrapiData } = useLoaderData() as LoaderData;
@@ -32,6 +33,13 @@ const GetInvolvedPage: React.FC = () => {
           </Col>
         </Row>
       ))}
+      <Row>
+        <Col>
+          <PaymentSection
+            paymentData={getInvolvedPageStrapiData.paymentSection}
+          />
+        </Col>
+      </Row>
     </PageWrapper>
   );
 };

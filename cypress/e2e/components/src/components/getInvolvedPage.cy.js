@@ -27,6 +27,7 @@ describe('Get Involved Page', () => {
       'have.length',
       4
     );
+    cy.get('[data-testid="payment-section"]').should('be.visible');
 
     cy.get('[data-testid="footer"]').should('be.visible');
   });

@@ -3,15 +3,15 @@ import React from 'react';
 import { MemoryRouter } from 'react-router-dom';
 import { afterEach, beforeEach, describe, expect, test, vi } from 'vitest';
 import LandingPageFactory from '../../../test/factories/strapi/LandingPageFactory';
-import LandingPagePaymentSection from './LandingPagePaymentSection';
+import PaymentSection from './PaymentSection';
 
-describe('landingPageVideoSection', () => {
+describe('paymentSection', () => {
   const setup = async () => {
     const landingPageFactory = new LandingPageFactory();
     const mockData = landingPageFactory.getMockData();
     render(
       <MemoryRouter>
-        <LandingPagePaymentSection paymentSection={mockData.paymentSection} />
+        <PaymentSection paymentData={mockData.paymentSection} />
       </MemoryRouter>
     );
   };
