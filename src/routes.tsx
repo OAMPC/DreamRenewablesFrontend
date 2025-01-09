@@ -2,6 +2,7 @@ import React from 'react';
 import { createBrowserRouter } from 'react-router-dom';
 import {
   getAboutUsPageStrapiData,
+  getGetInvolvedPageStrapiData,
   getLandingPageStrapiData,
   getOurDonorsPageStrapiData,
   getOurMissionVisionAndValuesPageStrapiData,
@@ -14,6 +15,7 @@ import OurTeamPage from './pages/our-team-page/OurTeamPage';
 import OurDonorsPage from './pages/our-donors-page/OurDonorsPage';
 import AboutUsPage from './pages/about-us-page/AboutUsPage';
 import OurWorkPage from './pages/our-work-page/OurWorkPage';
+import GetInvolvedPage from './pages/get-involved-page/GetInvolvedPage';
 
 const router = createBrowserRouter([
   {
@@ -74,7 +76,17 @@ const router = createBrowserRouter([
     loader: async () => {
       const ourWorkPageStrapiData = await getOurWorkPageStrapiData();
       return {
-        ourWorkPageStrapiData: ourWorkPageStrapiData,
+        ourWorkPageStrapiData,
+      };
+    },
+  },
+  {
+    path: '/get-involved',
+    element: <GetInvolvedPage />,
+    loader: async () => {
+      const getInvolvedPageStrapiData = await getGetInvolvedPageStrapiData();
+      return {
+        getInvolvedPageStrapiData,
       };
     },
   },
