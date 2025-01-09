@@ -59,6 +59,15 @@ describe('GetInvolvedPage', () => {
         expect(screen.getByTestId('landing-card-desktop')).toBeInTheDocument();
       });
     });
+
+    test('should render the get involved page sections when data is loaded', async () => {
+      await setup();
+      await waitFor(() => {
+        expect(
+          screen.getAllByTestId('get-involved-page-section-title').length
+        ).toBe(4);
+      });
+    });
   });
 
   afterEach(() => {

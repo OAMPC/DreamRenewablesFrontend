@@ -23,6 +23,10 @@ describe('Get Involved Page', () => {
     cy.get('[data-testid="navbar"]').should('be.visible');
 
     cy.get('[data-testid="landing-card-desktop"]').should('be.visible');
+    cy.get('[data-testid="get-involved-page-section-title"]').should(
+      'have.length',
+      4
+    );
 
     cy.get('[data-testid="footer"]').should('be.visible');
   });
