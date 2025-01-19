@@ -10,6 +10,8 @@ import { AboutUsPageStrapiContent } from '../data/interfaces/about-us-page/About
 import { OurWorkPageStrapiContent } from '../data/interfaces/our-work-page/OurWorkPageStrapiContent';
 import { GetInvolvedPageStrapiContent } from '../data/interfaces/get-involved-page/GetInvolvedPageStrapiContent';
 import { DonatePageStrapiContent } from '../data/interfaces/donate-page/DonatePageStrapiContent';
+import { StatTemplatePageStrapiContent } from '../data/interfaces/stat-template-page/StatTemplatePageStrapiContent';
+import { OurWorkSubPages } from '../data/enums/OurWorkSubPages';
 
 export async function getNavigationBarStrapiData(): Promise<NavigationBarStrapiContent> {
   const query = buildStrapiEndpointQuery([
@@ -122,4 +124,16 @@ export async function getDonatePageStrapiData(): Promise<DonatePageStrapiContent
     'paymentSection.paymentOptionIcon',
   ]);
   return fetchStrapiData('donate-page', query);
+}
+
+export async function getTrainingAndAdvocacyPageStrapiData(): Promise<StatTemplatePageStrapiContent> {
+  const query = buildStrapiEndpointQuery([
+    'landingImage.image',
+    'quote',
+    'metrics',
+  ]);
+  return fetchStrapiData(
+    `our-work-sub-pages/${OurWorkSubPages.TrainingAndAdvocacy}`,
+    query
+  );
 }
