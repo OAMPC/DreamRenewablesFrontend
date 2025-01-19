@@ -128,6 +128,54 @@ const router = createBrowserRouter([
       };
     },
   },
+  {
+    path: '/our-work/solar-powered-schools',
+    element: <StatTemplatePage />,
+    loader: async () => {
+      const statTemplatePageStrapiData = await getOurWorkSubPageStrapiData(
+        OurWorkSubPages.SolarPoweredSchools
+      );
+      return {
+        statTemplatePageStrapiData,
+      };
+    },
+  },
+  {
+    path: '/our-work/solar-powered-irrigation',
+    element: <StatTemplatePage />,
+    loader: async () => {
+      const statTemplatePageStrapiData = await getOurWorkSubPageStrapiData(
+        OurWorkSubPages.SolarPoweredIrrigation
+      );
+      return {
+        statTemplatePageStrapiData,
+      };
+    },
+  },
+  {
+    path: '/our-work/solar-powered-clinics',
+    element: <StatTemplatePage />,
+    loader: async () => {
+      const statTemplatePageStrapiData = await getOurWorkSubPageStrapiData(
+        OurWorkSubPages.SolarPoweredClinics
+      );
+      return {
+        statTemplatePageStrapiData,
+      };
+    },
+  },
+  {
+    path: '/our-work/cleaner-cooking',
+    element: <StatTemplatePage />,
+    loader: async () => {
+      const statTemplatePageStrapiData = await getOurWorkSubPageStrapiData(
+        OurWorkSubPages.CleanerCooking
+      );
+      return {
+        statTemplatePageStrapiData,
+      };
+    },
+  },
 ]);
 
 export default router;
