@@ -10,13 +10,13 @@ describe('Stat Template Page', () => {
 
     cy.intercept('GET', '**/api/our-work-sub-pages/*', {
       fixture: 'statTemplatePageStrapiResponse.json',
-    }).as('getTrainingAndAdvocacyPageStrapiData');
+    }).as('getOurWorkSubPageStrapiData');
 
-    cy.visit('/training-and-advocacy');
+    cy.visit('/our-work/training-and-advocacy');
 
     cy.wait('@getNavigationBarStrapiData');
     cy.wait('@getFooterStrapiData');
-    cy.wait('@getTrainingAndAdvocacyPageStrapiData');
+    cy.wait('@getOurWorkSubPageStrapiData');
   });
 
   it('should load a template stat page and verify all elements are present and functioning', () => {

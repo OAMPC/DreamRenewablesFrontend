@@ -11,6 +11,7 @@ import {
   getOurMissionVisionAndValuesPageStrapiData,
   getOurTeamPageStrapiData,
   getOurWorkPageStrapiData,
+  getOurWorkSubPageStrapiData,
 } from './strapiApi';
 import LandingPageFactory from '../test/factories/strapi/LandingPageFactory';
 import NavigationBarFactory from '../test/factories/strapi/NavigationBarFactory';
@@ -22,6 +23,8 @@ import AboutUsPageFactory from '../test/factories/strapi/AboutUsPageFactory';
 import OurWorkPageFactory from '../test/factories/strapi/OurWorkPageFactory';
 import GetInvolvedPageFactory from '../test/factories/strapi/GetInvolvedPageFactory';
 import DonatePageFactory from '../test/factories/strapi/DonatePageFactory';
+import StatTemplatePageFactory from '../test/factories/strapi/StatTemplatePageFactory';
+import { OurWorkSubPages } from '../data/enums/OurWorkSubPages';
 
 interface MockData<T> {
   data: {
@@ -260,5 +263,29 @@ describe('strapiApi', () => {
     //     'Request failed with status code 500'
     //   );
     // });
+  });
+
+  describe('getOurWorkSubPageStrapiData', () => {
+    test('should get a our work sub page data successfully', async () => {
+      const statTemplatePageFactory = new StatTemplatePageFactory();
+      const mockResponse = statTemplatePageFactory.getMockResponse();
+      const apiUrl = statTemplatePageFactory.getApiUrl();
+      await setup(apiUrl, mockResponse, 200);
+
+      const response = await getOurWorkSubPageStrapiData(
+        OurWorkSubPages.TrainingAndAdvocacy
+      );
+      expect(response).toEqual(mockResponse.data.attributes);
+    });
+
+    test('should handle errors when get a our work sub page data returns a 500', async () => {
+      const statTemplatePageFactory = new StatTemplatePageFactory();
+      const emptyMockData = statTemplatePageFactory.getEmptyMockData();
+      const apiUrl = statTemplatePageFactory.getApiUrl();
+      await setup(apiUrl, emptyMockData, 500);
+      await expect(
+        getOurWorkSubPageStrapiData(OurWorkSubPages.TrainingAndAdvocacy)
+      ).rejects.toThrow('Request failed with status code 500');
+    });
   });
 });

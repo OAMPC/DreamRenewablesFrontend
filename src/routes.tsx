@@ -9,7 +9,7 @@ import {
   getOurMissionVisionAndValuesPageStrapiData,
   getOurTeamPageStrapiData,
   getOurWorkPageStrapiData,
-  getTrainingAndAdvocacyPageStrapiData,
+  getOurWorkSubPageStrapiData,
 } from './api/strapiApi';
 import LandingPage from './pages/landing-page/LandingPage';
 import OurMissionVisionAndValuesPage from './pages/our-mission-vision-and-values-page/OurMissionVisionAndValuesPage';
@@ -20,6 +20,7 @@ import OurWorkPage from './pages/our-work-page/OurWorkPage';
 import GetInvolvedPage from './pages/get-involved-page/GetInvolvedPage';
 import DonatePage from './pages/donate-page/DonatePage';
 import StatTemplatePage from './pages/stat-template-page/StatTemplatePage';
+import { OurWorkSubPages } from './data/enums/OurWorkSubPages';
 
 const router = createBrowserRouter([
   {
@@ -32,7 +33,6 @@ const router = createBrowserRouter([
       };
     },
   },
-
   {
     path: '/our-mission-vision-and-values',
     element: <OurMissionVisionAndValuesPage />,
@@ -75,16 +75,6 @@ const router = createBrowserRouter([
     },
   },
   {
-    path: '/our-work',
-    element: <OurWorkPage />,
-    loader: async () => {
-      const ourWorkPageStrapiData = await getOurWorkPageStrapiData();
-      return {
-        ourWorkPageStrapiData,
-      };
-    },
-  },
-  {
     path: '/get-involved',
     element: <GetInvolvedPage />,
     loader: async () => {
@@ -105,11 +95,82 @@ const router = createBrowserRouter([
     },
   },
   {
-    path: '/training-and-advocacy',
+    path: '/our-work',
+    element: <OurWorkPage />,
+    loader: async () => {
+      const ourWorkPageStrapiData = await getOurWorkPageStrapiData();
+      return {
+        ourWorkPageStrapiData,
+      };
+    },
+  },
+  {
+    path: '/our-work/training-and-advocacy',
     element: <StatTemplatePage />,
     loader: async () => {
-      const statTemplatePageStrapiData =
-        await getTrainingAndAdvocacyPageStrapiData();
+      const statTemplatePageStrapiData = await getOurWorkSubPageStrapiData(
+        OurWorkSubPages.TrainingAndAdvocacy
+      );
+      return {
+        statTemplatePageStrapiData,
+      };
+    },
+  },
+  {
+    path: '/our-work/entrepreneurship',
+    element: <StatTemplatePage />,
+    loader: async () => {
+      const statTemplatePageStrapiData = await getOurWorkSubPageStrapiData(
+        OurWorkSubPages.Entrepreneurship
+      );
+      return {
+        statTemplatePageStrapiData,
+      };
+    },
+  },
+  {
+    path: '/our-work/solar-powered-schools',
+    element: <StatTemplatePage />,
+    loader: async () => {
+      const statTemplatePageStrapiData = await getOurWorkSubPageStrapiData(
+        OurWorkSubPages.SolarPoweredSchools
+      );
+      return {
+        statTemplatePageStrapiData,
+      };
+    },
+  },
+  {
+    path: '/our-work/solar-powered-irrigation',
+    element: <StatTemplatePage />,
+    loader: async () => {
+      const statTemplatePageStrapiData = await getOurWorkSubPageStrapiData(
+        OurWorkSubPages.SolarPoweredIrrigation
+      );
+      return {
+        statTemplatePageStrapiData,
+      };
+    },
+  },
+  {
+    path: '/our-work/solar-powered-clinics',
+    element: <StatTemplatePage />,
+    loader: async () => {
+      const statTemplatePageStrapiData = await getOurWorkSubPageStrapiData(
+        OurWorkSubPages.SolarPoweredClinics
+      );
+      return {
+        statTemplatePageStrapiData,
+      };
+    },
+  },
+  {
+    path: '/our-work/cleaner-cooking',
+    element: <StatTemplatePage />,
+    loader: async () => {
+      const statTemplatePageStrapiData = await getOurWorkSubPageStrapiData(
+        OurWorkSubPages.CleanerCooking
+      );
       return {
         statTemplatePageStrapiData,
       };
