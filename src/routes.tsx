@@ -108,9 +108,10 @@ const router = createBrowserRouter([
     path: '/training-and-advocacy',
     element: <StatTemplatePage />,
     loader: async () => {
-      const data = await getTrainingAndAdvocacyPageStrapiData();
+      const statTemplatePageStrapiData =
+        await getTrainingAndAdvocacyPageStrapiData();
       return {
-        data,
+        statTemplatePageStrapiData,
       };
     },
   },

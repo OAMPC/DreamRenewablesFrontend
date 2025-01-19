@@ -15,5 +15,5 @@ export type LoaderData = {
   aboutUsPageStrapiData: AboutUsPageStrapiContent;
   ourWorkPageStrapiData: OurWorkPageStrapiContent;
   getInvolvedPageStrapiData: GetInvolvedPageStrapiContent;
-  data: StatTemplatePageStrapiContent;
+  statTemplatePageStrapiData: StatTemplatePageStrapiContent;
 };

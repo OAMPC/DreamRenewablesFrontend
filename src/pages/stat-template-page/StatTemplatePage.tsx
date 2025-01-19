@@ -9,27 +9,33 @@ import StatTemplatePageQuoteSection from '../../components/stat-template-page/st
 import StatTemplatePageMetric from '../../components/stat-template-page/stat-template-page-metric/statTemplatePageMetric';
 
 const StatTemplatePage: React.FC = () => {
-  const { data } = useLoaderData() as LoaderData;
+  const { statTemplatePageStrapiData } = useLoaderData() as LoaderData;
   return (
     <PageWrapper>
       <Row>
         <Col>
           <div className="d-none d-sm-block mb-5">
-            <LandingCardDesktop landingCard={data.landingImage} />
+            <LandingCardDesktop
+              landingCard={statTemplatePageStrapiData.landingImage}
+            />
           </div>
           <div className="d-sm-none">
-            <LandingCardMobile landingCard={data.landingImage} />
+            <LandingCardMobile
+              landingCard={statTemplatePageStrapiData.landingImage}
+            />
           </div>
         </Col>
       </Row>
       <Container className="mb-5">
         <Row className="gx-5 mb-5">
           <Col xl="4">
-            <StatTemplatePageQuoteSection quoteData={data.quote} />
+            <StatTemplatePageQuoteSection
+              quoteData={statTemplatePageStrapiData.quote}
+            />
           </Col>
           <Col xl={{ span: 7, offset: 1 }} sm="12">
             <Row>
-              {data.metrics.map((metric, index) => (
+              {statTemplatePageStrapiData.metrics.map((metric, index) => (
                 <Col key={index} xl="6" sm="12">
                   <StatTemplatePageMetric metricData={metric} />
                 </Col>
