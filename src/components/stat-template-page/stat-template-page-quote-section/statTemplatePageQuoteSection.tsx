@@ -12,7 +12,7 @@ const StatTemplatePageQuoteSection: React.FC<Props> = ({ quoteData }) => {
       data-testid="stat-template-page-quote-section"
       className="stat-template-page-quote-section-wrapper mb-5"
     >
-      <div className="p-4 stat-template-page-quote-section-body">
+      <div className="p-4 stat-template-page-quote-section-body text-center text-sm-center">
         <p
           data-testid="stat-template-page-quote-body"
           className="fs-2 fw-bolder"

@@ -126,14 +126,13 @@ export async function getDonatePageStrapiData(): Promise<DonatePageStrapiContent
   return fetchStrapiData('donate-page', query);
 }
 
-export async function getTrainingAndAdvocacyPageStrapiData(): Promise<StatTemplatePageStrapiContent> {
+export async function getOurWorkSubPageStrapiData(
+  pageId: OurWorkSubPages
+): Promise<StatTemplatePageStrapiContent> {
   const query = buildStrapiEndpointQuery([
     'landingImage.image',
     'quote',
     'metrics',
   ]);
-  return fetchStrapiData(
-    `our-work-sub-pages/${OurWorkSubPages.TrainingAndAdvocacy}`,
-    query
-  );
+  return fetchStrapiData(`our-work-sub-pages/${pageId}`, query);
 }
