@@ -9,6 +9,7 @@ import {
   getOurMissionVisionAndValuesPageStrapiData,
   getOurTeamPageStrapiData,
   getOurWorkPageStrapiData,
+  getTrainingAndAdvocacyPageStrapiData,
 } from './api/strapiApi';
 import LandingPage from './pages/landing-page/LandingPage';
 import OurMissionVisionAndValuesPage from './pages/our-mission-vision-and-values-page/OurMissionVisionAndValuesPage';
@@ -18,6 +19,7 @@ import AboutUsPage from './pages/about-us-page/AboutUsPage';
 import OurWorkPage from './pages/our-work-page/OurWorkPage';
 import GetInvolvedPage from './pages/get-involved-page/GetInvolvedPage';
 import DonatePage from './pages/donate-page/DonatePage';
+import StatTemplatePage from './pages/stat-template-page/StatTemplatePage';
 
 const router = createBrowserRouter([
   {
@@ -99,6 +101,16 @@ const router = createBrowserRouter([
       const donatePageStrapiData = await getDonatePageStrapiData();
       return {
         donatePageStrapiData,
+      };
+    },
+  },
+  {
+    path: '/training-and-advocacy',
+    element: <StatTemplatePage />,
+    loader: async () => {
+      const data = await getTrainingAndAdvocacyPageStrapiData();
+      return {
+        data,
       };
     },
   },
