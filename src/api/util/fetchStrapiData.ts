@@ -18,3 +18,16 @@ export async function fetchStrapiData(endpoint: string, query = {}) {
     throw error;
   }
 }
+
+export async function fetchAllStrapiData(endpoint: string, query = {}) {
+  try {
+    const response = await axios.get(
+      `${import.meta.env.VITE_BASE_URL}/api/${endpoint}?${query}`,
+      strapiConfig
+    );
+    return response.data;
+  } catch (error) {
+    console.error('Error fetching Strapi data:', error);
+    throw error;
+  }
+}
