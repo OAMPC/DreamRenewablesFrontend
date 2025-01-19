@@ -44,6 +44,16 @@ const StatTemplatePage: React.FC = () => {
           </Col>
         </Row>
       </Container>
+      <Row>
+        <Col>
+          <p
+            data-testid="stat-template-page-free-text"
+            className="fs-4 px-5 text-center"
+          >
+            {statTemplatePageStrapiData.freeText}
+          </p>
+        </Col>
+      </Row>
     </PageWrapper>
   );
 };

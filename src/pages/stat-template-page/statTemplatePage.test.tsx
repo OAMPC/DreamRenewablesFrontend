@@ -77,6 +77,15 @@ describe('StatTemplatePage', () => {
         );
       });
     });
+
+    test('should render the stat template free text when data is loaded', async () => {
+      await setup();
+      await waitFor(() => {
+        expect(
+          screen.getByTestId('stat-template-page-free-text')
+        ).toBeInTheDocument();
+      });
+    });
   });
 
   afterEach(() => {
