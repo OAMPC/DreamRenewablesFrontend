@@ -1,0 +1,30 @@
+.stat-template-page-quote-section-body {
+  border-radius: 25px;
+  background-color: var(--background-light);
+}
+
+.stat-template-page-quote-section-wrapper {
+  position: relative;
+
+  &::before {
+    content: '';
+    position: absolute;
+    height: 18vw;
+    width: 8vw;
+    background-color: var(--primary);
+    z-index: -1;
+    border-radius: 25px;
+    top: 20%;
+    left: 60%;
+
+    @media (max-width: 2000px) {
+      height: 21vw;
+      width: 10vw;
+    }
+
+    @media (max-width: 1799px) {
+      height: 0;
+      width: 0;
+    }
+  }
+}
