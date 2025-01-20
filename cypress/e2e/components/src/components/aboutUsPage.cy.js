@@ -1,13 +1,5 @@
 describe('About Us Page', () => {
   beforeEach(() => {
-    cy.intercept('GET', '**/api/navigation-bar*', {
-      fixture: 'navigationBarStrapiResponse.json',
-    }).as('getNavigationBarStrapiData');
-
-    cy.intercept('GET', '**/api/footer*', {
-      fixture: 'footerStrapiResponse.json',
-    }).as('getFooterStrapiData');
-
     cy.intercept('GET', '**/api/about-us-page*', {
       fixture: 'aboutUsPageStrapiResponse.json',
     }).as('aboutUsPageStrapiData');
@@ -16,6 +8,7 @@ describe('About Us Page', () => {
 
     cy.wait('@getNavigationBarStrapiData');
     cy.wait('@getFooterStrapiData');
+    cy.wait('@getOurWorkSubPagesStrapiData');
     cy.wait('@aboutUsPageStrapiData');
   });
 

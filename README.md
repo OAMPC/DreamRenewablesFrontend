@@ -35,10 +35,10 @@ This project uses [Husky](https://typicode.github.io/husky/) and [lint-staged](h
 
 1. Clone the repo to your chosen directory
 2. Install dependencies `npm i`
-3. Create a .env file in the project root directory with the command: `touch .env` In order to obtain an API token for strapi to run the project locally you must run the [strapi](https://github.com/OAMPC/DreamRenewablesCms) project and [create one](https://docs.strapi.io/user-docs/settings/API-tokens).
+3. Create a .env file in the project root directory with the command e.g in bash: `touch .env` In order to obtain an API token for strapi to run the project locally you must run the [strapi](https://github.com/OAMPC/DreamRenewablesCms) project and [create one](https://docs.strapi.io/user-docs/settings/API-tokens). The .env.example provides some guidance on what is required, reach out to a project admin for help if required.
 4. The pre-commit file _.husky/pre-commit_ should contain the following line only: `npx lint-staged`
    - The subfolder _.husky/_\_ is required and should _not_ be committed by default
-5. Ensure the pre-commit file is executable: `chmod +x .husky/pre-commit`
+5. Ensure the pre-commit file is executable e.g in bash: `chmod +x .husky/pre-commit`
 
 ## Usage
 
@@ -50,6 +50,7 @@ To run the application you must ensure you've followed the setup steps
   - Ensure you're in the root directory
   - spin up the application: `npm run dev`
   - To run tests `npm run test`
+  - To run end to end tests `npm run e2e`. You will need the application running for this.
 
 ## Continuous Integration, Development and Deployment
 
@@ -61,7 +62,8 @@ This project uses a combination of technologies for Ci/Cd currently these are [G
 
 ### Related Repositories
 
-| Name                                                                                      | Description                                                   |
-| :---------------------------------------------------------------------------------------- | :------------------------------------------------------------ |
-| [Dream Renewables Cms](https://github.com/OAMPC/DreamRenewablesCms)                       | The Content Management System for this web application        |
-| [Dream Renewables Infrastructure](https://github.com/OAMPC/DreamRenewablesInfrastructure) | The Terraform for this web applications required architecture |
+| Name                                                                                      | Description                                                                 |
+| :---------------------------------------------------------------------------------------- | :-------------------------------------------------------------------------- |
+| [Dream Renewables Cms](https://github.com/OAMPC/DreamRenewablesCms)                       | The Content Management System for this web application                      |
+| [Dream Renewables Infrastructure](https://github.com/OAMPC/DreamRenewablesInfrastructure) | The Terraform for this web applications required architecture               |
+| [Dream Renewables Serverless](https://github.com/OAMPC/DreamRenewableServerless)          | The Serverless function code for this web applications AWS lambda functions |

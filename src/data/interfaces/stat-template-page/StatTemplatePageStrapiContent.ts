@@ -1,6 +1,7 @@
 import { LandingCard } from '../landing-card/LandingCard';
 
 export interface StatTemplatePageStrapiContent {
+  url: string;
   landingImage: LandingCard;
   quote: Quote;
   metrics: Array<Metric>;
