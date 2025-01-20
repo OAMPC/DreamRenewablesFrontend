@@ -8,30 +8,30 @@ import StatTemplatePageMetric from '../../components/stat-template-page/stat-tem
 import { StatTemplatePageStrapiContent } from '../../data/interfaces/stat-template-page/StatTemplatePageStrapiContent';
 
 type Props = {
-  data: StatTemplatePageStrapiContent;
+  strapiData: StatTemplatePageStrapiContent;
 };
 
-const StatTemplatePage: React.FC<Props> = ({ data }) => {
+const StatTemplatePage: React.FC<Props> = ({ strapiData }) => {
   return (
     <PageWrapper>
       <Row>
         <Col>
           <div className="d-none d-sm-block mb-5">
-            <LandingCardDesktop landingCard={data.landingImage} />
+            <LandingCardDesktop landingCard={strapiData.landingImage} />
           </div>
           <div className="d-sm-none">
-            <LandingCardMobile landingCard={data.landingImage} />
+            <LandingCardMobile landingCard={strapiData.landingImage} />
           </div>
         </Col>
       </Row>
       <Container className="mb-5">
         <Row className="gx-5 mb-5">
           <Col xl="4">
-            <StatTemplatePageQuoteSection quoteData={data.quote} />
+            <StatTemplatePageQuoteSection quoteData={strapiData.quote} />
           </Col>
           <Col xl={{ span: 7, offset: 1 }} sm="12">
             <Row>
-              {data.metrics.map((metric, index) => (
+              {strapiData.metrics.map((metric, index) => (
                 <Col key={index} xl="6" sm="12">
                   <StatTemplatePageMetric metricData={metric} />
                 </Col>
@@ -46,7 +46,7 @@ const StatTemplatePage: React.FC<Props> = ({ data }) => {
             data-testid="stat-template-page-free-text"
             className="fs-4 px-5 text-center"
           >
-            {data.freeText}
+            {strapiData.freeText}
           </p>
         </Col>
       </Row>

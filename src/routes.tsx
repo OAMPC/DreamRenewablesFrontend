@@ -29,7 +29,7 @@ const createRoutes = async () => {
   const dynamicOurWorkSubPageRoutes = ourWorkSubPages.data.map(
     (ourWorkSubPage) => ({
       path: `/our-work/${ourWorkSubPage.attributes.url}`,
-      element: <StatTemplatePage data={ourWorkSubPage.attributes} />,
+      element: <StatTemplatePage strapiData={ourWorkSubPage.attributes} />,
     })
   );
 

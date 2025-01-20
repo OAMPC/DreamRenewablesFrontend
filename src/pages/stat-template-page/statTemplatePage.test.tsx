@@ -32,7 +32,7 @@ describe('StatTemplatePage', () => {
         }}
       >
         <MemoryRouter>
-          <StatTemplatePage data={mockStatTemplatePageStrapiData} />
+          <StatTemplatePage strapiData={mockStatTemplatePageStrapiData} />
         </MemoryRouter>
       </SharedDataContext.Provider>
     );
