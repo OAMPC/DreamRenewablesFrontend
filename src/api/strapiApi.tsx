@@ -4,13 +4,13 @@ import { LandingPageStrapiContent } from '../data/interfaces/landing-page/Landin
 import { OurMissionVisionAndValuesPageStrapiContent } from '../data/interfaces/our-mission-vision-and-values-page/OurMissionVisionAndValuesPageStrapiContent';
 import { OurTeamPageStrapiContent } from '../data/interfaces/our-team-page/OurTeamPageStrapiContent';
 import { buildStrapiEndpointQuery } from './util/buildStrapiEndpointQuery';
-import { fetchAllStrapiData, fetchStrapiData } from './util/fetchStrapiData';
 import { OurDonorsPageStrapiContent } from '../data/interfaces/our-donor-page/OurDonorsPageStrapiContent';
 import { AboutUsPageStrapiContent } from '../data/interfaces/about-us-page/AboutUsPageStrapiContent';
 import { OurWorkPageStrapiContent } from '../data/interfaces/our-work-page/OurWorkPageStrapiContent';
 import { GetInvolvedPageStrapiContent } from '../data/interfaces/get-involved-page/GetInvolvedPageStrapiContent';
 import { DonatePageStrapiContent } from '../data/interfaces/donate-page/DonatePageStrapiContent';
 import { StatTemplatePagesStrapiContent } from '../data/interfaces/stat-template-page/StatTemplatePagesStrapiContent';
+import { fetchStrapiData } from './util/fetchStrapiData';
 
 export async function getNavigationBarStrapiData(): Promise<NavigationBarStrapiContent> {
   const query = buildStrapiEndpointQuery([
@@ -131,5 +131,5 @@ export async function getOurWorkSubPagesStrapiData(): Promise<StatTemplatePagesS
     'quote',
     'metrics',
   ]);
-  return fetchAllStrapiData(`our-work-sub-pages`, query);
+  return fetchStrapiData(`our-work-sub-pages`, query, true);
 }
