@@ -8,6 +8,10 @@ describe('About Us Page', () => {
       fixture: 'footerStrapiResponse.json',
     }).as('getFooterStrapiData');
 
+    cy.intercept('GET', '**/api/our-work-sub-pages*', {
+      fixture: 'ourWorkSubPagesStrapiResponse.json',
+    }).as('getOurWorkSubPagesStrapiData');
+
     cy.intercept('GET', '**/api/about-us-page*', {
       fixture: 'aboutUsPageStrapiResponse.json',
     }).as('aboutUsPageStrapiData');
@@ -16,6 +20,7 @@ describe('About Us Page', () => {
 
     cy.wait('@getNavigationBarStrapiData');
     cy.wait('@getFooterStrapiData');
+    cy.wait('@getOurWorkSubPagesStrapiData');
     cy.wait('@aboutUsPageStrapiData');
   });
 

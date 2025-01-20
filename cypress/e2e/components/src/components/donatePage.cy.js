@@ -8,6 +8,10 @@ describe('Donate Page', () => {
       fixture: 'footerStrapiResponse.json',
     }).as('getFooterStrapiData');
 
+    cy.intercept('GET', '**/api/our-work-sub-pages*', {
+      fixture: 'ourWorkSubPagesStrapiResponse.json',
+    }).as('getOurWorkSubPagesStrapiData');
+
     cy.intercept('GET', '**/api/donate-page*', {
       fixture: 'donatePageStrapiResponse.json',
     }).as('donatePageStrapiData');
@@ -16,6 +20,7 @@ describe('Donate Page', () => {
 
     cy.wait('@getNavigationBarStrapiData');
     cy.wait('@getFooterStrapiData');
+    cy.wait('@getOurWorkSubPagesStrapiData');
     cy.wait('@donatePageStrapiData');
   });
 

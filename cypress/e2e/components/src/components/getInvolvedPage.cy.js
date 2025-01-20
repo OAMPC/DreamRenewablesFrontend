@@ -8,6 +8,10 @@ describe('Get Involved Page', () => {
       fixture: 'footerStrapiResponse.json',
     }).as('getFooterStrapiData');
 
+    cy.intercept('GET', '**/api/our-work-sub-pages*', {
+      fixture: 'ourWorkSubPagesStrapiResponse.json',
+    }).as('getOurWorkSubPagesStrapiData');
+
     cy.intercept('GET', '**/api/get-involved-page*', {
       fixture: 'getInvolvedPageStrapiResponse.json',
     }).as('getInvolvedPageStrapiData');
@@ -16,6 +20,7 @@ describe('Get Involved Page', () => {
 
     cy.wait('@getNavigationBarStrapiData');
     cy.wait('@getFooterStrapiData');
+    cy.wait('@getOurWorkSubPagesStrapiData');
     cy.wait('@getInvolvedPageStrapiData');
   });
 

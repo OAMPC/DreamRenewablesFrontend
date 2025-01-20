@@ -8,6 +8,10 @@ describe('Our Mission Vision and Values Page', () => {
       fixture: 'footerStrapiResponse.json',
     }).as('getFooterStrapiData');
 
+    cy.intercept('GET', '**/api/our-work-sub-pages*', {
+      fixture: 'ourWorkSubPagesStrapiResponse.json',
+    }).as('getOurWorkSubPagesStrapiData');
+
     cy.intercept('GET', '**/api/mission-vision-and-values-page*', {
       fixture: 'ourMissionVisionAndValuesPageStrapiResponse.json',
     }).as('getOurMissionVisionAndValuesPageStrapiData');
@@ -16,6 +20,7 @@ describe('Our Mission Vision and Values Page', () => {
 
     cy.wait('@getNavigationBarStrapiData');
     cy.wait('@getFooterStrapiData');
+    cy.wait('@getOurWorkSubPagesStrapiData');
     cy.wait('@getOurMissionVisionAndValuesPageStrapiData');
   });
 
