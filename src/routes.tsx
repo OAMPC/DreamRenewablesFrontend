@@ -2,7 +2,7 @@ import React from 'react';
 import { createBrowserRouter } from 'react-router-dom';
 import {
   getAboutUsPageStrapiData,
-  getBlogPostStrapiData,
+  getBlogPostsStrapiData,
   getDonatePageStrapiData,
   getGetInvolvedPageStrapiData,
   getLandingPageStrapiData,
@@ -23,14 +23,14 @@ import DonatePage from './pages/donate-page/DonatePage';
 import StatTemplatePage from './pages/stat-template-page/StatTemplatePage';
 import { StatTemplatePagesStrapiContent } from './data/interfaces/stat-template-page/StatTemplatePagesStrapiContent';
 import BlogPostTemplatePage from './pages/blog-post-template-page/BlogPostTemplatePage';
-import { BlogPostTemplatePagesStrapiContent } from './data/interfaces/blog-post-template-page/BlogPostTemplatePagesStrapiContent';
+import { BlogPostsTemplatePageStrapiContent } from './data/interfaces/blog-post-template-page/BlogPostTemplatePagesStrapiContent';
 
 const createRoutes = async () => {
   const ourWorkSubPages: StatTemplatePagesStrapiContent =
     await getOurWorkSubPagesStrapiData();
 
-  const blogPages: BlogPostTemplatePagesStrapiContent =
-    await getBlogPostStrapiData();
+  const blogPages: BlogPostsTemplatePageStrapiContent =
+    await getBlogPostsStrapiData();
 
   const dynamicOurWorkSubPageRoutes = ourWorkSubPages.data.map(
     (ourWorkSubPage) => ({

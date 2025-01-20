@@ -26,7 +26,7 @@ const BlogPostTemplatePage: React.FC<Props> = ({ strapiData }) => {
             <div
               className="d-flex align-items-center justify-content-start mt-3 landing-card"
               style={landingCardCardStyle}
-              data-testid="landing-image-desktop"
+              data-testid="blog-page-landing-image-desktop"
             ></div>
           </div>
           <div className="d-sm-none">

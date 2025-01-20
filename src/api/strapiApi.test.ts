@@ -2,6 +2,7 @@ import { describe, expect, test } from 'vitest';
 import { AXIOS_MOCK } from '../test-setup';
 import {
   getAboutUsPageStrapiData,
+  getBlogPostsStrapiData,
   getDonatePageStrapiData,
   getFooterStrapiData,
   getGetInvolvedPageStrapiData,
@@ -26,6 +27,7 @@ import DonatePageFactory from '../test/factories/strapi/DonatePageFactory';
 import OurWorkSubPagesFactory from '../test/factories/strapi/OurWorkSubPagesFactory';
 import { StrapiResponseCollection } from '../data/interfaces/util/StrapiResponseCollection';
 import { StrapiResponse } from '../data/interfaces/util/StrapiResponse';
+import BlogPostsFactory from '../test/factories/strapi/BlogPostsFactory';
 
 describe('strapiApi', () => {
   const setup = async <T>(
@@ -277,6 +279,28 @@ describe('strapiApi', () => {
       const apiUrl = ourWorkSubPagesFactory.getApiUrl();
       await setup(apiUrl, emptyMockData, 500);
       await expect(getOurWorkSubPagesStrapiData()).rejects.toThrow(
+        'Request failed with status code 500'
+      );
+    });
+  });
+
+  describe('getBlogPostsStrapiData', () => {
+    test('should get all blog posts strapi data successfully', async () => {
+      const blogPostFactory = new BlogPostsFactory();
+      const mockResponse = blogPostFactory.getMockResponse();
+      const apiUrl = blogPostFactory.getApiUrl();
+      await setup(apiUrl, mockResponse, 200);
+
+      const response = await getBlogPostsStrapiData();
+      expect(response).toEqual(mockResponse);
+    });
+
+    test('should handle errors when get all blog posts strapi data returns a 500', async () => {
+      const blogPostFactory = new BlogPostsFactory();
+      const emptyMockData = blogPostFactory.getEmptyMockData();
+      const apiUrl = blogPostFactory.getApiUrl();
+      await setup(apiUrl, emptyMockData, 500);
+      await expect(getBlogPostsStrapiData()).rejects.toThrow(
         'Request failed with status code 500'
       );
     });
