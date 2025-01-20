@@ -2,15 +2,15 @@ import React from 'react';
 import * as Bs from 'react-bootstrap';
 import PageWrapper from '../../components/page-wrapper/PageWrapper';
 import { Col, Container, Row } from 'react-bootstrap';
-import { useLoaderData } from 'react-router-dom';
-import { LoaderData } from '../../data/types/LoaderData';
+import { BlogPostTemplatePageStrapiContent } from '../../data/interfaces/blog-post-template-page/BlogPostTemplatePageStrapiContent';
 
-const BlogPostTemplatePage: React.FC = () => {
-  const { blogPostTemplatePageStrapiData } = useLoaderData() as LoaderData;
-  console.log(blogPostTemplatePageStrapiData);
+type Props = {
+  strapiData: BlogPostTemplatePageStrapiContent;
+};
 
+const BlogPostTemplatePage: React.FC<Props> = ({ strapiData }) => {
   const landingCardCardStyle = {
-    backgroundImage: `url(${blogPostTemplatePageStrapiData.landingImage.data.attributes.url})`,
+    backgroundImage: `url(${strapiData.landingImage.data.attributes.url})`,
     backgroundSize: 'cover',
     backgroundPosition: 'center',
     height: '500px',
@@ -33,9 +33,7 @@ const BlogPostTemplatePage: React.FC = () => {
             <Bs.Image
               fluid
               data-testid="landing-image-mobile"
-              src={
-                blogPostTemplatePageStrapiData.landingImage.data.attributes.url
-              }
+              src={strapiData.landingImage.data.attributes.url}
               className="landing-image-mobile"
             />
           </div>
@@ -44,31 +42,23 @@ const BlogPostTemplatePage: React.FC = () => {
       <Container className="mb-5">
         <Row className="mb-3">
           <Col>
-            <h1 className="fs-1 fw-bold text-center">
-              {blogPostTemplatePageStrapiData.title}
-            </h1>
-            <p className="fs-5 text-center">
-              {blogPostTemplatePageStrapiData.blogPostSummary}
-            </p>
+            <h1 className="fs-1 fw-bold text-center">{strapiData.title}</h1>
+            <p className="fs-5 text-center">{strapiData.blogPostSummary}</p>
           </Col>
         </Row>
         <Row className="mb-3 text-center">
           <Col>
             <span className="text-muted">
-              Published on: {blogPostTemplatePageStrapiData.publishedAt}
+              Published on: {strapiData.publishedAt}
             </span>
           </Col>
           <Col>
-            <span className="text-muted">
-              Author: {blogPostTemplatePageStrapiData.author}
-            </span>
+            <span className="text-muted">Author: {strapiData.author}</span>
           </Col>
         </Row>
         <Row>
           <Col>
-            <div className="fs-5">
-              {blogPostTemplatePageStrapiData.blogPostBody}
-            </div>
+            <div className="fs-5">{strapiData.blogPostBody}</div>
           </Col>
         </Row>
       </Container>

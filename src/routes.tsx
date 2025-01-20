@@ -23,10 +23,14 @@ import DonatePage from './pages/donate-page/DonatePage';
 import StatTemplatePage from './pages/stat-template-page/StatTemplatePage';
 import { StatTemplatePagesStrapiContent } from './data/interfaces/stat-template-page/StatTemplatePagesStrapiContent';
 import BlogPostTemplatePage from './pages/blog-post-template-page/BlogPostTemplatePage';
+import { BlogPostTemplatePagesStrapiContent } from './data/interfaces/blog-post-template-page/BlogPostTemplatePagesStrapiContent';
 
 const createRoutes = async () => {
   const ourWorkSubPages: StatTemplatePagesStrapiContent =
     await getOurWorkSubPagesStrapiData();
+
+  const blogPages: BlogPostTemplatePagesStrapiContent =
+    await getBlogPostStrapiData();
 
   const dynamicOurWorkSubPageRoutes = ourWorkSubPages.data.map(
     (ourWorkSubPage) => ({
@@ -34,6 +38,11 @@ const createRoutes = async () => {
       element: <StatTemplatePage strapiData={ourWorkSubPage.attributes} />,
     })
   );
+
+  const blogPageRoutes = blogPages.data.map((blogPage) => ({
+    path: `/blog/${blogPage.attributes.url}`,
+    element: <BlogPostTemplatePage strapiData={blogPage.attributes} />,
+  }));
 
   const routes = [
     {
@@ -118,16 +127,7 @@ const createRoutes = async () => {
       },
     },
     ...dynamicOurWorkSubPageRoutes,
-    {
-      path: '/blog-posts',
-      element: <BlogPostTemplatePage />,
-      loader: async () => {
-        const blogPostTemplatePageStrapiData = await getBlogPostStrapiData();
-        return {
-          blogPostTemplatePageStrapiData,
-        };
-      },
-    },
+    ...blogPageRoutes,
   ];
 
   return createBrowserRouter(routes);
