@@ -1,15 +1,7 @@
 import { render, screen, waitFor } from '@testing-library/react';
 import React from 'react';
-import { MemoryRouter, useLoaderData } from 'react-router-dom';
-import {
-  afterEach,
-  beforeEach,
-  describe,
-  expect,
-  Mock,
-  test,
-  vi,
-} from 'vitest';
+import { MemoryRouter } from 'react-router-dom';
+import { afterEach, beforeEach, describe, expect, test, vi } from 'vitest';
 import navigationBarFactory from '../../test/factories/strapi/NavigationBarFactory';
 import FooterFactory from '../../test/factories/strapi/FooterFactory';
 import { SharedDataContext } from '../../contexts/SharedDataProvider';
@@ -25,15 +17,13 @@ vi.mock('react-router-dom', async () => {
 });
 
 describe('StatTemplatePage', () => {
-  const mockLoaderData = {
-    statTemplatePageStrapiData: new StatTemplatePageFactory().getMockData(),
-  };
+  const mockStatTemplatePageStrapiData =
+    new StatTemplatePageFactory().getMockData();
 
   const navigationBarStrapiData = new navigationBarFactory().getMockData();
   const footerStrapiData = new FooterFactory().getMockData();
 
   const setup = async () => {
-    (useLoaderData as Mock).mockReturnValue(mockLoaderData);
     render(
       <SharedDataContext.Provider
         value={{
@@ -42,7 +32,7 @@ describe('StatTemplatePage', () => {
         }}
       >
         <MemoryRouter>
-          <StatTemplatePage />
+          <StatTemplatePage strapiData={mockStatTemplatePageStrapiData} />
         </MemoryRouter>
       </SharedDataContext.Provider>
     );

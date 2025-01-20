@@ -1,13 +1,5 @@
 describe('Our Work Page', () => {
   beforeEach(() => {
-    cy.intercept('GET', '**/api/navigation-bar*', {
-      fixture: 'navigationBarStrapiResponse.json',
-    }).as('getNavigationBarStrapiData');
-
-    cy.intercept('GET', '**/api/footer*', {
-      fixture: 'footerStrapiResponse.json',
-    }).as('getFooterStrapiData');
-
     cy.intercept('GET', '**/api/our-work-page*', {
       fixture: 'ourWorkPageStrapiResponse.json',
     }).as('getOurWorkPageStrapiData');
@@ -16,6 +8,7 @@ describe('Our Work Page', () => {
 
     cy.wait('@getNavigationBarStrapiData');
     cy.wait('@getFooterStrapiData');
+    cy.wait('@getOurWorkSubPagesStrapiData');
     cy.wait('@getOurWorkPageStrapiData');
   });
 

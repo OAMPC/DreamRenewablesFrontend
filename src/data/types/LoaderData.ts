@@ -6,7 +6,6 @@ import { OurDonorsPageStrapiContent } from '../interfaces/our-donor-page/OurDono
 import { OurMissionVisionAndValuesPageStrapiContent } from '../interfaces/our-mission-vision-and-values-page/OurMissionVisionAndValuesPageStrapiContent';
 import { OurTeamPageStrapiContent } from '../interfaces/our-team-page/OurTeamPageStrapiContent';
 import { OurWorkPageStrapiContent } from '../interfaces/our-work-page/OurWorkPageStrapiContent';
-import { StatTemplatePageStrapiContent } from '../interfaces/stat-template-page/StatTemplatePageStrapiContent';
 
 export type LoaderData = {
   landingPageStrapiData: LandingPageStrapiContent;
@@ -16,6 +15,5 @@ export type LoaderData = {
   aboutUsPageStrapiData: AboutUsPageStrapiContent;
   ourWorkPageStrapiData: OurWorkPageStrapiContent;
   getInvolvedPageStrapiData: GetInvolvedPageStrapiContent;
-  statTemplatePageStrapiData: StatTemplatePageStrapiContent;
   blogPostTemplatePageStrapiData: BlogPostTemplatePageStrapiContent;
 };
