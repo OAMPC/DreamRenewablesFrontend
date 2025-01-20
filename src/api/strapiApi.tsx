@@ -12,6 +12,7 @@ import { GetInvolvedPageStrapiContent } from '../data/interfaces/get-involved-pa
 import { DonatePageStrapiContent } from '../data/interfaces/donate-page/DonatePageStrapiContent';
 import { StatTemplatePageStrapiContent } from '../data/interfaces/stat-template-page/StatTemplatePageStrapiContent';
 import { OurWorkSubPages } from '../data/enums/OurWorkSubPages';
+import { BlogPostTemplatePageStrapiContent } from '../data/interfaces/blog-post-template-page/BlogPostTemplatePageStrapiContent';
 
 export async function getNavigationBarStrapiData(): Promise<NavigationBarStrapiContent> {
   const query = buildStrapiEndpointQuery([
@@ -135,4 +136,16 @@ export async function getOurWorkSubPageStrapiData(
     'metrics',
   ]);
   return fetchStrapiData(`our-work-sub-pages/${pageId}`, query);
+}
+
+export async function getBlogPostStrapiData(): Promise<BlogPostTemplatePageStrapiContent> {
+  const query = buildStrapiEndpointQuery([
+    'landingImage',
+    'title',
+    'blogPostSummary',
+    'author',
+    'publishedAt',
+    'blogPostBody',
+  ]);
+  return fetchStrapiData(`blog-posts/1`, query);
 }

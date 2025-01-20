@@ -2,6 +2,7 @@ import React from 'react';
 import { createBrowserRouter } from 'react-router-dom';
 import {
   getAboutUsPageStrapiData,
+  getBlogPostStrapiData,
   getDonatePageStrapiData,
   getGetInvolvedPageStrapiData,
   getLandingPageStrapiData,
@@ -21,6 +22,7 @@ import GetInvolvedPage from './pages/get-involved-page/GetInvolvedPage';
 import DonatePage from './pages/donate-page/DonatePage';
 import StatTemplatePage from './pages/stat-template-page/StatTemplatePage';
 import { OurWorkSubPages } from './data/enums/OurWorkSubPages';
+import BlogPostTemplatePage from './pages/blog-post-template-page/BlogPostTemplatePage';
 
 const router = createBrowserRouter([
   {
@@ -173,6 +175,16 @@ const router = createBrowserRouter([
       );
       return {
         statTemplatePageStrapiData,
+      };
+    },
+  },
+  {
+    path: '/blog-posts',
+    element: <BlogPostTemplatePage />,
+    loader: async () => {
+      const blogPostTemplatePageStrapiData = await getBlogPostStrapiData();
+      return {
+        blogPostTemplatePageStrapiData,
       };
     },
   },

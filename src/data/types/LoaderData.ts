@@ -1,4 +1,5 @@
 import { AboutUsPageStrapiContent } from '../interfaces/about-us-page/AboutUsPageStrapiContent';
+import { BlogPostTemplatePageStrapiContent } from '../interfaces/blog-post-template-page/BlogPostTemplatePageStrapiContent';
 import { GetInvolvedPageStrapiContent } from '../interfaces/get-involved-page/GetInvolvedPageStrapiContent';
 import { LandingPageStrapiContent } from '../interfaces/landing-page/LandingPageStrapiContent';
 import { OurDonorsPageStrapiContent } from '../interfaces/our-donor-page/OurDonorsPageStrapiContent';
@@ -16,4 +17,5 @@ export type LoaderData = {
   ourWorkPageStrapiData: OurWorkPageStrapiContent;
   getInvolvedPageStrapiData: GetInvolvedPageStrapiContent;
   statTemplatePageStrapiData: StatTemplatePageStrapiContent;
+  blogPostTemplatePageStrapiData: BlogPostTemplatePageStrapiContent;
 };
