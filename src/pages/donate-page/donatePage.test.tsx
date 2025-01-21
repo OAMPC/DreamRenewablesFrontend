@@ -60,6 +60,33 @@ describe('DonatePage', () => {
       });
     });
 
+    test('should render the donate page pre metric text when data is loaded', async () => {
+      await setup();
+      await waitFor(() => {
+        expect(
+          screen.getByTestId('donate-page-pre-metric-text')
+        ).toBeInTheDocument();
+      });
+    });
+
+    test('should render the donate page metrics when data is loaded', async () => {
+      await setup();
+      await waitFor(() => {
+        expect(screen.getAllByTestId('stat-template-page-metric').length).toBe(
+          2
+        );
+      });
+    });
+
+    test('should render the donate page post metric text when data is loaded', async () => {
+      await setup();
+      await waitFor(() => {
+        expect(
+          screen.getByTestId('donate-page-post-metric-text')
+        ).toBeInTheDocument();
+      });
+    });
+
     test('should render the donate page payment section when data is loaded', async () => {
       await setup();
       await waitFor(() => {
