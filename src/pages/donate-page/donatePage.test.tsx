@@ -53,10 +53,19 @@ describe('DonatePage', () => {
   });
 
   describe('render elements', () => {
-    test('should render the donate page title when data is loaded', async () => {
+    test('should render the donate page landing card when data is loaded', async () => {
       await setup();
       await waitFor(() => {
-        expect(screen.getByTestId('donate-page-title')).toBeInTheDocument();
+        expect(screen.getByTestId('landing-card-desktop')).toBeInTheDocument();
+      });
+    });
+
+    test('should render the donate page payment section when data is loaded', async () => {
+      await setup();
+      await waitFor(() => {
+        expect(
+          screen.getByTestId('donate-page-payment-section')
+        ).toBeInTheDocument();
       });
     });
   });
