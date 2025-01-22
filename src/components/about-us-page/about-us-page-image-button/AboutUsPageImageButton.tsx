@@ -14,14 +14,11 @@ const AboutUsPageImageButton: React.FC<Props> = ({ imageButtonData }) => {
 
   return (
     <Col xs="12" xl="6" className="d-flex justify-content-center mb-5">
-      <a
-        className={styles.aboutUsImageButtonLink}
-        href={imageButtonData.linkSlug}
-      >
+      <a className={styles.imageButtonLink} href={imageButtonData.linkSlug}>
         <div
           data-testid="about-us-page-image-button"
           style={aboutUsPageImageBackgroundUrlStyle}
-          className={`${styles.aboutUsImageButton} d-flex align-items-end`}
+          className={`${styles.imageButton} d-flex align-items-end`}
         >
           <Row>
             <Col className="mb-4">

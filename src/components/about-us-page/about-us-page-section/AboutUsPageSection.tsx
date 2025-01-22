@@ -19,7 +19,7 @@ const AboutUsPageSection: React.FC<Props> = ({ sectionData, rowIndex }) => {
         >
           <Bs.Row className="mt-5">
             <Bs.Col className="text-center text-xl-start">
-              <div className={styles.aboutUsPageSectionTitleAccent}>
+              <div className={styles.titleAccent}>
                 <h2
                   data-testid="about-us-page-section-title"
                   className="mb-lg-5 fs-1 fw-bolder mb-0"
