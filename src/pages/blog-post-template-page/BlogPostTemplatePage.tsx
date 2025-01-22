@@ -9,32 +9,16 @@ type Props = {
 };
 
 const BlogPostTemplatePage: React.FC<Props> = ({ strapiData }) => {
-  const landingCardCardStyle = {
-    backgroundImage: `url(${strapiData.landingImage.data.attributes.url})`,
-    backgroundSize: 'cover',
-    backgroundPosition: 'center',
-    height: '500px',
-    width: '75vw',
-    borderRadius: '25px',
-  };
-
   return (
     <PageWrapper>
       <Row>
         <Col>
-          <div className="d-none d-sm-block mb-5">
-            <div
-              className="d-flex align-items-center justify-content-start mt-3 landing-card"
-              style={landingCardCardStyle}
-              data-testid="blog-page-landing-image-desktop"
-            ></div>
-          </div>
-          <div className="d-sm-none">
+          <div className="mb-3">
             <Bs.Image
               fluid
-              data-testid="landing-image-mobile"
+              data-testid="landing-image"
               src={strapiData.landingImage.data.attributes.url}
-              className="landing-image-mobile"
+              className="rounded-3"
             />
           </div>
         </Col>
@@ -48,17 +32,18 @@ const BlogPostTemplatePage: React.FC<Props> = ({ strapiData }) => {
         </Row>
         <Row className="mb-3 text-center">
           <Col>
-            <span className="text-muted">
-              Published on: {strapiData.publishedAt}
-            </span>
-          </Col>
-          <Col>
-            <span className="text-muted">Author: {strapiData.author}</span>
+            <p>
+              <span className="text-muted me-3">
+                {strapiData.publishedAt.split('T')[0]}
+              </span>
+              <span className="text-muted me-3">&#9679;</span>
+              <span className="text-muted">{strapiData.author} </span>
+            </p>
           </Col>
         </Row>
         <Row>
           <Col>
-            <div className="fs-5">{strapiData.blogPostBody}</div>
+            <p className="fs-6">{strapiData.blogPostBody}</p>
           </Col>
         </Row>
       </Container>
