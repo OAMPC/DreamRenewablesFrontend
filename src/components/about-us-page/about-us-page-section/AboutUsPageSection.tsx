@@ -1,7 +1,7 @@
 import React from 'react';
 import * as Bs from 'react-bootstrap';
 import { Section } from '../../../data/interfaces/about-us-page/AboutUsPageStrapiContent';
-import './aboutUsPageSection.scss';
+import styles from './aboutUsPageSection.module.scss';
 
 type Props = {
   sectionData: Section;
@@ -19,7 +19,7 @@ const AboutUsPageSection: React.FC<Props> = ({ sectionData, rowIndex }) => {
         >
           <Bs.Row className="mt-5">
             <Bs.Col className="text-center text-xl-start">
-              <div className="about-us-page-section-title-accent">
+              <div className={styles.aboutUsPageSectionTitleAccent}>
                 <h2
                   data-testid="about-us-page-section-title"
                   className="mb-lg-5 fs-1 fw-bolder mb-0"

@@ -1,29 +1,27 @@
 import React from 'react';
 import { ImageButton } from '../../../data/interfaces/about-us-page/AboutUsPageStrapiContent';
 import { Row, Col } from 'react-bootstrap';
-import './aboutUsPageImageButton.scss';
+import styles from './aboutUsPageImageButton.module.scss';
 
 type Props = {
   imageButtonData: ImageButton;
 };
 
 const AboutUsPageImageButton: React.FC<Props> = ({ imageButtonData }) => {
-  const aboutUsPageImageButtonStyle = {
+  const aboutUsPageImageBackgroundUrlStyle = {
     backgroundImage: `url(${imageButtonData.image.data.attributes.url})`,
-    backgroundSize: 'cover',
-    backgroundPosition: 'center',
-    height: '35vh',
-    width: '40vw',
-    borderRadius: '25px',
   };
 
   return (
     <Col xs="12" xl="6" className="d-flex justify-content-center mb-5">
-      <a className="about-us-image-button-link" href={imageButtonData.linkSlug}>
+      <a
+        className={styles.aboutUsImageButtonLink}
+        href={imageButtonData.linkSlug}
+      >
         <div
           data-testid="about-us-page-image-button"
-          style={aboutUsPageImageButtonStyle}
-          className="d-flex align-items-end about-us-image-button"
+          style={aboutUsPageImageBackgroundUrlStyle}
+          className={`${styles.aboutUsImageButton} d-flex align-items-end`}
         >
           <Row>
             <Col className="mb-4">
