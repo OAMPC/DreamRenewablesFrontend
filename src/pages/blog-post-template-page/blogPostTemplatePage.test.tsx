@@ -44,8 +44,50 @@ describe('BlogPostTemplatePage', () => {
     test('should render a blog page landing image when data is loaded', async () => {
       await setup();
       await waitFor(() => {
+        expect(screen.getByTestId('landing-image')).toBeInTheDocument();
+      });
+    });
+
+    test('should center the landing image', async () => {
+      await setup();
+      await waitFor(() => {
+        const imageElement = screen.getByTestId('landing-image');
+        expect(imageElement).toHaveStyle({
+          display: 'block',
+          margin: '0 auto',
+          maxWidth: '100%',
+        });
+      });
+    });
+
+    test('should render the blog post title', async () => {
+      await setup();
+      await waitFor(() => {
         expect(
-          screen.getByTestId('blog-page-landing-image-desktop')
+          screen.getByText(mockLoaderData[0].attributes.title)
+        ).toBeInTheDocument();
+      });
+    });
+
+    test('should render the blog post summary', async () => {
+      await setup();
+      await waitFor(() => {
+        expect(
+          screen.getByText(mockLoaderData[0].attributes.blogPostSummary)
+        ).toBeInTheDocument();
+      });
+    });
+
+    test('should render the publication date and author information', async () => {
+      await setup();
+      await waitFor(() => {
+        expect(
+          screen.getByText(
+            mockLoaderData[0].attributes.publishedAt.split('T')[0]
+          )
+        ).toBeInTheDocument();
+        expect(
+          screen.getByText(mockLoaderData[0].attributes.author)
         ).toBeInTheDocument();
       });
     });
