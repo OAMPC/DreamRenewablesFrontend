@@ -3,22 +3,30 @@ import * as Bs from 'react-bootstrap';
 import PageWrapper from '../../components/page-wrapper/PageWrapper';
 import { Col, Container, Row } from 'react-bootstrap';
 import { BlogPostTemplatePageStrapiContent } from '../../data/interfaces/blog-post-template-page/BlogPostTemplatePageStrapiContent';
+import ReactMarkdown from 'react-markdown';
 
 type Props = {
   strapiData: BlogPostTemplatePageStrapiContent;
 };
 
 const BlogPostTemplatePage: React.FC<Props> = ({ strapiData }) => {
+  const centerImageStyle = {
+    maxWidth: '100%',
+    display: 'block',
+    margin: '0 auto',
+  };
+
   return (
     <PageWrapper>
       <Row>
         <Col>
-          <div className="mb-3">
+          <div className="mb-3 centered-image">
             <Bs.Image
               fluid
               data-testid="landing-image"
               src={strapiData.landingImage.data.attributes.url}
               className="rounded-3"
+              style={centerImageStyle}
             />
           </div>
         </Col>
@@ -43,7 +51,17 @@ const BlogPostTemplatePage: React.FC<Props> = ({ strapiData }) => {
         </Row>
         <Row>
           <Col>
-            <p className="fs-6">{strapiData.blogPostBody}</p>
+            <ReactMarkdown
+              components={{
+                img: ({ ...props }) => (
+                  <div style={{ textAlign: 'center', margin: '20px 0' }}>
+                    <img {...props} style={centerImageStyle} />
+                  </div>
+                ),
+              }}
+            >
+              {strapiData.blogPostBody}
+            </ReactMarkdown>
           </Col>
         </Row>
       </Container>
