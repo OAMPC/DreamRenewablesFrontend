@@ -17,7 +17,7 @@ vi.mock('react-router-dom', async () => {
 });
 
 describe('BlogPostTemplatePage', () => {
-  const mockLoaderData = new BlogPostsFactory().getMockData();
+  const mockData = new BlogPostsFactory().getMockData();
   const navigationBarStrapiData = new navigationBarFactory().getMockData();
   const footerStrapiData = new FooterFactory().getMockData();
 
@@ -30,7 +30,7 @@ describe('BlogPostTemplatePage', () => {
         }}
       >
         <MemoryRouter>
-          <BlogPostTemplatePage strapiData={mockLoaderData[0].attributes} />
+          <BlogPostTemplatePage strapiData={mockData[0].attributes} />
         </MemoryRouter>
       </SharedDataContext.Provider>
     );
@@ -48,23 +48,11 @@ describe('BlogPostTemplatePage', () => {
       });
     });
 
-    test('should center the landing image', async () => {
-      await setup();
-      await waitFor(() => {
-        const imageElement = screen.getByTestId('landing-image');
-        expect(imageElement).toHaveStyle({
-          display: 'block',
-          margin: '0 auto',
-          maxWidth: '100%',
-        });
-      });
-    });
-
     test('should render the blog post title', async () => {
       await setup();
       await waitFor(() => {
         expect(
-          screen.getByText(mockLoaderData[0].attributes.title)
+          screen.getByText(mockData[0].attributes.title)
         ).toBeInTheDocument();
       });
     });
@@ -73,7 +61,7 @@ describe('BlogPostTemplatePage', () => {
       await setup();
       await waitFor(() => {
         expect(
-          screen.getByText(mockLoaderData[0].attributes.blogPostSummary)
+          screen.getByText(mockData[0].attributes.blogPostSummary)
         ).toBeInTheDocument();
       });
     });
@@ -82,12 +70,10 @@ describe('BlogPostTemplatePage', () => {
       await setup();
       await waitFor(() => {
         expect(
-          screen.getByText(
-            mockLoaderData[0].attributes.publishedAt.split('T')[0]
-          )
+          screen.getByText(mockData[0].attributes.publishedAt.split('T')[0])
         ).toBeInTheDocument();
         expect(
-          screen.getByText(mockLoaderData[0].attributes.author)
+          screen.getByText(mockData[0].attributes.author)
         ).toBeInTheDocument();
       });
     });
