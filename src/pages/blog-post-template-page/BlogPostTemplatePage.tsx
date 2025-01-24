@@ -2,7 +2,7 @@ import React from 'react';
 import PageWrapper from '../../components/page-wrapper/PageWrapper';
 import { Col, Container, Row, Image } from 'react-bootstrap';
 import { BlogPostTemplatePageStrapiContent } from '../../data/interfaces/blog-post-template-page/BlogPostTemplatePageStrapiContent';
-import ReactMarkdown from 'react-markdown';
+import Markdown from '../../components/markdown/Markdown';
 
 type Props = {
   strapiData: BlogPostTemplatePageStrapiContent;
@@ -26,34 +26,36 @@ const BlogPostTemplatePage: React.FC<Props> = ({ strapiData }) => {
       <Container className="mb-5">
         <Row className="mb-3">
           <Col>
-            <h1 className="fs-1 fw-bold text-center">{strapiData.title}</h1>
-            <p className="fs-5 text-center">{strapiData.blogPostSummary}</p>
+            <h1
+              data-testid="blog-post-title"
+              className="fs-1 fw-bold text-center"
+            >
+              {strapiData.title}
+            </h1>
+            <p data-testid="blog-post-summary" className="fs-5 text-center">
+              {strapiData.blogPostSummary}
+            </p>
           </Col>
         </Row>
         <Row className="mb-3 text-center">
           <Col>
             <p>
-              <span className="text-muted me-3">
+              <span
+                data-testid="blog-post-published-time"
+                className="text-muted me-3"
+              >
                 {strapiData.publishedAt.split('T')[0]}
               </span>
               <span className="text-muted me-3">&#9679;</span>
-              <span className="text-muted">{strapiData.author} </span>
+              <span data-testid="blog-post-author" className="text-muted">
+                {strapiData.author}{' '}
+              </span>
             </p>
           </Col>
         </Row>
         <Row>
           <Col>
-            <ReactMarkdown
-              components={{
-                img: ({ ...props }) => (
-                  <div className="d-flex justify-content-center">
-                    <img {...props} />
-                  </div>
-                ),
-              }}
-            >
-              {strapiData.blogPostBody}
-            </ReactMarkdown>
+            <Markdown rawMarkdown={strapiData.blogPostBody} />
           </Col>
         </Row>
       </Container>
