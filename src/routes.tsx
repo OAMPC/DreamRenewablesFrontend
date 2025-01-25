@@ -24,6 +24,7 @@ import StatTemplatePage from './pages/stat-template-page/StatTemplatePage';
 import { StatTemplatePagesStrapiContent } from './data/interfaces/stat-template-page/StatTemplatePagesStrapiContent';
 import BlogPostTemplatePage from './pages/blog-post-template-page/BlogPostTemplatePage';
 import { BlogPostsTemplatePageStrapiContent } from './data/interfaces/blog-post-template-page/BlogPostTemplatePagesStrapiContent';
+import BlogHomePage from './pages/blog-home-page/BlogHomePage';
 
 const createRoutes = async () => {
   const ourWorkSubPages: StatTemplatePagesStrapiContent =
@@ -125,6 +126,10 @@ const createRoutes = async () => {
           ourWorkPageStrapiData,
         };
       },
+    },
+    {
+      path: '/blog-home',
+      element: <BlogHomePage blogPages={blogPages} />,
     },
     ...dynamicOurWorkSubPageRoutes,
     ...blogPageRoutes,
