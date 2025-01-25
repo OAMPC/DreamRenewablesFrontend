@@ -25,6 +25,7 @@ import { StatTemplatePagesStrapiContent } from './data/interfaces/stat-template-
 import BlogPostTemplatePage from './pages/blog-post-template-page/BlogPostTemplatePage';
 import { BlogPostsTemplatePageStrapiContent } from './data/interfaces/blog-post-template-page/BlogPostTemplatePagesStrapiContent';
 import BlogHomePage from './pages/blog-home-page/BlogHomePage';
+import { removeBlogPost, sortBlogPostsNewestToOldest } from './util/blogHelper';
 
 const createRoutes = async () => {
   const ourWorkSubPages: StatTemplatePagesStrapiContent =
@@ -40,10 +41,26 @@ const createRoutes = async () => {
     })
   );
 
-  const blogPageRoutes = blogPages.data.map((blogPage) => ({
-    path: `/blog/${blogPage.attributes.url}`,
-    element: <BlogPostTemplatePage strapiData={blogPage.attributes} />,
-  }));
+  const sortedBlogPages = sortBlogPostsNewestToOldest(blogPages);
+  const firstThreePages = [0, 1, 2];
+
+  const blogPageRoutes = sortedBlogPages.map((blogPage, index) => {
+    const mostRecentPosts = (
+      firstThreePages.includes(index)
+        ? removeBlogPost({ data: sortedBlogPages }, blogPage.attributes)
+        : sortedBlogPages
+    ).slice(0, 3);
+
+    return {
+      path: `/blog/${blogPage.attributes.url}`,
+      element: (
+        <BlogPostTemplatePage
+          strapiData={blogPage.attributes}
+          recentBlogPosts={{ data: mostRecentPosts }}
+        />
+      ),
+    };
+  });
 
   const routes = [
     {

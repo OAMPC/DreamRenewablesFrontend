@@ -8,19 +8,7 @@ type Props = {
   blogPages: BlogPostsTemplatePageStrapiContent;
 };
 
-const sortBlogPostsNewestToOldest = (
-  blogPages: BlogPostsTemplatePageStrapiContent
-) => {
-  return blogPages.data.sort((a, b) => {
-    const dateA = new Date(a.attributes.publishedAt);
-    const dateB = new Date(b.attributes.publishedAt);
-    return dateB.getTime() - dateA.getTime();
-  });
-};
-
 const BlogHomePage: React.FC<Props> = ({ blogPages }) => {
-  const sortedBlogPages = sortBlogPostsNewestToOldest(blogPages);
-
   return (
     <PageWrapper>
       <Row>
@@ -31,7 +19,7 @@ const BlogHomePage: React.FC<Props> = ({ blogPages }) => {
         </Col>
       </Row>
       <Row data-testid="blog-grid">
-        {sortedBlogPages.map((post, index) => (
+        {blogPages.data.map((post, index) => (
           <Col
             key={index}
             xl={4}
