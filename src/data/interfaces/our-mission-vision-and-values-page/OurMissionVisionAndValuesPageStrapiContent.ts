@@ -25,8 +25,7 @@ export interface OurVisionSection {
 export interface OurValuesSection {
   title: string;
   titleIcon: ImageStrapiContent;
-  sectionImage: ImageStrapiContent;
-  ourValuesEntries: Array<ValueEntry>;
+  ourValuesEntries: string;
 }
 
 export interface ValueEntry {
