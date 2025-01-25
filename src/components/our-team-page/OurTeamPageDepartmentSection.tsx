@@ -25,11 +25,11 @@ const OurTeamPageDepartmentSection: React.FC<Props> = ({
         </Col>
       </Row>
       <Row className="d-flex justify-content-center">
-        <Col sm="12" xl="8">
+        <Col sm={12} xl={8}>
           <Row className="d-flex justify-content-center">
             {departmentSection.teamProfileDetails.map(
               (teamProfileDetail, index) => (
-                <Col sm="6" md="4" lg="2" key={index} className="mb-3">
+                <Col sm={6} md={4} lg={2} key={index} className="mb-3">
                   <Row>
                     <Col className="d-flex justify-content-center justify-content-md-start">
                       <div
