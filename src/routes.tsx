@@ -2,6 +2,7 @@ import React from 'react';
 import { createBrowserRouter } from 'react-router-dom';
 import {
   getAboutUsPageStrapiData,
+  getBlogPostsStrapiData,
   getDonatePageStrapiData,
   getGetInvolvedPageStrapiData,
   getLandingPageStrapiData,
@@ -21,10 +22,15 @@ import GetInvolvedPage from './pages/get-involved-page/GetInvolvedPage';
 import DonatePage from './pages/donate-page/DonatePage';
 import StatTemplatePage from './pages/stat-template-page/StatTemplatePage';
 import { StatTemplatePagesStrapiContent } from './data/interfaces/stat-template-page/StatTemplatePagesStrapiContent';
+import BlogPostTemplatePage from './pages/blog-post-template-page/BlogPostTemplatePage';
+import { BlogPostsTemplatePageStrapiContent } from './data/interfaces/blog-post-template-page/BlogPostTemplatePagesStrapiContent';
 
 const createRoutes = async () => {
   const ourWorkSubPages: StatTemplatePagesStrapiContent =
     await getOurWorkSubPagesStrapiData();
+
+  const blogPages: BlogPostsTemplatePageStrapiContent =
+    await getBlogPostsStrapiData();
 
   const dynamicOurWorkSubPageRoutes = ourWorkSubPages.data.map(
     (ourWorkSubPage) => ({
@@ -32,6 +38,11 @@ const createRoutes = async () => {
       element: <StatTemplatePage strapiData={ourWorkSubPage.attributes} />,
     })
   );
+
+  const blogPageRoutes = blogPages.data.map((blogPage) => ({
+    path: `/blog/${blogPage.attributes.url}`,
+    element: <BlogPostTemplatePage strapiData={blogPage.attributes} />,
+  }));
 
   const routes = [
     {
@@ -116,6 +127,7 @@ const createRoutes = async () => {
       },
     },
     ...dynamicOurWorkSubPageRoutes,
+    ...blogPageRoutes,
   ];
 
   return createBrowserRouter(routes);

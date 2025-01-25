@@ -11,6 +11,7 @@ import { GetInvolvedPageStrapiContent } from '../data/interfaces/get-involved-pa
 import { DonatePageStrapiContent } from '../data/interfaces/donate-page/DonatePageStrapiContent';
 import { StatTemplatePagesStrapiContent } from '../data/interfaces/stat-template-page/StatTemplatePagesStrapiContent';
 import { fetchStrapiData } from './util/fetchStrapiData';
+import { BlogPostsTemplatePageStrapiContent } from '../data/interfaces/blog-post-template-page/BlogPostTemplatePagesStrapiContent';
 
 export async function getNavigationBarStrapiData(): Promise<NavigationBarStrapiContent> {
   const query = buildStrapiEndpointQuery([
@@ -132,4 +133,16 @@ export async function getOurWorkSubPagesStrapiData(): Promise<StatTemplatePagesS
     'metrics',
   ]);
   return fetchStrapiData(`our-work-sub-pages`, query, true);
+}
+
+export async function getBlogPostsStrapiData(): Promise<BlogPostsTemplatePageStrapiContent> {
+  const query = buildStrapiEndpointQuery([
+    'landingImage',
+    'title',
+    'blogPostSummary',
+    'author',
+    'publishedAt',
+    'blogPostBody',
+  ]);
+  return fetchStrapiData(`blog-posts`, query, true);
 }
