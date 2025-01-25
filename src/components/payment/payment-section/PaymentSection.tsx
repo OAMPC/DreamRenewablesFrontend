@@ -3,8 +3,8 @@ import PaymentTypeToggle from '../payment-type-toggle/PaymentTypeToggle';
 import PaymentOptionStripeValue from '../payment-options/payment-option-stripe-value/PaymentOptionStripeValue';
 import PaymentOptionUserValue from '../payment-options/payment-option-user-value/PaymentOptionUserValue';
 import { PaymentSection as IPaymentSection } from '../../../data/interfaces/payment/PaymentSection';
-import './paymentSection.scss';
 import { Col, Row } from 'react-bootstrap';
+import styles from './paymentSection.module.scss';
 
 type Props = {
   paymentData: IPaymentSection;
@@ -12,16 +12,15 @@ type Props = {
 
 const PaymentSection: React.FC<Props> = ({ paymentData }) => {
   return (
-    <div
-      data-testid="payment-section"
-      className="payment-section-container mt-5"
-    >
+    <div data-testid="payment-section" className="p-5 my-5">
       <Row>
         <Col>
-          <div className="payment-title-wrapper d-flex justify-content-center mb-0">
+          <div
+            className={`${styles.paymentTitleWrapper} d-flex justify-content-center mb-0`}
+          >
             <h2
               data-testid="payment-section-main-title"
-              className="payment-title fs-1 fw-bold"
+              className={`${styles.paymentTitle} fs-1 fw-bold`}
             >
               {paymentData.title}
             </h2>

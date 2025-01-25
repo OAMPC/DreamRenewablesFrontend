@@ -1,31 +1,29 @@
 import React, { useState } from 'react';
-import * as Bs from 'react-bootstrap';
-import './paymentTypeToggle.scss';
+import { Button, ButtonGroup } from 'react-bootstrap';
+import styles from './paymentTypeToggle.module.scss';
 
 const PaymentTypeToggle: React.FC = () => {
   const [paymentType, setPaymentType] = useState('monthly');
   return (
     <div data-testid="payment-type-toggle">
-      <Bs.ButtonGroup
-        data-testid="payment-type-button-group"
-        className="payment-type-toggle-wrapper"
-        size="lg"
-      >
-        <Bs.Button
+      <ButtonGroup data-testid="payment-type-button-group" size="lg">
+        <Button
+          className={styles.paymentToggleButton}
           data-testid="payment-type-monthly"
           onClick={() => setPaymentType('monthly')}
           active={paymentType === 'monthly'}
         >
           Monthly
-        </Bs.Button>
-        <Bs.Button
+        </Button>
+        <Button
+          className={styles.paymentToggleButton}
           data-testid="payment-type-one-time"
           onClick={() => setPaymentType('oneTime')}
           active={paymentType === 'oneTime'}
         >
           One-Time
-        </Bs.Button>
-      </Bs.ButtonGroup>
+        </Button>
+      </ButtonGroup>
     </div>
   );
 };
