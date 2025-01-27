@@ -80,10 +80,7 @@ const BlogPostTemplatePage: React.FC<Props> = ({
               xs={12}
               className="justify-content-center mb-3"
             >
-              <BlogCard
-                strapiData={post.attributes}
-                data-testid="previous-post-blog-card"
-              />
+              <BlogCard strapiData={post.attributes} />
             </Col>
           ))}
         </Row>

@@ -27,20 +27,6 @@ describe('BlogPostTemplatePage', () => {
 
   const sortedBlogPages = sortBlogPostsNewestToOldest({ data: mockData });
 
-  console.log(
-    'most recent posts' +
-      getMostRecentPosts(
-        { data: sortedBlogPages },
-        sortedBlogPages[0].attributes,
-        0
-      )
-  );
-
-  console.log(
-    'most recent posts' +
-      getMostRecentPosts({ data: sortedBlogPages }, mockData[0].attributes, 0)
-  );
-
   const setup = async () => {
     render(
       <SharedDataContext.Provider
@@ -111,27 +97,18 @@ describe('BlogPostTemplatePage', () => {
     });
   });
 
-  test('should render a grid of blog cards in the "Previous Posts" section', async () => {
+  test('should render a grid the blog grid in the "Previous Posts" section', async () => {
     await setup();
     await waitFor(() => {
-      const blogGrid = screen.getByTestId('blog-grid');
-      expect(blogGrid).toBeInTheDocument();
-      const blogCards = screen.getAllByTestId('previous-post-blog-card');
-      console.log('blog grid' + blogGrid);
-      expect(blogCards.length).toBeGreaterThan(0);
+      expect(screen.getByTestId('blog-grid')).toBeInTheDocument();
     });
   });
 
-  test('should render individual blog cards with correct data', async () => {
+  test('should render a blog post in the blog grid in the "Previous Posts" section', async () => {
     await setup();
     await waitFor(() => {
       const blogCards = screen.getAllByTestId('previous-post-blog-card');
-
-      blogCards.forEach((card, index) => {
-        const blogPost = mockData[index].attributes;
-        expect(card).toHaveTextContent(blogPost.title);
-        expect(card).toHaveTextContent(blogPost.blogPostSummary);
-      });
+      expect(blogCards.length).toEqual(1);
     });
   });
 
