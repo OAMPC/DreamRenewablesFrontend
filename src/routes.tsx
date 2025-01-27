@@ -45,7 +45,7 @@ const createRoutes = async () => {
   );
 
   const sortedBlogPages = sortBlogPostsNewestToOldest(blogPages);
-  const blogPageRoutes = sortedBlogPages.map((blogPage, index) => {
+  const blogPageRoutes = sortedBlogPages.map((blogPage) => {
     return {
       path: `/blog/${blogPage.attributes.url}`,
       element: (
@@ -54,8 +54,7 @@ const createRoutes = async () => {
           recentBlogPosts={{
             data: getMostRecentPosts(
               { data: sortedBlogPages },
-              blogPage.attributes,
-              index
+              blogPage.attributes
             ),
           }}
         />

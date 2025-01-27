@@ -12,30 +12,33 @@ export const sortBlogPostsNewestToOldest = (
 };
 
 const removeBlogPostFromArray = (
-  blogPost: BlogPostsTemplatePageStrapiContent,
-  toRemoveBlogPost: BlogPostTemplatePageStrapiContent
+  blogPosts: BlogPostsTemplatePageStrapiContent,
+  blogPostForRemoval: BlogPostTemplatePageStrapiContent
 ) => {
   {
-    const urlToRemove = toRemoveBlogPost.url;
-    const remainingBlogPosts = blogPost.data.filter((blogPost) => {
-      return blogPost.attributes.url !== urlToRemove;
-    });
-
-    return { data: remainingBlogPosts };
+    return {
+      data: blogPosts.data.filter((blogPost) => {
+        return blogPost.attributes.url !== blogPostForRemoval.url;
+      }),
+    };
   }
+};
+
+const isBlogPostInFirstThreePosts = (
+  sortedBlogPosts: BlogPostsTemplatePageStrapiContent,
+  blogPost: BlogPostTemplatePageStrapiContent
+) => {
+  const firstThreePosts = sortedBlogPosts.data.slice(0, 3);
+
+  return firstThreePosts.some((post) => post.attributes.url === blogPost.url);
 };
 
 export const getMostRecentPosts = (
   sortedBlogPosts: BlogPostsTemplatePageStrapiContent,
-  blogPost: BlogPostTemplatePageStrapiContent,
-  currentIndex: number
+  blogPost: BlogPostTemplatePageStrapiContent
 ) => {
-  const firstThreePosts = [0, 1, 2];
-  const isRecentPost = firstThreePosts.includes(currentIndex);
-
-  const mostRecentBlogPosts = isRecentPost
-    ? removeBlogPostFromArray(sortedBlogPosts, blogPost)
-    : sortedBlogPosts;
-
-  return mostRecentBlogPosts.data.slice(0, 3);
+  if (!isBlogPostInFirstThreePosts(sortedBlogPosts, blogPost)) {
+    return sortedBlogPosts.data.slice(0, 3);
+  }
+  return removeBlogPostFromArray(sortedBlogPosts, blogPost).data.slice(0, 3);
 };

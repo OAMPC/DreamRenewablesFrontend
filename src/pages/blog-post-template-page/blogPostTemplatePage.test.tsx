@@ -41,8 +41,7 @@ describe('BlogPostTemplatePage', () => {
             recentBlogPosts={{
               data: getMostRecentPosts(
                 { data: sortedBlogPages },
-                sortedBlogPages[0].attributes,
-                0
+                sortedBlogPages[0].attributes
               ),
             }}
           />
