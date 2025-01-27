@@ -7,6 +7,10 @@ import FooterFactory from '../../test/factories/strapi/FooterFactory';
 import { SharedDataContext } from '../../contexts/SharedDataProvider';
 import BlogPostsFactory from '../../test/factories/strapi/BlogPostsFactory';
 import BlogPostTemplatePage from './BlogPostTemplatePage';
+import {
+  getMostRecentPosts,
+  sortBlogPostsNewestToOldest,
+} from '../../util/blogHelper';
 
 vi.mock('react-router-dom', async () => {
   const actual = await vi.importActual('react-router-dom');
@@ -21,6 +25,22 @@ describe('BlogPostTemplatePage', () => {
   const navigationBarStrapiData = new navigationBarFactory().getMockData();
   const footerStrapiData = new FooterFactory().getMockData();
 
+  const sortedBlogPages = sortBlogPostsNewestToOldest({ data: mockData });
+
+  console.log(
+    'most recent posts' +
+      getMostRecentPosts(
+        { data: sortedBlogPages },
+        sortedBlogPages[0].attributes,
+        0
+      )
+  );
+
+  console.log(
+    'most recent posts' +
+      getMostRecentPosts({ data: sortedBlogPages }, mockData[0].attributes, 0)
+  );
+
   const setup = async () => {
     render(
       <SharedDataContext.Provider
@@ -30,7 +50,16 @@ describe('BlogPostTemplatePage', () => {
         }}
       >
         <MemoryRouter>
-          <BlogPostTemplatePage strapiData={mockData[0].attributes} />
+          <BlogPostTemplatePage
+            strapiData={sortedBlogPages[0].attributes}
+            recentBlogPosts={{
+              data: getMostRecentPosts(
+                { data: sortedBlogPages },
+                sortedBlogPages[0].attributes,
+                0
+              ),
+            }}
+          />
         </MemoryRouter>
       </SharedDataContext.Provider>
     );
@@ -60,9 +89,7 @@ describe('BlogPostTemplatePage', () => {
     test('should render the blog post summary', async () => {
       await setup();
       await waitFor(() => {
-        expect(
-          screen.getByText(mockData[0].attributes.blogPostSummary)
-        ).toBeInTheDocument();
+        expect(screen.getByTestId('blog-post-summary')).toBeInTheDocument();
       });
     });
 
@@ -70,11 +97,40 @@ describe('BlogPostTemplatePage', () => {
       await setup();
       await waitFor(() => {
         expect(
-          screen.getByText(mockData[0].attributes.publishedAt.split('T')[0])
+          screen.getByTestId('blog-post-published-time')
         ).toBeInTheDocument();
-        expect(
-          screen.getByText(mockData[0].attributes.author)
-        ).toBeInTheDocument();
+        expect(screen.getByTestId('blog-post-author')).toBeInTheDocument();
+      });
+    });
+  });
+
+  test('should render the "Previous Posts" section', async () => {
+    await setup();
+    await waitFor(() => {
+      expect(screen.getByText('Previous Posts')).toBeInTheDocument();
+    });
+  });
+
+  test('should render a grid of blog cards in the "Previous Posts" section', async () => {
+    await setup();
+    await waitFor(() => {
+      const blogGrid = screen.getByTestId('blog-grid');
+      expect(blogGrid).toBeInTheDocument();
+      const blogCards = screen.getAllByTestId('previous-post-blog-card');
+      console.log('blog grid' + blogGrid);
+      expect(blogCards.length).toBeGreaterThan(0);
+    });
+  });
+
+  test('should render individual blog cards with correct data', async () => {
+    await setup();
+    await waitFor(() => {
+      const blogCards = screen.getAllByTestId('previous-post-blog-card');
+
+      blogCards.forEach((card, index) => {
+        const blogPost = mockData[index].attributes;
+        expect(card).toHaveTextContent(blogPost.title);
+        expect(card).toHaveTextContent(blogPost.blogPostSummary);
       });
     });
   });

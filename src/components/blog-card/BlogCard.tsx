@@ -9,11 +9,16 @@ type Props = {
 };
 
 const BlogCard: React.FC<Props> = ({ strapiData }) => {
+  const handleLinkClick = () => {
+    window.scrollTo({ top: 0 });
+  };
+
   return (
     <Link
       to={`/blog/${strapiData.url}`}
       className="rounded-3 text-decoration-none"
       data-testid="blog-card-link"
+      onClick={handleLinkClick}
     >
       <div
         className="d-flex flex-column rounded-3 h-100 p-3 shadow text-dark"
