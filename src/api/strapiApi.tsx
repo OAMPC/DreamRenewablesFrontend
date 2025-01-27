@@ -12,6 +12,7 @@ import { DonatePageStrapiContent } from '../data/interfaces/donate-page/DonatePa
 import { StatTemplatePagesStrapiContent } from '../data/interfaces/stat-template-page/StatTemplatePagesStrapiContent';
 import { fetchStrapiData } from './util/fetchStrapiData';
 import { BlogPostsTemplatePageStrapiContent } from '../data/interfaces/blog-post-template-page/BlogPostTemplatePagesStrapiContent';
+import { FundraisingEventTemplatePagesStrapiContent } from '../data/interfaces/fundraising-event-template-page/FundraisingEventTemplatePagesStrapiConent';
 
 export async function getNavigationBarStrapiData(): Promise<NavigationBarStrapiContent> {
   const query = buildStrapiEndpointQuery([
@@ -145,4 +146,18 @@ export async function getBlogPostsStrapiData(): Promise<BlogPostsTemplatePageStr
     'blogPostBody',
   ]);
   return fetchStrapiData(`blog-posts`, query, true);
+}
+
+export async function getFundraisingEventsStrapiData(): Promise<FundraisingEventTemplatePagesStrapiContent> {
+  const query = buildStrapiEndpointQuery([
+    'landingImage',
+    'eventTitle',
+    'eventDate',
+    'eventDescription',
+    'contactEmail',
+    'url',
+    'signUp.title',
+    'signUp.signUpLink',
+  ]);
+  return fetchStrapiData(`fundraising-events`, query, true);
 }

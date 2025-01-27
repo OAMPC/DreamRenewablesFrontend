@@ -4,6 +4,7 @@ import {
   getAboutUsPageStrapiData,
   getBlogPostsStrapiData,
   getDonatePageStrapiData,
+  getFundraisingEventsStrapiData,
   getGetInvolvedPageStrapiData,
   getLandingPageStrapiData,
   getOurDonorsPageStrapiData,
@@ -25,6 +26,8 @@ import { StatTemplatePagesStrapiContent } from './data/interfaces/stat-template-
 import BlogPostTemplatePage from './pages/blog-post-template-page/BlogPostTemplatePage';
 import { BlogPostsTemplatePageStrapiContent } from './data/interfaces/blog-post-template-page/BlogPostTemplatePagesStrapiContent';
 import BlogHomePage from './pages/blog-home-page/BlogHomePage';
+import { FundraisingEventTemplatePagesStrapiContent } from './data/interfaces/fundraising-event-template-page/FundraisingEventTemplatePagesStrapiConent';
+import FundraisingEventTemplatePage from './pages/fundraising-event-template-page/FundraisingEventTemplatePage';
 
 const createRoutes = async () => {
   const ourWorkSubPages: StatTemplatePagesStrapiContent =
@@ -32,6 +35,9 @@ const createRoutes = async () => {
 
   const blogPages: BlogPostsTemplatePageStrapiContent =
     await getBlogPostsStrapiData();
+
+  const fundraisingEvents: FundraisingEventTemplatePagesStrapiContent =
+    await getFundraisingEventsStrapiData();
 
   const dynamicOurWorkSubPageRoutes = ourWorkSubPages.data.map(
     (ourWorkSubPage) => ({
@@ -45,6 +51,16 @@ const createRoutes = async () => {
     element: <BlogPostTemplatePage strapiData={blogPage.attributes} />,
   }));
 
+  const dynamicFundraisingEventRoutes = fundraisingEvents.data.map(
+    (fundraisingEvent) => ({
+      path: `/fundraising-events/${fundraisingEvent.attributes.url}`,
+      element: (
+        <FundraisingEventTemplatePage
+          strapiData={fundraisingEvent.attributes}
+        />
+      ),
+    })
+  );
   const routes = [
     {
       path: '/',
@@ -133,6 +149,7 @@ const createRoutes = async () => {
     },
     ...dynamicOurWorkSubPageRoutes,
     ...blogPageRoutes,
+    ...dynamicFundraisingEventRoutes,
   ];
 
   return createBrowserRouter(routes);
