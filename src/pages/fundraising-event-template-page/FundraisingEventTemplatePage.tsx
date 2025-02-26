@@ -1,6 +1,6 @@
 import React from 'react';
 import PageWrapper from '../../components/page-wrapper/PageWrapper';
-import { Col, Row, Image } from 'react-bootstrap';
+import { Col, Row, Image, Container, Button } from 'react-bootstrap';
 import Markdown from '../../components/markdown/Markdown';
 import { FundraisingEventTemplatePageStrapiContent } from '../../data/interfaces/fundraising-event-template-page/FundraisingEventTemplatePageStrapiContent';
 import style from './FundraisingEventTemplatePage.module.scss';
@@ -28,9 +28,8 @@ const FundraisingEventTemplatePage: React.FC<Props> = ({ strapiData }) => {
         <Col xl={4} md={6} xs={12}>
           <Row className="">
             <Col>
-              {/* <Image>placeholder</Image> */}
               <p
-                data-testid="fundraising-event-title"
+                data-testid="fundraising-event-date"
                 className="fs-5 text-center"
               >
                 <i className="bi bi-calendar-event me-2"></i>
@@ -61,12 +60,52 @@ const FundraisingEventTemplatePage: React.FC<Props> = ({ strapiData }) => {
           </Row>
           <Row>
             <Col>
-              {/* <Image>placeholder</Image> */}
-              <p className="fs-3 fw-bold">{strapiData.contactEmail}</p>
+              <p className="fs-5 fw-bold text-break">
+                <i className="bi bi-envelope me-3"></i>
+                {strapiData.contactEmail}
+              </p>
             </Col>
           </Row>
         </Col>
       </Row>
+      {strapiData.signUpInfo &&
+        strapiData.signUpInfo.title &&
+        strapiData.signUpInfo.signUpLink && (
+          <div className={`${style.signUpBanner} w-100 py-3`}>
+            <Container className="d-flex justify-content-center">
+              <div className="bg-white rounded-3 p-4 w-75">
+                <Row>
+                  <Col>
+                    <p className="text-center fs-3 fw-bold">
+                      {strapiData.signUpInfo.title}
+                    </p>
+                  </Col>
+                </Row>
+                <Row className="mb-3">
+                  <Col>
+                    <Button
+                      href={strapiData.signUpInfo.signUpLink}
+                      className={`${style.primaryButton} d-flex justify-content-center btn-effect`}
+                    >
+                      Sign Up
+                    </Button>
+                  </Col>
+                </Row>
+                <Row className="">
+                  <Col>
+                    <Button
+                      href="/contact"
+                      data-testid="contact-us-button"
+                      className={`${style.secondaryButton} d-flex justify-content-center btn-effect`}
+                    >
+                      Contact Us
+                    </Button>
+                  </Col>
+                </Row>
+              </div>
+            </Container>
+          </div>
+        )}
     </PageWrapper>
   );
 };

@@ -7,5 +7,10 @@ export interface FundraisingEventTemplatePageStrapiContent {
   eventDescription: string;
   contactEmail: string;
   landingImage: ImageStrapiContent;
+  signUpInfo: SignUpInfo;
+}
+
+export interface SignUpInfo {
+  title: string;
   signUpLink: string;
 }

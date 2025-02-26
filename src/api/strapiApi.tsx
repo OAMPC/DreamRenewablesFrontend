@@ -156,8 +156,8 @@ export async function getFundraisingEventsStrapiData(): Promise<FundraisingEvent
     'eventDescription',
     'contactEmail',
     'url',
-    'signUp.title',
-    'signUp.signUpLink',
+    'signUpInfo.title',
+    'signUpInfo.signUpLink',
   ]);
   return fetchStrapiData(`fundraising-events`, query, true);
 }
