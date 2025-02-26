@@ -14,10 +14,10 @@ const BlogCard: React.FC<Props> = ({ strapiData }) => {
   };
 
   return (
-    <div data-testid="previous-post-blog-card">
+    <div data-testid="previous-post-blog-card" className="h-100">
       <Link
         to={`/blog/${strapiData.url}`}
-        className="rounded-3 text-decoration-none"
+        className="rounded-3 text-decoration-none h-100"
         data-testid="blog-card-link"
         onClick={handleLinkClick}
       >
@@ -37,7 +37,7 @@ const BlogCard: React.FC<Props> = ({ strapiData }) => {
               </div>
             </Col>
           </Row>
-          <Container className="mb-1 d-flex flex-column flex-grow-1">
+          <Container className="d-flex flex-column flex-grow-1">
             <Row className="mb-1">
               <Col>
                 <h1
@@ -64,7 +64,7 @@ const BlogCard: React.FC<Props> = ({ strapiData }) => {
                 </span>
               </Col>
               <Col className="col-auto">
-                <span className="text-muted ">&#9679;</span>
+                <span className="text-muted">&#9679;</span>
               </Col>
               <Col>
                 <span
