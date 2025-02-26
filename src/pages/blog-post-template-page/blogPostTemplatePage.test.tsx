@@ -107,7 +107,7 @@ describe('BlogPostTemplatePage', () => {
     await setup();
     await waitFor(() => {
       const blogCards = screen.getAllByTestId('previous-post-blog-card');
-      expect(blogCards.length).toEqual(1);
+      expect(blogCards.length).toEqual(3);
     });
   });
 

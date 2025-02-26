@@ -11,7 +11,7 @@ export const sortBlogPostsNewestToOldest = (
   });
 };
 
-const removeBlogPostFromArray = (
+export const removeBlogPostFromArray = (
   blogPosts: BlogPostsTemplatePageStrapiContent,
   blogPostForRemoval: BlogPostTemplatePageStrapiContent
 ) => {
@@ -24,7 +24,7 @@ const removeBlogPostFromArray = (
   }
 };
 
-const isBlogPostInFirstThreePosts = (
+export const isBlogPostInFirstThreePosts = (
   sortedBlogPosts: BlogPostsTemplatePageStrapiContent,
   blogPost: BlogPostTemplatePageStrapiContent
 ) => {
