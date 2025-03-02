@@ -1,7 +1,6 @@
 import React from 'react';
 import { AccordionItem } from '../../../data/interfaces/our-work-page/OurWorkPageStrapiContent';
 import { Accordion, Image, Nav } from 'react-bootstrap';
-import './ourWorkPageAccordionItem.scss';
 
 type Props = {
   accordionItemData: AccordionItem;

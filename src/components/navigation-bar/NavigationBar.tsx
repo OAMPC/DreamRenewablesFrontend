@@ -1,67 +1,64 @@
 import React from 'react';
-import * as Bs from 'react-bootstrap';
-import './navigationBar.scss';
 import { useSharedData } from '../../contexts/SharedDataProvider';
+import { Button, Container, Nav, Navbar, NavDropdown } from 'react-bootstrap';
+import styles from './navigationBar.module.scss';
 
 const NavigationBar: React.FC = () => {
   const { navigationBarContent: content } = useSharedData();
   return (
     <section data-testid="navbar">
       {content && (
-        <Bs.Container fluid>
-          <Bs.Navbar expand="lg">
-            <Bs.Navbar.Brand
-              className="dr-logo"
-              href="/"
-              data-testid="brand-logo"
-            >
+        <Container fluid>
+          <Navbar expand="lg">
+            <Navbar.Brand href="/" data-testid="brand-logo">
               <img
                 src={content.brandImage.data.attributes.url}
-                className="d-inline-block align-top"
+                className={`${styles.drLogo} d-inline-block align-top`}
                 alt={content.brandImage.data.attributes.alternativeText}
               />
-            </Bs.Navbar.Brand>
-            <Bs.Navbar.Toggle aria-controls="basic-navbar-nav" />
-            <Bs.Navbar.Collapse className="justify-content-end">
-              <Bs.Nav>
+            </Navbar.Brand>
+            <Navbar.Toggle aria-controls="basic-navbar-nav" />
+            <Navbar.Collapse className="justify-content-end">
+              <Nav>
                 {content.dropdownLinks.map((dropdownLink) => (
-                  <Bs.NavDropdown
+                  <NavDropdown
                     key={dropdownLink.id}
                     className="me-4"
                     title={dropdownLink.dropdownLinkString}
                     data-testid="dropdown-link-title"
                   >
                     {dropdownLink.nestedLinks.map((nestedLink) => (
-                      <Bs.NavDropdown.Item
+                      <NavDropdown.Item
+                        className={styles.dropdownItem}
                         key={nestedLink.id}
                         href={nestedLink.linkSlug}
                       >
                         {nestedLink.linkString}
-                      </Bs.NavDropdown.Item>
+                      </NavDropdown.Item>
                     ))}
-                  </Bs.NavDropdown>
+                  </NavDropdown>
                 ))}
                 {content.standardLinks.map((standardLink) => (
-                  <Bs.Nav.Link
+                  <Nav.Link
                     key={standardLink.id}
                     href={standardLink.linkSlug}
-                    className="me-4 underline-animation"
+                    className={`${styles.underlineAnimation} me-4`}
                     data-testid="standard-link-title"
                   >
                     {standardLink.linkString}
-                  </Bs.Nav.Link>
+                  </Nav.Link>
                 ))}
-                <Bs.Button
+                <Button
                   href={content.button.buttonSlug}
-                  className="ms-3 btn-effect"
+                  className={`${styles.navigationButton} ms-3`}
                   data-testid="navigation-button"
                 >
                   {content.button.buttonString}
-                </Bs.Button>
-              </Bs.Nav>
-            </Bs.Navbar.Collapse>
-          </Bs.Navbar>
-        </Bs.Container>
+                </Button>
+              </Nav>
+            </Navbar.Collapse>
+          </Navbar>
+        </Container>
       )}
     </section>
   );

@@ -6,8 +6,8 @@ import { LoaderData } from '../../data/types/LoaderData';
 import LandingCardDesktop from '../../components/landing-card/desktop/LandingCardDesktop';
 import LandingCardMobile from '../../components/landing-card/mobile/landingCardMobile';
 import OurWorkPageQuoteSection from '../../components/our-work-page/our-work-page-quote-section/OurWorkPageQuoteSection';
-import OurWorkPageMetric from '../../components/our-work-page/our-work-page-metric/OurWorkPageMetric';
 import OurWorkPageAccordion from '../../components/our-work-page/our-work-page-accordion/OurWorkPageAccordion';
+import Metric from '../../components/metric/Metric';
 
 const OurWorkPage: React.FC = () => {
   const { ourWorkPageStrapiData } = useLoaderData() as LoaderData;
@@ -36,7 +36,7 @@ const OurWorkPage: React.FC = () => {
             <Row>
               {ourWorkPageStrapiData.metrics.map((metric, index) => (
                 <Col key={index} xl="6" sm="12">
-                  <OurWorkPageMetric metricData={metric} />
+                  <Metric metricData={metric} />
                 </Col>
               ))}
             </Row>

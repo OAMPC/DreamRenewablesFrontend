@@ -1,4 +1,5 @@
 import { LandingCard } from '../landing-card/LandingCard';
+import { Metric } from '../metric/Metric';
 
 export interface StatTemplatePageStrapiContent {
   url: string;
@@ -11,9 +12,4 @@ export interface StatTemplatePageStrapiContent {
 export interface Quote {
   body: string;
   author: string;
-}
-
-export interface Metric {
-  value: string;
-  valueDescription: string;
 }

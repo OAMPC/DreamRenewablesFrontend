@@ -1,7 +1,6 @@
 import React from 'react';
-import * as Bs from 'react-bootstrap';
-import './landingCardMobile.scss';
 import { LandingCard } from '../../../data/interfaces/landing-card/LandingCard';
+import { Row, Col, Image } from 'react-bootstrap';
 
 type Props = {
   landingCard: LandingCard;
@@ -9,19 +8,19 @@ type Props = {
 
 const LandingCardMobile: React.FC<Props> = ({ landingCard }) => {
   return (
-    <Bs.Row data-testid="landing-card-mobile">
-      <Bs.Col>
+    <Row data-testid="landing-card-mobile">
+      <Col>
         <h1 data-testid="landing-title-mobile" className="text-center my-3">
           {landingCard.title}
         </h1>
-        <Bs.Image
+        <Image
           fluid
           data-testid="landing-image-mobile"
           src={landingCard.image.data.attributes.url}
-          className="landing-image-mobile"
+          className="rounded-4"
         />
-      </Bs.Col>
-    </Bs.Row>
+      </Col>
+    </Row>
   );
 };
 

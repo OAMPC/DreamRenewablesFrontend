@@ -60,10 +60,8 @@ export async function getOurMissionVisionAndValuesPageStrapiData(): Promise<OurM
     'ourVisionSection.titleIcon',
     'ourVisionSection.sectionImage',
     'ourValuesSection.titleIcon',
-    'ourValuesSection.sectionImage',
     'ourValuesSection.ourValuesEntries',
   ]);
-
   return fetchStrapiData('mission-vision-and-values-page', query);
 }
 

@@ -1,8 +1,7 @@
 import React from 'react';
-import * as Bs from 'react-bootstrap';
-import '../paymentOptionUtil.scss';
-import './paymentOptionUserValue.scss';
 import { ImageStrapiContent } from '../../../../data/interfaces/util/ImageStrapiContent';
+import { InputGroup, Form, Button, Image } from 'react-bootstrap';
+import styles from '../paymentOptionUtil.module.scss';
 
 type Props = {
   paymentOptionIcon: ImageStrapiContent;
@@ -11,29 +10,31 @@ type Props = {
 const PaymentOptionUserValue: React.FC<Props> = ({ paymentOptionIcon }) => {
   return (
     <div data-testid="payment-option-user-value">
-      <div className="payment-option-wrapper p-3 pb-0 d-flex align-items-center justify-content-between">
+      <div
+        className={`${styles.paymentOptionWrapper} p-3 pb-0 d-flex align-items-center justify-content-between`}
+      >
         <div>
-          <Bs.Form>
-            <Bs.InputGroup>
+          <Form>
+            <InputGroup>
               <p className="fs-1 fw-bold">£</p>
-              <Bs.Form.Control
+              <Form.Control
                 data-testid="payment-option-user-input"
-                className="payment-option-form pt-0 mb-2"
+                className={`${styles.paymentOptionForm} pt-0 mb-2`}
                 placeholder="Other"
                 type="number"
-              ></Bs.Form.Control>
-            </Bs.InputGroup>
-          </Bs.Form>
+              ></Form.Control>
+            </InputGroup>
+          </Form>
         </div>
-        <Bs.Button
+        <Button
           data-testid="payment-option-user-input-button"
-          className="payment-button mb-3"
+          className={`${styles.paymentButton} mb-3`}
         >
-          <Bs.Image
+          <Image
             src={paymentOptionIcon.data.attributes.url}
             alt={paymentOptionIcon.data.attributes.alternativeText}
           />
-        </Bs.Button>
+        </Button>
       </div>
       <p
         data-testid="payment-option-user-input-description"

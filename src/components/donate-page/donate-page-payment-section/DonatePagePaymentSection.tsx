@@ -14,9 +14,7 @@ const DonatePagePaymentSection: React.FC<Props> = ({ paymentStrapiData }) => {
   return (
     <div
       data-testid="donate-page-payment-section"
-      className={
-        styles.donatePagePaymentSectionWrapper + ' p-2 p-sm-5 mt-5 mt-sm-3'
-      }
+      className={styles.paymentSectionWrapper + ' p-2 p-sm-5 mt-5 mt-sm-3'}
     >
       <Row>
         <Col>

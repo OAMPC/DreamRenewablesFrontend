@@ -7,6 +7,10 @@ import FooterFactory from '../../test/factories/strapi/FooterFactory';
 import { SharedDataContext } from '../../contexts/SharedDataProvider';
 import BlogPostsFactory from '../../test/factories/strapi/BlogPostsFactory';
 import BlogPostTemplatePage from './BlogPostTemplatePage';
+import {
+  getMostRecentPosts,
+  sortBlogPostsNewestToOldest,
+} from '../../util/blogHelper';
 
 vi.mock('react-router-dom', async () => {
   const actual = await vi.importActual('react-router-dom');
@@ -21,6 +25,8 @@ describe('BlogPostTemplatePage', () => {
   const navigationBarStrapiData = new navigationBarFactory().getMockData();
   const footerStrapiData = new FooterFactory().getMockData();
 
+  const sortedBlogPages = sortBlogPostsNewestToOldest({ data: mockData });
+
   const setup = async () => {
     render(
       <SharedDataContext.Provider
@@ -30,7 +36,15 @@ describe('BlogPostTemplatePage', () => {
         }}
       >
         <MemoryRouter>
-          <BlogPostTemplatePage strapiData={mockData[0].attributes} />
+          <BlogPostTemplatePage
+            strapiData={sortedBlogPages[0].attributes}
+            recentBlogPosts={{
+              data: getMostRecentPosts(
+                { data: sortedBlogPages },
+                sortedBlogPages[0].attributes
+              ),
+            }}
+          />
         </MemoryRouter>
       </SharedDataContext.Provider>
     );
@@ -60,9 +74,7 @@ describe('BlogPostTemplatePage', () => {
     test('should render the blog post summary', async () => {
       await setup();
       await waitFor(() => {
-        expect(
-          screen.getByText(mockData[0].attributes.blogPostSummary)
-        ).toBeInTheDocument();
+        expect(screen.getByTestId('blog-post-summary')).toBeInTheDocument();
       });
     });
 
@@ -70,12 +82,32 @@ describe('BlogPostTemplatePage', () => {
       await setup();
       await waitFor(() => {
         expect(
-          screen.getByText(mockData[0].attributes.publishedAt.split('T')[0])
+          screen.getByTestId('blog-post-published-time')
         ).toBeInTheDocument();
-        expect(
-          screen.getByText(mockData[0].attributes.author)
-        ).toBeInTheDocument();
+        expect(screen.getByTestId('blog-post-author')).toBeInTheDocument();
       });
+    });
+  });
+
+  test('should render the "Previous Posts" section', async () => {
+    await setup();
+    await waitFor(() => {
+      expect(screen.getByText('Previous Posts')).toBeInTheDocument();
+    });
+  });
+
+  test('should render a grid the blog grid in the "Previous Posts" section', async () => {
+    await setup();
+    await waitFor(() => {
+      expect(screen.getByTestId('blog-grid')).toBeInTheDocument();
+    });
+  });
+
+  test('should render a blog post in the blog grid in the "Previous Posts" section', async () => {
+    await setup();
+    await waitFor(() => {
+      const blogCards = screen.getAllByTestId('previous-post-blog-card');
+      expect(blogCards.length).toEqual(3);
     });
   });
 

@@ -28,6 +28,10 @@ import { BlogPostsTemplatePageStrapiContent } from './data/interfaces/blog-post-
 import BlogHomePage from './pages/blog-home-page/BlogHomePage';
 import { FundraisingEventTemplatePagesStrapiContent } from './data/interfaces/fundraising-event-template-page/FundraisingEventTemplatePagesStrapiConent';
 import FundraisingEventTemplatePage from './pages/fundraising-event-template-page/FundraisingEventTemplatePage';
+import {
+  getMostRecentPosts,
+  sortBlogPostsNewestToOldest,
+} from './util/blogHelper';
 
 const createRoutes = async () => {
   const ourWorkSubPages: StatTemplatePagesStrapiContent =
@@ -46,10 +50,23 @@ const createRoutes = async () => {
     })
   );
 
-  const blogPageRoutes = blogPages.data.map((blogPage) => ({
-    path: `/blog/${blogPage.attributes.url}`,
-    element: <BlogPostTemplatePage strapiData={blogPage.attributes} />,
-  }));
+  const sortedBlogPages = sortBlogPostsNewestToOldest(blogPages);
+  const blogPageRoutes = sortedBlogPages.map((blogPage) => {
+    return {
+      path: `/blog/${blogPage.attributes.url}`,
+      element: (
+        <BlogPostTemplatePage
+          strapiData={blogPage.attributes}
+          recentBlogPosts={{
+            data: getMostRecentPosts(
+              { data: sortedBlogPages },
+              blogPage.attributes
+            ),
+          }}
+        />
+      ),
+    };
+  });
 
   const dynamicFundraisingEventRoutes = fundraisingEvents.data.map(
     (fundraisingEvent) => ({

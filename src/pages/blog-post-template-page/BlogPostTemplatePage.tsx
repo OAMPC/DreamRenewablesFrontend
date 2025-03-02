@@ -3,12 +3,19 @@ import PageWrapper from '../../components/page-wrapper/PageWrapper';
 import { Col, Container, Row, Image } from 'react-bootstrap';
 import { BlogPostTemplatePageStrapiContent } from '../../data/interfaces/blog-post-template-page/BlogPostTemplatePageStrapiContent';
 import Markdown from '../../components/markdown/Markdown';
+import { BlogPostsTemplatePageStrapiContent } from '../../data/interfaces/blog-post-template-page/BlogPostTemplatePagesStrapiContent';
+import BlogCard from '../../components/blog-card/BlogCard';
+import styles from './blogPostTemplatePage.module.scss';
 
 type Props = {
   strapiData: BlogPostTemplatePageStrapiContent;
+  recentBlogPosts: BlogPostsTemplatePageStrapiContent;
 };
 
-const BlogPostTemplatePage: React.FC<Props> = ({ strapiData }) => {
+const BlogPostTemplatePage: React.FC<Props> = ({
+  strapiData,
+  recentBlogPosts,
+}) => {
   return (
     <PageWrapper>
       <Row>
@@ -18,7 +25,7 @@ const BlogPostTemplatePage: React.FC<Props> = ({ strapiData }) => {
               fluid
               data-testid="landing-image"
               src={strapiData.landingImage.data.attributes.url}
-              className="rounded-3 d-flex justify-content-center"
+              className={`${styles.landingImage} rounded-3 d-flex justify-content-center`}
             />
           </div>
         </Col>
@@ -54,9 +61,28 @@ const BlogPostTemplatePage: React.FC<Props> = ({ strapiData }) => {
           </Col>
         </Row>
         <Row>
-          <Col>
+          <Col className="mb-3">
             <Markdown rawMarkdown={strapiData.blogPostBody} />
           </Col>
+        </Row>
+      </Container>
+      <Container>
+        <Row>
+          <Col>
+            <h2 className="fs-5 mb-3">Previous Posts</h2>
+          </Col>
+        </Row>
+        <Row data-testid="blog-grid">
+          {recentBlogPosts.data.map((post, index) => (
+            <Col
+              key={index}
+              md={4}
+              xs={12}
+              className="justify-content-center mb-3"
+            >
+              <BlogCard strapiData={post.attributes} />
+            </Col>
+          ))}
         </Row>
       </Container>
     </PageWrapper>

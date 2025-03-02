@@ -1,6 +1,6 @@
 import React from 'react';
 import { Quote } from '../../../data/interfaces/our-work-page/OurWorkPageStrapiContent';
-import './ourWorkPageQuoteSection.scss';
+import styles from './ourWorkPageQuoteSection.module.scss';
 
 type Props = {
   quoteData: Quote;
@@ -10,9 +10,9 @@ const OurWorkPageQuoteSection: React.FC<Props> = ({ quoteData }) => {
   return (
     <div
       data-testid="our-work-page-quote-section"
-      className="our-work-page-quote-section-wrapper mb-5"
+      className={`${styles.ourWorkPageQuoteSectionWrapper} mb-5`}
     >
-      <div className="p-4 our-work-page-quote-section-body">
+      <div className={`${styles.ourWorkPageQuoteSectionBody} p-4`}>
         <p data-testid="our-work-page-quote-body" className="fs-2 fw-bolder">
           {quoteData.body}
         </p>

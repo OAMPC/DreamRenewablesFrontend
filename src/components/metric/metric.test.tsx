@@ -2,16 +2,16 @@ import { render, screen, waitFor } from '@testing-library/react';
 import React from 'react';
 import { MemoryRouter } from 'react-router-dom';
 import { afterEach, beforeEach, describe, expect, test, vi } from 'vitest';
-import StatTemplatePageMetric from './statTemplatePageMetric';
-import StatTemplatePageFactory from '../../../test/factories/strapi/StatTemplatePageFactory';
+import Metric from './Metric';
+import StatTemplatePageFactory from '../../test/factories/strapi/StatTemplatePageFactory';
 
-describe('StatTemplatePageMetric', () => {
+describe('Metric', () => {
   const setup = async () => {
     const statTemplatePageFactory = new StatTemplatePageFactory();
     const mockData = statTemplatePageFactory.getMockData();
     render(
       <MemoryRouter>
-        <StatTemplatePageMetric metricData={mockData.metrics[0]} />
+        <Metric metricData={mockData.metrics[0]} />
       </MemoryRouter>
     );
   };
@@ -21,19 +21,15 @@ describe('StatTemplatePageMetric', () => {
   });
 
   describe('render elements', async () => {
-    test('should render the stat-template metric value after data is loaded', async () => {
+    test('should render the metric value after data is loaded', async () => {
       await waitFor(() => {
-        expect(
-          screen.getByTestId('stat-template-page-metric-value')
-        ).toBeInTheDocument();
+        expect(screen.getByTestId('metric-value')).toBeInTheDocument();
       });
     });
 
-    test('should render the stat-template metric description after data is loaded', async () => {
+    test('should render the metric description after data is loaded', async () => {
       await waitFor(() => {
-        expect(
-          screen.getByTestId('stat-template-page-metric-description')
-        ).toBeInTheDocument();
+        expect(screen.getByTestId('metric-description')).toBeInTheDocument();
       });
     });
   });
