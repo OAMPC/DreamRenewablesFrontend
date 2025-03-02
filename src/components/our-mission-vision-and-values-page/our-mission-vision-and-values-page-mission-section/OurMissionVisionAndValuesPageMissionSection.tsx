@@ -1,6 +1,7 @@
 import React from 'react';
 import { OurMissionSection } from '../../../data/interfaces/our-mission-vision-and-values-page/OurMissionVisionAndValuesPageStrapiContent';
 import { Row, Col, Image } from 'react-bootstrap';
+import Markdown from '../../markdown/Markdown';
 
 type Props = {
   ourMissionSection: OurMissionSection;
@@ -34,12 +35,12 @@ const OurMissionVisionAndValuesPageMissionSection: React.FC<Props> = ({
           </Row>
           <Row>
             <Col>
-              <p
+              <div
                 className="fs-3 text-center text-lg-start"
                 data-testid="our-mission-section-description"
               >
-                {ourMissionSection.sectionDescription}
-              </p>
+                <Markdown rawMarkdown={ourMissionSection.sectionDescription} />
+              </div>
             </Col>
           </Row>
         </Col>
