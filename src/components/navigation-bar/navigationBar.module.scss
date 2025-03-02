@@ -1,0 +1,50 @@
+.dropdownItem:hover {
+  background-color: var(--primary);
+  border-radius: 10px;
+}
+
+.underlineAnimation {
+  display: inline-block;
+  position: relative;
+
+  &:after {
+    content: '';
+    display: block;
+    margin-top: 1px;
+    height: 2px;
+    width: 0px;
+    background: transparent;
+    transition:
+      width 0.5s ease,
+      background-color 0.5s ease;
+  }
+
+  &:hover::after {
+    width: 100%;
+    background: var(--primary);
+  }
+}
+
+.drLogo {
+  height: 50px;
+}
+
+.navigationButton {
+  background-color: var(--primary);
+  color: var(--text-primary);
+  border: var(--primary) 1px solid;
+  padding: 8px 16px;
+  text-decoration: none;
+  border-radius: 20px;
+  transition:
+    background-color 0.3s,
+    box-shadow 0.3s;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+  &:hover {
+    background-color: var(--background-light);
+    border: var(--primary) 1px solid;
+    box-shadow: 0 6px 9px rgba(0, 0, 0, 0.15);
+    color: var(--text-primary);
+  }
+}

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Section } from '../../../data/interfaces/get-involved-page/GetInvolvedPageStrapiContent';
 import { Col, Container, Nav, Row, Image } from 'react-bootstrap';
-import './getInvolvedPageSection.scss';
+import styles from './getInvolvedPageSection.module.scss';
 
 type Props = {
   sectionData: Section;
@@ -19,7 +19,7 @@ const GetInvolvedPageSection: React.FC<Props> = ({ sectionData, rowIndex }) => {
         >
           <Row className="mt-5">
             <Col className="text-center text-xl-start">
-              <div className="get-involved-page-section-title-accent">
+              <div className={styles.titleAccent}>
                 <h2
                   data-testid="get-involved-page-section-title"
                   className="mb-lg-5 fs-1 fw-bolder mb-0"

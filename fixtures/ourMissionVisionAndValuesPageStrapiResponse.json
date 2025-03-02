@@ -113,48 +113,7 @@
       "ourValuesSection": {
         "id": 1,
         "title": "Our Values",
-        "ourValuesEntries": [
-          {
-            "id": 1,
-            "valueEntry": "Expertise and insightful evidence-based solutions are at the heart of everything we do."
-          },
-          {
-            "id": 2,
-            "valueEntry": "Our teams work closely with communities, engaging them in levels of decision-making."
-          },
-          {
-            "id": 3,
-            "valueEntry": "We deliver long-lasting change for farmers, their families and their environments."
-          },
-          {
-            "id": 4,
-            "valueEntry": "We model innovative approaches and are not afraid to challenge strategies that are failing."
-          }
-        ],
-        "sectionImage": {
-          "data": {
-            "id": 20,
-            "attributes": {
-              "name": "our-values-section-image.svg",
-              "alternativeText": "alt text test",
-              "caption": "alt text test",
-              "width": 511,
-              "height": 440,
-              "formats": null,
-              "hash": "our_values_section_image_e5ef7a270b",
-              "ext": ".svg",
-              "mime": "image/svg+xml",
-              "size": 1117.65,
-              "url": "https://strapi-dr-s3-media-bucket.s3",
-              "previewUrl": null,
-              "provider": "aws-s3",
-              "provider_metadata": null,
-              "createdAt": "2024-11-14T21:14:54.794Z",
-              "updatedAt": "2024-11-14T21:14:54.794Z",
-              "isUrlSigned": true
-            }
-          }
-        },
+        "ourValuesEntries": "**1.** Expertise and insightful evidence-based solutions are at the heart of everything we do.\n\n**2.** Our teams work closely with communities, engaging them in levels of decision-making.\n\n**3.** We deliver long-lasting change for farmers, their families and their environments.\n\n**4.** We model innovative approaches and are not afraid to challenge strategies that are failing.",
         "titleIcon": {
           "data": {
             "id": 19,

@@ -1,4 +1,5 @@
 import { LandingCard } from '../landing-card/LandingCard';
+import { Metric } from '../metric/Metric';
 import { PaymentSection } from '../payment/PaymentSection';
 
 export interface DonatePageStrapiContent {
@@ -7,9 +8,4 @@ export interface DonatePageStrapiContent {
   metrics: Array<Metric>;
   postMetricText: string;
   paymentSection: PaymentSection;
-}
-
-export interface Metric {
-  value: string;
-  valueDescription: string;
 }

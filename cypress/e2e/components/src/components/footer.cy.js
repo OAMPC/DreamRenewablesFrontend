@@ -15,7 +15,7 @@ describe('Footer', () => {
   it('should load footer and verify all elements are present and functioning', () => {
     cy.get('[data-testid="footer"]').should('be.visible');
 
-    cy.get('.footer-image-caption').should('be.visible');
+    cy.get('[data-testid="footer-image-caption"]').should('be.visible');
 
     cy.get('[data-testid="footer-body"]').should('be.visible');
 
