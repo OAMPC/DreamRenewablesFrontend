@@ -72,9 +72,7 @@ describe('DonatePage', () => {
     test('should render the donate page metrics when data is loaded', async () => {
       await setup();
       await waitFor(() => {
-        expect(screen.getAllByTestId('stat-template-page-metric').length).toBe(
-          2
-        );
+        expect(screen.getAllByTestId('metric').length).toBe(2);
       });
     });
 

@@ -1,4 +1,5 @@
 import { LandingCard } from '../landing-card/LandingCard';
+import { Metric } from '../metric/Metric';
 import { ImageStrapiContent } from '../util/ImageStrapiContent';
 
 export interface OurWorkPageStrapiContent {
@@ -11,11 +12,6 @@ export interface OurWorkPageStrapiContent {
 export interface Quote {
   body: string;
   author: string;
-}
-
-export interface Metric {
-  value: string;
-  valueDescription: string;
 }
 
 export interface AccordionSection {

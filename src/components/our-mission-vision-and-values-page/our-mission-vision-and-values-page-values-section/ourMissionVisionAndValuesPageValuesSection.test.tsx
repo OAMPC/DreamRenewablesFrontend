@@ -40,10 +40,10 @@ describe('ourMissionVisionAndValuesPageValuesSection', () => {
       });
     });
 
-    test('should render the our vision values section image after data is loaded', async () => {
+    test('should render the our vision values section description after data is loaded', async () => {
       await waitFor(() => {
         expect(
-          screen.getByTestId('our-values-section-image')
+          screen.getByTestId('our-values-section-description')
         ).toBeInTheDocument();
       });
     });

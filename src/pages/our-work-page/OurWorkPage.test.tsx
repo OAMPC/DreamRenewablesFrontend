@@ -72,7 +72,7 @@ describe('OurWorkPage', () => {
     test('should render the our work metrics when data is loaded', async () => {
       await setup();
       await waitFor(() => {
-        expect(screen.getAllByTestId('our-work-page-metric').length).toBe(4);
+        expect(screen.getAllByTestId('metric').length).toBe(4);
       });
     });
 

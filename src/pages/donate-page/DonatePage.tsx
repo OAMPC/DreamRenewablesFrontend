@@ -6,7 +6,7 @@ import LandingCardMobile from '../../components/landing-card/mobile/landingCardM
 import { useLoaderData } from 'react-router-dom';
 import { LoaderData } from '../../data/types/LoaderData';
 import DonatePagePaymentSection from '../../components/donate-page/donate-page-payment-section/DonatePagePaymentSection';
-import StatTemplatePageMetric from '../../components/stat-template-page/stat-template-page-metric/statTemplatePageMetric';
+import Metric from '../../components/metric/Metric';
 
 const DonatePage: React.FC = () => {
   const { donatePageStrapiData } = useLoaderData() as LoaderData;
@@ -33,7 +33,7 @@ const DonatePage: React.FC = () => {
           <Row>
             {donatePageStrapiData.metrics.map((metric, index) => (
               <Col key={index} xl="6" sm="12">
-                <StatTemplatePageMetric metricData={metric} />
+                <Metric metricData={metric} />
               </Col>
             ))}
           </Row>

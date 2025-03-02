@@ -62,9 +62,7 @@ describe('StatTemplatePage', () => {
     test('should render the stat template metrics when data is loaded', async () => {
       await setup();
       await waitFor(() => {
-        expect(screen.getAllByTestId('stat-template-page-metric').length).toBe(
-          2
-        );
+        expect(screen.getAllByTestId('metric').length).toBe(2);
       });
     });
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Quote } from '../../../data/interfaces/stat-template-page/StatTemplatePageStrapiContent';
-import './statTemplatePageQuoteSection.scss';
+import styles from './statTemplatePageQuoteSection.module.scss';
 
 type Props = {
   quoteData: Quote;
@@ -10,9 +10,11 @@ const StatTemplatePageQuoteSection: React.FC<Props> = ({ quoteData }) => {
   return (
     <div
       data-testid="stat-template-page-quote-section"
-      className="stat-template-page-quote-section-wrapper mb-5"
+      className={`${styles.statTemplatePageQuoteSectionWrapper} mb-5`}
     >
-      <div className="p-4 stat-template-page-quote-section-body text-center text-sm-center">
+      <div
+        className={`p-4 ${styles.quoteSectionBody} text-center text-sm-center`}
+      >
         <p
           data-testid="stat-template-page-quote-body"
           className="fs-2 fw-bolder"

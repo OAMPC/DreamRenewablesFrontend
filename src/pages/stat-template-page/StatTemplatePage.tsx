@@ -4,8 +4,8 @@ import { Col, Container, Row } from 'react-bootstrap';
 import LandingCardDesktop from '../../components/landing-card/desktop/LandingCardDesktop';
 import LandingCardMobile from '../../components/landing-card/mobile/landingCardMobile';
 import StatTemplatePageQuoteSection from '../../components/stat-template-page/stat-template-page-quote-section/statTemplatePageQuoteSection';
-import StatTemplatePageMetric from '../../components/stat-template-page/stat-template-page-metric/statTemplatePageMetric';
 import { StatTemplatePageStrapiContent } from '../../data/interfaces/stat-template-page/StatTemplatePageStrapiContent';
+import Metric from '../../components/metric/Metric';
 
 type Props = {
   strapiData: StatTemplatePageStrapiContent;
@@ -33,7 +33,7 @@ const StatTemplatePage: React.FC<Props> = ({ strapiData }) => {
             <Row>
               {strapiData.metrics.map((metric, index) => (
                 <Col key={index} xl="6" sm="12">
-                  <StatTemplatePageMetric metricData={metric} />
+                  <Metric metricData={metric} />
                 </Col>
               ))}
             </Row>
