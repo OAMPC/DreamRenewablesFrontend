@@ -36,7 +36,9 @@ const Footer: React.FC = () => {
                 </Row>
                 <Row>
                   <Col>
-                    <p>{content.image.data.attributes.caption}</p>
+                    <p data-testid="footer-image-caption">
+                      {content.image.data.attributes.caption}
+                    </p>
                   </Col>
                 </Row>
                 <Row className="mb-3">

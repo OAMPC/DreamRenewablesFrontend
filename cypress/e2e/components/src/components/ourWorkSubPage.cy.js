@@ -15,10 +15,7 @@ describe('Our Work Sub Page', () => {
     cy.get('[data-testid="stat-template-page-quote-section"]').should(
       'be.visible'
     );
-    cy.get('[data-testid="stat-template-page-metric"]').should(
-      'have.length',
-      4
-    );
+    cy.get('[data-testid="metric"]').should('have.length', 4);
     cy.get('[data-testid="stat-template-page-free-text"]').should('be.visible');
 
     cy.get('[data-testid="footer"]').should('be.visible');

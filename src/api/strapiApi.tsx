@@ -59,11 +59,8 @@ export async function getOurMissionVisionAndValuesPageStrapiData(): Promise<OurM
     'ourVisionSection.titleIcon',
     'ourVisionSection.sectionImage',
     'ourValuesSection.titleIcon',
-    'ourValuesSection.sectionImage',
     'ourValuesSection.ourValuesEntries',
   ]);
-  console.log(await fetchStrapiData('mission-vision-and-values-page', query));
-
   return fetchStrapiData('mission-vision-and-values-page', query);
 }
 
