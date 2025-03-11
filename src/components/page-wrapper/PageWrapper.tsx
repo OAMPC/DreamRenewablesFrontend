@@ -1,7 +1,7 @@
 import React from 'react';
-import * as Bs from 'react-bootstrap';
 import Footer from '../footer/Footer';
 import NavigationBar from '../navigation-bar/NavigationBar';
+import { Container } from 'react-bootstrap';
 
 type Props = {
   children: React.ReactNode;
@@ -12,7 +12,7 @@ const PageWrapper: React.FC<Props> = ({ children }) => {
     <>
       <NavigationBar />
       <section data-testid="main-content">
-        <Bs.Container fluid>{children}</Bs.Container>
+        <Container fluid>{children}</Container>
       </section>
       <Footer />
     </>

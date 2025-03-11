@@ -1,8 +1,8 @@
 import React from 'react';
 import { QuoteCarouselItem } from '../../../../data/interfaces/landing-page/LandingPageStrapiContent';
-import * as Bs from 'react-bootstrap';
-import './landingPageQuoteCarouselCard.scss';
 import { ImageStrapiContent } from '../../../../data/interfaces/util/ImageStrapiContent';
+import { Col, Row, Image } from 'react-bootstrap';
+import './landingPageQuoteCarouselCard.scss';
 
 type Props = {
   card: QuoteCarouselItem;
@@ -15,9 +15,9 @@ const LandingPageQuoteCarouselCard: React.FC<Props> = ({ card, quoteIcon }) => {
       className="mb-5 me-3 me-lg-5 landing-page-quote-carousel-card-wrapper"
       data-testid="landing-page-quote-carousel-card"
     >
-      <Bs.Row>
-        <Bs.Col>
-          <Bs.Image
+      <Row>
+        <Col>
+          <Image
             loading="lazy"
             fluid
             data-testid="quote-carousel-card-icon"
@@ -40,8 +40,8 @@ const LandingPageQuoteCarouselCard: React.FC<Props> = ({ card, quoteIcon }) => {
           >
             {card.quoteAuthorRole}
           </p>
-        </Bs.Col>
-      </Bs.Row>
+        </Col>
+      </Row>
     </div>
   );
 };

@@ -1,7 +1,7 @@
 import React from 'react';
 import { SpecialtyCarouselItem } from '../../../../data/interfaces/landing-page/LandingPageStrapiContent';
-import * as Bs from 'react-bootstrap';
 import './landingPageSpecialityCarouselCard.scss';
+import { Col, Nav, Row, Image } from 'react-bootstrap';
 
 type Props = {
   card: SpecialtyCarouselItem;
@@ -13,10 +13,10 @@ const LandingPageSpecialityCarouselCard: React.FC<Props> = ({ card }) => {
       className="mb-5 me-5"
       data-testid="landing-page-speciality-carousel-card"
     >
-      <Bs.Row className="align-items-end">
-        <Bs.Col lg="5" xl={{ order: 'first' }} xs={{ order: 'last' }}>
-          <Bs.Row>
-            <Bs.Col lg={{ span: 9, offset: 1 }}>
+      <Row className="align-items-end">
+        <Col lg="5" xl={{ order: 'first' }} xs={{ order: 'last' }}>
+          <Row>
+            <Col lg={{ span: 9, offset: 1 }}>
               <div className="specialty-description-wrapper">
                 <div className="specialty-description">
                   <h4
@@ -28,37 +28,37 @@ const LandingPageSpecialityCarouselCard: React.FC<Props> = ({ card }) => {
                   <p data-testid="speciality-carousel-card-description">
                     {card.description}
                   </p>
-                  <Bs.Nav.Link
+                  <Nav.Link
                     data-testid="speciality-carousel-card-description-link"
                     href={card.link.linkSlug}
                   >
                     {card.link.linkString}
-                    <Bs.Image
+                    <Image
                       loading="lazy"
                       data-testid="speciality-carousel-card-description-image"
                       className="ms-2 mb-2"
                       src={card.linkIcon.data.attributes.url}
                       alt={card.linkIcon.data.attributes.alternativeText}
                     />
-                  </Bs.Nav.Link>
+                  </Nav.Link>
                 </div>
               </div>
-            </Bs.Col>
-          </Bs.Row>
-        </Bs.Col>
-        <Bs.Col
+            </Col>
+          </Row>
+        </Col>
+        <Col
           lg="5"
           xl={{ order: 'last' }}
           xs={{ order: 'first' }}
           className="mb-4"
         >
-          <Bs.Image
+          <Image
             fluid
             src={card.image.data.attributes.url}
             alt={card.image.data.attributes.alternativeText}
           />
-        </Bs.Col>
-      </Bs.Row>
+        </Col>
+      </Row>
     </div>
   );
 };
