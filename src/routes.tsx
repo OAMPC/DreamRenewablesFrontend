@@ -1,7 +1,6 @@
 import React from 'react';
 import { createBrowserRouter } from 'react-router-dom';
 import {
-  getAboutUsPageStrapiData,
   getBlogPostsStrapiData,
   getDonatePageStrapiData,
   getGetInvolvedPageStrapiData,
@@ -85,12 +84,6 @@ const createRoutes = async () => {
     {
       path: '/about-us',
       element: <AboutUsPage />,
-      loader: async () => {
-        const aboutUsPageStrapiData = await getAboutUsPageStrapiData();
-        return {
-          aboutUsPageStrapiData,
-        };
-      },
     },
     {
       path: '/get-involved',

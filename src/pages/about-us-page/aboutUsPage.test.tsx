@@ -1,6 +1,5 @@
-import { render, screen, waitFor } from '@testing-library/react';
+import { screen, waitFor } from '@testing-library/react';
 import React from 'react';
-import { MemoryRouter, useLoaderData } from 'react-router-dom';
 import {
   afterEach,
   beforeEach,
@@ -10,42 +9,22 @@ import {
   test,
   vi,
 } from 'vitest';
-import navigationBarFactory from '../../test/factories/strapi/NavigationBarFactory';
-import FooterFactory from '../../test/factories/strapi/FooterFactory';
-import { SharedDataContext } from '../../contexts/SharedDataProvider';
 import AboutUsPageFactory from '../../test/factories/strapi/AboutUsPageFactory';
 import AboutUsPage from './AboutUsPage';
-
-vi.mock('react-router-dom', async () => {
-  const actual = await vi.importActual('react-router-dom');
-  return {
-    ...actual,
-    useLoaderData: vi.fn(),
-  };
-});
+import { useQuery } from '@tanstack/react-query';
+import { renderWithProviders } from '../../test/helpers/helpers';
 
 describe('AboutUsPage', () => {
-  const mockLoaderData = {
-    aboutUsPageStrapiData: new AboutUsPageFactory().getMockData(),
-  };
-
-  const navigationBarStrapiData = new navigationBarFactory().getMockData();
-  const footerStrapiData = new FooterFactory().getMockData();
+  const mockData = new AboutUsPageFactory().getMockData();
 
   const setup = async () => {
-    (useLoaderData as Mock).mockReturnValue(mockLoaderData);
-    render(
-      <SharedDataContext.Provider
-        value={{
-          navigationBarContent: navigationBarStrapiData,
-          footerContent: footerStrapiData,
-        }}
-      >
-        <MemoryRouter>
-          <AboutUsPage />
-        </MemoryRouter>
-      </SharedDataContext.Provider>
-    );
+    (vi.mocked(useQuery) as Mock).mockReturnValue({
+      data: mockData,
+      isLoading: false,
+      error: null,
+    });
+
+    renderWithProviders(<AboutUsPage />);
   };
 
   beforeEach(() => {
