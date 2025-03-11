@@ -2,7 +2,6 @@ import React from 'react';
 import { createBrowserRouter } from 'react-router-dom';
 import {
   getBlogPostsStrapiData,
-  getDonatePageStrapiData,
   getLandingPageStrapiData,
   getOurWorkPageStrapiData,
   getOurWorkSubPagesStrapiData,
@@ -91,12 +90,6 @@ const createRoutes = async () => {
     {
       path: '/donate',
       element: <DonatePage />,
-      loader: async () => {
-        const donatePageStrapiData = await getDonatePageStrapiData();
-        return {
-          donatePageStrapiData,
-        };
-      },
     },
     {
       path: '/our-work',
