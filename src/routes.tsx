@@ -6,7 +6,6 @@ import {
   getDonatePageStrapiData,
   getGetInvolvedPageStrapiData,
   getLandingPageStrapiData,
-  getOurDonorsPageStrapiData,
   getOurWorkPageStrapiData,
   getOurWorkSubPagesStrapiData,
 } from './api/strapiApi';
@@ -82,12 +81,6 @@ const createRoutes = async () => {
     {
       path: '/our-donors',
       element: <OurDonorsPage />,
-      loader: async () => {
-        const ourDonorsPageStrapiData = await getOurDonorsPageStrapiData();
-        return {
-          ourDonorsPageStrapiData,
-        };
-      },
     },
     {
       path: '/about-us',
