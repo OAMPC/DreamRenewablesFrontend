@@ -3,7 +3,6 @@ import { createBrowserRouter } from 'react-router-dom';
 import {
   getBlogPostsStrapiData,
   getDonatePageStrapiData,
-  getGetInvolvedPageStrapiData,
   getLandingPageStrapiData,
   getOurWorkPageStrapiData,
   getOurWorkSubPagesStrapiData,
@@ -88,12 +87,6 @@ const createRoutes = async () => {
     {
       path: '/get-involved',
       element: <GetInvolvedPage />,
-      loader: async () => {
-        const getInvolvedPageStrapiData = await getGetInvolvedPageStrapiData();
-        return {
-          getInvolvedPageStrapiData,
-        };
-      },
     },
     {
       path: '/donate',
