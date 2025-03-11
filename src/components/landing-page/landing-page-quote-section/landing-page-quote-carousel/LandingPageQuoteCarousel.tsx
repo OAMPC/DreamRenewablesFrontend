@@ -1,11 +1,11 @@
 import React from 'react';
-import * as Bs from 'react-bootstrap';
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
 import './landingPageQuoteCarousel.scss';
 import { QuoteSection } from '../../../../data/interfaces/landing-page/LandingPageStrapiContent';
 import LandingPageQuoteCarouselCard from '../landing-page-quote-carousel-card/LandingPageQuoteCarouselCard';
 import useWindowDimensions from '../../../../hooks/windowDimensions';
+import { Col, Row } from 'react-bootstrap';
 
 type Props = {
   quoteSection: QuoteSection;
@@ -39,11 +39,11 @@ const LandingPageQuoteCarousel: React.FC<Props> = ({ quoteSection }) => {
 
   return (
     <div data-testid="landing-quote-section" className="landing-quote-section">
-      <Bs.Row>
-        <Bs.Col className="text-center">
+      <Row>
+        <Col className="text-center">
           <h2 className="fs-1 fw-bold mb-3">{quoteSection.title}</h2>
-        </Bs.Col>
-      </Bs.Row>
+        </Col>
+      </Row>
       <div>
         <Carousel
           arrows={false}
