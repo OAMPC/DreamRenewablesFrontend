@@ -3,7 +3,6 @@ import { createBrowserRouter } from 'react-router-dom';
 import {
   getBlogPostsStrapiData,
   getLandingPageStrapiData,
-  getOurWorkPageStrapiData,
   getOurWorkSubPagesStrapiData,
 } from './api/strapiApi';
 import LandingPage from './pages/landing-page/LandingPage';
@@ -94,12 +93,6 @@ const createRoutes = async () => {
     {
       path: '/our-work',
       element: <OurWorkPage />,
-      loader: async () => {
-        const ourWorkPageStrapiData = await getOurWorkPageStrapiData();
-        return {
-          ourWorkPageStrapiData,
-        };
-      },
     },
     {
       path: '/blog-home',
