@@ -7,7 +7,6 @@ import {
   getGetInvolvedPageStrapiData,
   getLandingPageStrapiData,
   getOurDonorsPageStrapiData,
-  getOurMissionVisionAndValuesPageStrapiData,
   getOurWorkPageStrapiData,
   getOurWorkSubPagesStrapiData,
 } from './api/strapiApi';
@@ -75,13 +74,6 @@ const createRoutes = async () => {
     {
       path: '/our-mission-vision-and-values',
       element: <OurMissionVisionAndValuesPage />,
-      loader: async () => {
-        const ourMissionVisionAndValuesStrapiData =
-          await getOurMissionVisionAndValuesPageStrapiData();
-        return {
-          ourMissionVisionAndValuesStrapiData,
-        };
-      },
     },
     {
       path: '/our-team',
