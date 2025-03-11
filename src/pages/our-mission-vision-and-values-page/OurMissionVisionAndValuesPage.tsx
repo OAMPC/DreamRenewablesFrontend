@@ -12,7 +12,7 @@ import { OurMissionVisionAndValuesPageStrapiContent } from '../../data/interface
 const OurMissionVisionAndValuesPage: React.FC = () => {
   const { data, isPending, error } =
     useQuery<OurMissionVisionAndValuesPageStrapiContent>({
-      queryKey: ['ourTeamPage'],
+      queryKey: ['ourMissionVisionAndValuesPageStrapiContent'],
       queryFn: getOurMissionVisionAndValuesPageStrapiData,
     });
 
