@@ -2,7 +2,6 @@ import React from 'react';
 import { createBrowserRouter } from 'react-router-dom';
 import {
   getBlogPostsStrapiData,
-  getLandingPageStrapiData,
   getOurWorkSubPagesStrapiData,
 } from './api/strapiApi';
 import LandingPage from './pages/landing-page/LandingPage';
@@ -59,12 +58,6 @@ const createRoutes = async () => {
     {
       path: '/',
       element: <LandingPage />,
-      loader: async () => {
-        const landingPageStrapiData = await getLandingPageStrapiData();
-        return {
-          landingPageStrapiData,
-        };
-      },
     },
     {
       path: '/our-mission-vision-and-values',

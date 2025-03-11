@@ -1,35 +1,35 @@
 import { render, screen, waitFor } from '@testing-library/react';
 import React from 'react';
 import { MemoryRouter } from 'react-router-dom';
-import { afterEach, describe, expect, Mock, test, vi } from 'vitest';
+import { afterEach, describe, expect, test, vi } from 'vitest';
 import LandingPageImageCardMobile from './LandingPageCardMobile';
-import useWindowDimensions from '../../../../hooks/windowDimensions';
 import LandingPageFactory from '../../../../test/factories/strapi/LandingPageFactory';
 
-vi.mock('../../../../hooks/windowDimensions', () => ({
-  default: vi.fn(),
-}));
-
 describe('landingPageImageCardMobile', () => {
-  const setup = async (windowWidth: number = 1024) => {
+  const setup = async () => {
     const landingPageFactory = new LandingPageFactory();
     const mockData = landingPageFactory.getMockData();
-    (useWindowDimensions as Mock).mockReturnValue({ width: windowWidth });
+
     render(
       <MemoryRouter>
-        <LandingPageImageCardMobile
-          landingImage={mockData.landingImageMobile}
-        />
+        <LandingPageImageCardMobile landingCard={mockData.landingImageMobile} />
       </MemoryRouter>
     );
   };
 
   describe('render elements', async () => {
-    test('should render landing image card mobile after data is loaded', async () => {
-      await setup(992);
+    test('should render the mobile landing card title after data is loaded', async () => {
+      await setup();
+      await waitFor(() => {
+        expect(screen.getByTestId('landing-card-title')).toBeInTheDocument();
+      });
+    });
+
+    test('should render the mobile landing card sub title after data is loaded', async () => {
+      await setup();
       await waitFor(() => {
         expect(
-          screen.getByTestId('landing-image-card-mobile')
+          screen.getByTestId('landing-card-sub-title')
         ).toBeInTheDocument();
       });
     });
