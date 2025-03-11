@@ -1,15 +1,8 @@
 import React from 'react';
 import { createBrowserRouter } from 'react-router-dom';
 import {
-  getAboutUsPageStrapiData,
   getBlogPostsStrapiData,
-  getDonatePageStrapiData,
-  getGetInvolvedPageStrapiData,
   getLandingPageStrapiData,
-  getOurDonorsPageStrapiData,
-  getOurMissionVisionAndValuesPageStrapiData,
-  getOurTeamPageStrapiData,
-  getOurWorkPageStrapiData,
   getOurWorkSubPagesStrapiData,
 } from './api/strapiApi';
 import LandingPage from './pages/landing-page/LandingPage';
@@ -76,77 +69,34 @@ const createRoutes = async () => {
     {
       path: '/our-mission-vision-and-values',
       element: <OurMissionVisionAndValuesPage />,
-      loader: async () => {
-        const ourMissionVisionAndValuesStrapiData =
-          await getOurMissionVisionAndValuesPageStrapiData();
-        return {
-          ourMissionVisionAndValuesStrapiData,
-        };
-      },
     },
     {
       path: '/our-team',
       element: <OurTeamPage />,
-      loader: async () => {
-        const ourTeamPageStrapiData = await getOurTeamPageStrapiData();
-        return {
-          ourTeamPageStrapiData,
-        };
-      },
     },
     {
       path: '/our-donors',
       element: <OurDonorsPage />,
-      loader: async () => {
-        const ourDonorsPageStrapiData = await getOurDonorsPageStrapiData();
-        return {
-          ourDonorsPageStrapiData,
-        };
-      },
     },
     {
       path: '/about-us',
       element: <AboutUsPage />,
-      loader: async () => {
-        const aboutUsPageStrapiData = await getAboutUsPageStrapiData();
-        return {
-          aboutUsPageStrapiData,
-        };
-      },
     },
     {
       path: '/get-involved',
       element: <GetInvolvedPage />,
-      loader: async () => {
-        const getInvolvedPageStrapiData = await getGetInvolvedPageStrapiData();
-        return {
-          getInvolvedPageStrapiData,
-        };
-      },
     },
     {
       path: '/donate',
       element: <DonatePage />,
-      loader: async () => {
-        const donatePageStrapiData = await getDonatePageStrapiData();
-        return {
-          donatePageStrapiData,
-        };
-      },
     },
     {
       path: '/our-work',
       element: <OurWorkPage />,
-      loader: async () => {
-        const ourWorkPageStrapiData = await getOurWorkPageStrapiData();
-        return {
-          ourWorkPageStrapiData,
-        };
-      },
     },
     {
       path: '/blog-home',
-      element: <BlogHomePage blogPages={blogPages} />,
+      element: <BlogHomePage />,
     },
     ...dynamicOurWorkSubPageRoutes,
     ...blogPageRoutes,

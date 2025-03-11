@@ -1,32 +1,37 @@
 import React from 'react';
 import PageWrapper from '../../components/page-wrapper/PageWrapper';
 import { Row, Col } from 'react-bootstrap';
-import { useLoaderData } from 'react-router-dom';
-import { LoaderData } from '../../data/types/LoaderData';
 import AboutUsPageSection from '../../components/about-us-page/about-us-page-section/AboutUsPageSection';
 import AboutUsPageImageButtonsSection from '../../components/about-us-page/about-us-page-image-buttons-section/aboutUsPageImageButtonsSection';
 import LandingCardDesktop from '../../components/landing-card/desktop/LandingCardDesktop';
 import LandingCardMobile from '../../components/landing-card/mobile/landingCardMobile';
+import { useQuery } from '@tanstack/react-query';
+import { getAboutUsPageStrapiData } from '../../api/strapiApi';
+import Loading from '../../components/loading/Loading';
+import { AboutUsPageStrapiContent } from '../../data/interfaces/about-us-page/AboutUsPageStrapiContent';
 
 const AboutUsPage: React.FC = () => {
-  const { aboutUsPageStrapiData } = useLoaderData() as LoaderData;
+  const { data, isPending, error } = useQuery<AboutUsPageStrapiContent>({
+    queryKey: ['aboutUsPage'],
+    queryFn: getAboutUsPageStrapiData,
+  });
+
+  if (isPending) return <Loading />;
+  if (error || !data) return <p>Error Loading Data</p>;
+
   return (
     <PageWrapper>
       <Row>
         <Col>
           <div className="d-none d-sm-block mb-5">
-            <LandingCardDesktop
-              landingCard={aboutUsPageStrapiData.landingImage}
-            />
+            <LandingCardDesktop landingCard={data.landingImage} />
           </div>
           <div className="d-sm-none">
-            <LandingCardMobile
-              landingCard={aboutUsPageStrapiData.landingImage}
-            />
+            <LandingCardMobile landingCard={data.landingImage} />
           </div>
         </Col>
       </Row>
-      {aboutUsPageStrapiData.sections.map((section, index) => (
+      {data.sections.map((section, index) => (
         <Row key={index} className="mb-5">
           <Col>
             <AboutUsPageSection sectionData={section} rowIndex={index} />
@@ -36,7 +41,7 @@ const AboutUsPage: React.FC = () => {
       <Row className="mb-5">
         <Col>
           <AboutUsPageImageButtonsSection
-            imageButtonSectionData={aboutUsPageStrapiData.imageButtonSection}
+            imageButtonSectionData={data.imageButtonSection}
           />
         </Col>
       </Row>

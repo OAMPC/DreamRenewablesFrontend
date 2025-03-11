@@ -1,40 +1,45 @@
 import React from 'react';
 import PageWrapper from '../../components/page-wrapper/PageWrapper';
 import { Col, Container, Row } from 'react-bootstrap';
-import { useLoaderData } from 'react-router-dom';
-import { LoaderData } from '../../data/types/LoaderData';
 import LandingCardDesktop from '../../components/landing-card/desktop/LandingCardDesktop';
 import LandingCardMobile from '../../components/landing-card/mobile/landingCardMobile';
 import OurWorkPageQuoteSection from '../../components/our-work-page/our-work-page-quote-section/OurWorkPageQuoteSection';
 import OurWorkPageAccordion from '../../components/our-work-page/our-work-page-accordion/OurWorkPageAccordion';
 import Metric from '../../components/metric/Metric';
+import { useQuery } from '@tanstack/react-query';
+import { getOurWorkPageStrapiData } from '../../api/strapiApi';
+import Loading from '../../components/loading/Loading';
+import { OurWorkPageStrapiContent } from '../../data/interfaces/our-work-page/OurWorkPageStrapiContent';
 
 const OurWorkPage: React.FC = () => {
-  const { ourWorkPageStrapiData } = useLoaderData() as LoaderData;
+  const { data, isPending, error } = useQuery<OurWorkPageStrapiContent>({
+    queryKey: ['ourWorkPage'],
+    queryFn: getOurWorkPageStrapiData,
+  });
+
+  if (isPending) return <Loading />;
+  if (error || !data) return <p>Error Loading Data</p>;
+
   return (
     <PageWrapper>
       <Row>
         <Col>
           <div className="d-none d-sm-block mb-5">
-            <LandingCardDesktop
-              landingCard={ourWorkPageStrapiData.landingImage}
-            />
+            <LandingCardDesktop landingCard={data.landingImage} />
           </div>
           <div className="d-sm-none">
-            <LandingCardMobile
-              landingCard={ourWorkPageStrapiData.landingImage}
-            />
+            <LandingCardMobile landingCard={data.landingImage} />
           </div>
         </Col>
       </Row>
       <Container className="mb-5">
         <Row className="gx-5 mb-5">
           <Col xl="4">
-            <OurWorkPageQuoteSection quoteData={ourWorkPageStrapiData.quote} />
+            <OurWorkPageQuoteSection quoteData={data.quote} />
           </Col>
           <Col xl={{ span: 7, offset: 1 }} sm="12">
             <Row>
-              {ourWorkPageStrapiData.metrics.map((metric, index) => (
+              {data.metrics.map((metric, index) => (
                 <Col key={index} xl="6" sm="12">
                   <Metric metricData={metric} />
                 </Col>
@@ -48,22 +53,20 @@ const OurWorkPage: React.FC = () => {
               data-testid="our-work-page-accordion-title"
               className="fs-2 fw-bolder text-center"
             >
-              {ourWorkPageStrapiData.accordionSection.title}
+              {data.accordionSection.title}
             </h2>
             <p
               data-testid="our-work-page-accordion-description"
               className="fs-5 text-center"
             >
-              {ourWorkPageStrapiData.accordionSection.description}
+              {data.accordionSection.description}
             </p>
           </Col>
         </Row>
         <Row className="d-flex justify-content-center">
           <Col md="8">
             <OurWorkPageAccordion
-              accordionData={
-                ourWorkPageStrapiData.accordionSection.accordionItems
-              }
+              accordionData={data.accordionSection.accordionItems}
             />
           </Col>
         </Row>
