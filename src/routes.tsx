@@ -96,7 +96,7 @@ const createRoutes = async () => {
     },
     {
       path: '/blog-home',
-      element: <BlogHomePage blogPages={blogPages} />,
+      element: <BlogHomePage />,
     },
     ...dynamicOurWorkSubPageRoutes,
     ...blogPageRoutes,
