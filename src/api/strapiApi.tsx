@@ -141,7 +141,7 @@ export async function getOurWorkSubPageStrapiData(
   return fetchStrapiData('our-work-sub-pages', populateQuery, true, filter);
 }
 
-export async function getBlogPostsStrapiData(): Promise<BlogPostsTemplatePageStrapiContent> {
+export async function getNewestToOldestBlogPostsStrapiData(): Promise<BlogPostsTemplatePageStrapiContent> {
   const populateQuery = buildStrapiPopulateQuery([
     'landingImage',
     'title',
@@ -150,5 +150,42 @@ export async function getBlogPostsStrapiData(): Promise<BlogPostsTemplatePageStr
     'publishedAt',
     'blogPostBody',
   ]);
-  return fetchStrapiData(`blog-posts`, populateQuery, true);
+
+  const filter = `sort[0]=publishedAt:desc`;
+
+  return await fetchStrapiData(`blog-posts`, populateQuery, true, filter);
+}
+
+export async function getBlogPostStrapiData(
+  slug: string
+): Promise<BlogPostsTemplatePageStrapiContent> {
+  const populateQuery = buildStrapiPopulateQuery([
+    'landingImage',
+    'title',
+    'blogPostSummary',
+    'author',
+    'publishedAt',
+    'blogPostBody',
+  ]);
+
+  const filter = `filters[url][$eq]=${slug}`;
+
+  return fetchStrapiData(`blog-posts`, populateQuery, true, filter);
+}
+
+export async function getRecentBlogPosts(
+  slug: string
+): Promise<BlogPostsTemplatePageStrapiContent> {
+  const populateQuery = buildStrapiPopulateQuery([
+    'landingImage',
+    'title',
+    'blogPostSummary',
+    'author',
+    'publishedAt',
+    'blogPostBody',
+  ]);
+
+  const filter = `sort[0]=publishedAt:desc&pagination[limit]=4&filters[url][$ne]=${slug}`;
+
+  return fetchStrapiData(`blog-posts`, populateQuery, true, filter);
 }

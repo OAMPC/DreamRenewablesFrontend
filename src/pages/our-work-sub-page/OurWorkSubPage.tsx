@@ -19,8 +19,6 @@ const OurWorkSubPage: React.FC = () => {
   if (isPending) return <Loading />;
   if (error || !data) return <p>Error Loading Data</p>;
 
-  console.log(data);
-
   return <StatTemplatePage strapiData={data.data[0].attributes} />;
 };
 
