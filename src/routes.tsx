@@ -1,16 +1,29 @@
-import React from 'react';
+import React, { lazy, Suspense } from 'react';
 import { createBrowserRouter } from 'react-router-dom';
 import LandingPage from './pages/landing-page/LandingPage';
-import OurMissionVisionAndValuesPage from './pages/our-mission-vision-and-values-page/OurMissionVisionAndValuesPage';
-import OurTeamPage from './pages/our-team-page/OurTeamPage';
-import OurDonorsPage from './pages/our-donors-page/OurDonorsPage';
-import AboutUsPage from './pages/about-us-page/AboutUsPage';
-import OurWorkPage from './pages/our-work-page/OurWorkPage';
-import GetInvolvedPage from './pages/get-involved-page/GetInvolvedPage';
-import DonatePage from './pages/donate-page/DonatePage';
-import BlogHomePage from './pages/blog-home-page/BlogHomePage';
-import OurWorkSubPage from './pages/our-work-sub-page/OurWorkSubPage';
-import BlogPage from './pages/blog-page/BlogPage';
+import Loading from './components/loading/Loading';
+
+const OurMissionVisionAndValuesPage = lazy(
+  () =>
+    import(
+      './pages/our-mission-vision-and-values-page/OurMissionVisionAndValuesPage'
+    )
+);
+const OurTeamPage = lazy(() => import('./pages/our-team-page/OurTeamPage'));
+const OurDonorsPage = lazy(
+  () => import('./pages/our-donors-page/OurDonorsPage')
+);
+const AboutUsPage = lazy(() => import('./pages/about-us-page/AboutUsPage'));
+const GetInvolvedPage = lazy(
+  () => import('./pages/get-involved-page/GetInvolvedPage')
+);
+const DonatePage = lazy(() => import('./pages/donate-page/DonatePage'));
+const OurWorkPage = lazy(() => import('./pages/our-work-page/OurWorkPage'));
+const OurWorkSubPage = lazy(
+  () => import('./pages/our-work-sub-page/OurWorkSubPage')
+);
+const BlogHomePage = lazy(() => import('./pages/blog-home-page/BlogHomePage'));
+const BlogPage = lazy(() => import('./pages/blog-page/BlogPage'));
 
 const createRoutes = async () => {
   const routes = [
@@ -20,46 +33,87 @@ const createRoutes = async () => {
     },
     {
       path: '/our-mission-vision-and-values',
-      element: <OurMissionVisionAndValuesPage />,
+      element: (
+        <Suspense fallback={<Loading />}>
+          <OurMissionVisionAndValuesPage />
+        </Suspense>
+      ),
     },
     {
       path: '/our-team',
-      element: <OurTeamPage />,
+      element: (
+        <Suspense fallback={<Loading />}>
+          <OurTeamPage />
+        </Suspense>
+      ),
     },
     {
       path: '/our-donors',
-      element: <OurDonorsPage />,
+      element: (
+        <Suspense fallback={<Loading />}>
+          <OurDonorsPage />
+        </Suspense>
+      ),
     },
     {
       path: '/about-us',
-      element: <AboutUsPage />,
+      element: (
+        <Suspense fallback={<Loading />}>
+          <AboutUsPage />
+        </Suspense>
+      ),
     },
     {
       path: '/get-involved',
-      element: <GetInvolvedPage />,
+      element: (
+        <Suspense fallback={<Loading />}>
+          <GetInvolvedPage />
+        </Suspense>
+      ),
     },
     {
       path: '/donate',
-      element: <DonatePage />,
+      element: (
+        <Suspense fallback={<Loading />}>
+          <DonatePage />
+        </Suspense>
+      ),
     },
     {
       path: '/our-work',
-      element: <OurWorkPage />,
+      element: (
+        <Suspense fallback={<Loading />}>
+          <OurWorkPage />
+        </Suspense>
+      ),
     },
     {
       path: '/our-work/:slug',
-      element: <OurWorkSubPage />,
+      element: (
+        <Suspense fallback={<Loading />}>
+          <OurWorkSubPage />
+        </Suspense>
+      ),
     },
     {
       path: '/blog-home',
-      element: <BlogHomePage />,
+      element: (
+        <Suspense fallback={<Loading />}>
+          <BlogHomePage />
+        </Suspense>
+      ),
     },
     {
       path: '/blog/:slug',
-      element: <BlogPage />,
+      element: (
+        <Suspense fallback={<Loading />}>
+          <BlogPage />
+        </Suspense>
+      ),
     },
   ];
 
   return createBrowserRouter(routes);
 };
+
 export default createRoutes;
