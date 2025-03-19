@@ -2,17 +2,17 @@ import { describe, expect, test } from 'vitest';
 import { AXIOS_MOCK } from '../test-setup';
 import {
   getAboutUsPageStrapiData,
-  getBlogPostsStrapiData,
   getDonatePageStrapiData,
   getFooterStrapiData,
   getGetInvolvedPageStrapiData,
   getLandingPageStrapiData,
   getNavigationBarStrapiData,
+  getNewestToOldestBlogPostsStrapiData,
   getOurDonorsPageStrapiData,
   getOurMissionVisionAndValuesPageStrapiData,
   getOurTeamPageStrapiData,
   getOurWorkPageStrapiData,
-  getOurWorkSubPagesStrapiData,
+  getOurWorkSubPageStrapiData,
 } from './strapiApi';
 import LandingPageFactory from '../test/factories/strapi/LandingPageFactory';
 import NavigationBarFactory from '../test/factories/strapi/NavigationBarFactory';
@@ -262,14 +262,16 @@ describe('strapiApi', () => {
     });
   });
 
-  describe('getOurWorkSubPagesStrapiData', () => {
-    test('should get all data for our work sub pages successfully', async () => {
+  describe('getOurWorkSubPageStrapiData', () => {
+    test('should get the slug specified our work sub page successfully', async () => {
       const ourWorkSubPagesFactory = new OurWorkSubPagesFactory();
       const mockResponse = ourWorkSubPagesFactory.getMockResponse();
       const apiUrl = ourWorkSubPagesFactory.getApiUrl();
       await setup(apiUrl, mockResponse, 200);
 
-      const response = await getOurWorkSubPagesStrapiData();
+      const response = await getOurWorkSubPageStrapiData(
+        'training-and-advocacy'
+      );
       expect(response).toEqual(mockResponse);
     });
 
@@ -278,20 +280,20 @@ describe('strapiApi', () => {
       const emptyMockData = ourWorkSubPagesFactory.getEmptyMockData();
       const apiUrl = ourWorkSubPagesFactory.getApiUrl();
       await setup(apiUrl, emptyMockData, 500);
-      await expect(getOurWorkSubPagesStrapiData()).rejects.toThrow(
-        'Request failed with status code 500'
-      );
+      await expect(
+        getOurWorkSubPageStrapiData('training-and-advocacy')
+      ).rejects.toThrow('Request failed with status code 500');
     });
   });
 
-  describe('getBlogPostsStrapiData', () => {
+  describe('getNewestToOldestBlogPostsStrapiData', () => {
     test('should get all blog posts strapi data successfully', async () => {
       const blogPostFactory = new BlogPostsFactory();
       const mockResponse = blogPostFactory.getMockResponse();
       const apiUrl = blogPostFactory.getApiUrl();
       await setup(apiUrl, mockResponse, 200);
 
-      const response = await getBlogPostsStrapiData();
+      const response = await getNewestToOldestBlogPostsStrapiData();
       expect(response).toEqual(mockResponse);
     });
 
@@ -300,7 +302,7 @@ describe('strapiApi', () => {
       const emptyMockData = blogPostFactory.getEmptyMockData();
       const apiUrl = blogPostFactory.getApiUrl();
       await setup(apiUrl, emptyMockData, 500);
-      await expect(getBlogPostsStrapiData()).rejects.toThrow(
+      await expect(getNewestToOldestBlogPostsStrapiData()).rejects.toThrow(
         'Request failed with status code 500'
       );
     });

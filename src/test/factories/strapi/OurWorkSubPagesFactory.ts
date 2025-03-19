@@ -6,7 +6,7 @@ class OurWorkSubPagesFactory extends BaseCollectionFactory<StatTemplatePageStrap
   constructor() {
     super(
       ourWorkSubPagesStrapiResponse,
-      `${import.meta.env.VITE_BASE_URL}/api/our-work-sub-pages?populate[0]=landingImage.image&populate[1]=quote&populate[2]=metrics`
+      `${import.meta.env.VITE_BASE_URL}/api/our-work-sub-pages?filters[url][$eq]=training-and-advocacy&populate[0]=landingImage.image&populate[1]=quote&populate[2]=metrics`
     );
   }
 }

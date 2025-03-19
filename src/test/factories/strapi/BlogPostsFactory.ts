@@ -6,7 +6,7 @@ class BlogPostsFactory extends BaseCollectionFactory<BlogPostTemplatePageStrapiC
   constructor() {
     super(
       blogPostsStrapiResponse,
-      `${import.meta.env.VITE_BASE_URL}/api/blog-posts?populate[0]=landingImage&populate[1]=title&populate[2]=blogPostSummary&populate[3]=author&populate[4]=publishedAt&populate[5]=blogPostBody`
+      `${import.meta.env.VITE_BASE_URL}/api/blog-posts?sort[0]=publishedAt:desc&populate[0]=landingImage&populate[1]=title&populate[2]=blogPostSummary&populate[3]=author&populate[4]=publishedAt&populate[5]=blogPostBody`
     );
   }
 }

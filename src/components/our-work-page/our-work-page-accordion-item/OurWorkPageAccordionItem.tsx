@@ -28,8 +28,8 @@ const OurWorkPageAccordionItem: React.FC<Props> = ({
         <p data-testid="our-work-page-accordion-item-description">
           {accordionItemData.description}
         </p>
-        <Nav.Link href={accordionItemData.linkSlug}>
-          {accordionItemData.linkSlug}
+        <Nav.Link href={`our-work/${accordionItemData.linkSlug}`}>
+          {accordionItemData.linkString}
           <Image
             loading="lazy"
             className="ms-2 mb-2"

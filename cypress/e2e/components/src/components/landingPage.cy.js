@@ -7,8 +7,6 @@ describe('Landing Page', () => {
     cy.visit('/');
     cy.wait('@getNavigationBarStrapiData');
     cy.wait('@getFooterStrapiData');
-    cy.wait('@getOurWorkSubPagesStrapiData');
-    cy.wait('@getBlogPostsStrapiData');
     cy.wait('@getLandingPageStrapiData');
   });
 

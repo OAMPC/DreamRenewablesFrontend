@@ -8,12 +8,14 @@ const strapiConfig = {
 
 export async function fetchStrapiData(
   endpoint: string,
-  query = {},
-  returnCollection = false
+  populateQuery = '',
+  returnCollection = false,
+  filter: string = ''
 ) {
   try {
+    const queryParams = buildEndpointQueryParameter(filter, populateQuery);
     const response = await axios.get(
-      `${import.meta.env.VITE_BASE_URL}/api/${endpoint}?${query}`,
+      `${import.meta.env.VITE_BASE_URL}/api/${endpoint}${queryParams}`,
       strapiConfig
     );
     return returnCollection ? response.data : response.data.data.attributes;
@@ -21,4 +23,11 @@ export async function fetchStrapiData(
     console.error('Error fetching Strapi data:', error);
     throw error;
   }
+}
+
+function buildEndpointQueryParameter(
+  filter: string,
+  populateQuery: string
+): string {
+  return filter !== '' ? `?${filter}&${populateQuery}` : `?${populateQuery}`;
 }

@@ -3,19 +3,14 @@ import PageWrapper from '../../components/page-wrapper/PageWrapper';
 import { Col, Container, Row, Image } from 'react-bootstrap';
 import { BlogPostTemplatePageStrapiContent } from '../../data/interfaces/blog-post-template-page/BlogPostTemplatePageStrapiContent';
 import Markdown from '../../components/markdown/Markdown';
-import { BlogPostsTemplatePageStrapiContent } from '../../data/interfaces/blog-post-template-page/BlogPostTemplatePagesStrapiContent';
-import BlogCard from '../../components/blog-card/BlogCard';
 import styles from './blogPostTemplatePage.module.scss';
+import RecentBlogPosts from '../../components/recent-blog-posts/RecentBlogPosts';
 
 type Props = {
   strapiData: BlogPostTemplatePageStrapiContent;
-  recentBlogPosts: BlogPostsTemplatePageStrapiContent;
 };
 
-const BlogPostTemplatePage: React.FC<Props> = ({
-  strapiData,
-  recentBlogPosts,
-}) => {
+const BlogPostTemplatePage: React.FC<Props> = ({ strapiData }) => {
   return (
     <PageWrapper>
       <Row>
@@ -73,16 +68,7 @@ const BlogPostTemplatePage: React.FC<Props> = ({
           </Col>
         </Row>
         <Row data-testid="blog-grid">
-          {recentBlogPosts.data.map((post, index) => (
-            <Col
-              key={index}
-              md={4}
-              xs={12}
-              className="justify-content-center mb-3"
-            >
-              <BlogCard strapiData={post.attributes} />
-            </Col>
-          ))}
+          <RecentBlogPosts currentBlogPageSlug={strapiData.url} />
         </Row>
       </Container>
     </PageWrapper>

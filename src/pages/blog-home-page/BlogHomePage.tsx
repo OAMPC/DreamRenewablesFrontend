@@ -4,21 +4,18 @@ import { BlogPostsTemplatePageStrapiContent } from '../../data/interfaces/blog-p
 import { Col, Row } from 'react-bootstrap';
 import BlogCard from '../../components/blog-card/BlogCard';
 import { useQuery } from '@tanstack/react-query';
-import { getBlogPostsStrapiData } from '../../api/strapiApi';
 import Loading from '../../components/loading/Loading';
-import { sortBlogPostsNewestToOldest } from '../../util/blogHelper';
+import { getNewestToOldestBlogPostsStrapiData } from '../../api/strapiApi';
 
 const BlogHomePage: React.FC = () => {
   const { data, isPending, error } =
     useQuery<BlogPostsTemplatePageStrapiContent>({
       queryKey: ['blogHomePage'],
-      queryFn: getBlogPostsStrapiData,
+      queryFn: getNewestToOldestBlogPostsStrapiData,
     });
 
   if (isPending) return <Loading />;
   if (error || !data) return <p>Error Loading Data</p>;
-
-  const blogPosts = sortBlogPostsNewestToOldest(data);
 
   return (
     <PageWrapper>
@@ -30,7 +27,7 @@ const BlogHomePage: React.FC = () => {
         </Col>
       </Row>
       <Row data-testid="blog-grid">
-        {blogPosts.map((post, index) => (
+        {data.data.map((post, index) => (
           <Col
             key={index}
             xl={4}

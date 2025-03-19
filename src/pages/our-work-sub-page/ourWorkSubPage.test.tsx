@@ -9,22 +9,26 @@ import {
   test,
   vi,
 } from 'vitest';
-import StatTemplatePageFactory from '../../test/factories/strapi/StatTemplatePageFactory';
-import StatTemplatePage from './StatTemplatePage';
 import { useQuery } from '@tanstack/react-query';
 import { renderWithProviders } from '../../test/helpers/helpers';
+import OurWorkSubPagesFactory from '../../test/factories/strapi/OurWorkSubPagesFactory';
+import OurWorkSubPage from './OurWorkSubPage';
+import { useParams } from 'react-router-dom';
 
-describe('StatTemplatePage', () => {
-  const mockData = new StatTemplatePageFactory().getMockData();
+describe('OurWorkSubPage', () => {
+  const mockData = new OurWorkSubPagesFactory().getMockData();
 
   const setup = async () => {
+    (vi.mocked(useParams) as Mock).mockReturnValue({
+      slug: 'training-and-advocacy',
+    });
     (vi.mocked(useQuery) as Mock).mockReturnValue({
       data: { data: mockData },
       isLoading: false,
       error: null,
     });
 
-    renderWithProviders(<StatTemplatePage strapiData={mockData} />);
+    renderWithProviders(<OurWorkSubPage />);
   };
 
   beforeEach(() => {
@@ -51,7 +55,7 @@ describe('StatTemplatePage', () => {
     test('should render the stat template metrics when data is loaded', async () => {
       await setup();
       await waitFor(() => {
-        expect(screen.getAllByTestId('metric').length).toBe(2);
+        expect(screen.getAllByTestId('metric').length).toBe(4);
       });
     });
 
