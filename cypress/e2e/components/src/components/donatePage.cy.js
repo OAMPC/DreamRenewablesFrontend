@@ -8,7 +8,6 @@ describe('Donate Page', () => {
 
     cy.wait('@getNavigationBarStrapiData');
     cy.wait('@getFooterStrapiData');
-    cy.wait('@getOurWorkSubPagesStrapiData');
     cy.wait('@getBlogPostsStrapiData');
     cy.wait('@donatePageStrapiData');
   });

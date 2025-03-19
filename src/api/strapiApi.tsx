@@ -127,7 +127,7 @@ export async function getDonatePageStrapiData(): Promise<DonatePageStrapiContent
   return fetchStrapiData('donate-page', populateQuery);
 }
 
-export async function getOurWorkSubPagesStrapiData(
+export async function getOurWorkSubPageStrapiData(
   slug: string
 ): Promise<StatTemplatePagesStrapiContent> {
   const populateQuery = buildStrapiPopulateQuery([

@@ -14,6 +14,10 @@ export async function fetchStrapiData(
 ) {
   try {
     const queryParams = buildEndpointQueryParameter(filter, populateQuery);
+    console.log(
+      `${import.meta.env.VITE_BASE_URL}/api/${endpoint}${queryParams}`
+    );
+
     const response = await axios.get(
       `${import.meta.env.VITE_BASE_URL}/api/${endpoint}${queryParams}`,
       strapiConfig

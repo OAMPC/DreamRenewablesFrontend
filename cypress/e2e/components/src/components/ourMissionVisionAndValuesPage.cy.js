@@ -8,7 +8,6 @@ describe('Our Mission Vision and Values Page', () => {
 
     cy.wait('@getNavigationBarStrapiData');
     cy.wait('@getFooterStrapiData');
-    cy.wait('@getOurWorkSubPagesStrapiData');
     cy.wait('@getBlogPostsStrapiData');
     cy.wait('@getOurMissionVisionAndValuesPageStrapiData');
   });

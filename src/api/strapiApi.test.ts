@@ -12,7 +12,7 @@ import {
   getOurMissionVisionAndValuesPageStrapiData,
   getOurTeamPageStrapiData,
   getOurWorkPageStrapiData,
-  getOurWorkSubPagesStrapiData,
+  getOurWorkSubPageStrapiData,
 } from './strapiApi';
 import LandingPageFactory from '../test/factories/strapi/LandingPageFactory';
 import NavigationBarFactory from '../test/factories/strapi/NavigationBarFactory';
@@ -262,14 +262,16 @@ describe('strapiApi', () => {
     });
   });
 
-  describe('getOurWorkSubPagesStrapiData', () => {
-    test('should get all data for our work sub pages successfully', async () => {
+  describe('getOurWorkSubPageStrapiData', () => {
+    test('should get the slug specified our work sub page successfully', async () => {
       const ourWorkSubPagesFactory = new OurWorkSubPagesFactory();
       const mockResponse = ourWorkSubPagesFactory.getMockResponse();
       const apiUrl = ourWorkSubPagesFactory.getApiUrl();
       await setup(apiUrl, mockResponse, 200);
 
-      const response = await getOurWorkSubPagesStrapiData();
+      const response = await getOurWorkSubPageStrapiData(
+        'training-and-advocacy'
+      );
       expect(response).toEqual(mockResponse);
     });
 
@@ -278,9 +280,9 @@ describe('strapiApi', () => {
       const emptyMockData = ourWorkSubPagesFactory.getEmptyMockData();
       const apiUrl = ourWorkSubPagesFactory.getApiUrl();
       await setup(apiUrl, emptyMockData, 500);
-      await expect(getOurWorkSubPagesStrapiData()).rejects.toThrow(
-        'Request failed with status code 500'
-      );
+      await expect(
+        getOurWorkSubPageStrapiData('training-and-advocacy')
+      ).rejects.toThrow('Request failed with status code 500');
     });
   });
 
