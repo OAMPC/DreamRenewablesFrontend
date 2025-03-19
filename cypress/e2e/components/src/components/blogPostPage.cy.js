@@ -1,10 +1,14 @@
 describe('Blog Post Template Page', () => {
   beforeEach(() => {
+    cy.intercept('GET', '**/api/blog-posts*', {
+      fixture: 'blogPostsStrapiResponse.json',
+    }).as('getBlogPostStrapiData');
+
     cy.visit('/blog/test-blog-post');
 
     cy.wait('@getNavigationBarStrapiData');
     cy.wait('@getFooterStrapiData');
-    cy.wait('@getBlogPostsStrapiData');
+    cy.wait('@getBlogPostStrapiData');
   });
 
   it('should load a blog template page and verify all elements are present and functioning', () => {

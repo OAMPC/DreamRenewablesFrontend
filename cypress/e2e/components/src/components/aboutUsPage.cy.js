@@ -8,7 +8,6 @@ describe('About Us Page', () => {
 
     cy.wait('@getNavigationBarStrapiData');
     cy.wait('@getFooterStrapiData');
-    cy.wait('@getBlogPostsStrapiData');
     cy.wait('@aboutUsPageStrapiData');
   });
 

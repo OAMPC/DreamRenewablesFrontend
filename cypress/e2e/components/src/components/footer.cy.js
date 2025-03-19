@@ -7,7 +7,6 @@ describe('Footer', () => {
     cy.visit('/');
     cy.wait('@getNavigationBarStrapiData');
     cy.wait('@getFooterStrapiData');
-    cy.wait('@getBlogPostsStrapiData');
     cy.wait('@getLandingPageStrapiData');
   });
 

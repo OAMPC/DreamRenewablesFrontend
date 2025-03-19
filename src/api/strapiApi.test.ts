@@ -2,12 +2,12 @@ import { describe, expect, test } from 'vitest';
 import { AXIOS_MOCK } from '../test-setup';
 import {
   getAboutUsPageStrapiData,
-  getBlogPostsStrapiData,
   getDonatePageStrapiData,
   getFooterStrapiData,
   getGetInvolvedPageStrapiData,
   getLandingPageStrapiData,
   getNavigationBarStrapiData,
+  getNewestToOldestBlogPostsStrapiData,
   getOurDonorsPageStrapiData,
   getOurMissionVisionAndValuesPageStrapiData,
   getOurTeamPageStrapiData,
@@ -286,14 +286,14 @@ describe('strapiApi', () => {
     });
   });
 
-  describe('getBlogPostsStrapiData', () => {
+  describe('getNewestToOldestBlogPostsStrapiData', () => {
     test('should get all blog posts strapi data successfully', async () => {
       const blogPostFactory = new BlogPostsFactory();
       const mockResponse = blogPostFactory.getMockResponse();
       const apiUrl = blogPostFactory.getApiUrl();
       await setup(apiUrl, mockResponse, 200);
 
-      const response = await getBlogPostsStrapiData();
+      const response = await getNewestToOldestBlogPostsStrapiData();
       expect(response).toEqual(mockResponse);
     });
 
@@ -302,7 +302,7 @@ describe('strapiApi', () => {
       const emptyMockData = blogPostFactory.getEmptyMockData();
       const apiUrl = blogPostFactory.getApiUrl();
       await setup(apiUrl, emptyMockData, 500);
-      await expect(getBlogPostsStrapiData()).rejects.toThrow(
+      await expect(getNewestToOldestBlogPostsStrapiData()).rejects.toThrow(
         'Request failed with status code 500'
       );
     });
