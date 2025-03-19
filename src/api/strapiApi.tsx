@@ -3,7 +3,7 @@ import { FooterStrapiContent } from '../data/interfaces/footer/FooterStrapiConte
 import { LandingPageStrapiContent } from '../data/interfaces/landing-page/LandingPageStrapiContent';
 import { OurMissionVisionAndValuesPageStrapiContent } from '../data/interfaces/our-mission-vision-and-values-page/OurMissionVisionAndValuesPageStrapiContent';
 import { OurTeamPageStrapiContent } from '../data/interfaces/our-team-page/OurTeamPageStrapiContent';
-import { buildStrapiEndpointQuery } from './util/buildStrapiEndpointQuery';
+import { buildStrapiPopulateQuery } from './util/buildStrapiPopulateQuery';
 import { OurDonorsPageStrapiContent } from '../data/interfaces/our-donor-page/OurDonorsPageStrapiContent';
 import { AboutUsPageStrapiContent } from '../data/interfaces/about-us-page/AboutUsPageStrapiContent';
 import { OurWorkPageStrapiContent } from '../data/interfaces/our-work-page/OurWorkPageStrapiContent';
@@ -14,29 +14,29 @@ import { fetchStrapiData } from './util/fetchStrapiData';
 import { BlogPostsTemplatePageStrapiContent } from '../data/interfaces/blog-post-template-page/BlogPostTemplatePagesStrapiContent';
 
 export async function getNavigationBarStrapiData(): Promise<NavigationBarStrapiContent> {
-  const query = buildStrapiEndpointQuery([
+  const populateQuery = buildStrapiPopulateQuery([
     'brandImage',
     'standardLinks',
     'dropdownLinks.nestedLinks',
     'button',
   ]);
 
-  return fetchStrapiData('navigation-bar', query);
+  return fetchStrapiData('navigation-bar', populateQuery);
 }
 
 export async function getFooterStrapiData(): Promise<FooterStrapiContent> {
-  const query = buildStrapiEndpointQuery([
+  const populateQuery = buildStrapiPopulateQuery([
     'image',
     'navigationLinks.standardLinks',
     'socialMediaLinks.iconLinks.icon',
     'contactInformation.icon',
   ]);
 
-  return fetchStrapiData('footer', query);
+  return fetchStrapiData('footer', populateQuery);
 }
 
 export async function getLandingPageStrapiData(): Promise<LandingPageStrapiContent> {
-  const query = buildStrapiEndpointQuery([
+  const populateQuery = buildStrapiPopulateQuery([
     'landingImageDesktop.image',
     'landingImageMobile.image',
     'videoSection',
@@ -49,11 +49,11 @@ export async function getLandingPageStrapiData(): Promise<LandingPageStrapiConte
     'quoteSection.quoteIcon',
   ]);
 
-  return fetchStrapiData('landing-page', query);
+  return fetchStrapiData('landing-page', populateQuery);
 }
 
 export async function getOurMissionVisionAndValuesPageStrapiData(): Promise<OurMissionVisionAndValuesPageStrapiContent> {
-  const query = buildStrapiEndpointQuery([
+  const populateQuery = buildStrapiPopulateQuery([
     'ourMissionSection.titleIcon',
     'ourMissionSection.sectionImage',
     'ourVisionSection.titleIcon',
@@ -61,26 +61,29 @@ export async function getOurMissionVisionAndValuesPageStrapiData(): Promise<OurM
     'ourValuesSection.titleIcon',
     'ourValuesSection.ourValuesEntries',
   ]);
-  return fetchStrapiData('mission-vision-and-values-page', query);
+  return fetchStrapiData('mission-vision-and-values-page', populateQuery);
 }
 
 export async function getOurTeamPageStrapiData(): Promise<OurTeamPageStrapiContent> {
-  const query = buildStrapiEndpointQuery([
+  const populateQuery = buildStrapiPopulateQuery([
     'departmentSections',
     'departmentSections.teamProfileDetails',
     'departmentSections.teamProfileDetails.profileImage',
   ]);
 
-  return fetchStrapiData('our-team-page', query);
+  return fetchStrapiData('our-team-page', populateQuery);
 }
 
 export async function getOurDonorsPageStrapiData(): Promise<OurDonorsPageStrapiContent> {
-  const query = buildStrapiEndpointQuery(['ourDonors', 'ourDonors.logo']);
-  return fetchStrapiData('our-donors-page', query);
+  const populateQuery = buildStrapiPopulateQuery([
+    'ourDonors',
+    'ourDonors.logo',
+  ]);
+  return fetchStrapiData('our-donors-page', populateQuery);
 }
 
 export async function getAboutUsPageStrapiData(): Promise<AboutUsPageStrapiContent> {
-  const query = buildStrapiEndpointQuery([
+  const populateQuery = buildStrapiPopulateQuery([
     'landingImage.image',
     'sections.image',
     'sections.link',
@@ -88,22 +91,22 @@ export async function getAboutUsPageStrapiData(): Promise<AboutUsPageStrapiConte
     'imageButtonSection.imageButtons',
     'imageButtonSection.imageButtons.image',
   ]);
-  return fetchStrapiData('about-us-page', query);
+  return fetchStrapiData('about-us-page', populateQuery);
 }
 
 export async function getOurWorkPageStrapiData(): Promise<OurWorkPageStrapiContent> {
-  const query = buildStrapiEndpointQuery([
+  const populateQuery = buildStrapiPopulateQuery([
     'landingImage.image',
     'quote',
     'metrics',
     'accordionSection.accordionItems',
     'accordionSection.accordionItems.linkIcon',
   ]);
-  return fetchStrapiData('our-work-page', query);
+  return fetchStrapiData('our-work-page', populateQuery);
 }
 
 export async function getGetInvolvedPageStrapiData(): Promise<GetInvolvedPageStrapiContent> {
-  const query = buildStrapiEndpointQuery([
+  const populateQuery = buildStrapiPopulateQuery([
     'landingCard.image',
     'sections.image',
     'sections.link',
@@ -111,30 +114,35 @@ export async function getGetInvolvedPageStrapiData(): Promise<GetInvolvedPageStr
     'paymentSection.paymentOptions',
     'paymentSection.paymentOptionIcon',
   ]);
-  return fetchStrapiData('get-involved-page', query);
+  return fetchStrapiData('get-involved-page', populateQuery);
 }
 
 export async function getDonatePageStrapiData(): Promise<DonatePageStrapiContent> {
-  const query = buildStrapiEndpointQuery([
+  const populateQuery = buildStrapiPopulateQuery([
     'landingCard.image',
     'metrics',
     'paymentSection.paymentOptions',
     'paymentSection.paymentOptionIcon',
   ]);
-  return fetchStrapiData('donate-page', query);
+  return fetchStrapiData('donate-page', populateQuery);
 }
 
-export async function getOurWorkSubPagesStrapiData(): Promise<StatTemplatePagesStrapiContent> {
-  const query = buildStrapiEndpointQuery([
+export async function getOurWorkSubPagesStrapiData(
+  slug: string
+): Promise<StatTemplatePagesStrapiContent> {
+  const populateQuery = buildStrapiPopulateQuery([
     'landingImage.image',
     'quote',
     'metrics',
   ]);
-  return fetchStrapiData(`our-work-sub-pages`, query, true);
+
+  const filter = `filters[url][$eq]=${slug}`;
+
+  return fetchStrapiData('our-work-sub-pages', populateQuery, true, filter);
 }
 
 export async function getBlogPostsStrapiData(): Promise<BlogPostsTemplatePageStrapiContent> {
-  const query = buildStrapiEndpointQuery([
+  const populateQuery = buildStrapiPopulateQuery([
     'landingImage',
     'title',
     'blogPostSummary',
@@ -142,5 +150,5 @@ export async function getBlogPostsStrapiData(): Promise<BlogPostsTemplatePageStr
     'publishedAt',
     'blogPostBody',
   ]);
-  return fetchStrapiData(`blog-posts`, query, true);
+  return fetchStrapiData(`blog-posts`, populateQuery, true);
 }
