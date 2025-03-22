@@ -31,8 +31,8 @@ const OurMissionVisionAndValuesPage: React.FC = () => {
           </div>
         </Col>
       </Row>
-      {data.sections.map((section) => (
-        <Row>
+      {data.sections.map((section, idx) => (
+        <Row key={idx}>
           <Col>
             <OurMissionVisionAndValuesPageSection sectionData={section} />
           </Col>

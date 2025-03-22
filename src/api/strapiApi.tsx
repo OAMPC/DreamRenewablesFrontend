@@ -54,7 +54,8 @@ export async function getLandingPageStrapiData(): Promise<LandingPageStrapiConte
 
 export async function getOurMissionVisionAndValuesPageStrapiData(): Promise<OurMissionVisionAndValuesPageStrapiContent> {
   const populateQuery = buildStrapiPopulateQuery([
-    'sections.titleIcon, landingCard.image',
+    'sections.titleIcon',
+    'landingCard.image',
   ]);
   return fetchStrapiData('mission-vision-and-values-page', populateQuery);
 }

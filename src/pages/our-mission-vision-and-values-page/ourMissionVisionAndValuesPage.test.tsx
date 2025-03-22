@@ -32,24 +32,17 @@ describe('OurMissionVisionAndValuesPage', () => {
   });
 
   describe('render elements', () => {
-    test('should render the our mission and values page mission section when data is loaded', async () => {
+    test('should render the about us landing card when data is loaded', async () => {
       await setup();
       await waitFor(() => {
-        expect(screen.getByTestId('our-mission-section')).toBeInTheDocument();
+        expect(screen.getByTestId('landing-card-desktop')).toBeInTheDocument();
       });
     });
 
-    test('should render the our mission and values page vision section when data is loaded', async () => {
+    test('should render the our mission and values page sections when data is loaded', async () => {
       await setup();
       await waitFor(() => {
-        expect(screen.getByTestId('our-vision-section')).toBeInTheDocument();
-      });
-    });
-
-    test('should render the our mission and values page values section when data is loaded', async () => {
-      await setup();
-      await waitFor(() => {
-        expect(screen.getByTestId('our-values-section')).toBeInTheDocument();
+        expect(screen.getAllByTestId('omvvp-section').length).toBe(3);
       });
     });
   });
