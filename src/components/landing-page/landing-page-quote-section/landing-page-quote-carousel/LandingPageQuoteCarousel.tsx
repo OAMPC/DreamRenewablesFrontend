@@ -4,7 +4,6 @@ import 'react-multi-carousel/lib/styles.css';
 import './landingPageQuoteCarousel.scss';
 import { QuoteSection } from '../../../../data/interfaces/landing-page/LandingPageStrapiContent';
 import LandingPageQuoteCarouselCard from '../landing-page-quote-carousel-card/LandingPageQuoteCarouselCard';
-import useWindowDimensions from '../../../../hooks/windowDimensions';
 import { Col, Row } from 'react-bootstrap';
 
 type Props = {
@@ -12,8 +11,6 @@ type Props = {
 };
 
 const LandingPageQuoteCarousel: React.FC<Props> = ({ quoteSection }) => {
-  const { width } = useWindowDimensions();
-  const isSmallScreenSize: boolean = width <= 1500 ? true : false;
   const responsive = {
     superLargeDesktop: {
       breakpoint: { max: 4000, min: 2175 },
@@ -47,9 +44,7 @@ const LandingPageQuoteCarousel: React.FC<Props> = ({ quoteSection }) => {
       <div>
         <Carousel
           arrows={false}
-          className={isSmallScreenSize ? '' : 'landing-page-quote-carousel '}
-          centerMode={!isSmallScreenSize}
-          infinite
+          className="landing-page-quote-carousel"
           draggable
           dotListClass="custom-dot-list-style"
           responsive={responsive}
