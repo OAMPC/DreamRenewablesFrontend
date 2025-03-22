@@ -1,33 +1,13 @@
+import { LandingCard } from '../landing-card/LandingCard';
 import { ImageStrapiContent } from '../util/ImageStrapiContent';
 
 export interface OurMissionVisionAndValuesPageStrapiContent {
-  pageTitle: string;
-  pageSubTitle: string;
-  ourMissionSection: OurMissionSection;
-  ourVisionSection: OurVisionSection;
-  ourValuesSection: OurValuesSection;
+  landingCard: LandingCard;
+  sections: Array<OurMissionVisionAndValuesPageSection>;
 }
 
-export interface OurMissionSection {
+export interface OurMissionVisionAndValuesPageSection {
   title: string;
   titleIcon: ImageStrapiContent;
-  sectionImage: ImageStrapiContent;
   sectionDescription: string;
-}
-
-export interface OurVisionSection {
-  title: string;
-  titleIcon: ImageStrapiContent;
-  sectionImage: ImageStrapiContent;
-  sectionDescription: string;
-}
-
-export interface OurValuesSection {
-  title: string;
-  titleIcon: ImageStrapiContent;
-  ourValuesEntries: string;
-}
-
-export interface ValueEntry {
-  valueEntry: string;
 }
