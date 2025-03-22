@@ -13,11 +13,7 @@ describe('Our Mission Vision and Values Page', () => {
 
   it('should load the our mission vision and values page and verify all elements are present and functioning', () => {
     cy.get('[data-testid="navbar"]').should('be.visible');
-
-    cy.get('[data-testid="our-mission-section"]').should('be.visible');
-    cy.get('[data-testid="our-vision-section"]').should('be.visible');
-    cy.get('[data-testid="our-values-section"]').should('be.visible');
-
+    cy.get('[data-testid="omvvp-section"]').should('have.length', 3);
     cy.get('[data-testid="footer"]').should('be.visible');
   });
 });
