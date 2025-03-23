@@ -1,6 +1,6 @@
 import React from 'react';
 import StatTemplatePage from '../stat-template-page/StatTemplatePage';
-import { useParams } from 'react-router-dom';
+import { Navigate, useParams } from 'react-router-dom';
 import { useQuery } from '@tanstack/react-query';
 import { getOurWorkSubPageStrapiData } from '../../api/strapiApi';
 import Loading from '../../components/loading/Loading';
@@ -15,7 +15,7 @@ const OurWorkSubPage: React.FC = () => {
     enabled: !!slug,
   });
 
-  if (!slug) return <p>Invalid URL</p>;
+  if (!slug) return <Navigate to="/404" replace />;
   if (isPending) return <Loading />;
   if (error || !data) return <p>Error Loading Data</p>;
 

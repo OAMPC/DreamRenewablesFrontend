@@ -1,6 +1,6 @@
 import React from 'react';
 import { useQuery } from '@tanstack/react-query';
-import { useParams } from 'react-router-dom';
+import { Navigate, useParams } from 'react-router-dom';
 import { getBlogPostStrapiData } from '../../api/strapiApi';
 import Loading from '../../components/loading/Loading';
 import BlogPostTemplatePage from '../blog-post-template-page/BlogPostTemplatePage';
@@ -16,7 +16,7 @@ const BlogPage: React.FC = () => {
       enabled: !!slug,
     });
 
-  if (!slug) return <p>Invalid URL</p>;
+  if (!slug) return <Navigate to="/404" replace />;
   if (isPending) return <Loading />;
   if (error || !data) return <p>Error Loading Data</p>;
 
