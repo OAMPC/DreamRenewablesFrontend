@@ -1,4 +1,5 @@
 import React from 'react';
+import logo from '../../../favicon.ico';
 import { Col, Row } from 'react-bootstrap';
 
 const NotFoundPage: React.FC = () => {
@@ -13,7 +14,7 @@ const NotFoundPage: React.FC = () => {
             <div className="text-center">
               <img
                 data-testid="dr-logo"
-                src="../../../favicon.ico"
+                src={logo}
                 height="250"
                 width="250"
                 className="mb-3 shadow-lg bg-white rounded p-3"
