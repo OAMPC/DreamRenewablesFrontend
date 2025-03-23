@@ -2,6 +2,7 @@ import React, { lazy, Suspense } from 'react';
 import { createBrowserRouter } from 'react-router-dom';
 import LandingPage from './pages/landing-page/LandingPage';
 import Loading from './components/loading/Loading';
+import NotFoundPage from './pages/not-found-page/NotFoundPage';
 
 const OurMissionVisionAndValuesPage = lazy(
   () =>
@@ -108,6 +109,14 @@ const createRoutes = async () => {
       element: (
         <Suspense fallback={<Loading />}>
           <BlogPage />
+        </Suspense>
+      ),
+    },
+    {
+      path: '*',
+      element: (
+        <Suspense fallback={<Loading />}>
+          <NotFoundPage />
         </Suspense>
       ),
     },
