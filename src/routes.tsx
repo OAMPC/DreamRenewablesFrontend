@@ -120,6 +120,14 @@ const createRoutes = async () => {
         </Suspense>
       ),
     },
+    {
+      path: '/404',
+      element: (
+        <Suspense fallback={<Loading />}>
+          <NotFoundPage />
+        </Suspense>
+      ),
+    },
   ];
 
   return createBrowserRouter(routes);
