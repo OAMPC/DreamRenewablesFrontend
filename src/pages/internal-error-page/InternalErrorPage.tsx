@@ -1,12 +1,12 @@
 import React from 'react';
 import ErrorTemplatePage from '../error-template-page/ErrorTemplatePage';
 
-const NotFoundPage: React.FC = () => {
+const InternalErrorPage: React.FC = () => {
   return (
     <ErrorTemplatePage
-      errorMessage={'ERROR 404: Sorry this page cannot be found'}
+      errorMessage={'ERROR 500: Sorry something went wrong on our side!'}
     />
   );
 };
 
-export default NotFoundPage;
+export default InternalErrorPage;
