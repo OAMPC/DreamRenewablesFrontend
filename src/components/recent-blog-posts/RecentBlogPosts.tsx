@@ -18,7 +18,7 @@ const RecentBlogPosts: React.FC<Props> = ({ currentBlogPageSlug }) => {
     });
 
   if (isPending) return <Loading />;
-  if (error || !data) return <p>Error Loading Data</p>;
+  if (error || !data) throw new Error(`Failed to load data: ${error.message}`);
 
   const recentPosts = data.data.slice(0, 3);
 

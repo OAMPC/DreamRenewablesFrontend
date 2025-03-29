@@ -19,7 +19,7 @@ const LandingPage: React.FC = () => {
   });
 
   if (isPending) return <Loading />;
-  if (error || !data) return <p>Error Loading Data</p>;
+  if (error || !data) throw new Error(`Failed to load data: ${error.message}`);
 
   return (
     <PageWrapper>

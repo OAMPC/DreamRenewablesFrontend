@@ -2,6 +2,8 @@ import React, { lazy, Suspense } from 'react';
 import Loading from './components/loading/Loading';
 import NotFoundPage from './pages/not-found-page/NotFoundPage';
 import LandingPage from './pages/landing-page/LandingPage';
+import InternalErrorPage from './pages/internal-error-page/InternalErrorPage';
+import ErrorBoundary from './components/error-boundary/ErrorBoundary';
 
 const OurMissionVisionAndValuesPage = lazy(
   () =>
@@ -28,102 +30,140 @@ const BlogPage = lazy(() => import('./pages/blog-page/BlogPage'));
 export const routesConfig = [
   {
     path: '/',
-    element: <LandingPage />,
+    element: (
+      <ErrorBoundary>
+        <LandingPage />
+      </ErrorBoundary>
+    ),
   },
   {
     path: '/our-mission-vision-and-values',
     element: (
-      <Suspense fallback={<Loading />}>
-        <OurMissionVisionAndValuesPage />
-      </Suspense>
+      <ErrorBoundary>
+        <Suspense fallback={<Loading />}>
+          <OurMissionVisionAndValuesPage />
+        </Suspense>
+      </ErrorBoundary>
     ),
   },
   {
     path: '/our-team',
     element: (
-      <Suspense fallback={<Loading />}>
-        <OurTeamPage />
-      </Suspense>
+      <ErrorBoundary>
+        <Suspense fallback={<Loading />}>
+          <OurTeamPage />
+        </Suspense>
+      </ErrorBoundary>
     ),
   },
   {
     path: '/our-donors',
     element: (
-      <Suspense fallback={<Loading />}>
-        <OurDonorsPage />
-      </Suspense>
+      <ErrorBoundary>
+        <Suspense fallback={<Loading />}>
+          <OurDonorsPage />
+        </Suspense>
+      </ErrorBoundary>
     ),
   },
   {
     path: '/about-us',
     element: (
-      <Suspense fallback={<Loading />}>
-        <AboutUsPage />
-      </Suspense>
+      <ErrorBoundary>
+        <Suspense fallback={<Loading />}>
+          <AboutUsPage />
+        </Suspense>
+      </ErrorBoundary>
     ),
   },
   {
     path: '/get-involved',
     element: (
-      <Suspense fallback={<Loading />}>
-        <GetInvolvedPage />
-      </Suspense>
+      <ErrorBoundary>
+        <Suspense fallback={<Loading />}>
+          <GetInvolvedPage />
+        </Suspense>
+      </ErrorBoundary>
     ),
   },
   {
     path: '/donate',
     element: (
-      <Suspense fallback={<Loading />}>
-        <DonatePage />
-      </Suspense>
+      <ErrorBoundary>
+        <Suspense fallback={<Loading />}>
+          <DonatePage />
+        </Suspense>
+      </ErrorBoundary>
     ),
   },
   {
     path: '/our-work',
     element: (
-      <Suspense fallback={<Loading />}>
-        <OurWorkPage />
-      </Suspense>
+      <ErrorBoundary>
+        <Suspense fallback={<Loading />}>
+          <OurWorkPage />
+        </Suspense>
+      </ErrorBoundary>
     ),
   },
   {
     path: '/our-work/:slug',
     element: (
-      <Suspense fallback={<Loading />}>
-        <OurWorkSubPage />
-      </Suspense>
+      <ErrorBoundary>
+        <Suspense fallback={<Loading />}>
+          <OurWorkSubPage />
+        </Suspense>
+      </ErrorBoundary>
     ),
   },
   {
     path: '/blog-home',
     element: (
-      <Suspense fallback={<Loading />}>
-        <BlogHomePage />
-      </Suspense>
+      <ErrorBoundary>
+        <Suspense fallback={<Loading />}>
+          <BlogHomePage />
+        </Suspense>
+      </ErrorBoundary>
     ),
   },
   {
     path: '/blog/:slug',
     element: (
-      <Suspense fallback={<Loading />}>
-        <BlogPage />
-      </Suspense>
+      <ErrorBoundary>
+        <Suspense fallback={<Loading />}>
+          <BlogPage />
+        </Suspense>
+      </ErrorBoundary>
     ),
   },
   {
     path: '*',
     element: (
-      <Suspense fallback={<Loading />}>
-        <NotFoundPage />
-      </Suspense>
+      <ErrorBoundary>
+        <Suspense fallback={<Loading />}>
+          <NotFoundPage />
+        </Suspense>
+      </ErrorBoundary>
     ),
   },
   {
     path: '/404',
     element: (
-      <Suspense fallback={<Loading />}>
-        <NotFoundPage />
-      </Suspense>
+      <ErrorBoundary>
+        <Suspense fallback={<Loading />}>
+          <NotFoundPage />
+        </Suspense>
+      </ErrorBoundary>
+    ),
+  },
+  {
+    path: '/500',
+    element: (
+      <ErrorBoundary>
+        <Suspense fallback={<Loading />}>
+          <InternalErrorPage />
+        </Suspense>
+      </ErrorBoundary>
     ),
   },
 ];
