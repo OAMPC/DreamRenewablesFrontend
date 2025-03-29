@@ -32,10 +32,12 @@ const OurDonorsPage: React.FC = () => {
           </h2>
         </Col>
       </Row>
-      <Row className="d-flex justify-content-center">
+      <Row className="d-flex justify-content-center align-items-stretch">
         {data.ourDonors.map((donor, index) => (
-          <Col xl="3" md="4" xs="12" key={index}>
-            <OurDonorsPageDonor ourDonor={donor} />
+          <Col xl="3" md="4" xs="12" key={index} className="d-flex">
+            <div className="mb-5">
+              <OurDonorsPageDonor ourDonor={donor} />
+            </div>
           </Col>
         ))}
       </Row>
