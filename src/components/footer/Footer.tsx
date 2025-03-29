@@ -47,7 +47,7 @@ const Footer: React.FC = () => {
                 <Nav.Link
                   className="my-2"
                   key={standardLink.id}
-                  href={standardLink.linkSlug}
+                  href={`/${standardLink.linkSlug}`}
                 >
                   {standardLink.linkString}
                 </Nav.Link>
