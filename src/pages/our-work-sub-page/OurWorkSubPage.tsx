@@ -17,7 +17,7 @@ const OurWorkSubPage: React.FC = () => {
 
   if (!slug) return <Navigate to="/404" replace />;
   if (isPending) return <Loading />;
-  if (error || !data) return <p>Error Loading Data</p>;
+  if (error || !data) throw new Error(`Failed to load data: ${error.message}`);
 
   return <StatTemplatePage strapiData={data.data[0].attributes} />;
 };
