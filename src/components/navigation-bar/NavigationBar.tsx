@@ -31,7 +31,7 @@ const NavigationBar: React.FC = () => {
                       <NavDropdown.Item
                         className={styles.dropdownItem}
                         key={nestedLink.id}
-                        href={nestedLink.linkSlug}
+                        href={`/${nestedLink.linkSlug}`}
                       >
                         {nestedLink.linkString}
                       </NavDropdown.Item>
@@ -41,7 +41,7 @@ const NavigationBar: React.FC = () => {
                 {content.standardLinks.map((standardLink) => (
                   <Nav.Link
                     key={standardLink.id}
-                    href={standardLink.linkSlug}
+                    href={`/${standardLink.linkSlug}`}
                     className={`${styles.underlineAnimation} me-4`}
                     data-testid="standard-link-title"
                   >
@@ -49,7 +49,7 @@ const NavigationBar: React.FC = () => {
                   </Nav.Link>
                 ))}
                 <Button
-                  href={content.button.buttonSlug}
+                  href={`/${content.button.buttonSlug}`}
                   className={`${styles.navigationButton} ms-3`}
                   data-testid="navigation-button"
                 >
