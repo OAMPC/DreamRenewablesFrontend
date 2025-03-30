@@ -32,7 +32,7 @@ const OurTeamPageDepartmentSection: React.FC<Props> = ({
               md="4"
               xs="12"
               key={index}
-              className="d-flex mb-5 mb-xl-3"
+              className="d-flex justify-content-center mb-5 mb-xl-3"
             >
               <div className="d-flex flex-column flex-grow-2 shadow-sm rounded-4 p-3 h-100">
                 <Row>
