@@ -1,29 +1,11 @@
-.departmentSectionProfileImageAccent {
-  position: relative;
-  margin-bottom: 3vh;
+.departmentSectionProfileImage {
+  background-color: white;
+  height: 175px;
+  max-width: 20vw;
+  padding: 5px;
+  background-size: cover;
 
-  &::before {
-    content: '';
-    position: absolute;
-    width: 8vw;
-    height: 4vw;
-    background-color: var(--primary);
-    z-index: -1;
-    border-radius: 10px;
-    top: 20%;
-    right: 40%;
-
-    @media (max-width: 992px) {
-      top: 30%;
-      right: 70%;
-      height: 8vw;
-    }
-
-    @media (max-width: 768px) {
-      top: 30%;
-      right: 70%;
-      height: 10vw;
-      width: 15vw;
-    }
+  @media (max-width: 768px) {
+    max-width: 50vw;
   }
 }
