@@ -26,7 +26,7 @@ const AboutUsPage: React.FC = () => {
           <div className="d-none d-sm-block mb-5">
             <LandingCardDesktop landingCard={data.landingImage} />
           </div>
-          <div className="d-sm-none">
+          <div className="d-sm-none mb-5">
             <LandingCardMobile landingCard={data.landingImage} />
           </div>
         </Col>
