@@ -18,7 +18,7 @@ const NavigationBar: React.FC = () => {
               />
             </Navbar.Brand>
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
-            <Navbar.Collapse className="justify-content-end">
+            <Navbar.Collapse className="justify-content-end mt-3">
               <Nav>
                 {content.dropdownLinks.map((dropdownLink) => (
                   <NavDropdown
@@ -50,11 +50,18 @@ const NavigationBar: React.FC = () => {
                 ))}
                 <Button
                   href={`/${content.button.buttonSlug}`}
-                  className={`${styles.navigationButton} ms-3`}
+                  className={`${styles.navigationButton} ms-3 d-none d-lg-block`}
                   data-testid="navigation-button"
                 >
                   {content.button.buttonString}
                 </Button>
+                <Nav.Link
+                  className={`${styles.underlineAnimation} me-4 d-lg-none`}
+                  href={`/${content.button.buttonSlug}`}
+                  data-testid="navigation-button"
+                >
+                  {content.button.buttonString}
+                </Nav.Link>
               </Nav>
             </Navbar.Collapse>
           </Navbar>
