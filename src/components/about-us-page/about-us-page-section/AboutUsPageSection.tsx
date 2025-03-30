@@ -12,7 +12,7 @@ const AboutUsPageSection: React.FC<Props> = ({ sectionData, rowIndex }) => {
     <Container className="mb-5">
       <Row className="gx-5">
         <Col
-          className={`${rowIndex % 2 == 0 ? 'order-xl-first' : 'order-xl-last'} order-last `}
+          className={`${rowIndex % 2 == 0 ? 'order-xl-first' : 'order-xl-last'} order-last`}
           xs="12"
           xl="6"
         >
@@ -58,7 +58,7 @@ const AboutUsPageSection: React.FC<Props> = ({ sectionData, rowIndex }) => {
           <Image
             data-testid="about-us-page-section-image"
             fluid
-            className="mb-2"
+            className="mb-3 rounded-5"
             src={sectionData.image.data.attributes.url}
             alt={sectionData.image.data.attributes.alternativeText}
           />
