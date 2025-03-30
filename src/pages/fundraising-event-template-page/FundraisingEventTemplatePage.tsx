@@ -9,6 +9,116 @@ type Props = {
   strapiData: FundraisingEventTemplatePageStrapiContent;
 };
 
+const EventDetails: React.FC<{
+  strapiData: FundraisingEventTemplatePageStrapiContent;
+}> = ({ strapiData }) => (
+  <Row className="mb-4 justify-content-center">
+    <Col xl={4} md={6} xs={12}>
+      <Row>
+        <Col>
+          <p data-testid="fundraising-event-date" className="fs-5 text-center">
+            <i className="bi bi-calendar-event me-2"></i>
+            {strapiData.eventDate}
+          </p>
+        </Col>
+      </Row>
+      <Row className="mb-3">
+        <Col>
+          <h1
+            data-testid="fundraising-event-title"
+            className="fs-1 fw-bold text-center"
+          >
+            {strapiData.eventTitle}
+          </h1>
+        </Col>
+      </Row>
+      <Row>
+        <Col>
+          <Markdown rawMarkdown={strapiData.eventDescription} />
+        </Col>
+      </Row>
+      <Row>
+        <p>
+          If you're unsure about anything or need clarification, don’t hesitate
+          to get in touch.
+        </p>
+      </Row>
+      <Row>
+        <Col>
+          <p className="fs-5 fw-bold text-break">
+            <i className="bi bi-envelope me-3"></i>
+            {strapiData.contactEmail}
+          </p>
+        </Col>
+      </Row>
+    </Col>
+  </Row>
+);
+
+const SignUpSection: React.FC<{
+  strapiData: FundraisingEventTemplatePageStrapiContent;
+}> = ({ strapiData }) => {
+  if (!strapiData.signUpInfo?.title || !strapiData.signUpInfo?.signUpLink)
+    return null;
+
+  return (
+    <Row>
+      <div className={`${style.signUpBanner} d-block d-md-none w-100 py-3`}>
+        <Container className="d-flex justify-content-center">
+          <div className="bg-white rounded-3 p-4 w-75">
+            <SignUpContent strapiData={strapiData} />
+          </div>
+        </Container>
+      </div>
+
+      <div className="d-none d-md-block">
+        <Container className="d-flex justify-content-center">
+          <div
+            className={`${style.signUpCard} bg-white rounded-3 p-3 shadow w-25"`}
+          >
+            <SignUpContent strapiData={strapiData} />
+          </div>
+        </Container>
+      </div>
+    </Row>
+  );
+};
+
+const SignUpContent: React.FC<{
+  strapiData: FundraisingEventTemplatePageStrapiContent;
+}> = ({ strapiData }) => (
+  <>
+    <Row>
+      <Col>
+        <p className="text-center fs-3 fw-bold">
+          {strapiData.signUpInfo.title}
+        </p>
+      </Col>
+    </Row>
+    <Row className="mb-3">
+      <Col>
+        <Button
+          href={strapiData.signUpInfo.signUpLink}
+          className={`${style.primaryButton} d-flex justify-content-center btn-effect`}
+        >
+          Sign Up
+        </Button>
+      </Col>
+    </Row>
+    <Row>
+      <Col>
+        <Button
+          href="/contact"
+          data-testid="contact-us-button"
+          className={`${style.secondaryButton} d-flex justify-content-center btn-effect`}
+        >
+          Contact Us
+        </Button>
+      </Col>
+    </Row>
+  </>
+);
+
 const FundraisingEventTemplatePage: React.FC<Props> = ({ strapiData }) => {
   return (
     <PageWrapper>
@@ -24,88 +134,9 @@ const FundraisingEventTemplatePage: React.FC<Props> = ({ strapiData }) => {
           </div>
         </Col>
       </Row>
-      <Row className="mb-5 justify-content-center">
-        <Col xl={4} md={6} xs={12}>
-          <Row className="">
-            <Col>
-              <p
-                data-testid="fundraising-event-date"
-                className="fs-5 text-center"
-              >
-                <i className="bi bi-calendar-event me-2"></i>
-                {strapiData.eventDate}
-              </p>
-            </Col>
-          </Row>
-          <Row className="mb-3">
-            <Col>
-              <h1
-                data-testid="fundraising-event-title"
-                className="fs-1 fw-bold text-center"
-              >
-                {strapiData.eventTitle}
-              </h1>
-            </Col>
-          </Row>
-          <Row>
-            <Col>
-              <Markdown rawMarkdown={strapiData.eventDescription} />
-            </Col>
-          </Row>
-          <Row>
-            <p>
-              If your unsure about anything or just need something clarifying,
-              don’t hesitate to get in touch.
-            </p>
-          </Row>
-          <Row>
-            <Col>
-              <p className="fs-5 fw-bold text-break">
-                <i className="bi bi-envelope me-3"></i>
-                {strapiData.contactEmail}
-              </p>
-            </Col>
-          </Row>
-        </Col>
-      </Row>
-      {strapiData.signUpInfo &&
-        strapiData.signUpInfo.title &&
-        strapiData.signUpInfo.signUpLink && (
-          <div className={`${style.signUpBanner} w-100 py-3`}>
-            <Container className="d-flex justify-content-center">
-              <div className="bg-white rounded-3 p-4 w-75">
-                <Row>
-                  <Col>
-                    <p className="text-center fs-3 fw-bold">
-                      {strapiData.signUpInfo.title}
-                    </p>
-                  </Col>
-                </Row>
-                <Row className="mb-3">
-                  <Col>
-                    <Button
-                      href={strapiData.signUpInfo.signUpLink}
-                      className={`${style.primaryButton} d-flex justify-content-center btn-effect`}
-                    >
-                      Sign Up
-                    </Button>
-                  </Col>
-                </Row>
-                <Row className="">
-                  <Col>
-                    <Button
-                      href="/contact"
-                      data-testid="contact-us-button"
-                      className={`${style.secondaryButton} d-flex justify-content-center btn-effect`}
-                    >
-                      Contact Us
-                    </Button>
-                  </Col>
-                </Row>
-              </div>
-            </Container>
-          </div>
-        )}
+
+      <EventDetails strapiData={strapiData} />
+      <SignUpSection strapiData={strapiData} />
     </PageWrapper>
   );
 };
