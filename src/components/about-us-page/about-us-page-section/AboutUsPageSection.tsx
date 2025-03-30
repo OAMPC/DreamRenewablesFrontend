@@ -19,7 +19,7 @@ const AboutUsPageSection: React.FC<Props> = ({ sectionData, rowIndex }) => {
           <Row className="mt-xl-5">
             <Col className="text-center text-xl-start">
               <h2
-                data-testid="about-us-page-section-title "
+                data-testid="about-us-page-section-title"
                 className="mt-lg-4 mb-lg-5 mb-0 fs-1 fw-bolder rounded-5"
               >
                 {sectionData.title}

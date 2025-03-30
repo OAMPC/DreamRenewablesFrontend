@@ -58,7 +58,7 @@ const NavigationBar: React.FC = () => {
                 <Nav.Link
                   className={`${styles.underlineAnimation} me-4 d-lg-none`}
                   href={`/${content.button.buttonSlug}`}
-                  data-testid="navigation-button"
+                  data-testid="navigation-mobile-link"
                 >
                   {content.button.buttonString}
                 </Nav.Link>
