@@ -10,7 +10,10 @@ const LandingCardMobile: React.FC<Props> = ({ landingCard }) => {
   return (
     <Row data-testid="landing-card-mobile">
       <Col>
-        <h1 data-testid="landing-title-mobile" className="text-center my-3">
+        <h1
+          data-testid="landing-title-mobile"
+          className="fw-bolder text-center my-3"
+        >
           {landingCard.title}
         </h1>
         <Image
