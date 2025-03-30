@@ -1,58 +1,43 @@
 import React from 'react';
-import * as Bs from 'react-bootstrap';
-import { useLoaderData } from 'react-router-dom';
-import { LoaderData } from '../../data/types/LoaderData';
 import PageWrapper from '../../components/page-wrapper/PageWrapper';
-import OurMissionVisionAndValuesPageMissionSection from '../../components/our-mission-vision-and-values-page/our-mission-vision-and-values-page-mission-section/OurMissionVisionAndValuesPageMissionSection';
-import OurMissionVisionAndValuesPageVisionSection from '../../components/our-mission-vision-and-values-page/our-mission-vision-and-values-page-vision-section/OurMissionVisionAndValuesPageVisionSection';
-import OurMissionVisionAndValuesPageValuesSection from '../../components/our-mission-vision-and-values-page/our-mission-vision-and-values-page-values-section/OurMissionVisionAndValuesPageValuesSection';
+import Loading from '../../components/loading/Loading';
+import { Col, Row } from 'react-bootstrap';
+import { useQuery } from '@tanstack/react-query';
+import { getOurMissionVisionAndValuesPageStrapiData } from '../../api/strapiApi';
+import { OurMissionVisionAndValuesPageStrapiContent } from '../../data/interfaces/our-mission-vision-and-values-page/OurMissionVisionAndValuesPageStrapiContent';
+import OurMissionVisionAndValuesPageSection from '../../components/our-mission-vision-and-values-page/our-mission-vision-and-values-section/OurMissionVisionAndValuesSection';
+import LandingCardDesktop from '../../components/landing-card/desktop/LandingCardDesktop';
+import LandingCardMobile from '../../components/landing-card/mobile/landingCardMobile';
 
 const OurMissionVisionAndValuesPage: React.FC = () => {
-  const { ourMissionVisionAndValuesStrapiData } = useLoaderData() as LoaderData;
+  const { data, isPending, error } =
+    useQuery<OurMissionVisionAndValuesPageStrapiContent>({
+      queryKey: ['ourMissionVisionAndValuesPageStrapiContent'],
+      queryFn: getOurMissionVisionAndValuesPageStrapiData,
+    });
+
+  if (isPending) return <Loading />;
+  if (error || !data) throw new Error(`Failed to load data: ${error.message}`);
 
   return (
     <PageWrapper>
-      <Bs.Row className="mt-5 mb-2">
-        <Bs.Col className="text-center">
-          <h1 className="fs-1 fw-bold">
-            {ourMissionVisionAndValuesStrapiData.pageTitle}
-          </h1>
-        </Bs.Col>
-      </Bs.Row>
-      <Bs.Row className="mb-3">
-        <Bs.Col className="text-center">
-          <p className="fs-4">
-            {ourMissionVisionAndValuesStrapiData.pageSubTitle}
-          </p>
-        </Bs.Col>
-      </Bs.Row>
-      <Bs.Row>
-        <Bs.Col>
-          <OurMissionVisionAndValuesPageMissionSection
-            ourMissionSection={
-              ourMissionVisionAndValuesStrapiData.ourMissionSection
-            }
-          />
-        </Bs.Col>
-      </Bs.Row>
-      <Bs.Row>
-        <Bs.Col>
-          <OurMissionVisionAndValuesPageVisionSection
-            ourVisionSection={
-              ourMissionVisionAndValuesStrapiData.ourVisionSection
-            }
-          />
-        </Bs.Col>
-      </Bs.Row>
-      <Bs.Row>
-        <Bs.Col>
-          <OurMissionVisionAndValuesPageValuesSection
-            ourValuesSection={
-              ourMissionVisionAndValuesStrapiData.ourValuesSection
-            }
-          />
-        </Bs.Col>
-      </Bs.Row>
+      <Row>
+        <Col>
+          <div className="d-none d-sm-block mb-5">
+            <LandingCardDesktop landingCard={data.landingCard} />
+          </div>
+          <div className="d-sm-none">
+            <LandingCardMobile landingCard={data.landingCard} />
+          </div>
+        </Col>
+      </Row>
+      {data.sections.map((section, idx) => (
+        <Row key={idx}>
+          <Col>
+            <OurMissionVisionAndValuesPageSection sectionData={section} />
+          </Col>
+        </Row>
+      ))}
     </PageWrapper>
   );
 };

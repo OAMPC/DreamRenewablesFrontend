@@ -1,0 +1,21 @@
+.landingCard {
+  background-size: cover;
+  background-position: center;
+  height: 65vh;
+  width: 85vw;
+  border-radius: 25px;
+}
+
+.landingCardTitleWrapper {
+  margin: 0 0 5rem 3rem;
+}
+
+.landingCardTitle {
+  font-size: 3em;
+  font-weight: 600;
+  width: 50vw;
+}
+
+.landingCardSubTitle {
+  width: 50vw;
+}

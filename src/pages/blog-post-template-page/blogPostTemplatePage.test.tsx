@@ -1,52 +1,41 @@
-import { render, screen, waitFor } from '@testing-library/react';
+import { screen, waitFor } from '@testing-library/react';
 import React from 'react';
-import { MemoryRouter } from 'react-router-dom';
-import { afterEach, beforeEach, describe, expect, test, vi } from 'vitest';
-import navigationBarFactory from '../../test/factories/strapi/NavigationBarFactory';
-import FooterFactory from '../../test/factories/strapi/FooterFactory';
-import { SharedDataContext } from '../../contexts/SharedDataProvider';
+import {
+  afterEach,
+  beforeEach,
+  describe,
+  expect,
+  Mock,
+  test,
+  vi,
+} from 'vitest';
 import BlogPostsFactory from '../../test/factories/strapi/BlogPostsFactory';
 import BlogPostTemplatePage from './BlogPostTemplatePage';
-import {
-  getMostRecentPosts,
-  sortBlogPostsNewestToOldest,
-} from '../../util/blogHelper';
-
-vi.mock('react-router-dom', async () => {
-  const actual = await vi.importActual('react-router-dom');
-  return {
-    ...actual,
-    useLoaderData: vi.fn(),
-  };
-});
+import { useQuery } from '@tanstack/react-query';
+import { renderWithProviders } from '../../test/helpers/helpers';
 
 describe('BlogPostTemplatePage', () => {
   const mockData = new BlogPostsFactory().getMockData();
-  const navigationBarStrapiData = new navigationBarFactory().getMockData();
-  const footerStrapiData = new FooterFactory().getMockData();
-
-  const sortedBlogPages = sortBlogPostsNewestToOldest({ data: mockData });
+  const mockRecentPosts = { data: mockData.slice(1, 4) };
 
   const setup = async () => {
-    render(
-      <SharedDataContext.Provider
-        value={{
-          navigationBarContent: navigationBarStrapiData,
-          footerContent: footerStrapiData,
-        }}
-      >
-        <MemoryRouter>
-          <BlogPostTemplatePage
-            strapiData={sortedBlogPages[0].attributes}
-            recentBlogPosts={{
-              data: getMostRecentPosts(
-                { data: sortedBlogPages },
-                sortedBlogPages[0].attributes
-              ),
-            }}
-          />
-        </MemoryRouter>
-      </SharedDataContext.Provider>
+    (vi.mocked(useQuery) as Mock).mockImplementation(({ queryKey }) => {
+      if (queryKey[0] === 'RecentBlogPosts') {
+        return {
+          data: mockRecentPosts,
+          isLoading: false,
+          error: null,
+        };
+      }
+      return {
+        data: mockData,
+        isLoading: false,
+        error: null,
+      };
+    });
+
+    renderWithProviders(
+      <BlogPostTemplatePage strapiData={mockData[0].attributes} />
     );
   };
 

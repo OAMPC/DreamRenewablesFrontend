@@ -44,7 +44,7 @@ const StatTemplatePage: React.FC<Props> = ({ strapiData }) => {
         <Col>
           <p
             data-testid="stat-template-page-free-text"
-            className="fs-4 px-5 text-center"
+            className="fs-4 px-xl-5 text-center"
           >
             {strapiData.freeText}
           </p>

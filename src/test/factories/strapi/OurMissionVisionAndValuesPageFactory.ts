@@ -6,7 +6,7 @@ class OurMissionVisionAndValuesPageFactory extends BaseFactory<OurMissionVisionA
   constructor() {
     super(
       ourMissionVisionAndValuesPageStrapiResponse,
-      `${import.meta.env.VITE_BASE_URL}/api/mission-vision-and-values-page?populate[0]=ourMissionSection.titleIcon&populate[1]=ourMissionSection.sectionImage&populate[2]=ourVisionSection.titleIcon&populate[3]=ourVisionSection.sectionImage&populate[4]=ourValuesSection.titleIcon&populate[5]=ourValuesSection.ourValuesEntries`
+      `${import.meta.env.VITE_BASE_URL}/api/mission-vision-and-values-page?populate[0]=sections.titleIcon&populate[1]=landingCard.image`
     );
   }
 }

@@ -1,51 +1,11 @@
-.logoAccent {
-  position: relative;
-  margin-bottom: 3vh;
+.donorLogo {
+  background-color: white;
+  height: 175px;
+  max-width: 20vw;
+  padding: 10px;
+  background-size: cover;
 
-  &::before {
-    content: '';
-    position: absolute;
-    width: 5vw;
-    height: 6.5vw;
-    background-color: var(--primary);
-    z-index: -1;
-    border-radius: 10px;
-    bottom: 20%;
-    right: 40%;
-
-    @media (max-width: 2000px) {
-      bottom: 30%;
-      right: 40%;
-      height: 7.5vw;
-      width: 6.5vw;
-    }
-
-    @media (max-width: 1600px) {
-      bottom: 30%;
-      right: 40%;
-      height: 10vw;
-      width: 8vw;
-    }
-
-    @media (max-width: 1300px) {
-      bottom: 30%;
-      right: 40%;
-      height: 12vw;
-      width: 10vw;
-    }
-
-    @media (max-width: 992px) {
-      bottom: 30%;
-      right: 40%;
-      height: 15vw;
-      width: 13vw;
-    }
-
-    @media (max-width: 768px) {
-      bottom: 30%;
-      right: 40%;
-      height: 18vw;
-      width: 18vw;
-    }
+  @media (max-width: 768px) {
+    max-width: 50vw;
   }
 }

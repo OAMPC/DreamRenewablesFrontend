@@ -1,6 +1,5 @@
-import { render, screen, waitFor } from '@testing-library/react';
+import { screen, waitFor } from '@testing-library/react';
 import React from 'react';
-import { MemoryRouter, useLoaderData } from 'react-router-dom';
 import {
   afterEach,
   beforeEach,
@@ -10,43 +9,22 @@ import {
   test,
   vi,
 } from 'vitest';
-import navigationBarFactory from '../../test/factories/strapi/NavigationBarFactory';
-import FooterFactory from '../../test/factories/strapi/FooterFactory';
 import OurMissionVisionAndValuesPageFactory from '../../test/factories/strapi/OurMissionVisionAndValuesPageFactory';
 import OurMissionVisionAndValuesPage from './OurMissionVisionAndValuesPage';
-import { SharedDataContext } from '../../contexts/SharedDataProvider';
-
-vi.mock('react-router-dom', async () => {
-  const actual = await vi.importActual('react-router-dom');
-  return {
-    ...actual,
-    useLoaderData: vi.fn(),
-  };
-});
+import { useQuery } from '@tanstack/react-query';
+import { renderWithProviders } from '../../test/helpers/helpers';
 
 describe('OurMissionVisionAndValuesPage', () => {
-  const mockLoaderData = {
-    ourMissionVisionAndValuesStrapiData:
-      new OurMissionVisionAndValuesPageFactory().getMockData(),
-  };
-
-  const navigationBarStrapiData = new navigationBarFactory().getMockData();
-  const footerStrapiData = new FooterFactory().getMockData();
+  const mockData = new OurMissionVisionAndValuesPageFactory().getMockData();
 
   const setup = async () => {
-    (useLoaderData as Mock).mockReturnValue(mockLoaderData);
-    render(
-      <SharedDataContext.Provider
-        value={{
-          navigationBarContent: navigationBarStrapiData,
-          footerContent: footerStrapiData,
-        }}
-      >
-        <MemoryRouter>
-          <OurMissionVisionAndValuesPage />
-        </MemoryRouter>
-      </SharedDataContext.Provider>
-    );
+    (vi.mocked(useQuery) as Mock).mockReturnValue({
+      data: mockData,
+      isLoading: false,
+      error: null,
+    });
+
+    renderWithProviders(<OurMissionVisionAndValuesPage />);
   };
 
   beforeEach(() => {
@@ -54,24 +32,17 @@ describe('OurMissionVisionAndValuesPage', () => {
   });
 
   describe('render elements', () => {
-    test('should render the our mission and values page mission section when data is loaded', async () => {
+    test('should render the about us landing card when data is loaded', async () => {
       await setup();
       await waitFor(() => {
-        expect(screen.getByTestId('our-mission-section')).toBeInTheDocument();
+        expect(screen.getByTestId('landing-card-desktop')).toBeInTheDocument();
       });
     });
 
-    test('should render the our mission and values page vision section when data is loaded', async () => {
+    test('should render the our mission and values page sections when data is loaded', async () => {
       await setup();
       await waitFor(() => {
-        expect(screen.getByTestId('our-vision-section')).toBeInTheDocument();
-      });
-    });
-
-    test('should render the our mission and values page values section when data is loaded', async () => {
-      await setup();
-      await waitFor(() => {
-        expect(screen.getByTestId('our-values-section')).toBeInTheDocument();
+        expect(screen.getAllByTestId('omvvp-section').length).toBe(3);
       });
     });
   });

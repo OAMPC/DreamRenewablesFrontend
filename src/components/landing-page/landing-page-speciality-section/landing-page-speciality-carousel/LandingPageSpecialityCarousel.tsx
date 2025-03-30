@@ -1,10 +1,10 @@
 import React from 'react';
-import * as Bs from 'react-bootstrap';
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
 import { SpecialitySection } from '../../../../data/interfaces/landing-page/LandingPageStrapiContent';
 import LandingPageSpecialityCarouselCard from '../landing-page-speciality-carousel-card/LandingPageSpecialityCarouselCard';
 import './landingPageSpecialityCarousel.scss';
+import { Col, Row } from 'react-bootstrap';
 
 type Props = {
   specialitySection: SpecialitySection;
@@ -39,11 +39,11 @@ const LandingPageSpecialityCarousel: React.FC<Props> = ({
       data-testid="landing-speciality-section"
       className="landing-speciality-section"
     >
-      <Bs.Row>
-        <Bs.Col className="text-center">
+      <Row>
+        <Col className="text-center">
           <h2 className="fs-1 fw-bold mb-5">{specialitySection.title}</h2>
-        </Bs.Col>
-      </Bs.Row>
+        </Col>
+      </Row>
       <div>
         <Carousel
           responsive={responsive}

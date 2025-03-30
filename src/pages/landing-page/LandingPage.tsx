@@ -1,60 +1,58 @@
 import React from 'react';
-import { useLoaderData } from 'react-router-dom';
 import PageWrapper from '../../components/page-wrapper/PageWrapper';
-import { LoaderData } from '../../data/types/LoaderData';
-import useWindowDimensions from '../../hooks/windowDimensions';
-import LandingPageImageCardMobile from '../../components/landing-page/landing-page-image-card/mobile/LandingPageCardMobile';
-import LandingPageImageCardDesktop from '../../components/landing-page/landing-page-image-card/desktop/LandingPageImageCardDesktop';
 import LandingPageVideoSection from '../../components/landing-page/landing-page-video-section/LandingPageVideoSection';
 import LandingPageSpecialityCarousel from '../../components/landing-page/landing-page-speciality-section/landing-page-speciality-carousel/LandingPageSpecialityCarousel';
 import LandingPageQuoteCarousel from '../../components/landing-page/landing-page-quote-section/landing-page-quote-carousel/LandingPageQuoteCarousel';
 import PaymentSection from '../../components/payment/payment-section/PaymentSection';
 import { Col, Row } from 'react-bootstrap';
+import { useQuery } from '@tanstack/react-query';
+import { getLandingPageStrapiData } from '../../api/strapiApi';
+import Loading from '../../components/loading/Loading';
+import { LandingPageStrapiContent } from '../../data/interfaces/landing-page/LandingPageStrapiContent';
+import LandingPageCardDesktop from '../../components/landing-page/landing-page-card/desktop/LandingPageCardDesktop';
+import LandingPageCardMobile from '../../components/landing-page/landing-page-card/mobile/LandingPageCardMobile';
 
 const LandingPage: React.FC = () => {
-  const { landingPageStrapiData } = useLoaderData() as LoaderData;
-  const { width } = useWindowDimensions();
-  const showMobileView: boolean = width <= 992 ? true : false;
+  const { data, isPending, error } = useQuery<LandingPageStrapiContent>({
+    queryKey: ['landingPage'],
+    queryFn: getLandingPageStrapiData,
+  });
+
+  if (isPending) return <Loading />;
+  if (error || !data) throw new Error(`Failed to load data: ${error.message}`);
 
   return (
     <PageWrapper>
       <Row className="mb-5">
         <Col>
-          {showMobileView ? (
-            <LandingPageImageCardMobile
-              landingImage={landingPageStrapiData.landingImageMobile}
-            />
-          ) : (
-            <LandingPageImageCardDesktop
-              landingImage={landingPageStrapiData.landingImageDesktop}
-            />
-          )}
+          <div className="d-none d-sm-block mb-5">
+            <LandingPageCardDesktop landingImage={data.landingImageDesktop} />
+          </div>
+          <div className="d-sm-none">
+            <LandingPageCardMobile landingCard={data.landingImageMobile} />
+          </div>
         </Col>
       </Row>
       <Row>
         <Col>
-          <LandingPageVideoSection
-            videoSection={landingPageStrapiData.videoSection}
-          />
+          <LandingPageVideoSection videoSection={data.videoSection} />
         </Col>
       </Row>
       <Row>
         <Col>
           <LandingPageSpecialityCarousel
-            specialitySection={landingPageStrapiData.specialitySection}
+            specialitySection={data.specialitySection}
           />
         </Col>
       </Row>
       <Row>
         <Col>
-          <LandingPageQuoteCarousel
-            quoteSection={landingPageStrapiData.quoteSection}
-          />
+          <LandingPageQuoteCarousel quoteSection={data.quoteSection} />
         </Col>
       </Row>
       <Row>
         <Col>
-          <PaymentSection paymentData={landingPageStrapiData.paymentSection} />
+          <PaymentSection paymentData={data.paymentSection} />
         </Col>
       </Row>
     </PageWrapper>

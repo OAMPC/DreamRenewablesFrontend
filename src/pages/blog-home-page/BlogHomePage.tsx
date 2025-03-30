@@ -3,12 +3,20 @@ import PageWrapper from '../../components/page-wrapper/PageWrapper';
 import { BlogPostsTemplatePageStrapiContent } from '../../data/interfaces/blog-post-template-page/BlogPostTemplatePagesStrapiContent';
 import { Col, Row } from 'react-bootstrap';
 import BlogCard from '../../components/blog-card/BlogCard';
+import { useQuery } from '@tanstack/react-query';
+import Loading from '../../components/loading/Loading';
+import { getNewestToOldestBlogPostsStrapiData } from '../../api/strapiApi';
 
-type Props = {
-  blogPages: BlogPostsTemplatePageStrapiContent;
-};
+const BlogHomePage: React.FC = () => {
+  const { data, isPending, error } =
+    useQuery<BlogPostsTemplatePageStrapiContent>({
+      queryKey: ['blogHomePage'],
+      queryFn: getNewestToOldestBlogPostsStrapiData,
+    });
 
-const BlogHomePage: React.FC<Props> = ({ blogPages }) => {
+  if (isPending) return <Loading />;
+  if (error || !data) throw new Error(`Failed to load data: ${error.message}`);
+
   return (
     <PageWrapper>
       <Row>
@@ -19,7 +27,7 @@ const BlogHomePage: React.FC<Props> = ({ blogPages }) => {
         </Col>
       </Row>
       <Row data-testid="blog-grid">
-        {blogPages.data.map((post, index) => (
+        {data.data.map((post, index) => (
           <Col
             key={index}
             xl={4}

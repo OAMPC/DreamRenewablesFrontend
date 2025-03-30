@@ -1,31 +1,30 @@
-import { render, screen, waitFor } from '@testing-library/react';
+import { screen, waitFor } from '@testing-library/react';
 import React from 'react';
-import { describe, test, expect, beforeEach, afterEach, vi } from 'vitest';
-import { MemoryRouter } from 'react-router-dom';
+import {
+  describe,
+  test,
+  expect,
+  beforeEach,
+  afterEach,
+  vi,
+  Mock,
+} from 'vitest';
 import BlogHomePage from './BlogHomePage';
 import BlogPostsFactory from '../../test/factories/strapi/BlogPostsFactory';
-import { SharedDataContext } from '../../contexts/SharedDataProvider';
-import navigationBarFactory from '../../test/factories/strapi/NavigationBarFactory';
-import FooterFactory from '../../test/factories/strapi/FooterFactory';
+import { useQuery } from '@tanstack/react-query';
+import { renderWithProviders } from '../../test/helpers/helpers';
 
 describe('BlogHomePage', () => {
-  const mockBlogData = new BlogPostsFactory().getMockData();
-  const navigationBarStrapiData = new navigationBarFactory().getMockData();
-  const footerStrapiData = new FooterFactory().getMockData();
+  const mockData = new BlogPostsFactory().getMockData();
 
-  const setup = () => {
-    render(
-      <SharedDataContext.Provider
-        value={{
-          navigationBarContent: navigationBarStrapiData,
-          footerContent: footerStrapiData,
-        }}
-      >
-        <MemoryRouter>
-          <BlogHomePage blogPages={{ data: mockBlogData }} />
-        </MemoryRouter>
-      </SharedDataContext.Provider>
-    );
+  const setup = async () => {
+    (vi.mocked(useQuery) as Mock).mockReturnValue({
+      data: { data: mockData },
+      isLoading: false,
+      error: null,
+    });
+
+    renderWithProviders(<BlogHomePage />);
   };
 
   beforeEach(() => {
@@ -44,7 +43,7 @@ describe('BlogHomePage', () => {
       setup();
       await waitFor(() => {
         expect(screen.getAllByTestId('blog-card')).toHaveLength(
-          mockBlogData.length
+          mockData.length
         );
       });
     });
@@ -52,7 +51,7 @@ describe('BlogHomePage', () => {
     test('should render each blog card with correct data', async () => {
       setup();
       await waitFor(() => {
-        mockBlogData.forEach((post) => {
+        mockData.forEach((post) => {
           expect(
             screen.getByTestId(`blog-card-landing-image-${post.attributes.url}`)
           ).toBeInTheDocument();

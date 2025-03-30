@@ -1,11 +1,14 @@
 describe('Blog Home Page', () => {
   beforeEach(() => {
+    cy.intercept('GET', '**/api/blog-posts*', {
+      fixture: 'blogPostsStrapiResponse.json',
+    }).as('getNewestToOldestBlogPostsStrapiData');
+
     cy.visit('/blog-home');
 
     cy.wait('@getNavigationBarStrapiData');
     cy.wait('@getFooterStrapiData');
-    cy.wait('@getOurWorkSubPagesStrapiData');
-    cy.wait('@getBlogPostsStrapiData');
+    cy.wait('@getNewestToOldestBlogPostsStrapiData');
   });
 
   it('should load the header and footer and verify all elements are present and functioning', () => {
@@ -49,23 +52,6 @@ describe('Blog Home Page', () => {
         const href = link.prop('href');
         cy.wrap(link).click();
         cy.url().should('eq', href);
-      });
-  });
-
-  it('should display the blog cards sorted by published date (newest to oldest)', () => {
-    let publishedDates = [];
-    cy.get('[data-testid="blog-card"]')
-      .each((card) => {
-        cy.wrap(card)
-          .find('[data-testid^="blog-card-published-time-"]')
-          .invoke('text')
-          .then((date) => {
-            publishedDates.push(new Date(date));
-          });
-      })
-      .then(() => {
-        const sortedDates = [...publishedDates].sort((a, b) => b - a);
-        expect(publishedDates).to.deep.equal(sortedDates);
       });
   });
 });

@@ -1,30 +1,16 @@
 import { render, screen, waitFor } from '@testing-library/react';
 import React from 'react';
-import { MemoryRouter } from 'react-router-dom';
-import {
-  afterEach,
-  beforeEach,
-  describe,
-  expect,
-  Mock,
-  test,
-  vi,
-} from 'vitest';
-import useWindowDimensions from '../../hooks/windowDimensions';
+import { afterEach, beforeEach, describe, expect, test, vi } from 'vitest';
+
 import PageWrapper from './PageWrapper';
 import NavigationBarFactory from '../../test/factories/strapi/NavigationBarFactory';
 import FooterFactory from '../../test/factories/strapi/FooterFactory';
 import { SharedDataContext } from '../../contexts/SharedDataProvider';
 
-vi.mock('../../hooks/windowDimensions', () => ({
-  default: vi.fn(),
-}));
-
 describe('PageWrapper', () => {
   beforeEach(() => {
     const navigationMockData = new NavigationBarFactory().getMockData();
     const footerMockData = new FooterFactory().getMockData();
-    (useWindowDimensions as Mock).mockReturnValue({ width: 1024 });
 
     render(
       <SharedDataContext.Provider
@@ -33,11 +19,9 @@ describe('PageWrapper', () => {
           footerContent: footerMockData,
         }}
       >
-        <MemoryRouter>
-          <PageWrapper>
-            <h1>I am a child</h1>
-          </PageWrapper>
-        </MemoryRouter>
+        <PageWrapper>
+          <h1>I am a child</h1>
+        </PageWrapper>
       </SharedDataContext.Provider>
     );
   });
