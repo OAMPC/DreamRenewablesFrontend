@@ -1,7 +1,6 @@
 import React from 'react';
 import { Container, Row, Col, Nav, Image } from 'react-bootstrap';
 import { Section } from '../../../data/interfaces/about-us-page/AboutUsPageStrapiContent';
-import styles from './aboutUsPageSection.module.scss';
 
 type Props = {
   sectionData: Section;
@@ -10,23 +9,21 @@ type Props = {
 
 const AboutUsPageSection: React.FC<Props> = ({ sectionData, rowIndex }) => {
   return (
-    <Container>
+    <Container className="mb-5">
       <Row className="gx-5">
         <Col
-          className={`mb-5 ${rowIndex % 2 == 0 ? 'order-xl-first' : 'order-xl-last'}`}
+          className={`${rowIndex % 2 == 0 ? 'order-xl-first' : 'order-xl-last'} order-last`}
           xs="12"
-          xxl="6"
+          xl="6"
         >
-          <Row className="mt-5">
+          <Row className="mt-xl-5">
             <Col className="text-center text-xl-start">
-              <div className={styles.titleAccent}>
-                <h2
-                  data-testid="about-us-page-section-title"
-                  className="mb-lg-5 fs-1 fw-bolder mb-0"
-                >
-                  {sectionData.title}
-                </h2>
-              </div>
+              <h2
+                data-testid="about-us-page-section-title"
+                className="mt-lg-4 mb-lg-5 mb-0 fs-1 fw-bolder rounded-5"
+              >
+                {sectionData.title}
+              </h2>
             </Col>
           </Row>
           <Row>
@@ -55,12 +52,13 @@ const AboutUsPageSection: React.FC<Props> = ({ sectionData, rowIndex }) => {
         </Col>
         <Col
           xs="12"
-          xxl="6"
-          className={`d-flex justify-content-center  ${rowIndex % 2 == 0 ? 'order-xl-last' : 'order-xl-first'}`}
+          xl="6"
+          className={`${rowIndex == 0 ? 'd-none d-xl-flex justify-content-center' : 'd-flex justify-content-center'}  ${rowIndex % 2 == 0 ? 'order-xl-last' : 'order-xl-first'} order-first`}
         >
           <Image
             data-testid="about-us-page-section-image"
             fluid
+            className="mb-3 rounded-5"
             src={sectionData.image.data.attributes.url}
             alt={sectionData.image.data.attributes.alternativeText}
           />

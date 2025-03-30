@@ -21,7 +21,10 @@ const BlogHomePage: React.FC = () => {
     <PageWrapper>
       <Row>
         <Col className="text-center mb-4">
-          <h1 data-testid="blog-home-page-title" className="fs-1 fw-bold">
+          <h1
+            data-testid="blog-home-page-title"
+            className="fs-1 mt-5 mt-xl-3 fw-bold"
+          >
             Blog Posts
           </h1>
         </Col>
