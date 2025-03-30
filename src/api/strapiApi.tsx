@@ -187,8 +187,8 @@ export async function getRecentBlogPosts(
   return fetchStrapiData(`blog-posts`, populateQuery, true, filter);
 }
 
-export async function getFundraisingEventsStrapiData(): Promise<FundraisingEventTemplatePagesStrapiContent> {
-  const query = buildStrapiEndpointQuery([
+export async function getLatestFundraisingEventsStrapiData(): Promise<FundraisingEventTemplatePagesStrapiContent> {
+  const populateQuery = buildStrapiPopulateQuery([
     'landingImage',
     'eventTitle',
     'eventDate',
@@ -198,5 +198,27 @@ export async function getFundraisingEventsStrapiData(): Promise<FundraisingEvent
     'signUpInfo.title',
     'signUpInfo.signUpLink',
   ]);
-  return fetchStrapiData(`fundraising-events`, query, true);
+
+  const filter = `sort[0]=eventDate:desc`;
+
+  return fetchStrapiData(`fundraising-events`, populateQuery, true, filter);
+}
+
+export async function getFundraisingEventStrapiData(
+  slug: string
+): Promise<FundraisingEventTemplatePagesStrapiContent> {
+  const populateQuery = buildStrapiPopulateQuery([
+    'landingImage',
+    'eventTitle',
+    'eventDate',
+    'eventDescription',
+    'contactEmail',
+    'url',
+    'signUpInfo.title',
+    'signUpInfo.signUpLink',
+  ]);
+
+  const filter = `filters[url][$eq]=${slug}`;
+
+  return fetchStrapiData(`fundraising-events`, populateQuery, true, filter);
 }

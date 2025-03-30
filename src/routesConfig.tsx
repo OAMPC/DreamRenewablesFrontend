@@ -27,6 +27,10 @@ const OurWorkSubPage = lazy(
 const BlogHomePage = lazy(() => import('./pages/blog-home-page/BlogHomePage'));
 const BlogPage = lazy(() => import('./pages/blog-page/BlogPage'));
 
+const FundraisingEventPage = lazy(
+  () => import('./pages/fundraising-event-page/FundraisingEventPage')
+);
+
 export const routesConfig = [
   {
     path: '/',
@@ -132,6 +136,16 @@ export const routesConfig = [
       <ErrorBoundary>
         <Suspense fallback={<Loading />}>
           <BlogPage />
+        </Suspense>
+      </ErrorBoundary>
+    ),
+  },
+  {
+    path: '/fundraising-event/:slug',
+    element: (
+      <ErrorBoundary>
+        <Suspense fallback={<Loading />}>
+          <FundraisingEventPage />
         </Suspense>
       </ErrorBoundary>
     ),
