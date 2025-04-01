@@ -34,7 +34,9 @@ const EventDetails: React.FC<{
       </Row>
       <Row>
         <Col>
-          <Markdown rawMarkdown={strapiData.eventDescription} />
+          <div data-testid="event-description">
+            <Markdown rawMarkdown={strapiData.eventDescription} />
+          </div>
         </Col>
       </Row>
       <Row>
@@ -109,7 +111,7 @@ const SignUpContent: React.FC<{
       <Col>
         <Button
           href="/contact"
-          data-testid="contact-us-button"
+          data-testid="fundraising-event-contact-us-button"
           className={`${style.secondaryButton} d-flex justify-content-center btn-effect`}
         >
           Contact Us

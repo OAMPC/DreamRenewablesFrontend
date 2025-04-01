@@ -1,38 +1,31 @@
-import { render, screen, waitFor } from '@testing-library/react';
+import { screen, waitFor } from '@testing-library/react';
 import React from 'react';
-import { MemoryRouter } from 'react-router-dom';
-import { afterEach, beforeEach, describe, expect, test, vi } from 'vitest';
-import navigationBarFactory from '../../test/factories/strapi/NavigationBarFactory';
-import FooterFactory from '../../test/factories/strapi/FooterFactory';
-import { SharedDataContext } from '../../contexts/SharedDataProvider';
-import BlogPostsFactory from '../../test/factories/strapi/BlogPostsFactory';
-import BlogPostTemplatePage from './FundraisingEventTemplatePage';
+import {
+  afterEach,
+  beforeEach,
+  describe,
+  expect,
+  Mock,
+  test,
+  vi,
+} from 'vitest';
+import FundraisingEventsFactory from '../../test/factories/strapi/FundraisingEventsFactory';
+import FundraisingEventTemplatePage from './FundraisingEventTemplatePage';
+import { useQuery } from '@tanstack/react-query';
+import { renderWithProviders } from '../../test/helpers/helpers';
 
-vi.mock('react-router-dom', async () => {
-  const actual = await vi.importActual('react-router-dom');
-  return {
-    ...actual,
-    useLoaderData: vi.fn(),
-  };
-});
-
-describe('BlogPostTemplatePage', () => {
-  const mockData = new BlogPostsFactory().getMockData();
-  const navigationBarStrapiData = new navigationBarFactory().getMockData();
-  const footerStrapiData = new FooterFactory().getMockData();
+describe('FundraisingEventTemplatePage', () => {
+  const mockData = new FundraisingEventsFactory().getMockData();
 
   const setup = async () => {
-    render(
-      <SharedDataContext.Provider
-        value={{
-          navigationBarContent: navigationBarStrapiData,
-          footerContent: footerStrapiData,
-        }}
-      >
-        <MemoryRouter>
-          <BlogPostTemplatePage strapiData={mockData[0].attributes} />
-        </MemoryRouter>
-      </SharedDataContext.Provider>
+    (vi.mocked(useQuery) as Mock).mockReturnValue({
+      data: { data: mockData },
+      isLoading: false,
+      error: null,
+    });
+
+    renderWithProviders(
+      <FundraisingEventTemplatePage strapiData={mockData[0].attributes} />
     );
   };
 
@@ -41,40 +34,26 @@ describe('BlogPostTemplatePage', () => {
   });
 
   describe('render elements', () => {
-    test('should render a blog page landing image when data is loaded', async () => {
+    test('should render a fundraising event landing image when data is loaded', async () => {
       await setup();
       await waitFor(() => {
         expect(screen.getByTestId('landing-image')).toBeInTheDocument();
       });
     });
 
-    test('should render the blog post title', async () => {
+    test('should render the fundraising event title', async () => {
       await setup();
       await waitFor(() => {
         expect(
-          screen.getByText(mockData[0].attributes.title)
+          screen.getByText(mockData[0].attributes.eventTitle)
         ).toBeInTheDocument();
       });
     });
 
-    test('should render the blog post summary', async () => {
+    test('should render the fundraising event description', async () => {
       await setup();
       await waitFor(() => {
-        expect(
-          screen.getByText(mockData[0].attributes.blogPostSummary)
-        ).toBeInTheDocument();
-      });
-    });
-
-    test('should render the publication date and author information', async () => {
-      await setup();
-      await waitFor(() => {
-        expect(
-          screen.getByText(mockData[0].attributes.publishedAt.split('T')[0])
-        ).toBeInTheDocument();
-        expect(
-          screen.getByText(mockData[0].attributes.author)
-        ).toBeInTheDocument();
+        expect(screen.getByTestId('event-description')).toBeInTheDocument();
       });
     });
   });
