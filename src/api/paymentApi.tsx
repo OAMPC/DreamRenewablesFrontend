@@ -3,17 +3,14 @@ import axios from 'axios';
 export async function createCheckoutSession(
   amount: number,
   isMonthly: boolean
-): Promise<{
-  data: {
-    url: string;
-  };
-}> {
+): Promise<string> {
   try {
-    const response = await axios.post(
+    const response = await axios.post<{ url: string }>(
       'http://127.0.0.1:8000/create-checkout-session',
       {
         isMonthly,
-        amount_in_pounds: amount,
+        amountInPounds: amount,
+        cancelUrl: window.location.pathname,
         currency: 'gbp',
       },
       {
@@ -25,7 +22,7 @@ export async function createCheckoutSession(
 
     return response.data.url;
   } catch (error) {
-    console.error('Error creating PaymentIntent:', error);
-    throw error;
+    console.error('Error creating checkout session:', error);
+    throw new Error('Failed to create checkout session');
   }
 }

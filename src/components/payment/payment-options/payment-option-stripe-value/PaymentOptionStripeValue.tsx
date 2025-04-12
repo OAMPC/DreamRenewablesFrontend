@@ -15,8 +15,8 @@ const PaymentOptionStripeValue: React.FC<Props> = ({
   paymentOptionIcon,
 }) => {
   const clickHandler = async () => {
-    const secret = await createCheckoutSession(paymentOption.amount, false);
-    console.log(secret);
+    const sessionUrl = await createCheckoutSession(paymentOption.amount, false);
+    window.location.href = sessionUrl;
   };
 
   return (
