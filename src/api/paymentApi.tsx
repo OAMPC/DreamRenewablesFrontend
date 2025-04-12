@@ -1,11 +1,19 @@
 import axios from 'axios';
 
-export async function getClientSecret(amount: number): Promise<string> {
+export async function createCheckoutSession(
+  amount: number,
+  isMonthly: boolean
+): Promise<{
+  data: {
+    url: string;
+  };
+}> {
   try {
     const response = await axios.post(
-      'http://127.0.0.1:3000/create-payment-intent',
+      'http://127.0.0.1:8000/create-checkout-session',
       {
-        amount,
+        isMonthly,
+        amount_in_pounds: amount,
         currency: 'gbp',
       },
       {
@@ -15,7 +23,7 @@ export async function getClientSecret(amount: number): Promise<string> {
       }
     );
 
-    return response.data.clientSecret;
+    return response.data.url;
   } catch (error) {
     console.error('Error creating PaymentIntent:', error);
     throw error;

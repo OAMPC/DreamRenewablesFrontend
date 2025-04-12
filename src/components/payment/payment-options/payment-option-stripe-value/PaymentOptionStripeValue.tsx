@@ -3,6 +3,7 @@ import { PaymentOption } from '../../../../data/interfaces/util/PaymentOption';
 import { ImageStrapiContent } from '../../../../data/interfaces/util/ImageStrapiContent';
 import { Button, Image } from 'react-bootstrap';
 import styles from '../paymentOptionUtil.module.scss';
+import { createCheckoutSession } from '../../../../api/paymentApi';
 
 type Props = {
   paymentOption: PaymentOption;
@@ -13,6 +14,11 @@ const PaymentOptionStripeValue: React.FC<Props> = ({
   paymentOption,
   paymentOptionIcon,
 }) => {
+  const clickHandler = async () => {
+    const secret = await createCheckoutSession(paymentOption.amount, false);
+    console.log(secret);
+  };
+
   return (
     <>
       <div
@@ -28,6 +34,7 @@ const PaymentOptionStripeValue: React.FC<Props> = ({
         <Button
           data-testid="payment-option-stripe-button"
           className={styles.paymentButton}
+          onClick={clickHandler}
         >
           <Image
             src={paymentOptionIcon.data.attributes.url}
