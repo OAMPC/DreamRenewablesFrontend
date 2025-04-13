@@ -3,12 +3,17 @@ import { ImageStrapiContent } from '../../../../data/interfaces/util/ImageStrapi
 import { InputGroup, Form, Button, Image } from 'react-bootstrap';
 import styles from '../paymentOptionUtil.module.scss';
 import { createCheckoutSession } from '../../../../api/paymentApi';
+import { PaymentType } from '../../../../data/types/PaymentType';
 
 type Props = {
   paymentOptionIcon: ImageStrapiContent;
+  paymentType: PaymentType;
 };
 
-const PaymentOptionUserValue: React.FC<Props> = ({ paymentOptionIcon }) => {
+const PaymentOptionUserValue: React.FC<Props> = ({
+  paymentOptionIcon,
+  paymentType,
+}) => {
   const [amount, setAmount] = useState<string>('');
   const [error, setError] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState(false);
@@ -40,7 +45,10 @@ const PaymentOptionUserValue: React.FC<Props> = ({ paymentOptionIcon }) => {
     setIsLoading(true);
 
     try {
-      const sessionUrl = await createCheckoutSession(formattedAmount, false);
+      const sessionUrl = await createCheckoutSession(
+        formattedAmount,
+        paymentType
+      );
       window.location.href = sessionUrl;
     } catch (err) {
       setError('Something went wrong. Please try again.');

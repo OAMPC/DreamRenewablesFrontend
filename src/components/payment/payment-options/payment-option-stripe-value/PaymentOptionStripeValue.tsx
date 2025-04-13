@@ -4,18 +4,24 @@ import { ImageStrapiContent } from '../../../../data/interfaces/util/ImageStrapi
 import { Button, Image } from 'react-bootstrap';
 import styles from '../paymentOptionUtil.module.scss';
 import { createCheckoutSession } from '../../../../api/paymentApi';
+import { PaymentType } from '../../../../data/types/PaymentType';
 
 type Props = {
   paymentOption: PaymentOption;
   paymentOptionIcon: ImageStrapiContent;
+  paymentType: PaymentType;
 };
 
 const PaymentOptionStripeValue: React.FC<Props> = ({
   paymentOption,
   paymentOptionIcon,
+  paymentType,
 }) => {
   const clickHandler = async () => {
-    const sessionUrl = await createCheckoutSession(paymentOption.amount, false);
+    const sessionUrl = await createCheckoutSession(
+      paymentOption.amount,
+      paymentType
+    );
     window.location.href = sessionUrl;
   };
 

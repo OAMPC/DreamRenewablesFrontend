@@ -1,16 +1,18 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PaymentTypeToggle from '../payment-type-toggle/PaymentTypeToggle';
 import PaymentOptionStripeValue from '../payment-options/payment-option-stripe-value/PaymentOptionStripeValue';
 import PaymentOptionUserValue from '../payment-options/payment-option-user-value/PaymentOptionUserValue';
 import { PaymentSection as IPaymentSection } from '../../../data/interfaces/payment/PaymentSection';
 import { Col, Row } from 'react-bootstrap';
 import styles from './paymentSection.module.scss';
+import { PaymentType } from '../../../data/types/PaymentType';
 
 type Props = {
   paymentData: IPaymentSection;
 };
 
 const PaymentSection: React.FC<Props> = ({ paymentData }) => {
+  const [paymentType, setPaymentType] = useState<PaymentType>('monthly');
   return (
     <div data-testid="payment-section" className="p-5 my-5">
       <Row>
@@ -36,7 +38,10 @@ const PaymentSection: React.FC<Props> = ({ paymentData }) => {
       </Row>
       <Row className="mb-5">
         <Col className="text-center">
-          <PaymentTypeToggle />
+          <PaymentTypeToggle
+            paymentType={paymentType}
+            setPaymentType={setPaymentType}
+          />
         </Col>
       </Row>
       <Row className="d-flex justify-content-center">
@@ -45,12 +50,14 @@ const PaymentSection: React.FC<Props> = ({ paymentData }) => {
             <PaymentOptionStripeValue
               paymentOption={paymentOption}
               paymentOptionIcon={paymentData.paymentOptionIcon}
+              paymentType={paymentType}
             />
           </Col>
         ))}
         <Col xs={12} sm={6} md={4} lg={2} className="mb-4">
           <PaymentOptionUserValue
             paymentOptionIcon={paymentData.paymentOptionIcon}
+            paymentType={paymentType}
           />
         </Col>
       </Row>

@@ -1,14 +1,15 @@
 import axios from 'axios';
+import { PaymentType } from '../data/types/PaymentType';
 
 export async function createCheckoutSession(
   amount: number,
-  isMonthly: boolean
+  paymentType: PaymentType
 ): Promise<string> {
   try {
     const response = await axios.post<{ url: string }>(
       'http://127.0.0.1:8000/create-checkout-session',
       {
-        isMonthly,
+        paymentType,
         amountInPounds: amount,
         cancelUrl: window.location.pathname,
         currency: 'gbp',
