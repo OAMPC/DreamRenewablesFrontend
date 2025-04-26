@@ -3,7 +3,7 @@ import PageWrapper from '../../components/page-wrapper/PageWrapper';
 import { Col, Row, Image, Container, Button } from 'react-bootstrap';
 import Markdown from '../../components/markdown/Markdown';
 import { FundraisingEventTemplatePageStrapiContent } from '../../data/interfaces/fundraising-event-template-page/FundraisingEventTemplatePageStrapiContent';
-import style from './FundraisingEventTemplatePage.module.scss';
+import styles from './fundraisingEventTemplatePage.module.scss';
 
 type Props = {
   strapiData: FundraisingEventTemplatePageStrapiContent;
@@ -65,7 +65,7 @@ const SignUpSection: React.FC<{
 
   return (
     <Row>
-      <div className={`${style.signUpBanner} d-block d-md-none w-100 py-3`}>
+      <div className={`${styles.signUpBanner} d-block d-md-none w-100 py-3`}>
         <Container className="d-flex justify-content-center">
           <div className="bg-white rounded-3 p-4 w-75">
             <SignUpContent strapiData={strapiData} />
@@ -76,7 +76,7 @@ const SignUpSection: React.FC<{
       <div className="d-none d-md-block">
         <Container className="d-flex justify-content-center">
           <div
-            className={`${style.signUpCard} bg-white rounded-3 p-3 shadow w-25"`}
+            className={`${styles.signUpCard} bg-white rounded-3 p-3 shadow w-25"`}
           >
             <SignUpContent strapiData={strapiData} />
           </div>
@@ -101,7 +101,7 @@ const SignUpContent: React.FC<{
       <Col>
         <Button
           href={strapiData.signUpInfo.signUpLink}
-          className={`${style.primaryButton} d-flex justify-content-center btn-effect`}
+          className={`${styles.primaryButton} d-flex justify-content-center btn-effect`}
         >
           Sign Up
         </Button>
@@ -112,7 +112,7 @@ const SignUpContent: React.FC<{
         <Button
           href="/contact"
           data-testid="fundraising-event-contact-us-button"
-          className={`${style.secondaryButton} d-flex justify-content-center btn-effect`}
+          className={`${styles.secondaryButton} d-flex justify-content-center btn-effect`}
         >
           Contact Us
         </Button>
@@ -131,7 +131,7 @@ const FundraisingEventTemplatePage: React.FC<Props> = ({ strapiData }) => {
               fluid
               data-testid="landing-image"
               src={strapiData.landingImage.data.attributes.url}
-              className={`${style.landingImage} rounded-3 d-flex justify-content-center`}
+              className={`${styles.landingImage} rounded-3 d-flex justify-content-center`}
             />
           </div>
         </Col>
