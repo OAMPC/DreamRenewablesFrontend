@@ -1,11 +1,17 @@
 import axios from 'axios';
+import { PaymentType } from '../data/types/PaymentType';
 
-export async function getClientSecret(amount: number): Promise<string> {
+export async function createCheckoutSession(
+  amount: number,
+  paymentType: PaymentType
+): Promise<string> {
   try {
-    const response = await axios.post(
-      'http://127.0.0.1:3000/create-payment-intent',
+    const response = await axios.post<{ url: string }>(
+      `${import.meta.env.VITE_BASE_SERVER_URL}/api/v1/create-checkout-session`,
       {
-        amount,
+        paymentType,
+        amountInPounds: amount,
+        cancelUrl: window.location.pathname,
         currency: 'gbp',
       },
       {
@@ -15,9 +21,9 @@ export async function getClientSecret(amount: number): Promise<string> {
       }
     );
 
-    return response.data.clientSecret;
+    return response.data.url;
   } catch (error) {
-    console.error('Error creating PaymentIntent:', error);
-    throw error;
+    console.error('Error creating checkout session:', error);
+    throw new Error('Failed to create checkout session');
   }
 }

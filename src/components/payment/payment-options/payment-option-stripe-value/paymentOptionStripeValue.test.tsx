@@ -13,6 +13,7 @@ describe('PaymentOptionStripeValue', () => {
         <PaymentOptionStripeValue
           paymentOption={mockData.paymentSection.paymentOptions[0]}
           paymentOptionIcon={mockData.paymentSection.paymentOptionIcon}
+          paymentType="monthly"
         />
       </MemoryRouter>
     );

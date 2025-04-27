@@ -1,9 +1,17 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Button, ButtonGroup } from 'react-bootstrap';
 import styles from './paymentTypeToggle.module.scss';
+import { PaymentType } from '../../../data/types/PaymentType';
 
-const PaymentTypeToggle: React.FC = () => {
-  const [paymentType, setPaymentType] = useState('monthly');
+type Props = {
+  paymentType: PaymentType;
+  setPaymentType: (value: PaymentType) => void;
+};
+
+const PaymentTypeToggle: React.FC<Props> = ({
+  paymentType,
+  setPaymentType,
+}) => {
   return (
     <div data-testid="payment-type-toggle">
       <ButtonGroup data-testid="payment-type-button-group" size="lg">
