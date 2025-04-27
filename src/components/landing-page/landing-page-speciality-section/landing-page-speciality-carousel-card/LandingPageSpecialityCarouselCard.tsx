@@ -35,7 +35,6 @@ const LandingPageSpecialityCarouselCard: React.FC<Props> = ({ card }) => {
                     {card.link.linkString}
                     <Image
                       loading="lazy"
-                      data-testid="speciality-carousel-card-description-image"
                       className="ms-2 mb-2"
                       src={card.linkIcon.data.attributes.url}
                       alt={card.linkIcon.data.attributes.alternativeText}
@@ -54,6 +53,8 @@ const LandingPageSpecialityCarouselCard: React.FC<Props> = ({ card }) => {
         >
           <Image
             fluid
+            data-testid="speciality-carousel-card-description-image"
+            className="speciality-carousel-card-description-image"
             src={card.image.data.attributes.url}
             alt={card.image.data.attributes.alternativeText}
           />

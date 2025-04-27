@@ -6,6 +6,7 @@ import LandingCardMobile from '../../components/landing-card/mobile/landingCardM
 import StatTemplatePageQuoteSection from '../../components/stat-template-page/stat-template-page-quote-section/statTemplatePageQuoteSection';
 import { StatTemplatePageStrapiContent } from '../../data/interfaces/stat-template-page/StatTemplatePageStrapiContent';
 import Metric from '../../components/metric/Metric';
+import Markdown from '../../components/markdown/Markdown';
 
 type Props = {
   strapiData: StatTemplatePageStrapiContent;
@@ -40,14 +41,14 @@ const StatTemplatePage: React.FC<Props> = ({ strapiData }) => {
           </Col>
         </Row>
       </Container>
-      <Row>
+      <Row className="mx-xl-5 px-xl-5">
         <Col>
-          <p
+          <div
             data-testid="stat-template-page-free-text"
             className="fs-4 px-xl-5 text-center"
           >
-            {strapiData.freeText}
-          </p>
+            <Markdown rawMarkdown={strapiData.freeText} />
+          </div>
         </Col>
       </Row>
     </PageWrapper>

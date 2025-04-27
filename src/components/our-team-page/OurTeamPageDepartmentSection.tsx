@@ -24,57 +24,55 @@ const OurTeamPageDepartmentSection: React.FC<Props> = ({
           </div>
         </Col>
       </Row>
-      <Row className="d-flex justify-content-center">
-        <Col sm={12} xl={8}>
-          <Row className="d-flex justify-content-center">
-            {departmentSection.teamProfileDetails.map(
-              (teamProfileDetail, index) => (
-                <Col sm={6} md={4} lg={2} key={index} className="mb-3">
-                  <Row>
-                    <Col className="d-flex justify-content-center justify-content-md-start">
-                      <div
-                        className={styles.departmentSectionProfileImageAccent}
-                      >
-                        <Image
-                          data-testid="department-section-profile-image"
-                          className="mb-0"
-                          fluid
-                          src={
-                            teamProfileDetail.profileImage.data.attributes.url
-                          }
-                          alt={
-                            teamProfileDetail.profileImage.data.attributes
-                              .alternativeText
-                          }
-                        />
-                      </div>
-                    </Col>
-                  </Row>
-                  <Row>
-                    <Col>
-                      <h4
-                        data-testid="department-section-profile-name"
-                        className="mb-3 fs-3 fw-bold text-center text-md-start"
-                      >
-                        {teamProfileDetail.profileName}
-                      </h4>
-                    </Col>
-                  </Row>
-                  <Row>
-                    <Col>
-                      <p
-                        data-testid="department-section-profile-description"
-                        className="text-center text-md-start mb-5"
-                      >
-                        {teamProfileDetail.profileDescription}
-                      </p>
-                    </Col>
-                  </Row>
-                </Col>
-              )
-            )}
-          </Row>
-        </Col>
+      <Row className="d-flex justify-content-center align-items-stretch">
+        {departmentSection.teamProfileDetails.map(
+          (teamProfileDetail, index) => (
+            <Col
+              xl="2"
+              md="4"
+              xs="12"
+              key={index}
+              className="d-flex justify-content-center mb-5 mb-xl-3"
+            >
+              <div className="d-flex flex-column flex-grow-2 shadow-sm rounded-4 p-3 h-100">
+                <Row>
+                  <Col className="d-flex justify-content-center">
+                    <Image
+                      data-testid="department-section-profile-image"
+                      className={`${styles.departmentSectionProfileImage} rounded-5 shadow-lg mb-md-3 mb-4`}
+                      fluid
+                      src={teamProfileDetail.profileImage.data.attributes.url}
+                      alt={
+                        teamProfileDetail.profileImage.data.attributes
+                          .alternativeText
+                      }
+                    />
+                  </Col>
+                </Row>
+                <Row>
+                  <Col>
+                    <h4
+                      data-testid="department-section-profile-name"
+                      className=" fs-3 fw-bold text-center"
+                    >
+                      {teamProfileDetail.profileName}
+                    </h4>
+                  </Col>
+                </Row>
+                <Row>
+                  <Col>
+                    <p
+                      data-testid="department-section-profile-description"
+                      className="text-center"
+                    >
+                      {teamProfileDetail.profileDescription}
+                    </p>
+                  </Col>
+                </Row>
+              </div>
+            </Col>
+          )
+        )}
       </Row>
     </div>
   );

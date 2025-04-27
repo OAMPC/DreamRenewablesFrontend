@@ -14,7 +14,7 @@ const OurMissionVisionAndValuesPageSection: React.FC<Props> = ({
     <div className="mb-5" data-testid="omvvp-section">
       <Row className="mb-3">
         <Col className="d-flex justify-content-center">
-          <h2 data-testid="omvvp-section-title" className="fs-1 fw-bold">
+          <h2 data-testid="omvvp-section-title" className="mt-3 fs-1 fw-bold">
             <Image
               className="me-3"
               fluid
