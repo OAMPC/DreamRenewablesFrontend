@@ -29,6 +29,7 @@ const BlogPage = lazy(() => import('./pages/blog-page/BlogPage'));
 
 const FundraisingEventPage = lazy(
   () => import('./pages/fundraising-event-page/FundraisingEventPage')
+);
 
 const PaymentSuccessPage = lazy(
   () => import('./pages/payment-success/PaymentSuccessPage')
