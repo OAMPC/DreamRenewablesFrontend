@@ -7,7 +7,7 @@ export async function createCheckoutSession(
 ): Promise<string> {
   try {
     const response = await axios.post<{ url: string }>(
-      'http://127.0.0.1:8000/create-checkout-session',
+      `${import.meta.env.VITE_BASE_SERVER_URL}/api/v1/create-checkout-session`,
       {
         paymentType,
         amountInPounds: amount,
