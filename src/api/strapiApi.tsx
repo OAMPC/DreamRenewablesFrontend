@@ -12,6 +12,7 @@ import { DonatePageStrapiContent } from '../data/interfaces/donate-page/DonatePa
 import { StatTemplatePagesStrapiContent } from '../data/interfaces/stat-template-page/StatTemplatePagesStrapiContent';
 import { fetchStrapiData } from './util/fetchStrapiData';
 import { BlogPostsTemplatePageStrapiContent } from '../data/interfaces/blog-post-template-page/BlogPostTemplatePagesStrapiContent';
+import { FundraisingEventTemplatePagesStrapiContent } from '../data/interfaces/fundraising-event-template-page/FundraisingEventTemplatePagesStrapiConent';
 
 export async function getNavigationBarStrapiData(): Promise<NavigationBarStrapiContent> {
   const populateQuery = buildStrapiPopulateQuery([
@@ -184,4 +185,40 @@ export async function getRecentBlogPosts(
   const filter = `sort[0]=publishedAt:desc&pagination[limit]=4&filters[url][$ne]=${slug}`;
 
   return fetchStrapiData(`blog-posts`, populateQuery, true, filter);
+}
+
+export async function getLatestFundraisingEventsStrapiData(): Promise<FundraisingEventTemplatePagesStrapiContent> {
+  const populateQuery = buildStrapiPopulateQuery([
+    'landingImage',
+    'eventTitle',
+    'eventDate',
+    'eventDescription',
+    'contactEmail',
+    'url',
+    'signUpInfo.title',
+    'signUpInfo.signUpLink',
+  ]);
+
+  const filter = `sort[0]=eventDate:desc`;
+
+  return fetchStrapiData(`fundraising-events`, populateQuery, true, filter);
+}
+
+export async function getFundraisingEventStrapiData(
+  slug: string
+): Promise<FundraisingEventTemplatePagesStrapiContent> {
+  const populateQuery = buildStrapiPopulateQuery([
+    'landingImage',
+    'eventTitle',
+    'eventDate',
+    'eventDescription',
+    'contactEmail',
+    'url',
+    'signUpInfo.title',
+    'signUpInfo.signUpLink',
+  ]);
+
+  const filter = `filters[url][$eq]=${slug}`;
+
+  return fetchStrapiData(`fundraising-events`, populateQuery, true, filter);
 }

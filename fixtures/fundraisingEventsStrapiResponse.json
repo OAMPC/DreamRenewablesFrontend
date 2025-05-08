@@ -1,0 +1,54 @@
+{
+  "data": [
+    {
+      "id": 1,
+      "attributes": {
+        "eventDate": "Saturday, 17 June",
+        "eventTitle": "Leeds Half Marathon",
+        "eventDescription": "Join us as we run for a greener future. Our team at Dream Renewables is taking on the Leeds Half Marathon to raise funds for sustainable energy projects. Every step we take and every pound you donate brings us closer to a world powered by clean, renewable energy.\n\nOn\n**Saturday, 17 June 2024\n10:00 - 17:00**\n\nAt\n**Leeds, West Yorkshire**\n\nCosts\n**£25pp**",
+        "contactEmail": "barnaby@dreamreneweables.com",
+        "createdAt": "2025-01-27T16:08:15.879Z",
+        "updatedAt": "2025-02-26T17:00:34.251Z",
+        "publishedAt": "2025-02-26T16:49:19.694Z",
+        "url": "marathon",
+        "landingImage": {
+          "data": {
+            "id": 48,
+            "attributes": {
+              "name": "get-involved-landing-image.svg",
+              "alternativeText": "get-involved-landing-image.svg",
+              "caption": "get-involved-landing-image.svg",
+              "width": 1344,
+              "height": 450,
+              "formats": null,
+              "hash": "get_involved_landing_image_ecb93f0f7e",
+              "ext": ".svg",
+              "mime": "image/svg+xml",
+              "size": 1030.17,
+              "url": "https://strapi-dr-s3-media-bucket.s3",
+              "previewUrl": null,
+              "provider": "aws-s3",
+              "provider_metadata": null,
+              "createdAt": "2025-01-19T19:09:15.280Z",
+              "updatedAt": "2025-01-19T19:09:15.280Z",
+              "isUrlSigned": true
+            }
+          }
+        },
+        "signUpInfo": {
+          "id": 4,
+          "title": "Lorem Ipsum",
+          "signUpLink": "https://google.com"
+        }
+      }
+    }
+  ],
+  "meta": {
+    "pagination": {
+      "page": 1,
+      "pageSize": 25,
+      "pageCount": 1,
+      "total": 1
+    }
+  }
+}
