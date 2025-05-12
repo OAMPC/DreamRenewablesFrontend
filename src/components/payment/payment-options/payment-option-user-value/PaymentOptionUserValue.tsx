@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { ImageStrapiContent } from '../../../../data/interfaces/util/ImageStrapiContent';
-import { InputGroup, Form, Button, Image } from 'react-bootstrap';
+import { InputGroup, Form, Button, Image, Spinner } from 'react-bootstrap';
 import styles from '../paymentOptionUtil.module.scss';
 import { createCheckoutSession } from '../../../../api/paymentApi';
 import { PaymentType } from '../../../../data/types/PaymentType';
@@ -87,10 +87,20 @@ const PaymentOptionUserValue: React.FC<Props> = ({
           onClick={clickHandler}
           disabled={isLoading}
         >
-          <Image
-            src={paymentOptionIcon.data.attributes.url}
-            alt={paymentOptionIcon.data.attributes.alternativeText}
-          />
+          {isLoading ? (
+            <Spinner
+              animation="border"
+              size="sm"
+              role="status"
+              aria-hidden="true"
+              variant="dark"
+            />
+          ) : (
+            <Image
+              src={paymentOptionIcon.data.attributes.url}
+              alt={paymentOptionIcon.data.attributes.alternativeText}
+            />
+          )}
         </Button>
       </div>
       <p

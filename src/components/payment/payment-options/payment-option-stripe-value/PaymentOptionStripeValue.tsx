@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { PaymentOption } from '../../../../data/interfaces/util/PaymentOption';
 import { ImageStrapiContent } from '../../../../data/interfaces/util/ImageStrapiContent';
-import { Button, Image } from 'react-bootstrap';
+import { Button, Image, Spinner } from 'react-bootstrap';
 import styles from '../paymentOptionUtil.module.scss';
 import { createCheckoutSession } from '../../../../api/paymentApi';
 import { PaymentType } from '../../../../data/types/PaymentType';
@@ -18,12 +18,20 @@ const PaymentOptionStripeValue: React.FC<Props> = ({
   paymentOptionIcon,
   paymentType,
 }) => {
+  const [isLoading, setIsLoading] = useState(false);
+
   const clickHandler = async () => {
-    const sessionUrl = await createCheckoutSession(
-      paymentOption.amount,
-      paymentType
-    );
-    window.location.href = sessionUrl;
+    setIsLoading(true);
+    try {
+      const sessionUrl = await createCheckoutSession(
+        paymentOption.amount,
+        paymentType
+      );
+      window.location.href = sessionUrl;
+    } catch (err) {
+      console.error('Failed to create Stripe session:', err);
+      setIsLoading(false);
+    }
   };
 
   return (
@@ -42,11 +50,22 @@ const PaymentOptionStripeValue: React.FC<Props> = ({
           data-testid="payment-option-stripe-button"
           className={styles.paymentButton}
           onClick={clickHandler}
+          disabled={isLoading}
         >
-          <Image
-            src={paymentOptionIcon.data.attributes.url}
-            alt={paymentOptionIcon.data.attributes.alternativeText}
-          />
+          {isLoading ? (
+            <Spinner
+              animation="border"
+              size="sm"
+              role="status"
+              aria-hidden="true"
+              variant="dark"
+            />
+          ) : (
+            <Image
+              src={paymentOptionIcon.data.attributes.url}
+              alt={paymentOptionIcon.data.attributes.alternativeText}
+            />
+          )}
         </Button>
       </div>
       <p
