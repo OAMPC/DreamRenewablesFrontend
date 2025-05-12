@@ -222,3 +222,25 @@ export async function getFundraisingEventStrapiData(
 
   return fetchStrapiData(`fundraising-events`, populateQuery, true, filter);
 }
+
+export async function getNewestToOldestFundraisingEventsStrapiData(): Promise<FundraisingEventTemplatePagesStrapiContent> {
+  const populateQuery = buildStrapiPopulateQuery([
+    'landingImage',
+    'eventTitle',
+    'eventDate',
+    'eventDescription',
+    'contactEmail',
+    'url',
+    'signUpInfo.title',
+    'signUpInfo.signUpLink',
+    'publishedAt',
+  ]);
+  const filter = `sort[0]=publishedAt:desc`;
+
+  return await fetchStrapiData(
+    `fundraising-events`,
+    populateQuery,
+    true,
+    filter
+  );
+}

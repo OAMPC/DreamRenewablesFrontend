@@ -4,6 +4,7 @@ import NotFoundPage from './pages/not-found-page/NotFoundPage';
 import LandingPage from './pages/landing-page/LandingPage';
 import InternalErrorPage from './pages/internal-error-page/InternalErrorPage';
 import ErrorBoundary from './components/error-boundary/ErrorBoundary';
+import FundraisingEventsHomePage from './pages/fundraising-event-home-page/FundraisingEventHomePage';
 
 const OurMissionVisionAndValuesPage = lazy(
   () =>
@@ -150,6 +151,16 @@ export const routesConfig = [
       <ErrorBoundary>
         <Suspense fallback={<Loading />}>
           <BlogPage />
+        </Suspense>
+      </ErrorBoundary>
+    ),
+  },
+  {
+    path: '/fundraising-events-home',
+    element: (
+      <ErrorBoundary>
+        <Suspense fallback={<Loading />}>
+          <FundraisingEventsHomePage />
         </Suspense>
       </ErrorBoundary>
     ),
