@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { PaymentSection } from '../../../data/interfaces/payment/PaymentSection';
-import { Col, Row } from 'react-bootstrap';
+import { Col, Form, Row } from 'react-bootstrap';
 import PaymentTypeToggle from '../../payment/payment-type-toggle/PaymentTypeToggle';
 import PaymentOptionUserValue from '../../payment/payment-options/payment-option-user-value/PaymentOptionUserValue';
 import PaymentOptionStripeValue from '../../payment/payment-options/payment-option-stripe-value/PaymentOptionStripeValue';
@@ -13,6 +13,7 @@ type Props = {
 
 const DonatePagePaymentSection: React.FC<Props> = ({ paymentStrapiData }) => {
   const [paymentType, setPaymentType] = useState<PaymentType>('monthly');
+  const [giftAidDonation, setGiftAidDonation] = useState<boolean>(false);
   return (
     <div
       data-testid="donate-page-payment-section"
@@ -40,11 +41,24 @@ const DonatePagePaymentSection: React.FC<Props> = ({ paymentStrapiData }) => {
           </p>
         </Col>
       </Row>
-      <Row className="mb-5">
+      <Row className="mb-4">
         <Col className="text-center">
           <PaymentTypeToggle
             paymentType={paymentType}
             setPaymentType={setPaymentType}
+          />
+        </Col>
+      </Row>
+      <Row className="mb-4">
+        <Col className="d-flex justify-content-center">
+          <Form.Check
+            type="checkbox"
+            id="gift-aid-checkbox"
+            label="I am a UK taxpayer and I want Dream Renewables to claim Gift Aid on my donation"
+            checked={giftAidDonation}
+            onChange={() => setGiftAidDonation((prev) => !prev)}
+            className={`${styles.giftAidCheckbox} fs-5`}
+            data-testid="gift-aid-checkbox"
           />
         </Col>
       </Row>
@@ -55,6 +69,7 @@ const DonatePagePaymentSection: React.FC<Props> = ({ paymentStrapiData }) => {
               paymentOption={paymentOption}
               paymentOptionIcon={paymentStrapiData.paymentOptionIcon}
               paymentType={paymentType}
+              giftAidDonation={giftAidDonation}
             />
           </Col>
         ))}
@@ -62,6 +77,7 @@ const DonatePagePaymentSection: React.FC<Props> = ({ paymentStrapiData }) => {
           <PaymentOptionUserValue
             paymentOptionIcon={paymentStrapiData.paymentOptionIcon}
             paymentType={paymentType}
+            giftAidDonation={giftAidDonation}
           />
         </Col>
       </Row>

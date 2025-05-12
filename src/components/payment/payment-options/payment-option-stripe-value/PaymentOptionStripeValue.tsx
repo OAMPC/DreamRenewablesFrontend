@@ -10,6 +10,7 @@ type Props = {
   paymentOption: PaymentOption;
   paymentOptionIcon: ImageStrapiContent;
   paymentType: PaymentType;
+  giftAidDonation: boolean;
 };
 
 const PaymentOptionStripeValue: React.FC<Props> = ({

@@ -8,6 +8,7 @@ import { PaymentType } from '../../../../data/types/PaymentType';
 type Props = {
   paymentOptionIcon: ImageStrapiContent;
   paymentType: PaymentType;
+  giftAidDonation: boolean;
 };
 
 const PaymentOptionUserValue: React.FC<Props> = ({
