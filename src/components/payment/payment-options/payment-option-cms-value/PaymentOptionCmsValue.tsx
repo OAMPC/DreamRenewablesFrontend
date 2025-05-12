@@ -13,7 +13,7 @@ type Props = {
   giftAidDonation: boolean;
 };
 
-const PaymentOptionStripeValue: React.FC<Props> = ({
+const PaymentOptionCmsValue: React.FC<Props> = ({
   paymentOption,
   paymentOptionIcon,
   paymentType,
@@ -39,15 +39,12 @@ const PaymentOptionStripeValue: React.FC<Props> = ({
       <div
         className={`${styles.paymentOptionWrapper} p-3 d-flex align-items-center justify-content-between`}
       >
-        <p
-          data-testid="payment-option-stripe-value"
-          className="fs-1 fw-bold mb-0"
-        >
+        <p data-testid="payment-option-cms-value" className="fs-1 fw-bold mb-0">
           £{paymentOption.amount}
         </p>
 
         <Button
-          data-testid="payment-option-stripe-button"
+          data-testid="payment-option-cms-button"
           className={styles.paymentButton}
           onClick={clickHandler}
           disabled={isLoading}
@@ -69,7 +66,7 @@ const PaymentOptionStripeValue: React.FC<Props> = ({
         </Button>
       </div>
       <p
-        data-testid="payment-option-stripe-description"
+        data-testid="payment-option-cms-description"
         className="ms-2 mt-3 fs-5"
       >
         {paymentOption.description}
@@ -78,4 +75,4 @@ const PaymentOptionStripeValue: React.FC<Props> = ({
   );
 };
 
-export default PaymentOptionStripeValue;
+export default PaymentOptionCmsValue;

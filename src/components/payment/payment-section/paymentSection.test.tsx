@@ -46,7 +46,7 @@ describe('paymentSection', () => {
     test('should render multiple payment options after data is loaded', async () => {
       await waitFor(() => {
         expect(
-          screen.getAllByTestId('payment-option-stripe-value').length
+          screen.getAllByTestId('payment-option-cms-value').length
         ).toEqual(4);
       });
     });

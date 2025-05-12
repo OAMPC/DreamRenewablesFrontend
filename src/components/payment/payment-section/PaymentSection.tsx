@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import PaymentTypeToggle from '../payment-type-toggle/PaymentTypeToggle';
-import PaymentOptionStripeValue from '../payment-options/payment-option-stripe-value/PaymentOptionStripeValue';
+import PaymentOptionCmsValue from '../payment-options/payment-option-cms-value/PaymentOptionCmsValue';
 import PaymentOptionUserValue from '../payment-options/payment-option-user-value/PaymentOptionUserValue';
 import { PaymentSection as IPaymentSection } from '../../../data/interfaces/payment/PaymentSection';
 import { Col, Form, Row } from 'react-bootstrap';
@@ -61,7 +61,7 @@ const PaymentSection: React.FC<Props> = ({ paymentData }) => {
       <Row className="d-flex justify-content-center">
         {paymentData.paymentOptions.map((paymentOption, index) => (
           <Col key={index} xs={12} sm={6} md={4} lg={2} className="mb-4">
-            <PaymentOptionStripeValue
+            <PaymentOptionCmsValue
               paymentOption={paymentOption}
               paymentOptionIcon={paymentData.paymentOptionIcon}
               paymentType={paymentType}

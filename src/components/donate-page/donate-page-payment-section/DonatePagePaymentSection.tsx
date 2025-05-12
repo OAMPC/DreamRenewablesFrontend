@@ -3,7 +3,7 @@ import { PaymentSection } from '../../../data/interfaces/payment/PaymentSection'
 import { Col, Form, Row } from 'react-bootstrap';
 import PaymentTypeToggle from '../../payment/payment-type-toggle/PaymentTypeToggle';
 import PaymentOptionUserValue from '../../payment/payment-options/payment-option-user-value/PaymentOptionUserValue';
-import PaymentOptionStripeValue from '../../payment/payment-options/payment-option-stripe-value/PaymentOptionStripeValue';
+import PaymentOptionCmsValue from '../../payment/payment-options/payment-option-cms-value/PaymentOptionCmsValue';
 import styles from './donatePagePaymentSection.module.scss';
 import { PaymentType } from '../../../data/types/PaymentType';
 
@@ -65,7 +65,7 @@ const DonatePagePaymentSection: React.FC<Props> = ({ paymentStrapiData }) => {
       <Row className="d-flex justify-content-center">
         {paymentStrapiData.paymentOptions.map((paymentOption, index) => (
           <Col key={index} xs={12} className="mb-4">
-            <PaymentOptionStripeValue
+            <PaymentOptionCmsValue
               paymentOption={paymentOption}
               paymentOptionIcon={paymentStrapiData.paymentOptionIcon}
               paymentType={paymentType}

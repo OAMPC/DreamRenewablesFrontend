@@ -3,17 +3,18 @@ import React from 'react';
 import { MemoryRouter } from 'react-router-dom';
 import { afterEach, beforeEach, describe, expect, test, vi } from 'vitest';
 import LandingPageFactory from '../../../../test/factories/strapi/LandingPageFactory';
-import PaymentOptionStripeValue from './PaymentOptionStripeValue';
+import PaymentOptionCmsValue from './PaymentOptionCmsValue';
 
-describe('PaymentOptionStripeValue', () => {
+describe('PaymentOptionCmsValue', () => {
   beforeEach(() => {
     const mockData = new LandingPageFactory().getMockData();
     render(
       <MemoryRouter>
-        <PaymentOptionStripeValue
+        <PaymentOptionCmsValue
           paymentOption={mockData.paymentSection.paymentOptions[0]}
           paymentOptionIcon={mockData.paymentSection.paymentOptionIcon}
           paymentType="monthly"
+          giftAidDonation={true}
         />
       </MemoryRouter>
     );
@@ -23,7 +24,7 @@ describe('PaymentOptionStripeValue', () => {
     test('should render passed value after data is loaded', async () => {
       await waitFor(() => {
         expect(
-          screen.getByTestId('payment-option-stripe-value')
+          screen.getByTestId('payment-option-cms-value')
         ).toBeInTheDocument();
       });
     });
@@ -31,7 +32,7 @@ describe('PaymentOptionStripeValue', () => {
     test('should render button after data is loaded', async () => {
       await waitFor(() => {
         expect(
-          screen.getByTestId('payment-option-stripe-button')
+          screen.getByTestId('payment-option-cms-button')
         ).toBeInTheDocument();
       });
     });
@@ -39,7 +40,7 @@ describe('PaymentOptionStripeValue', () => {
     test('should render description after data is loaded', async () => {
       await waitFor(() => {
         expect(
-          screen.getByTestId('payment-option-stripe-description')
+          screen.getByTestId('payment-option-cms-description')
         ).toBeInTheDocument();
       });
     });
