@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { PaymentSection } from '../../../data/interfaces/payment/PaymentSection';
-import { Col, Row } from 'react-bootstrap';
+import { Col, Form, Row } from 'react-bootstrap';
 import PaymentTypeToggle from '../../payment/payment-type-toggle/PaymentTypeToggle';
 import PaymentOptionUserValue from '../../payment/payment-options/payment-option-user-value/PaymentOptionUserValue';
-import PaymentOptionStripeValue from '../../payment/payment-options/payment-option-stripe-value/PaymentOptionStripeValue';
+import PaymentOptionCmsValue from '../../payment/payment-options/payment-option-cms-value/PaymentOptionCmsValue';
 import styles from './donatePagePaymentSection.module.scss';
 import { PaymentType } from '../../../data/types/PaymentType';
 
@@ -13,6 +13,7 @@ type Props = {
 
 const DonatePagePaymentSection: React.FC<Props> = ({ paymentStrapiData }) => {
   const [paymentType, setPaymentType] = useState<PaymentType>('monthly');
+  const [giftAidDonation, setGiftAidDonation] = useState<boolean>(false);
   return (
     <div
       data-testid="donate-page-payment-section"
@@ -40,7 +41,7 @@ const DonatePagePaymentSection: React.FC<Props> = ({ paymentStrapiData }) => {
           </p>
         </Col>
       </Row>
-      <Row className="mb-5">
+      <Row className="mb-4">
         <Col className="text-center">
           <PaymentTypeToggle
             paymentType={paymentType}
@@ -48,13 +49,27 @@ const DonatePagePaymentSection: React.FC<Props> = ({ paymentStrapiData }) => {
           />
         </Col>
       </Row>
+      <Row className="mb-4">
+        <Col className="d-flex justify-content-center">
+          <Form.Check
+            type="checkbox"
+            id="gift-aid-checkbox"
+            label="I am a UK taxpayer and I want Dream Renewables to claim Gift Aid on my donation"
+            checked={giftAidDonation}
+            onChange={() => setGiftAidDonation((prev) => !prev)}
+            className={`${styles.giftAidCheckbox} fs-5`}
+            data-testid="gift-aid-checkbox"
+          />
+        </Col>
+      </Row>
       <Row className="d-flex justify-content-center">
         {paymentStrapiData.paymentOptions.map((paymentOption, index) => (
           <Col key={index} xs={12} className="mb-4">
-            <PaymentOptionStripeValue
+            <PaymentOptionCmsValue
               paymentOption={paymentOption}
               paymentOptionIcon={paymentStrapiData.paymentOptionIcon}
               paymentType={paymentType}
+              giftAidDonation={giftAidDonation}
             />
           </Col>
         ))}
@@ -62,6 +77,7 @@ const DonatePagePaymentSection: React.FC<Props> = ({ paymentStrapiData }) => {
           <PaymentOptionUserValue
             paymentOptionIcon={paymentStrapiData.paymentOptionIcon}
             paymentType={paymentType}
+            giftAidDonation={giftAidDonation}
           />
         </Col>
       </Row>

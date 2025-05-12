@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { ImageStrapiContent } from '../../../../data/interfaces/util/ImageStrapiContent';
-import { InputGroup, Form, Button, Image } from 'react-bootstrap';
+import { InputGroup, Form, Button, Image, Spinner } from 'react-bootstrap';
 import styles from '../paymentOptionUtil.module.scss';
 import { createCheckoutSession } from '../../../../api/paymentApi';
 import { PaymentType } from '../../../../data/types/PaymentType';
@@ -8,11 +8,13 @@ import { PaymentType } from '../../../../data/types/PaymentType';
 type Props = {
   paymentOptionIcon: ImageStrapiContent;
   paymentType: PaymentType;
+  giftAidDonation: boolean;
 };
 
 const PaymentOptionUserValue: React.FC<Props> = ({
   paymentOptionIcon,
   paymentType,
+  giftAidDonation,
 }) => {
   const [amount, setAmount] = useState<string>('');
   const [error, setError] = useState<string | null>(null);
@@ -47,7 +49,8 @@ const PaymentOptionUserValue: React.FC<Props> = ({
     try {
       const sessionUrl = await createCheckoutSession(
         formattedAmount,
-        paymentType
+        paymentType,
+        giftAidDonation
       );
       window.location.href = sessionUrl;
     } catch (err) {
@@ -86,10 +89,20 @@ const PaymentOptionUserValue: React.FC<Props> = ({
           onClick={clickHandler}
           disabled={isLoading}
         >
-          <Image
-            src={paymentOptionIcon.data.attributes.url}
-            alt={paymentOptionIcon.data.attributes.alternativeText}
-          />
+          {isLoading ? (
+            <Spinner
+              animation="border"
+              size="sm"
+              role="status"
+              aria-hidden="true"
+              variant="dark"
+            />
+          ) : (
+            <Image
+              src={paymentOptionIcon.data.attributes.url}
+              alt={paymentOptionIcon.data.attributes.alternativeText}
+            />
+          )}
         </Button>
       </div>
       <p
