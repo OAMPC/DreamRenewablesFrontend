@@ -17,6 +17,7 @@ const PaymentOptionCmsValue: React.FC<Props> = ({
   paymentOption,
   paymentOptionIcon,
   paymentType,
+  giftAidDonation,
 }) => {
   const [isLoading, setIsLoading] = useState(false);
 
@@ -25,7 +26,8 @@ const PaymentOptionCmsValue: React.FC<Props> = ({
     try {
       const sessionUrl = await createCheckoutSession(
         paymentOption.amount,
-        paymentType
+        paymentType,
+        giftAidDonation
       );
       window.location.href = sessionUrl;
     } catch (err) {

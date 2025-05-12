@@ -3,7 +3,8 @@ import { PaymentType } from '../data/types/PaymentType';
 
 export async function createCheckoutSession(
   amount: number,
-  paymentType: PaymentType
+  paymentType: PaymentType,
+  giftAidDonation: boolean
 ): Promise<string> {
   try {
     const response = await axios.post<{ url: string }>(
@@ -13,6 +14,7 @@ export async function createCheckoutSession(
         amountInPounds: amount,
         cancelUrl: window.location.pathname,
         currency: 'gbp',
+        giftAidDonation: giftAidDonation,
       },
       {
         headers: {

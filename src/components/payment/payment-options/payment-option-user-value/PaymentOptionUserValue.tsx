@@ -14,6 +14,7 @@ type Props = {
 const PaymentOptionUserValue: React.FC<Props> = ({
   paymentOptionIcon,
   paymentType,
+  giftAidDonation,
 }) => {
   const [amount, setAmount] = useState<string>('');
   const [error, setError] = useState<string | null>(null);
@@ -48,7 +49,8 @@ const PaymentOptionUserValue: React.FC<Props> = ({
     try {
       const sessionUrl = await createCheckoutSession(
         formattedAmount,
-        paymentType
+        paymentType,
+        giftAidDonation
       );
       window.location.href = sessionUrl;
     } catch (err) {
