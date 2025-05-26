@@ -13,7 +13,6 @@ describe('PaymentOptionUserValue', () => {
         <PaymentOptionUserValue
           paymentOptionIcon={mockData.paymentSection.paymentOptionIcon}
           paymentType="monthly"
-          giftAidDonation={true}
         />
       </MemoryRouter>
     );
