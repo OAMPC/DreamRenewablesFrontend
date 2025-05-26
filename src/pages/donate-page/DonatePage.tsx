@@ -49,7 +49,7 @@ const DonatePage: React.FC = () => {
               data-testid="donate-page-post-metric-text"
               className=" fs-3 text-center text-lg-start"
             >
-              {data.preMetricText}
+              {data.postMetricText}
             </p>
           </div>
         </Col>
