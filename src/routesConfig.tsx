@@ -4,6 +4,7 @@ import NotFoundPage from './pages/not-found-page/NotFoundPage';
 import LandingPage from './pages/landing-page/LandingPage';
 import InternalErrorPage from './pages/internal-error-page/InternalErrorPage';
 import ErrorBoundary from './components/error-boundary/ErrorBoundary';
+
 import FundraisingEventsHomePage from './pages/fundraising-event-home-page/FundraisingEventHomePage';
 import JobPostsHomePage from './pages/job-posts-home-page/JobPostsHomePage';
 import JobPostPage from './pages/job-post-page/JobPostPage';
@@ -39,6 +40,15 @@ const FundraisingEventPage = lazy(
 const PaymentSuccessPage = lazy(
   () => import('./pages/payment-success/PaymentSuccessPage')
 );
+
+const FundraisingEventsHomePage = lazy(
+  () => import('./pages/fundraising-event-home-page/FundraisingEventHomePage')
+);
+
+const ManageYourDonationsPage = lazy(
+  () => import('./pages/manage-your-donations-page/ManageYourDonationsPage')
+);
+const GiftAidPage = lazy(() => import('./pages/gift-aid-page/GiftAidPage'));
 
 export const routesConfig = [
   {
@@ -215,6 +225,16 @@ export const routesConfig = [
       <ErrorBoundary>
         <Suspense fallback={<Loading />}>
           <JobPostPage />
+        </Suspense>
+      </ErrorBoundary>
+    ),
+  },
+  {
+    path: '/gift-aid',
+    element: (
+      <ErrorBoundary>
+        <Suspense fallback={<Loading />}>
+          <GiftAidPage />
         </Suspense>
       </ErrorBoundary>
     ),

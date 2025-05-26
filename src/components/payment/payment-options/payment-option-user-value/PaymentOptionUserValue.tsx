@@ -2,28 +2,26 @@ import React, { useState } from 'react';
 import { ImageStrapiContent } from '../../../../data/interfaces/util/ImageStrapiContent';
 import { InputGroup, Form, Button, Image, Spinner } from 'react-bootstrap';
 import styles from '../paymentOptionUtil.module.scss';
-import { createCheckoutSession } from '../../../../api/serverApi';
+import { useNavigate } from 'react-router-dom';
 import { PaymentType } from '../../../../data/types/PaymentType';
 
 type Props = {
   paymentOptionIcon: ImageStrapiContent;
   paymentType: PaymentType;
-  giftAidDonation: boolean;
 };
 
 const PaymentOptionUserValue: React.FC<Props> = ({
   paymentOptionIcon,
   paymentType,
-  giftAidDonation,
 }) => {
   const [amount, setAmount] = useState<string>('');
   const [error, setError] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState(false);
+  const navigate = useNavigate();
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
 
-    // Regex: allow only numbers with up to 2 decimal places
     if (/^\d*\.?\d{0,2}$/.test(value)) {
       setAmount(value);
     }
@@ -34,7 +32,7 @@ const PaymentOptionUserValue: React.FC<Props> = ({
     return !isNaN(num) && num >= 1;
   };
 
-  const clickHandler = async () => {
+  const clickHandler = () => {
     if (!validateAmount(amount)) {
       setError(
         'Please enter a valid amount (minimum £1, max 2 decimal places).'
@@ -42,23 +40,18 @@ const PaymentOptionUserValue: React.FC<Props> = ({
       return;
     }
 
-    const formattedAmount = parseFloat(parseFloat(amount).toFixed(2));
     setError(null);
     setIsLoading(true);
 
-    try {
-      const sessionUrl = await createCheckoutSession(
-        formattedAmount,
+    const formattedAmount = parseFloat(parseFloat(amount).toFixed(2));
+
+    navigate('/gift-aid', {
+      state: {
+        paymentOption: { amount: formattedAmount },
         paymentType,
-        giftAidDonation
-      );
-      window.location.href = sessionUrl;
-    } catch (err) {
-      setError('Something went wrong. Please try again.');
-      console.log(err);
-    } finally {
-      setIsLoading(false);
-    }
+        cancelUrl: window.location.pathname,
+      },
+    });
   };
 
   return (

@@ -14,7 +14,6 @@ describe('PaymentOptionCmsValue', () => {
           paymentOption={mockData.paymentSection.paymentOptions[0]}
           paymentOptionIcon={mockData.paymentSection.paymentOptionIcon}
           paymentType="monthly"
-          giftAidDonation={true}
         />
       </MemoryRouter>
     );
