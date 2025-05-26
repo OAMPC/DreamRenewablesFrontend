@@ -1,0 +1,44 @@
+.giftAidCheckbox input[type='radio'] {
+  accent-color: unset;
+  border: 1px solid grey;
+
+  &:checked {
+    background-color: var(--primary);
+    border-color: grey;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3e%3cpath fill='none' stroke='black' stroke-linecap='round' stroke-linejoin='round' stroke-width='3' d='m6 10 3 3 6-6'/%3e%3c/svg%3e");
+  }
+
+  &:focus {
+    box-shadow: none;
+  }
+}
+
+.proceedButton {
+  background-color: var(--primary);
+  color: var(--text-primary);
+  border: var(--primary) 1px solid;
+  padding: 10px 20px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 25px;
+  transition:
+    background-color 0.3s,
+    box-shadow 0.3s;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+  &:hover {
+    background-color: var(--background-light);
+    border: var(--primary) 1px solid;
+    box-shadow: 0 6px 9px rgba(0, 0, 0, 0.15);
+    color: var(--text-primary);
+  }
+
+  &:disabled {
+    opacity: 0.6;
+    background-color: var(--primary);
+    color: var(--text-primary);
+    border: var(--primary) 1px solid;
+    pointer-events: none;
+  }
+}

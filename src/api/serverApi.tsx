@@ -27,7 +27,8 @@ export async function emailCustomerStripeManagementUrl(
 export async function createCheckoutSession(
   amount: number,
   paymentType: PaymentType,
-  giftAidDonation: boolean
+  giftAidDonation: boolean,
+  cancelUrl: string
 ): Promise<string> {
   try {
     const response = await axios.post<{ url: string }>(
@@ -35,9 +36,9 @@ export async function createCheckoutSession(
       {
         paymentType,
         amountInPounds: amount,
-        cancelUrl: window.location.pathname,
+        cancelUrl,
         currency: 'gbp',
-        giftAidDonation: giftAidDonation,
+        giftAidDonation,
       },
       {
         headers: {

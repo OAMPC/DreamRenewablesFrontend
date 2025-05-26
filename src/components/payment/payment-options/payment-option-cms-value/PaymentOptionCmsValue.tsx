@@ -1,39 +1,32 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { PaymentOption } from '../../../../data/interfaces/util/PaymentOption';
 import { ImageStrapiContent } from '../../../../data/interfaces/util/ImageStrapiContent';
-import { Button, Image, Spinner } from 'react-bootstrap';
+import { Button, Image } from 'react-bootstrap';
+import { useNavigate } from 'react-router-dom';
 import styles from '../paymentOptionUtil.module.scss';
-import { createCheckoutSession } from '../../../../api/serverApi';
 import { PaymentType } from '../../../../data/types/PaymentType';
 
 type Props = {
   paymentOption: PaymentOption;
   paymentOptionIcon: ImageStrapiContent;
   paymentType: PaymentType;
-  giftAidDonation: boolean;
 };
 
 const PaymentOptionCmsValue: React.FC<Props> = ({
   paymentOption,
   paymentOptionIcon,
   paymentType,
-  giftAidDonation,
 }) => {
-  const [isLoading, setIsLoading] = useState(false);
+  const navigate = useNavigate();
 
-  const clickHandler = async () => {
-    setIsLoading(true);
-    try {
-      const sessionUrl = await createCheckoutSession(
-        paymentOption.amount,
+  const clickHandler = () => {
+    navigate('/gift-aid', {
+      state: {
+        paymentOption,
         paymentType,
-        giftAidDonation
-      );
-      window.location.href = sessionUrl;
-    } catch (err) {
-      console.error('Failed to create Stripe session:', err);
-      setIsLoading(false);
-    }
+        cancelUrl: window.location.pathname,
+      },
+    });
   };
 
   return (
@@ -49,22 +42,11 @@ const PaymentOptionCmsValue: React.FC<Props> = ({
           data-testid="payment-option-cms-button"
           className={styles.paymentButton}
           onClick={clickHandler}
-          disabled={isLoading}
         >
-          {isLoading ? (
-            <Spinner
-              animation="border"
-              size="sm"
-              role="status"
-              aria-hidden="true"
-              variant="dark"
-            />
-          ) : (
-            <Image
-              src={paymentOptionIcon.data.attributes.url}
-              alt={paymentOptionIcon.data.attributes.alternativeText}
-            />
-          )}
+          <Image
+            src={paymentOptionIcon.data.attributes.url}
+            alt={paymentOptionIcon.data.attributes.alternativeText}
+          />
         </Button>
       </div>
       <p
