@@ -13,6 +13,7 @@ import { StatTemplatePagesStrapiContent } from '../data/interfaces/stat-template
 import { fetchStrapiData } from './util/fetchStrapiData';
 import { BlogPostsTemplatePageStrapiContent } from '../data/interfaces/blog-post-template-page/BlogPostTemplatePagesStrapiContent';
 import { FundraisingEventTemplatePagesStrapiContent } from '../data/interfaces/fundraising-event-template-page/FundraisingEventTemplatePagesStrapiConent';
+import { JobPostsTemplatePageStrapiContent } from '../data/interfaces/job-post-template-page/JobPostTemplatePagesStrapiContent';
 
 export async function getNavigationBarStrapiData(): Promise<NavigationBarStrapiContent> {
   const populateQuery = buildStrapiPopulateQuery([
@@ -243,4 +244,54 @@ export async function getNewestToOldestFundraisingEventsStrapiData(): Promise<Fu
     true,
     filter
   );
+}
+
+export async function getNewestToOldestJobPostsStrapiData(): Promise<JobPostsTemplatePageStrapiContent> {
+  const populateQuery = buildStrapiPopulateQuery([
+    'url',
+    'landingImage',
+    'title',
+    'summary',
+    'contactEmail',
+    'publishedAt',
+    'description',
+  ]);
+
+  const filter = `filters[isVolunteeringOpportunity][$eq]=false&sort[0]=publishedAt:desc`;
+
+  return await fetchStrapiData('job-posts', populateQuery, true, filter);
+}
+
+export async function getNewestToOldestVolunteeringOpportunitiesStrapiData(): Promise<JobPostsTemplatePageStrapiContent> {
+  const populateQuery = buildStrapiPopulateQuery([
+    'url',
+    'landingImage',
+    'title',
+    'summary',
+    'contactEmail',
+    'publishedAt',
+    'description',
+  ]);
+
+  const filter = `filters[isVolunteeringOpportunity][$eq]=true&sort[0]=publishedAt:desc`;
+
+  return await fetchStrapiData('job-posts', populateQuery, true, filter);
+}
+
+export async function getJobPostStrapiData(
+  slug: string
+): Promise<JobPostsTemplatePageStrapiContent> {
+  const populateQuery = buildStrapiPopulateQuery([
+    'url',
+    'landingImage',
+    'title',
+    'summary',
+    'contactEmail',
+    'publishedAt',
+    'description',
+  ]);
+
+  const filter = `filters[url][$eq]=${slug}`;
+
+  return fetchStrapiData('job-posts', populateQuery, true, filter);
 }
