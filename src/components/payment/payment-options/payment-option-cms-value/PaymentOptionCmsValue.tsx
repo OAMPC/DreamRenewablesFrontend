@@ -3,7 +3,7 @@ import { PaymentOption } from '../../../../data/interfaces/util/PaymentOption';
 import { ImageStrapiContent } from '../../../../data/interfaces/util/ImageStrapiContent';
 import { Button, Image, Spinner } from 'react-bootstrap';
 import styles from '../paymentOptionUtil.module.scss';
-import { createCheckoutSession } from '../../../../api/paymentApi';
+import { createCheckoutSession } from '../../../../api/serverApi';
 import { PaymentType } from '../../../../data/types/PaymentType';
 
 type Props = {

@@ -48,6 +48,13 @@ const NavigationBar: React.FC = () => {
                     {standardLink.linkString}
                   </Nav.Link>
                 ))}
+                <Nav.Link
+                  className={`${styles.underlineAnimation} me-4`}
+                  href="/manage-your-donations"
+                  data-testid="navigation-manage-subscription"
+                >
+                  Manage your donations
+                </Nav.Link>
                 <Button
                   href={`/${content.button.buttonSlug}`}
                   className={`${styles.navigationButton} ms-3 d-none d-lg-block`}
