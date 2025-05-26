@@ -1,0 +1,28 @@
+.paymentSectionWrapper {
+  @media (min-width: 768px) {
+    border: 20px solid var(--primary);
+    border-radius: 25px;
+  }
+}
+
+.manageDonationsButton {
+  background-color: var(--primary);
+  color: var(--text-primary);
+  border: var(--primary) 1px solid;
+  padding: 10px 20px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 25px;
+  transition:
+    background-color 0.3s,
+    box-shadow 0.3s;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+  &:hover {
+    background-color: var(--background-light);
+    border: var(--primary) 1px solid;
+    box-shadow: 0 6px 9px rgba(0, 0, 0, 0.15);
+    color: var(--text-primary);
+  }
+}
