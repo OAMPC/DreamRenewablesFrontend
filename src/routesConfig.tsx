@@ -7,6 +7,7 @@ import ErrorBoundary from './components/error-boundary/ErrorBoundary';
 import FundraisingEventsHomePage from './pages/fundraising-event-home-page/FundraisingEventHomePage';
 import JobPostsHomePage from './pages/job-posts-home-page/JobPostsHomePage';
 import JobPostPage from './pages/job-post-page/JobPostPage';
+import VolunteeringOpportunitiesHomePage from './pages/volunteer-opportunities-home-page/VolunteeringOpportunitiesHomePage';
 
 const OurMissionVisionAndValuesPage = lazy(
   () =>
@@ -197,26 +198,26 @@ export const routesConfig = [
       </ErrorBoundary>
     ),
   },
-  // {
-  //   path: '/volunteering-opportunities-home',
-  //   element: (
-  //     <ErrorBoundary>
-  //       <Suspense fallback={<Loading />}>
-  //         <VolunteeringOpportunitiesHomePage />
-  //       </Suspense>
-  //     </ErrorBoundary>
-  //   ),
-  // },
-  // {
-  //   path: '/volunteering-opportunity/:slug',
-  //   element: (
-  //     <ErrorBoundary>
-  //       <Suspense fallback={<Loading />}>
-  //         <VolunteeringOpportunityPage />
-  //       </Suspense>
-  //     </ErrorBoundary>
-  //   ),
-  // },
+  {
+    path: '/volunteering-opportunities-home',
+    element: (
+      <ErrorBoundary>
+        <Suspense fallback={<Loading />}>
+          <VolunteeringOpportunitiesHomePage />
+        </Suspense>
+      </ErrorBoundary>
+    ),
+  },
+  {
+    path: '/volunteering-opportunity/:slug',
+    element: (
+      <ErrorBoundary>
+        <Suspense fallback={<Loading />}>
+          <JobPostPage />
+        </Suspense>
+      </ErrorBoundary>
+    ),
+  },
   {
     path: '*',
     element: (

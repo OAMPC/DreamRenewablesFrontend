@@ -13,10 +13,14 @@ const JobPostCard: React.FC<Props> = ({ strapiData }) => {
     window.scrollTo({ top: 0 });
   };
 
+  const linkPath = strapiData.isVolunteeringOpportunity
+    ? `/volunteering-opportunity/${strapiData.url}`
+    : `/job-post/${strapiData.url}`;
+
   return (
     <div data-testid="job-post-card" className="h-100">
       <Link
-        to={`/job-post/${strapiData.url}`}
+        to={linkPath}
         className="rounded-3 text-decoration-none h-100"
         data-testid={`job-post-card-link-${strapiData.url}`}
         onClick={handleLinkClick}
