@@ -8,9 +8,13 @@ import RecentBlogPosts from '../../components/recent-blog-posts/RecentBlogPosts'
 
 type Props = {
   strapiData: BlogPostTemplatePageStrapiContent;
+  showPreviousPosts?: boolean;
 };
 
-const BlogPostTemplatePage: React.FC<Props> = ({ strapiData }) => {
+const BlogPostTemplatePage: React.FC<Props> = ({
+  strapiData,
+  showPreviousPosts = true,
+}) => {
   return (
     <PageWrapper>
       <Row>
@@ -61,16 +65,18 @@ const BlogPostTemplatePage: React.FC<Props> = ({ strapiData }) => {
           </Col>
         </Row>
       </Container>
-      <Container>
-        <Row>
-          <Col>
-            <h2 className="fs-5 mb-3">Previous Posts</h2>
-          </Col>
-        </Row>
-        <Row data-testid="blog-grid">
-          <RecentBlogPosts currentBlogPageSlug={strapiData.url} />
-        </Row>
-      </Container>
+      {showPreviousPosts && (
+        <Container>
+          <Row>
+            <Col>
+              <h2 className="fs-5 mb-3">Previous Posts</h2>
+            </Col>
+          </Row>
+          <Row data-testid="blog-grid">
+            <RecentBlogPosts currentBlogPageSlug={strapiData.url} />
+          </Row>
+        </Container>
+      )}
     </PageWrapper>
   );
 };

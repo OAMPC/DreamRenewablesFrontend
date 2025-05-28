@@ -7,6 +7,7 @@ import ErrorBoundary from './components/error-boundary/ErrorBoundary';
 import JobPostsHomePage from './pages/job-posts-home-page/JobPostsHomePage';
 import JobPostPage from './pages/job-post-page/JobPostPage';
 import VolunteeringOpportunitiesHomePage from './pages/volunteer-opportunities-home-page/VolunteeringOpportunitiesHomePage';
+import OurStoryPage from './pages/our-story-page/OurStoryPage';
 
 const OurMissionVisionAndValuesPage = lazy(
   () =>
@@ -92,6 +93,16 @@ export const routesConfig = [
       <ErrorBoundary>
         <Suspense fallback={<Loading />}>
           <AboutUsPage />
+        </Suspense>
+      </ErrorBoundary>
+    ),
+  },
+  {
+    path: '/our-story',
+    element: (
+      <ErrorBoundary>
+        <Suspense fallback={<Loading />}>
+          <OurStoryPage />
         </Suspense>
       </ErrorBoundary>
     ),
