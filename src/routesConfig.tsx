@@ -8,6 +8,7 @@ import JobPostsHomePage from './pages/job-posts-home-page/JobPostsHomePage';
 import JobPostPage from './pages/job-post-page/JobPostPage';
 import VolunteeringOpportunitiesHomePage from './pages/volunteer-opportunities-home-page/VolunteeringOpportunitiesHomePage';
 import OurStoryPage from './pages/our-story-page/OurStoryPage';
+import PhilanthropyPage from './pages/philanthropy-page/PhilanthropyPage';
 
 const OurMissionVisionAndValuesPage = lazy(
   () =>
@@ -103,6 +104,16 @@ export const routesConfig = [
       <ErrorBoundary>
         <Suspense fallback={<Loading />}>
           <OurStoryPage />
+        </Suspense>
+      </ErrorBoundary>
+    ),
+  },
+  {
+    path: '/philanthropy',
+    element: (
+      <ErrorBoundary>
+        <Suspense fallback={<Loading />}>
+          <PhilanthropyPage />
         </Suspense>
       </ErrorBoundary>
     ),

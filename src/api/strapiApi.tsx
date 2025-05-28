@@ -106,6 +106,19 @@ export async function getOurStoryPageStrapiData(): Promise<BlogPostTemplatePageS
   return fetchStrapiData(`our-story-page`, populateQuery);
 }
 
+export async function getPhilanthropyPageStrapiData(): Promise<BlogPostTemplatePageStrapiContent> {
+  const populateQuery = buildStrapiPopulateQuery([
+    'landingImage',
+    'title',
+    'blogPostSummary',
+    'author',
+    'publishedAt',
+    'blogPostBody',
+  ]);
+
+  return fetchStrapiData(`philanthropy-page`, populateQuery);
+}
+
 export async function getOurWorkPageStrapiData(): Promise<OurWorkPageStrapiContent> {
   const populateQuery = buildStrapiPopulateQuery([
     'landingImage.image',
