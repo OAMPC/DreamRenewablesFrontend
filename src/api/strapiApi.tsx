@@ -14,6 +14,7 @@ import { fetchStrapiData } from './util/fetchStrapiData';
 import { BlogPostsTemplatePageStrapiContent } from '../data/interfaces/blog-post-template-page/BlogPostTemplatePagesStrapiContent';
 import { FundraisingEventTemplatePagesStrapiContent } from '../data/interfaces/fundraising-event-template-page/FundraisingEventTemplatePagesStrapiConent';
 import { JobPostsTemplatePageStrapiContent } from '../data/interfaces/job-post-template-page/JobPostTemplatePagesStrapiContent';
+import { BlogPostTemplatePageStrapiContent } from '../data/interfaces/blog-post-template-page/BlogPostTemplatePageStrapiContent';
 
 export async function getNavigationBarStrapiData(): Promise<NavigationBarStrapiContent> {
   const populateQuery = buildStrapiPopulateQuery([
@@ -90,6 +91,19 @@ export async function getAboutUsPageStrapiData(): Promise<AboutUsPageStrapiConte
     'imageButtonSection.imageButtons.image',
   ]);
   return fetchStrapiData('about-us-page', populateQuery);
+}
+
+export async function getOurStoryPageStrapiData(): Promise<BlogPostTemplatePageStrapiContent> {
+  const populateQuery = buildStrapiPopulateQuery([
+    'landingImage',
+    'title',
+    'blogPostSummary',
+    'author',
+    'publishedAt',
+    'blogPostBody',
+  ]);
+
+  return fetchStrapiData(`our-story-page`, populateQuery);
 }
 
 export async function getOurWorkPageStrapiData(): Promise<OurWorkPageStrapiContent> {
