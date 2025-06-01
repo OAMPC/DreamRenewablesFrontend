@@ -9,6 +9,7 @@ import JobPostPage from './pages/job-post-page/JobPostPage';
 import VolunteeringOpportunitiesHomePage from './pages/volunteer-opportunities-home-page/VolunteeringOpportunitiesHomePage';
 import OurStoryPage from './pages/our-story-page/OurStoryPage';
 import PhilanthropyPage from './pages/philanthropy-page/PhilanthropyPage';
+import AnnualReportsPage from './pages/annual-reports-page/AnnualReportsPage';
 
 const OurMissionVisionAndValuesPage = lazy(
   () =>
@@ -94,6 +95,17 @@ export const routesConfig = [
       <ErrorBoundary>
         <Suspense fallback={<Loading />}>
           <AboutUsPage />
+        </Suspense>
+      </ErrorBoundary>
+    ),
+  },
+
+  {
+    path: '/annual-reports',
+    element: (
+      <ErrorBoundary>
+        <Suspense fallback={<Loading />}>
+          <AnnualReportsPage />
         </Suspense>
       </ErrorBoundary>
     ),
