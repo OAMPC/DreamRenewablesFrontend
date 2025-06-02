@@ -15,7 +15,9 @@ import { BlogPostsTemplatePageStrapiContent } from '../data/interfaces/blog-post
 import { FundraisingEventTemplatePagesStrapiContent } from '../data/interfaces/fundraising-event-template-page/FundraisingEventTemplatePagesStrapiConent';
 import { JobPostsTemplatePageStrapiContent } from '../data/interfaces/job-post-template-page/JobPostTemplatePagesStrapiContent';
 import { BlogPostTemplatePageStrapiContent } from '../data/interfaces/blog-post-template-page/BlogPostTemplatePageStrapiContent';
+import { AnnualReportsPageStrapiContent } from '../data/interfaces/annual-reports-page/AnnualReportsPageStrapiContent';
 import { FundraisingPageStrapiContent } from '../data/interfaces/fundraising-page/FundraisingPageStrapiContent';
+
 
 export async function getNavigationBarStrapiData(): Promise<NavigationBarStrapiContent> {
   const populateQuery = buildStrapiPopulateQuery([
@@ -334,4 +336,17 @@ export async function getJobPostStrapiData(
   const filter = `filters[url][$eq]=${slug}`;
 
   return fetchStrapiData('job-posts', populateQuery, true, filter);
+}
+
+export async function getAnnualReportsPageStrapiData(): Promise<AnnualReportsPageStrapiContent> {
+  const populateQuery = buildStrapiPopulateQuery([
+    'cardImage',
+    'title',
+    'description',
+    'link',
+    'datePublished',
+  ]);
+  const filter = `sort[0]=datePublished:desc`;
+
+  return await fetchStrapiData(`annual-reports`, populateQuery, true, filter);
 }
