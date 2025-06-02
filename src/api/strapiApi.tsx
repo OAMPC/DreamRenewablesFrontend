@@ -16,6 +16,8 @@ import { FundraisingEventTemplatePagesStrapiContent } from '../data/interfaces/f
 import { JobPostsTemplatePageStrapiContent } from '../data/interfaces/job-post-template-page/JobPostTemplatePagesStrapiContent';
 import { BlogPostTemplatePageStrapiContent } from '../data/interfaces/blog-post-template-page/BlogPostTemplatePageStrapiContent';
 import { AnnualReportsPageStrapiContent } from '../data/interfaces/annual-reports-page/AnnualReportsPageStrapiContent';
+import { FundraisingPageStrapiContent } from '../data/interfaces/fundraising-page/FundraisingPageStrapiContent';
+
 
 export async function getNavigationBarStrapiData(): Promise<NavigationBarStrapiContent> {
   const populateQuery = buildStrapiPopulateQuery([
@@ -141,6 +143,18 @@ export async function getGetInvolvedPageStrapiData(): Promise<GetInvolvedPageStr
     'paymentSection.paymentOptionIcon',
   ]);
   return fetchStrapiData('get-involved-page', populateQuery);
+}
+
+export async function getFundraisingPageStrapiData(): Promise<FundraisingPageStrapiContent> {
+  const populateQuery = buildStrapiPopulateQuery([
+    'landingCard.image',
+    'sections.image',
+    'sections.link',
+    'sections.linkIcon',
+    'paymentSection.paymentOptions',
+    'paymentSection.paymentOptionIcon',
+  ]);
+  return fetchStrapiData('fundraising-page', populateQuery);
 }
 
 export async function getDonatePageStrapiData(): Promise<DonatePageStrapiContent> {

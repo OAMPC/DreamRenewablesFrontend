@@ -10,6 +10,7 @@ import VolunteeringOpportunitiesHomePage from './pages/volunteer-opportunities-h
 import OurStoryPage from './pages/our-story-page/OurStoryPage';
 import PhilanthropyPage from './pages/philanthropy-page/PhilanthropyPage';
 import AnnualReportsPage from './pages/annual-reports-page/AnnualReportsPage';
+import FundraisingPage from './pages/fundraising-page/FundraisingPage';
 
 const OurMissionVisionAndValuesPage = lazy(
   () =>
@@ -136,6 +137,16 @@ export const routesConfig = [
       <ErrorBoundary>
         <Suspense fallback={<Loading />}>
           <GetInvolvedPage />
+        </Suspense>
+      </ErrorBoundary>
+    ),
+  },
+  {
+    path: '/fundraising',
+    element: (
+      <ErrorBoundary>
+        <Suspense fallback={<Loading />}>
+          <FundraisingPage />
         </Suspense>
       </ErrorBoundary>
     ),
