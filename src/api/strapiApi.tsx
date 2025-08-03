@@ -18,7 +18,6 @@ import { BlogPostTemplatePageStrapiContent } from '../data/interfaces/blog-post-
 import { AnnualReportsPageStrapiContent } from '../data/interfaces/annual-reports-page/AnnualReportsPageStrapiContent';
 import { FundraisingPageStrapiContent } from '../data/interfaces/fundraising-page/FundraisingPageStrapiContent';
 
-
 export async function getNavigationBarStrapiData(): Promise<NavigationBarStrapiContent> {
   const populateQuery = buildStrapiPopulateQuery([
     'brandImage',

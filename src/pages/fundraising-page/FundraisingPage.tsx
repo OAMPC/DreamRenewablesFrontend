@@ -19,8 +19,6 @@ const FundraisingPage: React.FC = () => {
   if (isPending) return <Loading />;
   if (error || !data) throw new Error(`Failed to load data: ${error.message}`);
 
-  console.log(data);
-
   return (
     <PageWrapper>
       <Row>
