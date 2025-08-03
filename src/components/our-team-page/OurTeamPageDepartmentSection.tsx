@@ -56,6 +56,9 @@ const OurTeamPageDepartmentSection: React.FC<Props> = ({
                       className=" fs-3 fw-bold text-center"
                     >
                       {teamProfileDetail.profileName}
+                      <a href={teamProfileDetail.linkedinLink}>
+                        <i className="bi bi-linkedin ms-3"></i>
+                      </a>
                     </h4>
                   </Col>
                 </Row>

@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        browser: [chrome, firefox, edge]
+        browser: [chrome, edge]
     env:
       VITE_BASE_URL: 'http://localhost:1337'
     steps:

@@ -15,4 +15,5 @@ export interface TeamProfileDetail {
   profileName: string;
   profileDescription: string;
   profileImage: ImageStrapiContent;
+  linkedinLink: string;
 }
