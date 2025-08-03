@@ -8,4 +8,5 @@ export interface BlogPostTemplatePageStrapiContent {
   blogPostSummary: string;
   author: string;
   landingImage: ImageStrapiContent;
+  showRelatedBlogPosts: boolean;
 }

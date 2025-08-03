@@ -13,7 +13,7 @@ type Props = {
 
 const BlogPostTemplatePage: React.FC<Props> = ({
   strapiData,
-  showPreviousPosts = true,
+  showPreviousPosts = false, //out dated prop as show previous/related posts is now in blogpost Strapi Data.
 }) => {
   return (
     <PageWrapper>
@@ -65,7 +65,7 @@ const BlogPostTemplatePage: React.FC<Props> = ({
           </Col>
         </Row>
       </Container>
-      {showPreviousPosts && (
+      {(showPreviousPosts || strapiData.showRelatedBlogPosts) && (
         <Container>
           <Row>
             <Col>
